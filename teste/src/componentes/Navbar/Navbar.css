@@ -1,0 +1,33 @@
+.container-fluid{
+  height: 50px;
+  width: 100%;
+  background-color: #f2f2f2;
+}
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .nav-list li {
+    display: inline;
+  }
+  
+  .nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  .nav-list li a:hover {
+    background-color: #555;
+  }
+  
+  .navbar {
+    background-color: #333;
+    height: 50px;
+  }
