@@ -46,7 +46,6 @@
   height: 25px;
   width: 25px;
   margin-right: 10%;
-  color: #000000;
 }
 
 .carrinho {
@@ -61,18 +60,10 @@
   color: #ffffff;
 }
 
-.notificacao{
-  height: 40px;
-  width: 40px;
-  color: #ffffff;
-}
-
 .logo {
   display: flex;
-  margin-right: auto;
-  max-height: 130px;
-  max-width: 130px;
-  margin-left: -100%;
+  margin-left: -20%;
+  width: 40%;
 }
 
 /* @media (max-width: 2000px) and (min-width: 1750px) {

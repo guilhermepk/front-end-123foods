@@ -5,7 +5,6 @@ import axios from 'axios';
 import './Navbar.css';
 import {CgProfile} from 'react-icons/cg'
 import {FiShoppingCart} from 'react-icons/fi'
-import {AiOutlineBell} from 'react-icons/ai'
 import {BiSearchAlt} from 'react-icons/bi'
 import {AiOutlineCloseCircle} from 'react-icons/ai'
 
@@ -88,7 +87,7 @@ const togglePasswordVisibility = (event) => {
       <nav className="navbar">
         <ul className="nav-list">
           <a href="">
-            <img className="logo" src="./imagens/logo.png" alt="Logo" />
+            <img className="logo" src="./imagens/logoSemFundo.png" alt="Logo" />
           </a>
           <li className="search">
             <input type="text" placeholder="Pesquisar:" className="search-input" />
@@ -102,9 +101,6 @@ const togglePasswordVisibility = (event) => {
             <a href="">
               <FiShoppingCart className="carrinho"/>
             </a>
-            <a href="">
-              <AiOutlineBell className="notificacao"/>
-              </a> 
           </div>
         </ul>
       </nav>
