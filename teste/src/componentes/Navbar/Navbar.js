@@ -90,9 +90,11 @@ const togglePasswordVisibility = (event) => {
             <img className="logo" src="./imagens/logoSemFundo.png" alt="Logo" />
           </a>
           <li className="search">
-            <input type="text" placeholder="Pesquisar:" className="search-input" />
+            <input type="text" placeholder="   Pesquisar:" className="search-input" />
           </li>
+          <a href="" className='lupa-a'>
           <BiSearchAlt className='lupa'/>
+          </a>
           <div className="conteudo">
             <a href="#" onClick={handleProfileClick}>
               <CgProfile className="perfil"/>

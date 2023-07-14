@@ -42,10 +42,14 @@
 }
 
 .lupa{
-  color: #ffffff;
+  color: #000000;
   height: 25px;
   width: 25px;
-  margin-right: 10%;
+  background-color: #767676;
+}
+
+.lupa-a{
+  margin-left: -3.5%;
 }
 
 .carrinho {
@@ -62,7 +66,7 @@
 
 .logo {
   display: flex;
-  margin-left: -20%;
+  margin-left: -17%;
   width: 40%;
 }
 
@@ -78,21 +82,23 @@
   }
 } */
 
-.search {
+/* .search {
   display: flex;
   align-items: center;
   gap: 30px;
   margin-top: center;
   margin-left: -17%;
-}
+} */
 
 .search input {
   display: flex;
   justify-content: center;
+  margin-left: -70%;
   width: 150%;
   height: 30px;
+  gap: 30px;
   flex: 1;
-  padding-right: 80px;
+  padding-right: 150px;
   border-radius: 8px;
   border: none;
   background-color: #f2f2f2;
@@ -113,13 +119,6 @@
   background-size: 20px;
   margin-left: -90%;
 } */
-
-.lupa-pesquisar {
-  color: rgb(0, 247, 255);
-  display: flex;
-  align-items: center;
-  margin-left: -90%;
-}
 
 .modal {
   position: center;
