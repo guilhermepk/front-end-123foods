@@ -86,13 +86,17 @@ const togglePasswordVisibility = (event) => {
     <div className="container-fluid">
       <nav className="navbar">
         <ul className="nav-list">
+          <div>
           <a href="">
             <img className="logo" src="./imagens/logoSemFundo.png" alt="Logo" />
           </a>
-              <input type="text" placeholder="Pesquisar:" className="search-input" />
+          </div>  
+              <div className="search">
+              <input type="text" placeholder="     Pesquisar:" className="search-input"/>
             <a href="" className='lupa-a'>
             <BiSearchAlt className='lupa'/>
             </a>
+            </div>
           <div className="conteudo">
             <a href="#" onClick={handleProfileClick}>
               <CgProfile className="perfil"/>
@@ -107,6 +111,7 @@ const togglePasswordVisibility = (event) => {
       {showLoginForm && (
         <div className="modal">
           <div className="modal-content">
+          <h2>Login</h2>
             <AiOutlineCloseCircle className="close" onClick={closeModal}/>
             <form className="login-form" onSubmit={handleLoginFormSubmit}>
               <label className="password-label"> 

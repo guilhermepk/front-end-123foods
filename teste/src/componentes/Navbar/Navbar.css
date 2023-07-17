@@ -5,10 +5,11 @@
 .navbar {
   background-color: #f0f0f0;
   padding: 10px;
+  width: 100%;
   height: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  background: linear-gradient(to right, #981f1f, #b21616, #d51818);
+  background: #9E0000;
+  border-radius: 0px 0px 20px 0px;
+  
 }
 
 .nav-list {
@@ -19,6 +20,7 @@
   justify-content: space-around;
   align-items: center;
   height: 100%;
+  width: 100%;
 }
 
 .nav-list li {
@@ -38,22 +40,25 @@
 .conteudo{
   display: flex;
   gap: 30px;
-  margin-left: 20%;
+  margin-right: 4rem;
+  
 }
 
 .lupa{
+  position: relative;
   color: #000000;
   height: 25px;
   width: 25px;
   background-color: #FFE2B6;
-  border-radius: 5px;
-  padding: 3px 6px 4px 6px;
-  margin-bottom: -3px;
-  margin-right: -4px;
+  border-radius: 4px;
+  padding: 4px 0px 3px 5px;
+  display: block;
+  margin-top: 2px;
+  margin-bottom: center;
 }
 
 .lupa-a{
-  margin-left: -1%;
+  margin-left: -5%;
 }
 
 .carrinho {
@@ -70,57 +75,51 @@
 
 .logo {
   display: flex;
-  margin-left: -10%;
-  width: 40%;
+  margin-left: -20%;
+  width: 100%;
+  height: auto;
 }
 
-/* @media (max-width: 2000px) and (min-width: 1750px) {
-  .logo {
-    margin-left: -230%;
-  }
-}
-
-@media (max-width: 1750px) and (min-width: 1500px) {
-  .logo {
-    margin-left: -60%;
-  }
-} */
-
-
-.search-input {
+h2{
   display: flex;
   justify-content: center;
-  margin-left: 2%;
+  margin-top: -10px;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  margin-right: 50rem;
   width: 100%;
   height: 30px;
-  gap: 30px;
-  flex: 1;
-  padding-right: 120px;
-  border-radius: 8px;
   border: none;
-  background-color: #f2f2f2;
-  color: #000000;
-  font-size: 14px;
-  background-repeat: no-repeat;
-  background-position:right center;
 }
 
-.modal {
-  position: center;
-  background-color: rgba(0, 0, 0, 0.5);
+.search-input{
+  border-radius: 8px;
+  font-size: 14px;
+  color: #000000;
+  height: 30px;
+  margin-left: 5rem;
+  width: 30rem; 
+  
+  
 }
 
 .modal {
   display: flex;
   justify-content: center;
-  background-color: #F2F2F2;
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5); 
+  background-color: #FFECCE;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5); 
   margin: 80px 0; 
   padding: 36px;
-  border-radius: 5px;
+  border-radius: 10px;
+  width: 430px;
+  height: 380px;
   margin-left: 38%;
   margin-right: 38%;
   margin-top: 7%;
+  border: solid;
 }
 
 .close{
@@ -143,33 +142,36 @@
   flex-direction: column;
 }
 
-.login-form label {
-  margin-bottom: 10px;
-}
 
 .login-form input {
   padding: 5px;
-  border: 1px solid #ccc;
-  background-color: #ccc;
+  border: 1px solid #E1C59B;
+  background-color: #E1C59B;
   border-radius: 10px;
+  width: 357px;
+  height: 40px;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .login-button {
-  display: flex;
   align-self: center;
-  justify-content: center;
-  padding: 10px;
-  background-color: #333;
+  justify-content: center center;
+  width: 135px;
+  height: 50px;
+  background-color: #9E0000;
   color: #fff;
-  border: none;
+  border: solid rgb(20, 20, 20);
   border-radius: 8px;
   cursor: pointer;
-  width: 150px;
-  font-size: 16px;
+  font-size: 22px;
+  
 }
 
 .login-button:hover{
-  background-color: #262424;
+  background-color: #b43131;
 }
 
 .login-form a {
@@ -188,13 +190,13 @@
   text-align: center;
   text-decoration: none;
   color: #767676;
-  padding-top: 8%;
+  
 }
 
 .password-input-icon{
-    background-color: #ccc;
+    background-color: #E1C59B;
     position: relative;
-    top: -45px;
+    top: -50px;
     padding-top: 0.005%;
     padding-left: 0.005%;
     padding-bottom: 0.005%;
@@ -214,19 +216,36 @@
       margin-bottom: 5%;
     
   }
-  .password-input{
-    background-color: var(--white--font);
-    width: 100%;
+  /* .password-input{
+    background-color: #ad731b;
+    width: 357px;
+    height: 40px;
     border: none;
     font-size: 20px;
     padding: 5px;
     box-sizing: border-box;
     border-radius: 10px;
-    }
-.password-label{
+    } */
+  
+    .password-label{
     display: block;
     margin-bottom: 8px;
     font-size: 20px;
-    width: 295px;
-    height: 33px;
+    width: 339px;
+    height: 29px;
+    margin-left: 10px;
+    color: #000000;
     }
+
+   @media (max-width: 2000px) and (min-width: 1750px) {
+  .logo {
+    margin-left: -50px;
+  }
+}
+
+@media (max-width: 1750px) and (min-width: 1500px) {
+  .logo {
+    margin-left: -60%;
+  }
+} 
+
