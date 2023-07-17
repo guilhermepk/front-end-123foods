@@ -165,6 +165,7 @@ const togglePasswordVisibility = (event) => {
          <p>Telefone: {userInfo.phone}</p>
          <p>CPF: {userInfo.cpf}</p>
           <p>Endereço: {userInfo.street}</p>
+          <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" />
           <button onClick={handleLogout}>Logout</button>
           </div>
         </div>

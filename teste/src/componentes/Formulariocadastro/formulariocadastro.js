@@ -15,9 +15,13 @@ const FormularioCadastroUser = () => {
     state:'',
     cep:'',
   });
+  const [file, setfile] = useState(null);
 
-  
-  
+  const handlefileUpload = (e) => {
+    const file = e.target.files[0];
+    setfile(file);
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
@@ -45,7 +49,6 @@ const FormularioCadastroUser = () => {
     formData.append('street', data.street);
     formData.append('state', data.state);
     formData.append('cep', data.cep);
-    formData.append('image', data.image);
 
     fetch('http://localhost:3000/users', {
       method: 'POST',
@@ -61,7 +64,7 @@ const FormularioCadastroUser = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} encType="multipart/form-data">
       <label>
         Name:
         <input
@@ -126,7 +129,9 @@ const FormularioCadastroUser = () => {
           onChange={handleChange}
         />
       </label>
-      <Imageupload/>
+      <label>
+       <Imageupload/>
+      </label>
       <label>
         Cidade:
         <input
