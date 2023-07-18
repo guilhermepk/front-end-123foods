@@ -6,8 +6,28 @@ import './Navbar.css';
 import {CgProfile} from 'react-icons/cg';
 import {FiShoppingCart} from 'react-icons/fi';
 
+
+
+
+
+
+
 import {AiOutlineCloseCircle} from 'react-icons/ai';
 import Search from '../Search/Search';
+
+
+
+
+
+import {BiSearchAlt} from 'react-icons/bi';
+import {AiOutlineClose} from 'react-icons/ai';
+import {AiOutlineBell} from 'react-icons/ai';
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'></link>
+
+
+
+
+
 
 
 const Navbar = () => {
@@ -63,7 +83,7 @@ const togglePasswordVisibility = (event) => {
         password,
       });
       const data = response.data;
-      console.log('Login Successful:', data);
+      console.log('Sucesso no Login:', data);
       setError('');
       setShowLoginForm(false);
       setIsAdmin(data.isAdmin);
@@ -71,7 +91,7 @@ const togglePasswordVisibility = (event) => {
       setShowUserInfoModal(true);
       localStorage.setItem('userInfo', JSON.stringify(data)); 
     } catch (error) {
-      setError('Invalid email or password');
+      setError ('Email ou Senha incorretos');
     }
 
     setUsername('');
@@ -101,6 +121,9 @@ const togglePasswordVisibility = (event) => {
             <a href="">
               <FiShoppingCart className="carrinho"/>
             </a>
+            <a href="">
+              <AiOutlineBell className="notificacao"/>
+            </a>
           </div>
         </ul>
       </nav>
@@ -108,7 +131,7 @@ const togglePasswordVisibility = (event) => {
         <div className="modal">
           <div className="modal-content">
           <h2>Login</h2>
-            <AiOutlineCloseCircle className="close" onClick={closeModal}/>
+            <AiOutlineClose className="close" onClick={closeModal}/>
             <form className="login-form" onSubmit={handleLoginFormSubmit}>
               <label className="password-label"> 
                 Email:

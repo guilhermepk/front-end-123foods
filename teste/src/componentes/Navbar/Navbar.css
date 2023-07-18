@@ -1,26 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+
 .container-fluid {
   position: relative;
 }
 
 .navbar {
   background-color: #f0f0f0;
-  padding: 10px;
-  width: 100%;
-  height: 100%;
+  width: 1880px;
+  height: 120px;
   background: #9E0000;
-  border-radius: 0px 0px 20px 0px;
+  border-radius: 0px 0px 12px 12px;
   
 }
 
 .nav-list {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 100%;
-  width: 100%;
 }
 
 .nav-list li {
@@ -39,8 +38,9 @@
 
 .conteudo{
   display: flex;
-  gap: 30px;
-  margin-right: 4rem;
+  gap: 22px;
+  margin-right: -10px;
+  margin-top: -5px;
   
 }
 
@@ -48,30 +48,78 @@
 
 
 
+
+
+
+
+
+.lupa{
+  position: relative;
+  color: #000000;
+  height: 23px;
+  width: 24px;
+  background-color: #FFE2B6;
+  border-radius: 0px 10px 10px 0px; 
+  padding: 4px 2px 3px 6px;
+  display: block;
+  margin-top: 0.5px;
+  margin-bottom: center;
+}
+
+.lupa-a{
+  margin-left: -4.5%;
+}
+
+
+
+
+
+
+
+
+
 .carrinho {
-  height: 40px;
-  width: 40px;
+  height: 45px;
+  width: 45px;
   color: #ffffff;
 }
 
 .perfil {
-  height: 40px;
-  width: 40px;
+  height: 45px;
+  width: 45px;
+  color: #ffffff;
+}
+
+.notificacao{
+  height: 47px;
+  width: 47px;
   color: #ffffff;
 }
 
 .logo {
   display: flex;
-  margin-left: -20%;
-  width: 100%;
-  height: auto;
+  margin-left: -60%;
+  width: 210px;
+  height: 140px;
+  margin-top: -20px;
 }
 
 h2{
   display: flex;
   justify-content: center;
   margin-top: -10px;
+  font-family: 'Oswald';
+  font-size: 28px;
+  color: #000000;
+  margin-top: -20px;
+  font-weight: 700;
+  
+  
 }
+
+
+
+
 
 
 
@@ -81,7 +129,7 @@ h2{
   background-color: #FFECCE;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5); 
   margin: 80px 0; 
-  padding: 36px;
+  padding: 60px;
   border-radius: 10px;
   width: 430px;
   height: 380px;
@@ -92,13 +140,13 @@ h2{
 }
 
 .close{
+  display: flex;
   color: rgb(186, 23, 23);
-  top: 10px;
+  margin-top: -10%;
   margin-left: 100%;
   cursor: pointer;
   width: 8%;
   height: 8%;
-  margin-right: 100px;
 }
 
 .close:hover {
@@ -109,11 +157,14 @@ h2{
 .login-form {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
+  font-family: 'Oswald';
+  font-weight: 700;
 }
 
 
 .login-form input {
-  padding: 5px;
+  padding: 10px;
   border: 1px solid #E1C59B;
   background-color: #E1C59B;
   border-radius: 10px;
@@ -121,7 +172,6 @@ h2{
   height: 40px;
   border: none;
   font-size: 20px;
-  padding: 5px;
   box-sizing: border-box;
 }
 
@@ -136,6 +186,9 @@ h2{
   border-radius: 8px;
   cursor: pointer;
   font-size: 22px;
+  margin-top: -2rem;
+  font-family: 'Oswald';
+  font-weight: 700;
   
 }
 
@@ -147,8 +200,10 @@ h2{
   text-align: center;
   text-decoration: none;
   color: #000000;
-  padding: 2%;
-  font-size: 20px;
+  padding: 2px;
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'Oswald';
 }
 
 .login-form a:hover {
@@ -158,7 +213,8 @@ h2{
 .conta-possuir{
   text-align: center;
   text-decoration: none;
-  color: #767676;
+  color: #000000;
+  padding: 5px;
   
 }
 .image-user{
@@ -189,36 +245,39 @@ h2{
       margin-bottom: 5%;
     
   }
-  /* .password-input{
-    background-color: #ad731b;
-    width: 357px;
-    height: 40px;
-    border: none;
-    font-size: 20px;
-    padding: 5px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    } */
+  .password-input{
+    color: #000000;
+    font-family: 'Oswald';
+    font-weight: 700;
+    }
   
     .password-label{
     display: block;
-    margin-bottom: 8px;
-    font-size: 20px;
+    margin-bottom: 20px;
+    font-size: 28px;
     width: 339px;
     height: 29px;
     margin-left: 10px;
     color: #000000;
+    font-family: 'Oswald';
+    font-weight: 700;
     }
 
-   @media (max-width: 2000px) and (min-width: 1750px) {
-  .logo {
-    margin-left: -50px;
+    /* @media (max-width: 2000px) and (min-width: 1750px) {
+  .conteudo {
+    margin-right: 180px;
   }
-}
+}  */
 
-@media (max-width: 1750px) and (min-width: 1500px) {
+/* @media (max-width: 2000px) and (min-width: 1750px) {
   .logo {
-    margin-left: -60%;
-  }
-} 
+    margin-left: -100px;
+  } */
+
+/* @media (max-width: 1750px) and (min-width: 1500px) {
+  .conteudo {
+    margin-right: 20px;
+    } 
+  }   */
+/* } */
 
