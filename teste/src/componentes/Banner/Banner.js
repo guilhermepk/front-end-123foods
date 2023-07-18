@@ -22,7 +22,6 @@ function Banner() {
       <Carousel showThumbs={false}>
         {banners.map((banner) => (
           <div key={banner.id}>
-            {/* Utilize a URL correta para carregar a imagem */}
             <img className="img"src={`http://localhost:3000/uploads/${banner.image}`} alt={banner.alt} />
           </div>
         ))}
@@ -31,4 +30,4 @@ function Banner() {
   );
 }
 
-export default Banner;
+export default Banner; 

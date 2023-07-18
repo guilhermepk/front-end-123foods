@@ -1,0 +1,20 @@
+.navbarcat {
+    display: flex;
+    justify-content: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+  }
+  
+  button {
+    border: none;
+    background-color: transparent;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+  
+  button:hover {
+    color: #007bff;
+  }
