@@ -3,10 +3,11 @@ import { Eye, EyeOff } from 'react-feather';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Navbar.css';
-import {CgProfile} from 'react-icons/cg'
-import {FiShoppingCart} from 'react-icons/fi'
-import {BiSearchAlt} from 'react-icons/bi'
-import {AiOutlineCloseCircle} from 'react-icons/ai'
+import {CgProfile} from 'react-icons/cg';
+import {FiShoppingCart} from 'react-icons/fi';
+
+import {AiOutlineCloseCircle} from 'react-icons/ai';
+import Search from '../Search/Search';
 
 
 const Navbar = () => {
@@ -91,12 +92,7 @@ const togglePasswordVisibility = (event) => {
             <img className="logo" src="./imagens/logoSemFundo.png" alt="Logo" />
           </a>
           </div>  
-              <div className="search">
-              <input type="text" placeholder="     Pesquisar:" className="search-input"/>
-            <a href="" className='lupa-a'>
-            <BiSearchAlt className='lupa'/>
-            </a>
-            </div>
+             <Search/>
           <div className="conteudo">
             <a href="#" onClick={handleProfileClick}>
               <CgProfile className="perfil"/>
@@ -165,7 +161,7 @@ const togglePasswordVisibility = (event) => {
          <p>Telefone: {userInfo.phone}</p>
          <p>CPF: {userInfo.cpf}</p>
           <p>Endereço: {userInfo.street}</p>
-          <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" />
+          <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className='image-user' />
           <button onClick={handleLogout}>Logout</button>
           </div>
         </div>

@@ -13,7 +13,7 @@ root.render(
   <React.StrictMode>
     <Navbar/>
     <Banner/>
-    <Imageupload/>
+    <FormularioCadastroUser/>
     
    
 
