@@ -8,7 +8,6 @@ import {FiShoppingCart} from 'react-icons/fi';
 import {BiSearchAlt} from 'react-icons/bi';
 import {AiOutlineClose} from 'react-icons/ai';
 import {AiOutlineBell} from 'react-icons/ai';
-<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'></link>
 
 const Navbar = () => {
   const [username, setUsername] = useState('');
@@ -94,7 +93,7 @@ const togglePasswordVisibility = (event) => {
           </div>  
               <div className="search">
               <input type="text" placeholder="     Pesquisar:" className="search-input"/>
-            <a href="" className='lupa-a'>
+            <a className='lupa-a'>
             <BiSearchAlt className='lupa'/>
             </a>
             </div>

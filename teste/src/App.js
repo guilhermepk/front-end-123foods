@@ -1,4 +1,3 @@
-import './App.css';
 import Product from './componentes/Carrinho/Product';
 import Cart from './componentes/Carrinho/Cart';
 import { useState } from 'react';
