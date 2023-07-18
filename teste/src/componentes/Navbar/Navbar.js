@@ -3,11 +3,12 @@ import { Eye, EyeOff } from 'react-feather';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Navbar.css';
-import {CgProfile} from 'react-icons/cg'
-import {FiShoppingCart} from 'react-icons/fi'
-import {BiSearchAlt} from 'react-icons/bi'
-import {AiOutlineClose} from 'react-icons/ai'
-
+import {CgProfile} from 'react-icons/cg';
+import {FiShoppingCart} from 'react-icons/fi';
+import {BiSearchAlt} from 'react-icons/bi';
+import {AiOutlineClose} from 'react-icons/ai';
+import {AiOutlineBell} from 'react-icons/ai';
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'></link>
 
 const Navbar = () => {
   const [username, setUsername] = useState('');
@@ -104,6 +105,9 @@ const togglePasswordVisibility = (event) => {
             {isAdmin && <a href="/outra-pagina">Botão de Admin</a>}
             <a href="">
               <FiShoppingCart className="carrinho"/>
+            </a>
+            <a href="">
+              <AiOutlineBell className="notificacao"/>
             </a>
           </div>
         </ul>
