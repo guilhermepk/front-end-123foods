@@ -1,7 +1,15 @@
 .banner{
     text-align: center;
+    max-height: 20%;
+    max-width: 100%;
 }
-
+.img{
+    height: 
+    130px;
+    width: 
+    988px;
+}
 .banner img{
+    max-height: 20%;
     max-width: 100%;
 }
