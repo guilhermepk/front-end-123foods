@@ -6,7 +6,7 @@
 
 .navbar {
   background-color: #f0f0f0;
-  width: 2000px;
+  width: 1880px;
   height: 120px;
   background: #9E0000;
   border-radius: 0px 0px 12px 12px;
@@ -44,15 +44,6 @@
   
 }
 
-
-
-
-
-
-
-
-
-
 .lupa{
   position: relative;
   color: #000000;
@@ -69,14 +60,6 @@
 .lupa-a{
   margin-left: -4.5%;
 }
-
-
-
-
-
-
-
-
 
 .carrinho {
   height: 45px;
@@ -117,11 +100,23 @@ h2{
   
 }
 
+.search {
+  display: flex;
+  width: 650px;
+  height: 30px;
+  border: none;
+  margin-right: 320px;
+  margin-top: -15px;
 
+}
 
-
-
-
+.search-input{
+  border-radius: 8px;
+  font-size: 14px;
+  color: #000000;
+  border: none;
+  width: 400px;
+}
 
 .modal {
   display: flex;
@@ -217,10 +212,6 @@ h2{
   padding: 5px;
   
 }
-.image-user{
-  max-width: 120px;
-  max-height: 120px;
-}
 
 .password-input-icon{
     background-color: #E1C59B;
@@ -265,21 +256,19 @@ h2{
 
     /* @media (max-width: 2000px) and (min-width: 1750px) {
   .conteudo {
-    margin-right: 400px; 
+    margin-right: 180px;
   }
-  .logo{
-    margin-left: -100px;
-  }
-}   */
+}  */
 
- /* @media (max-width: 2000px) and (min-width: 1750px) {
+/* @media (max-width: 2000px) and (min-width: 1750px) {
   .logo {
     margin-left: -100px;
-  } 
+  } */
 
- @media (max-width: 1750px) and (min-width: 1500px) {
+/* @media (max-width: 1750px) and (min-width: 1500px) {
   .conteudo {
     margin-right: 20px;
     } 
-  }   
-} */
+  }   */
+/* } */
+
