@@ -6,22 +6,14 @@ import './Navbar.css';
 import {CgProfile} from 'react-icons/cg';
 import {FiShoppingCart} from 'react-icons/fi';
 
-
-
-
-
-
-
+import '../Formulariocadastro/formulariocadastro';
 import {AiOutlineCloseCircle} from 'react-icons/ai';
 import Search from '../Search/Search';
-
-
-
-
 
 import {BiSearchAlt} from 'react-icons/bi';
 import {AiOutlineClose} from 'react-icons/ai';
 import {AiOutlineBell} from 'react-icons/ai';
+import FormularioCadastroUser from '../Formulariocadastro/formulariocadastro';
 <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'></link>
 
 
@@ -163,8 +155,8 @@ const togglePasswordVisibility = (event) => {
               {error && <p>{error}</p>}
               <button className='login-button' type="submit">Login</button>
               <p className='conta-possuir'>Não possui conta? </p>
-              <a href="../Formulariocadastro/formulariocadastro" target="_blank">
-                Registre-se agora!
+              <a href='' target="_blank">
+                Registre-se aqui!
               </a>
             </form>
           </div>
