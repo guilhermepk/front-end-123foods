@@ -1,26 +1,15 @@
-
 import { Eye, EyeOff } from 'react-feather';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Navbar.css';
 import {CgProfile} from 'react-icons/cg';
 import {FiShoppingCart} from 'react-icons/fi';
-
-import '../Formulariocadastro/formulariocadastro';
-import {AiOutlineCloseCircle} from 'react-icons/ai';
 import Search from '../Search/Search';
-
 import {BiSearchAlt} from 'react-icons/bi';
 import {AiOutlineClose} from 'react-icons/ai';
 import {AiOutlineBell} from 'react-icons/ai';
 import FormularioCadastroUser from '../Formulariocadastro/formulariocadastro';
 <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'></link>
-
-
-
-
-
-
 
 const Navbar = () => {
   const [username, setUsername] = useState('');
@@ -65,6 +54,7 @@ const togglePasswordVisibility = (event) => {
       setShowLoginForm(true);
     }
   };
+
   const handleLoginFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -103,7 +93,12 @@ const togglePasswordVisibility = (event) => {
             <img className="logo" src="./imagens/logoSemFundo.png" alt="Logo" />
           </a>
           </div>  
-             <Search/>
+              <div className="search">
+              <input type="text" placeholder="     Pesquisar:" className="search-input"/>
+            <a href="" className='lupa-a'>
+            <BiSearchAlt className='lupa'/>
+            </a>
+            </div>
           <div className="conteudo">
             <a href="#" onClick={handleProfileClick}>
               <CgProfile className="perfil"/>
@@ -175,7 +170,7 @@ const togglePasswordVisibility = (event) => {
          <p>Telefone: {userInfo.phone}</p>
          <p>CPF: {userInfo.cpf}</p>
           <p>Endereço: {userInfo.street}</p>
-          <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className='image-user' />
+          <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" />
           <button onClick={handleLogout}>Logout</button>
           </div>
         </div>

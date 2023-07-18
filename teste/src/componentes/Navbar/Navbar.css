@@ -6,7 +6,7 @@
 
 .navbar {
   background-color: #f0f0f0;
-  width: 2000px;
+  width: 100%;
   height: 120px;
   background: #9E0000;
   border-radius: 0px 0px 12px 12px;
@@ -39,19 +39,10 @@
 .conteudo{
   display: flex;
   gap: 22px;
-  margin-right: -10px;
+  margin-right: 60px;
   margin-top: -5px;
   
 }
-
-
-
-
-
-
-
-
-
 
 .lupa{
   position: relative;
@@ -59,24 +50,18 @@
   height: 23px;
   width: 24px;
   background-color: #FFE2B6;
+  background-color: #af813c;
   border-radius: 0px 10px 10px 0px; 
   padding: 4px 2px 3px 6px;
+  padding: 10px 2px 3px 6px;
   display: block;
   margin-top: 0.5px;
   margin-bottom: center;
 }
 
 .lupa-a{
-  margin-left: -4.5%;
+  margin-left: -5%;
 }
-
-
-
-
-
-
-
-
 
 .carrinho {
   height: 45px;
@@ -98,7 +83,7 @@
 
 .logo {
   display: flex;
-  margin-left: -60%;
+  margin-left: -20%;
   width: 210px;
   height: 140px;
   margin-top: -20px;
@@ -117,11 +102,22 @@ h2{
   
 }
 
+.search {
+  display: flex;
+  width: 650px;
+  height: 30px;
+  border: none;
+  margin-right: 320px;
+  margin-top: -15px;
+}
 
-
-
-
-
+.search-input{
+  border-radius: 8px;
+  font-size: 14px;
+  color: #000000;
+  border: none;
+  width: 400px;
+}
 
 .modal {
   display: flex;
@@ -217,10 +213,6 @@ h2{
   padding: 5px;
   
 }
-.image-user{
-  max-width: 120px;
-  max-height: 120px;
-}
 
 .password-input-icon{
     background-color: #E1C59B;
@@ -243,6 +235,7 @@ h2{
 
   .password-input{
       margin-bottom: 5%;
+    
   }
   .password-input{
     color: #000000;
@@ -264,21 +257,18 @@ h2{
 
     /* @media (max-width: 2000px) and (min-width: 1750px) {
   .conteudo {
-    margin-right: 400px; 
+    margin-right: 180px;
   }
-  .logo{
-    margin-left: -100px;
-  }
-}   */
+}  */
 
- /* @media (max-width: 2000px) and (min-width: 1750px) {
+/* @media (max-width: 2000px) and (min-width: 1750px) {
   .logo {
     margin-left: -100px;
-  } 
+  } */
 
- @media (max-width: 1750px) and (min-width: 1500px) {
+/* @media (max-width: 1750px) and (min-width: 1500px) {
   .conteudo {
     margin-right: 20px;
     } 
-  }   
-} */
+  }   */
+/* } */
