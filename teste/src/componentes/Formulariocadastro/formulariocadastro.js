@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Imageupload from './imageupload';
+import React, { useState, useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
 
 const FormularioCadastroUser = () => {
   const [formValues, setFormValues] = useState({
@@ -14,22 +14,24 @@ const FormularioCadastroUser = () => {
     street:'',
     state:'',
     cep:'',
+    image: null,
   });
-  const [file, setfile] = useState(null);
-
-  const handlefileUpload = (e) => {
-    const file = e.target.files[0];
-    setfile(file);
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const handleImageUpload = (file) => {
+  const handleFileDrop = useCallback((acceptedFiles) => {
+    const file = acceptedFiles[0];
     setFormValues({ ...formValues, image: file });
-  };
+  }, [formValues]);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: handleFileDrop,
+    accept: 'image/*',
+    multiple: false,
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,6 +51,7 @@ const FormularioCadastroUser = () => {
     formData.append('street', data.street);
     formData.append('state', data.state);
     formData.append('cep', data.cep);
+    formData.append('file', data.image);
 
     fetch('http://localhost:3000/users', {
       method: 'POST',
@@ -64,7 +67,7 @@ const FormularioCadastroUser = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} encType="multipart/form-data">
+    <form  onSubmit={handleSubmit}>
       <label>
         Name:
         <input
@@ -92,7 +95,6 @@ const FormularioCadastroUser = () => {
           onChange={handleChange}
         />
       </label>
-      
       <label>
         CPF:
         <input
@@ -130,9 +132,6 @@ const FormularioCadastroUser = () => {
         />
       </label>
       <label>
-       <Imageupload/>
-      </label>
-      <label>
         Cidade:
         <input
           type="text"
@@ -168,9 +167,28 @@ const FormularioCadastroUser = () => {
           onChange={handleChange}
         />
       </label>
+      <label>
+        Imagem:
+        <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
+          <input {...getInputProps()} />
+          {isDragActive ? (
+            <p>Arraste a imagem aqui...</p>
+          ) : (
+            <>
+              {formValues.image ? (
+                <img src={URL.createObjectURL(formValues.image)} alt="Imagem selecionada" />
+              ) : (
+                <p>Arraste e solte a imagem aqui ou clique para selecionar</p>
+              )}
+            </>
+          )}
+        </div>
+      </label>
       <button type="submit">Submit</button>
     </form>
   );
 };
 
 export default FormularioCadastroUser;
+
+
