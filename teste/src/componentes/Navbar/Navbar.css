@@ -6,7 +6,7 @@
 
 .navbar {
   background-color: #f0f0f0;
-  width: 1800px;
+  width: 2000px;
   height: 120px;
   background: #9E0000;
   border-radius: 0px 0px 12px 12px;
@@ -254,14 +254,14 @@ h2{
     font-weight: 700;
     }
 
-    @media (max-width: 2000px) and (min-width: 1750px) {
+    /* @media (max-width: 2000px) and (min-width: 1750px) {
   .conteudo {
     margin-right: 400px; 
   }
   .logo{
     margin-left: -100px;
   }
-}  
+}   */
 
  /* @media (max-width: 2000px) and (min-width: 1750px) {
   .logo {
