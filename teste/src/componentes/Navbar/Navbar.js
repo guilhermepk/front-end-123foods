@@ -73,7 +73,6 @@ const togglePasswordVisibility = (event) => {
       setShowLoginForm(true);
     }
   };
-
   const handleLoginFormSubmit = async (event) => {
     event.preventDefault();
 

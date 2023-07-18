@@ -10,7 +10,6 @@ const Search = () => {
     const value = event.target.value;
     setSearchValue(value);
 
-    // Verifica se o comprimento do valor de pesquisa é maior ou igual a três
     if (value.trim().length >= 3) {
       performSearch(value);
     }
