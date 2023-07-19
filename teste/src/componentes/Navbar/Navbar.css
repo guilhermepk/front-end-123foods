@@ -55,23 +55,6 @@
   color: #FFE2B6;
 }
 
-.lupa{
-  position: relative;
-  color: #000000;
-  height: 24px;
-  width: 24px;
-  background-color: #bd7811;
-  border-radius: 0px 10px 10px 0px; 
-  padding: 4px 2px 3px 6px;
-  display: block;
-  margin-top: 0px;
-  margin-bottom: center;
-}
-
-.lupa-a{
-  margin-left: -10%;
-}
-
 .carrinho {
   height: 45px;
   width: 45px;
@@ -110,22 +93,6 @@ h2{
   color: #000000;
   margin-top: -20px;
   font-weight: 700;
-}
-
- .search {
-  display: flex;
-  width: 650px;
-  height: 30px;
-  margin-left: 120px;
-  margin-top: -15px;
-} 
-
-.search-input{
-  display: flex;
-  font-weight: 600;
-  border: none;
-  width: 600px;
-  border-radius: 10px;
 }
 
 .modal {
