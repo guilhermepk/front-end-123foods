@@ -95,9 +95,9 @@ const togglePasswordVisibility = (event) => {
           </div>  
                 <div className="search">
                 <input type="text" placeholder="     Pesquisar:" className="search-input"/>
-              <a className='lupa-a'>
-              <BiSearchAlt className='lupa'/>
-              </a>
+              <div className='lupa'>
+              <BiSearchAlt className='lupa-a'/>
+              </div>
             </div>
           <div className="conteudo">
             <a href="#" onClick={handleProfileClick}>
