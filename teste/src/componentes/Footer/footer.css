@@ -2,13 +2,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150px;
+    height: 160px;
     margin-top: 34%;
-    background: #9E0000;
+    background: #ECD4AF;
 }
 
-.p{
-    color: aliceblue;
-    font-weight: 700;
-    font-family: 'Oswald';
+.primeiro{
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    font-family: "Oswald";
+    padding:0;
+    margin:0;
+    vertical-align:baseline;
+    list-style:none;
+    border:0
 }
+
