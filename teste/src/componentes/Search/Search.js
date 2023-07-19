@@ -31,19 +31,11 @@ const Search = () => {
     <div className="search">
       <input 
         type="text"
-        placeholder="Pesquisar:"
+        placeholder="  Pesquisar:"
         className="search-input"
         value={searchValue}
         onChange={handleInputChange}
       />
-
-
-
-      <button className="search-button" onClick={() => performSearch(searchValue)}>
-        <BiSearchAlt />
-      </button>
-
-
 
     <a className="lupa-a">
       <BiSearchAlt className="lupa" onClick={() => performSearch(searchValue)} />

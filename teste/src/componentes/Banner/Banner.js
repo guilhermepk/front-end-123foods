@@ -18,6 +18,7 @@ function Banner() {
   }, []);
 
   return (
+    <main>
     <div className="banner">
       <Carousel showThumbs={false}>
         {banners.map((banner) => (
@@ -27,6 +28,7 @@ function Banner() {
         ))}
       </Carousel>
     </div>
+    </main>
   );
 }
 
