@@ -5,6 +5,8 @@ import App from './App';
 import Banner from './componentes/Banner/Banner';
 import Navbar from './componentes/Navbar/Navbar';
 import Filtrocat from './componentes/Filtrocategorias/filtrocategorias';
+import Footer from './componentes/Footer/footer';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +15,7 @@ root.render(
     <Navbar/>
     <Banner/>
     <Filtrocat/>
+    <Footer/>
   </React.StrictMode>
 );
 

@@ -1,15 +1,13 @@
-import { Eye, EyeOff } from 'react-feather';
+
+import { Eye, EyeOff, Search } from 'react-feather';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Navbar.css';
 import {CgProfile} from 'react-icons/cg';
 import {FiShoppingCart} from 'react-icons/fi';
-import Search from '../Search/Search';
 import {BiSearchAlt} from 'react-icons/bi';
 import {AiOutlineClose} from 'react-icons/ai';
 import {AiOutlineBell} from 'react-icons/ai';
-import FormularioCadastroUser from '../Formulariocadastro/formulariocadastro';
-<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'></link>
 
 const Navbar = () => {
   const [username, setUsername] = useState('');
@@ -93,12 +91,7 @@ const togglePasswordVisibility = (event) => {
             <img className="logo" src="./imagens/logoSemFundo.png" alt="Logo" />
           </a>
           </div>  
-                <div className="search">
-                <input type="text" placeholder="     Pesquisar:" className="search-input"/>
-              <div className='lupa'>
-              <BiSearchAlt className='lupa-a'/>
-              </div>
-            </div>
+        <Search/>
           <div className="conteudo">
             <a href="#" onClick={handleProfileClick}>
               <CgProfile className="perfil"/>
@@ -150,8 +143,8 @@ const togglePasswordVisibility = (event) => {
               {error && <p>{error}</p>}
               <button className='login-button' type="submit">Login</button>
               <p className='conta-possuir'>Não possui conta? </p>
-              <a href='' target="_blank">
-                Registre-se aqui!
+              <a href="../Formulariocadastro/formulariocadastro" target="_blank">
+                Registre-se agora!
               </a>
             </form>
           </div>
@@ -179,5 +172,5 @@ const togglePasswordVisibility = (event) => {
   
   );
 };
-
+  
 export default Navbar;

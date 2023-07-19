@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    margin-top: 34%;
+    background: #9E0000;
+}
+
+.p{
+    color: aliceblue;
+    font-weight: 700;
+    font-family: 'Oswald';
+}

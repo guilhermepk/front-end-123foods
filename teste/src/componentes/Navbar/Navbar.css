@@ -39,8 +39,20 @@
 .conteudo{
   display: flex;
   gap: 22px;
-  margin-right: 10%;
+  margin-right: 5%;
   margin-top: -5px;
+}
+
+.carrinho:hover{
+  color: #FFE2B6;
+}
+
+.perfil:hover{
+  color: #FFE2B6;
+}
+
+.notificacao:hover{
+  color: #FFE2B6;
 }
 
 .lupa{
@@ -52,7 +64,7 @@
   border-radius: 0px 10px 10px 0px; 
   padding: 4px 2px 3px 6px;
   display: block;
-  margin-top: 10px;
+  margin-top: 0px;
   margin-bottom: center;
 }
 
@@ -64,18 +76,21 @@
   height: 45px;
   width: 45px;
   color: #ffffff;
+  transform: 0.6;
 }
 
 .perfil {
   height: 45px;
   width: 45px;
   color: #ffffff;
+  transform: 0.6;
 }
 
 .notificacao{
   height: 47px;
   width: 47px;
   color: #ffffff;
+  transform: 0.6;
 }
 
 .logo {
@@ -101,14 +116,16 @@ h2{
   display: flex;
   width: 650px;
   height: 30px;
-  margin-left: 140px;
+  margin-left: 120px;
   margin-top: -15px;
 } 
 
 .search-input{
   display: flex;
-  font-weight: 500;
+  font-weight: 600;
   border: none;
+  width: 600px;
+  border-radius: 10px;
 }
 
 .modal {
