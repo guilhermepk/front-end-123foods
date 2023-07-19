@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
-
+import './Formulariocadastrouser.css'
 const FormularioCadastroUser = () => {
   const [formValues, setFormValues] = useState({
     name: '',
@@ -14,9 +14,11 @@ const FormularioCadastroUser = () => {
     street:'',
     state:'',
     cep:'',
+    numberhouse:'',
     image: null,
   });
 
+  const [userCEP, setUserCEP] = useState('');
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
@@ -52,6 +54,7 @@ const FormularioCadastroUser = () => {
     formData.append('state', data.state);
     formData.append('cep', data.cep);
     formData.append('file', data.image);
+    formData.append('numberhouse', data.numberhouse);
 
     fetch('http://localhost:3000/users', {
       method: 'POST',
@@ -64,6 +67,36 @@ const FormularioCadastroUser = () => {
       .catch(error => {
         console.error(error);
       });
+  };
+  const handleCEPChange = (e) => {
+    const cep = e.target.value;
+    setUserCEP(cep);
+
+    if (cep.length === 8) {
+      fetchAddressByCEP(cep); 
+    }
+  };
+
+  const fetchAddressByCEP = async (cep) => {
+    try {
+      const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const data = await response.json();
+
+      if (data.erro) {
+        throw new Error('CEP inválido');
+      }
+
+      setFormValues({
+        ...formValues,
+        state: data.uf,
+        city: data.localidade,
+        street: data.logradouro,
+        cep:data.cep,
+      });
+
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -150,6 +183,15 @@ const FormularioCadastroUser = () => {
         />
       </label>
       <label>
+        Numero ou Apto:
+        <input
+          type="text"
+          name="numberhouse"
+          value={formValues.numberhouse}
+          onChange={handleChange}
+        />
+      </label>
+      <label>
         Estado:
         <input
           type="text"
@@ -164,7 +206,7 @@ const FormularioCadastroUser = () => {
           type="text"
           name="cep"
           value={formValues.cep}
-          onChange={handleChange}
+          onChange={handleCEPChange}
         />
       </label>
       <label>

@@ -1,13 +1,14 @@
 
-import { Eye, EyeOff, Search } from 'react-feather';
+import { Eye, EyeOff} from 'react-feather';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Navbar.css';
 import {CgProfile} from 'react-icons/cg';
 import {FiShoppingCart} from 'react-icons/fi';
-import {BiSearchAlt} from 'react-icons/bi';
+
 import {AiOutlineClose} from 'react-icons/ai';
 import {AiOutlineBell} from 'react-icons/ai';
+import Search from '../Search/Search';
 
 const Navbar = () => {
   const [username, setUsername] = useState('');
@@ -91,7 +92,7 @@ const togglePasswordVisibility = (event) => {
             <img className="logo" src="./imagens/logoSemFundo.png" alt="Logo" />
           </a>
           </div>  
-        <Search/>
+          <Search/>
           <div className="conteudo">
             <a href="#" onClick={handleProfileClick}>
               <CgProfile className="perfil"/>
@@ -122,8 +123,8 @@ const togglePasswordVisibility = (event) => {
                   required
                   placeholder='Digite seu email'
                 />
-              
-              <br />
+
+              <br/>
                     <label className="password-label" htmlFor="password2">
                           Senha:{' '}
                         </label>

@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react'; 
+import React, { useState } from 'react';
 import { BiSearchAlt } from 'react-icons/bi';
 import './Search.css';
 
@@ -37,9 +36,12 @@ const Search = () => {
         value={searchValue}
         onChange={handleInputChange}
       />
-      <BiSearchAlt className="lupa" onClick={() => performSearch(searchValue)} />
+      <button className="search-button" onClick={() => performSearch(searchValue)}>
+        <BiSearchAlt />
+      </button>
     </div>
   );
 };
 
 export default Search;
+

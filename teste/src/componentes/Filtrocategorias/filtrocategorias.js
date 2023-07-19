@@ -15,9 +15,9 @@ const Filtrocat = () => {
         console.error(`Erro ao buscar alimentos da categoria ${category}:`, error);
       });
   };
+  console.log(foods)
 
   useEffect(() => {
-    // Faz a requisição inicial (por exemplo, quando o componente é montado)
     handleCategoryClick('promoções');
   }, []);
 
@@ -28,16 +28,6 @@ const Filtrocat = () => {
           {category}
         </button>
       ))}
-      {/* Renderize aqui os alimentos (foods) retornados da requisição */}
-      <div className="foods-container">
-        {foods.map((food) => (
-          <div key={food.id}>
-            <p>{food.name}</p>
-            <p>{food.category}</p>
-            {/* Adicione outras informações sobre o alimento, se necessário */}
-          </div>
-        ))}
-      </div>
     </nav>
   );
 };
