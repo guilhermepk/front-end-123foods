@@ -5,10 +5,6 @@ import axios from 'axios';
 import './Navbar.css';
 import {CgProfile} from 'react-icons/cg';
 import {FiShoppingCart} from 'react-icons/fi';
-
-
-
-
 import {AiOutlineClose} from 'react-icons/ai';
 import {AiOutlineBell} from 'react-icons/ai';
 import Search from '../Search/Search';
@@ -19,7 +15,6 @@ const Navbar = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [showLoginForm, setShowLoginForm] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
   const [showUserInfoModal, setShowUserInfoModal] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -69,7 +64,6 @@ const togglePasswordVisibility = (event) => {
       console.log('Sucesso no Login:', data);
       setError('');
       setShowLoginForm(false);
-      setIsAdmin(data.isAdmin);
       setUserInfo(data);
       setShowUserInfoModal(true);
       localStorage.setItem('userInfo', JSON.stringify(data)); 
@@ -100,7 +94,11 @@ const togglePasswordVisibility = (event) => {
             <a href="#" onClick={handleProfileClick}>
               <CgProfile className="perfil"/>
             </a>
-            {isAdmin && <a href="/outra-pagina">Botão de Admin</a>}
+            {userInfo && userInfo.admin && (
+              <button className="admin-button">
+                Admin Button
+              </button>
+            )}
             <a href="">
               <FiShoppingCart className="carrinho"/>
             </a>
@@ -126,7 +124,6 @@ const togglePasswordVisibility = (event) => {
                   required
                   placeholder='Digite seu email'
                 />
-
               <br/>
                     <label className="password-label" htmlFor="password2">
                           Senha:{' '}
@@ -142,7 +139,6 @@ const togglePasswordVisibility = (event) => {
                         <button className="password-input-icon" onClick={togglePasswordVisibility}>
                           {showPassword ? <Eye /> : <EyeOff />}
                         </button>
-      
               <br />
               {error && <p>{error}</p>}
               <button className='login-button' type="submit">Login</button>
@@ -160,7 +156,6 @@ const togglePasswordVisibility = (event) => {
             <span className="close" onClick={closeModal}>
               &times;
             </span>
-            
             <h2>Informações do Usuário</h2>
            <p>Nome: {userInfo.name}</p>
          <p>Email: {userInfo.email}</p>
