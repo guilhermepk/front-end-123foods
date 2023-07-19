@@ -6,8 +6,7 @@ import Banner from './componentes/Banner/Banner';
 import Navbar from './componentes/Navbar/Navbar';
 import Filtrocat from './componentes/Filtrocategorias/filtrocategorias';
 import Footer from './componentes/Footer/footer';
-import { Search } from 'react-feather';
-
+import FormularioCadastroUser from './componentes/Formulariocadastro/formulariocadastro';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +14,7 @@ root.render(
     <Navbar/>
     <Banner/>
     <Filtrocat/>
+    <FormularioCadastroUser/>
     <Footer/>
   </React.StrictMode>
 );
