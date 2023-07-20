@@ -4,26 +4,42 @@
     box-sizing: border-box;
 }
 
+h2{
+    margin-top: 5%;
+    color: #FFF5E7;
+}
+
 li{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    justify-content: center;
+    grid-template-columns: repeat(5, 2fr);
+    
     
 }
 
 .primeiro{
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 }
 
 .container{
-    height: 160px;
+    height: 200px;
     margin-top: 34%;
     background: #9E0000;
-    color: rgb(0, 0, 0);
+    color: #FFF5E7;
     font-family: "Oswald";
     font-weight: 700;
 }
+
+.footer-link{
+    margin-top: 2%;
+    margin-left: 22%;
+    
+}
+
+.footer-linkk{
+    margin-left: 35%;
+}
+
 
 /* .primeiro{
     display: grid;

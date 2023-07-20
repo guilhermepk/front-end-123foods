@@ -2,20 +2,19 @@ import './Footer.css';
 
 function Footer(){
     return(
-        <footer>
-            <div className="container">
+        <footer className="container">
+            <div className=''>
                 <li>
                 <ul className="primeiro">
                     <h2>Atendimento ao Cliente</h2>
-                    <a className="footer-link">Como comprar?</a>
+                    <a  href=''className="footer-link">Como comprar?</a>
                     <a className="footer-link">Problemas com Entrega</a>
                     <a className="footer-link">Pedidos, Cancelamento, Trocas e Devoluções</a>
                 </ul>
-
                 <ul className="primeiro">
                     <h2>Conheça-nos</h2>
-                    <a className="footer-link">Nossa História</a>
-                    <a className="footer-link">Nossa Loja</a>
+                    <a className="footer-linkk">Nossa História</a>
+                    <a className="footer-linkk">Nossa Loja</a>
                 </ul>
 
                 <ul className="primeiro">

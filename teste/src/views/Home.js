@@ -12,6 +12,7 @@ const Home = () => {
             <Banner/>
             <Filtrocat/>
             <h1> <Link to='/pagina-exemplo'> Página de Exemplo (Clique aqui) </Link> </h1>
+
             <Footer/>
         </div>
     );
