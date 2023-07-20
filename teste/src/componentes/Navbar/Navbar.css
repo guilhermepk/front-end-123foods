@@ -169,6 +169,7 @@ h2{
   margin-top: 10px;
   font-family: 'Oswald';
   font-weight: 700;
+  border: none;
 }
 
 
@@ -202,7 +203,7 @@ h2{
 }
 
 .login-button:hover{
-  background-color: #b43131;
+  background-color: #b62121;
 }
 
 .login-form a {
@@ -239,6 +240,7 @@ h2{
     margin-left: 85%;
     border-radius: 10px;
     border: none;
+    color: #000000;
   }
 
   .password-input-icon:hover{
