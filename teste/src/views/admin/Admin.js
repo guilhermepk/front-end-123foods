@@ -5,7 +5,7 @@ const Admin = () => {
         <div>
             <br/>
             Depois muda isso aqui pra fazer login bem bonitinho
-            <h2> <Link to='/product-register'> Cadastrar produtos </Link> </h2>
+            <h2> <Link to='/admin/product-register'> Cadastrar produtos </Link> </h2>
         </div>
     );
 }
