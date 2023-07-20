@@ -1,36 +1,30 @@
-import Product from './componentes/Carrinho/Product';
-import Cart from './componentes/Carrinho/Cart';
-import { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
-  const App = () => {
-  const [cart, setCart] = useState([]);
+import Home from './views/Home';
+import PaginaExemplo from './views/PaginaExemplo';
+import Admin from './views/admin/Admin';
+import UserRegister from './views/UserRegister';
+import ProductRegister from './views/admin/ProductRegister';
 
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-  };
-
-  const removeFromCart = (product) => {
-    const updatedCart = cart.filter((item) => item.id !== product.id);
-    setCart(updatedCart);
-  };
-
-  const products = [
-    { id: 1, name: 'Produto 1', price: 9.99 },
-    { id: 2, name: 'Produto 2', price: 14.99 },
-    { id: 3, name: 'Produto 3', price: 19.99 },
-  ];
-
+const App = () => {
   return (
-    <div>
-      <h1>Loja</h1>
-      <div>
-        {products.map((product) => (
-          <Product key={product.id} product={product} addToCart={addToCart} />
-        ))}
-      </div>
-      <Cart cart={cart} removeFromCart={removeFromCart} />
+    <div className="App">
+      <Router>
+        <Routes>
+          {/* Tem que tratar as rotas desconhecidas ainda */}
+          <Route path="/" element={<Home/>}/>
+          <Route path='/pagina-exemplo' element={<PaginaExemplo/>}/>
+          <Route path='/admin' element={<Admin/>}/>
+          <Route path='/user-register' element={<UserRegister/>}/>
+          <Route path='/product-register' element={<ProductRegister/>}/>
+        </Routes>
+      </Router>
     </div>
   );
-};
+}
 
 export default App;

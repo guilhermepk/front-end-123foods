@@ -143,9 +143,10 @@ const togglePasswordVisibility = (event) => {
               {error && <p>{error}</p>}
               <button className='login-button' type="submit">Login</button>
               <p className='conta-possuir'>Não possui conta? </p>
-              <a href="../Formulariocadastro/formulariocadastro" target="_blank">
-                Registre-se agora!
-              </a>
+
+              {/* <a href="../Formulariocadastro/formulariocadastro" target="_blank"> */}
+              <a href='/user-register' target='_blank'> Registre-se agora! </a>
+
             </form>
           </div>
         </div>
