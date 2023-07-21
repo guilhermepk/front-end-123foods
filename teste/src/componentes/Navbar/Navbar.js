@@ -86,7 +86,7 @@ const togglePasswordVisibility = (event) => {
         <ul className="nav-list">
           <div>
           <a href="">
-            <img className="logo" src="./imagens/logoSemFundo.png" alt="Logo" />
+            <a href='/'> <img className="logo" src="./imagens/logoSemFundo.png" alt="Logo" /> </a>
           </a>
           </div>  
           <Search/>
@@ -95,9 +95,7 @@ const togglePasswordVisibility = (event) => {
               <CgProfile className="perfil"/>
             </a>
             {userInfo && userInfo.admin && (
-              <button className="admin-button">
-                Admin Button
-              </button>
+              <a href="/admin"><button> Admin </button></a>
             )}
             <a href="">
               <FiShoppingCart className="carrinho"/>
@@ -141,11 +139,12 @@ const togglePasswordVisibility = (event) => {
                         </button>
               <br />
               {error && <p>{error}</p>}
-              <button className='login-button' type="submit">Login</button>
+              <button className='login-button' type="submit"><li className="login-text">Login</li></button>
               <p className='conta-possuir'>Não possui conta? </p>
-              <a href="../Formulariocadastro/formulariocadastro" target="_blank">
-                Registre-se agora!
-              </a>
+
+              {/* <a href="../Formulariocadastro/formulariocadastro" target="_blank"> */}
+              <a href='/user-register' target='_blank'> Registre-se agora! </a>
+
             </form>
           </div>
         </div>
