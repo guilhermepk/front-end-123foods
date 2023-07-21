@@ -3,6 +3,7 @@ import FormularioProdutos from '../../componentes/FormularioProdutos/FormularioP
 const ProductRegister = () => {
     return (
         <div>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <h1> Cadastrar produtos </h1>
             <FormularioProdutos/>
         </div>
