@@ -7,6 +7,7 @@ import {CgProfile} from 'react-icons/cg';
 import {FiShoppingCart} from 'react-icons/fi';
 import {IoIosClose} from 'react-icons/io';
 import {AiOutlineBell} from 'react-icons/ai';
+import {BiMenu} from 'react-icons/bi';
 import Search from '../Search/Search';
 
 const Navbar = () => {
@@ -89,6 +90,9 @@ const togglePasswordVisibility = (event) => {
             <a href='/'> <img className="logo" src="./imagens/logoSemFundo.png" alt="Logo" /> </a>
           </a>
           </div>  
+          <a href="" className='categorias'>
+          <BiMenu className="categorias"/>
+          </a>
           <Search/>
           <div className="conteudo">
             <a href="#" onClick={handleProfileClick}>

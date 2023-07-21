@@ -1,0 +1,43 @@
+.banner-cadastro-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .dropzone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+ 
+  
+  
+  button {
+    margin-top: 5px;
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+
+.banners-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.banner-item {
+  margin: 10px;
+  text-align: center;
+}
+
+.banner-thumbnail {
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
+}
+
+
