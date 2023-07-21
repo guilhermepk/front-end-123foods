@@ -9,6 +9,7 @@ import PaginaExemplo from './views/PaginaExemplo';
 import Admin from './views/admin/Admin';
 import UserRegister from './views/UserRegister';
 import ProductRegister from './views/admin/ProductRegister';
+import Footer from "./componentes/Footer/Footer";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path='/admin/product-register' element={<ProductRegister/>}/>
         </Routes>
       </Router>
+      <Footer/>
     </div>
   );
 }
