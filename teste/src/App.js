@@ -15,6 +15,8 @@ function NotFound() {
   return (
     <div>
       <br/><br/><br/><br/><br/><br/>
+      <br/><br/><br/><br/><br/><br/>
+      <br/><br/><br/><br/><br/><br/>
       <h1>Página não encontrada!</h1>
     </div>
   );
@@ -32,6 +34,7 @@ const App = () => {
           <Route path='/pagina-exemplo' element={<PaginaExemplo/>}/>
           <Route path="/user-register" element={<UserRegister />} />
           <Route path="/admin/product-register" element={isAdmin() ? <ProductRegister /> : <Navigate to="/" />} />
+          <Route path="/admin" element={isAdmin() ? <Admin /> : <Navigate to="/" />} />
         </Routes>
       </Router>
     </div>
