@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './filtrocat.css';
 
 const Filtrocat = () => {
-  const categories = ['promoções', 'salgados', 'doces', 'bebidas', 'naturais'];
+  const categories = ['PROMOÇÕES', 'SALGADOS', 'DOCES', 'BEBIDAS', 'NATURAIS'];
   const [foods, setFoods] = useState([]);
 
   const handleCategoryClick = (category) => {
@@ -24,7 +24,7 @@ const Filtrocat = () => {
   return (
     <p className="navbarcat">
       {categories.map((category, index) => (
-        <button className='button' key={index} onClick={() => handleCategoryClick(category)}>
+        <button className='button-category' key={index} onClick={() => handleCategoryClick(category)}>
           {category}
         </button>
       ))}

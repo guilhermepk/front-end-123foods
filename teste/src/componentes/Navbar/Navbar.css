@@ -105,7 +105,6 @@ h1{
   display: flex;
   position: fixed;
   z-index: 2;
-  overflow: auto;
   justify-content: center;
   background-color: #FFECCE;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5); 

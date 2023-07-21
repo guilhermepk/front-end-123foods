@@ -1,4 +1,8 @@
 import './Footer.css';
+import {MdPix} from 'react-icons/md';
+import {FaCcMastercard} from 'react-icons/fa';
+import {FaCcVisa} from 'react-icons/fa';
+import {FaRegCreditCard} from 'react-icons/fa'
 
 function Footer(){
     return(
@@ -8,14 +12,16 @@ function Footer(){
                 <li>
                 <ul className="primeiro">
                     <h2>Atendimento ao Cliente</h2>
-                    <a  href=''className="footer-link">Como comprar?</a>
+                    <a className="footer-link">Como comprar?</a>
+                    <a className="footer-link">Problemas com Entrega</a>
+                    <a className="footer-link">Pedidos, Cancelamento, Trocas e Devoluções</a>
                     <a className="footer-link">Problemas com Entrega</a>
                     <a className="footer-link">Pedidos, Cancelamento, Trocas e Devoluções</a>
                 </ul>
                 <ul className="primeiro">
                     <h2>Conheça-nos</h2>
-                    <a className="footer-linkk">Nossa História</a>
-                    <a className="footer-linkk">Nossa Loja</a>
+                    <a className="footer-link">Nossa História</a>
+                    <a className="footer-link">Nossa Loja</a>
                 </ul>
 
                 <ul className="primeiro">
@@ -25,7 +31,21 @@ function Footer(){
                 </ul>
 
                 <ul className="primeiro">
+                    <div className="pagamento">
                     <h2>Pagamento</h2>
+                        <a className="footer-cash">
+                        <MdPix className="pix"/>
+                        </a>
+                    <a className="footer-cash">
+                        <FaCcMastercard className="mastercard"/>
+                        </a>
+                    <a className="footer-cash">
+                        <FaCcVisa className="visa"/>
+                        </a>
+                        <a className="footer-cash">
+                        <FaRegCreditCard className="cartao"/>
+                        </a>
+                    </div>
                 </ul>
                 
                 <ul className="primeiro">

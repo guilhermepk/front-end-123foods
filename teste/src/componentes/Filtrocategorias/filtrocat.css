@@ -1,20 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+
 .navbarcat {
     display: flex;
-    justify-content: center;
-    background-color: #f0f0f0;
+    justify-content: space-around;
+    background-color:#9E0000;
     padding: 10px;
+    width: 70%;
+    margin-left: 15%;
+    border: solid;
   }
   
-  button {
+ .button-category{
+    background-color: #9E0000;
+    color: #FFF5E7;
     border: none;
-    background-color: transparent;
-    padding: 5px 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     margin: 0 10px;
+    font-family: 'Oswald';
+    font-weight: 700;
   }
   
-  button:hover {
-    color: #76b1ec;
+  button.button-category:hover {
+    color: #FFE2B6;
   }
