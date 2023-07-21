@@ -12,8 +12,13 @@ const FormularioProdutos = () => {
     amount: '',
     description: '',
     price: '',
-    image: null
+    images: []
   });
+
+  const handleImageChange = (e) => {
+    const images = Array.from(e.target.files);
+    setFormValues({ ...formValues, images });
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,10 +30,44 @@ const FormularioProdutos = () => {
     setFormValues({ ...formValues, image: file });
   }, [formValues]);
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    sendDataToServer(formValues);
+    const formData = new FormData();
+    
+    formData.append('name', formValues.name);
+    formData.append('brand', formValues.brand);
+    formData.append('weight', parseFloat(formValues.weight));
+    formData.append('unit_of_measurement', formValues.unit_of_measurement);
+    formData.append('category', formValues.category);
+    formData.append('amount', parseInt(formValues.amount));
+    formData.append('description', formValues.description);
+    formData.append('price', parseFloat(formValues.price));
+  
+    // for (const image of formValues.images) {
+    //   formData.append('files', image);
+    // }
+
+
+  
+    fetch('http://localhost:3000/foods', {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
+  
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   sendDataToServer(formValues);
+  // };
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: handleFileDrop,
     accept: 'image/*',
@@ -39,17 +78,25 @@ const FormularioProdutos = () => {
     const formData = new FormData();
     formData.append('name', data.name);
     formData.append('brand', data.brand);
-    data.weight = parseFloat(data.weight);
-    formData.append('weight', data.weight);
+
+    const weight = parseFloat(data.weight);
+    console.log('Enviando', weight, 'como weight, do tipo', typeof(weight))
+    formData.append('weight', weight);
+
     formData.append('unit_of_measurement', data.unit_of_measurement);
     formData.append('category', data.category);
-    data.amount = parseInt(data.amount);
-    formData.append('amount', data.amount);
+
+    const amount = parseInt(data.amount)
+    console.log('Enviando', amount, 'como amount, do tipo', typeof(amount))
+    formData.append('amount', amount);
+
     formData.append('description', data.description);
-    const price = parseFloat(data.price);
-    console.log(typeof(price))
+
+    const price = parseFloat(data.price)
+    console.log('Enviando', price, 'como price, do tipo', typeof(price))
     formData.append('price', price);
-    formData.append('file', data.image);
+
+    formData.append('files', data.images);
     
   
     fetch('http://localhost:3000/foods', {
@@ -89,7 +136,7 @@ const FormularioProdutos = () => {
     <label>
       Peso:
       <input
-        type="text"
+        type="number"
         name="weight"
         value={formValues.weight}
         onChange={handleChange}
@@ -116,7 +163,7 @@ const FormularioProdutos = () => {
     <label>
       Quantidade:
       <input
-        type="text"
+        type="number"
         name="amount"
         value={formValues.amount}
         onChange={handleChange}
@@ -134,30 +181,49 @@ const FormularioProdutos = () => {
     <label>
       Preço:
       <input
-        type="text"
+        type="number"
         name="price"
         value={formValues.price}
         onChange={handleChange}
       />
     </label>
+
+    {/* ENVIO DE IMAGEM */}
+    {/* <label>
+      Imagens:
+      <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
+        <input {...getInputProps()} />
+        {isDragActive ? (
+          <p>Arraste a imagem aqui...</p>
+        ) : (
+          <>
+            {formValues.image ? (
+              <img src={URL.createObjectURL(formValues.image)} alt="Imagem selecionada" />
+            ) : (
+              <p>Arraste e solte a imagem aqui ou clique para selecionar</p>
+            )}
+          </>
+        )}
+      </div>
+    </label> */}
+
     <label>
-        Imagem:
-        <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
-          <input {...getInputProps()} />
-          {isDragActive ? (
-            <p>Arraste a imagem aqui...</p>
-          ) : (
-            <>
-              {formValues.image ? (
-                <img src={URL.createObjectURL(formValues.image)} alt="Imagem selecionada" />
-              ) : (
-                <p>Arraste e solte a imagem aqui ou clique para selecionar</p>
-              )}
-            </>
-          )}
-        </div>
-      </label>
-    <button type="submit">Submit</button>
+      Imagens:
+      <div>
+        <input type="file" accept="image/*" multiple onChange={handleImageChange} />
+        {formValues.images.length > 0 ? (
+          <div>
+            {formValues.images.map((image) => (
+              <img key={image.name} src={URL.createObjectURL(image)} alt="Imagem selecionada" />
+            ))}
+          </div>
+        ) : (
+          <p>Arraste e solte as imagens aqui ou clique para selecionar</p>
+        )}
+      </div>
+    </label>
+
+    <button type="submit"> Enviar </button>
   </form>
   );
 };
