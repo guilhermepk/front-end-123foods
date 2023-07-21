@@ -79,7 +79,7 @@ const togglePasswordVisibility = (event) => {
     setShowLoginForm(false);
     setShowUserInfoModal(false);
   };
-
+  
   return (
     <div className="container-fluid">
       <nav className="navbar">
