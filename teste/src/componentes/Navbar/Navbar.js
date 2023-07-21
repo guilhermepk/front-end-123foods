@@ -5,7 +5,7 @@ import axios from 'axios';
 import './Navbar.css';
 import {CgProfile} from 'react-icons/cg';
 import {FiShoppingCart} from 'react-icons/fi';
-import {AiOutlineClose} from 'react-icons/ai';
+import {IoIosClose} from 'react-icons/io';
 import {AiOutlineBell} from 'react-icons/ai';
 import Search from '../Search/Search';
 
@@ -109,8 +109,8 @@ const togglePasswordVisibility = (event) => {
       {showLoginForm && (
         <div className="modal">
           <div className="modal-content">
-          <h2>Login</h2>
-            <AiOutlineClose className="close" onClick={closeModal}/>
+          <IoIosClose className="close" onClick={closeModal}/>
+          <h1>Login</h1>
             <form className="login-form" onSubmit={handleLoginFormSubmit}>
               <label className="password-label"> 
                 Email:

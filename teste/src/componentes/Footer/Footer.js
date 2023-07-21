@@ -4,6 +4,7 @@ function Footer(){
     return(
         <footer className="container">
             <div className=''>
+                <section className='grid-footer'>
                 <li>
                 <ul className="primeiro">
                     <h2>Atendimento ao Cliente</h2>
@@ -31,6 +32,7 @@ function Footer(){
                     <h2>Siga-nos nas redes sociais</h2>
                 </ul>
                 </li>
+                </section>
             </div>
         </footer>
     )
