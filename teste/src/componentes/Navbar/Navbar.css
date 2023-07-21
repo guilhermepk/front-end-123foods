@@ -83,7 +83,7 @@
   margin-top: -20px;
 }
 
-h2{
+h1{
   display: flex;
   justify-content: center;
   font-family: 'Oswald';
@@ -99,7 +99,7 @@ h2{
   background-color: #FFECCE;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5); 
   margin: 80px 0; 
-  padding: 60px;
+  padding: 0px;
   border-radius: 10px;
   margin-top: 7%;
   border: solid;
@@ -149,11 +149,11 @@ h2{
 .close{
   display: flex;
   color: rgb(186, 23, 23);
-  margin-top: -10%;
+  margin-top: 1%;
   margin-left: 100%;
   cursor: pointer;
-  width: 8%;
-  height: 8%;
+  width: 15%;
+  height: 10%;
 }
 
 .close:hover {
@@ -194,7 +194,7 @@ h2{
   border-radius: 8px;
   cursor: pointer;
   font-size: 22px;
-  margin-top: -5%;
+  margin-top: 5%;
   font-family: 'Oswald';
   font-weight: 700;
 }
@@ -226,14 +226,15 @@ h2{
   text-align: center;
   text-decoration: none;
   color: #000000;
-  padding: 5px;
+  padding: 14px;
+  margin-top: 3%;
   
 }
 
 .password-input-icon{
     background-color: #E1C59B;
     position: relative;
-    top: -50px;
+    margin-top: -14%;
     padding-top: 0.005%;
     padding-left: 0.005%;
     padding-bottom: 0.005%;

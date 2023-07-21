@@ -22,13 +22,13 @@ const Filtrocat = () => {
   }, []);
 
   return (
-    <nav className="navbarcat">
+    <p className="navbarcat">
       {categories.map((category, index) => (
-        <button key={index} onClick={() => handleCategoryClick(category)}>
+        <button className='button' key={index} onClick={() => handleCategoryClick(category)}>
           {category}
         </button>
       ))}
-    </nav>
+    </p>
   );
 };
 
