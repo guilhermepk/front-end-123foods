@@ -1,4 +1,4 @@
-import FormularioProdutos from '../../componentes/FormularioProdutos/FormularioProdutos';
+import FormularioProdutos from '../../../componentes/FormularioProdutos/FormularioProdutos';
 
 const ProductRegister = () => {
     return (
