@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
 
-const FormularioCadastro = () => {
+import React, { useState, useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
+
+const FormularioProdutos = () => {
   const [formValues, setFormValues] = useState({
     name: '',
     brand: '',
     weight: '',
     unit_of_measurement: '',
     category: '',
-    qtd: '',
+    amount: '',
     description: '',
-    price: ''
+    price: '',
+    image: null
   });
 
   const handleChange = (e) => {
@@ -17,23 +20,41 @@ const FormularioCadastro = () => {
     setFormValues({ ...formValues, [name]: value });
   };
 
+  const handleFileDrop = useCallback((acceptedFiles) => {
+    const file = acceptedFiles[0];
+    setFormValues({ ...formValues, image: file });
+  }, [formValues]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     sendDataToServer(formValues);
   };
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: handleFileDrop,
+    accept: 'image/*',
+    multiple: false,
+  });
 
   const sendDataToServer = (data) => {
-    // Verifique se os campos weight, qtd e price são números válidos
+    const formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('brand', data.brand);
     data.weight = parseFloat(data.weight);
-    data.qtd = parseInt(data.qtd);
-    data.price = parseFloat(data.price);
+    formData.append('weight', data.weight);
+    formData.append('unit_of_measurement', data.unit_of_measurement);
+    formData.append('category', data.category);
+    data.amount = parseInt(data.amount);
+    formData.append('amount', data.amount);
+    formData.append('description', data.description);
+    const price = parseFloat(data.price);
+    console.log(typeof(price))
+    formData.append('price', price);
+    formData.append('file', data.image);
+    
   
     fetch('http://localhost:3000/foods', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
+      method: 'POST', 
+      body: formData,
     })
       .then(response => response.json())
       .then(data => {
@@ -47,16 +68,17 @@ const FormularioCadastro = () => {
   return (
     <form onSubmit={handleSubmit}>
     <label>
-      Name:
+      Nome do produto:
       <input
         type="text"
         name="name"
         value={formValues.name}
         onChange={handleChange}
+        placeholder='Digite o ome que será exibido'
       />
     </label>
     <label>
-      Brand:
+      Marca:
       <input
         type="text"
         name="brand"
@@ -65,7 +87,7 @@ const FormularioCadastro = () => {
       />
     </label>
     <label>
-      Weight:
+      Peso:
       <input
         type="text"
         name="weight"
@@ -74,7 +96,7 @@ const FormularioCadastro = () => {
       />
     </label>
     <label>
-      Unit of Measurement:
+      Unidade de medida (Kg, g, L, ml, etc):
       <input
         type="text"
         name="unit_of_measurement"
@@ -83,7 +105,7 @@ const FormularioCadastro = () => {
       />
     </label>
     <label>
-      Category:
+      Categoria:
       <input
         type="text"
         name="category"
@@ -92,16 +114,16 @@ const FormularioCadastro = () => {
       />
     </label>
     <label>
-      Quantity:
+      Quantidade:
       <input
         type="text"
-        name="qtd"
-        value={formValues.qtd}
+        name="amount"
+        value={formValues.amount}
         onChange={handleChange}
       />
     </label>
     <label>
-      Description:
+      Descrição:
       <input
         type="text"
         name="description"
@@ -110,7 +132,7 @@ const FormularioCadastro = () => {
       />
     </label>
     <label>
-      Price:
+      Preço:
       <input
         type="text"
         name="price"
@@ -118,9 +140,26 @@ const FormularioCadastro = () => {
         onChange={handleChange}
       />
     </label>
+    <label>
+        Imagem:
+        <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
+          <input {...getInputProps()} />
+          {isDragActive ? (
+            <p>Arraste a imagem aqui...</p>
+          ) : (
+            <>
+              {formValues.image ? (
+                <img src={URL.createObjectURL(formValues.image)} alt="Imagem selecionada" />
+              ) : (
+                <p>Arraste e solte a imagem aqui ou clique para selecionar</p>
+              )}
+            </>
+          )}
+        </div>
+      </label>
     <button type="submit">Submit</button>
   </form>
   );
 };
 
-export default FormularioCadastro;
+export default FormularioProdutos;

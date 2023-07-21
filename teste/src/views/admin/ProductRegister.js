@@ -1,11 +1,11 @@
 import FormularioProdutos from '../../componentes/FormularioProdutos/FormularioProdutos';
-import FormularioCadastroUser from '../../componentes/Formulariocadastro/formulariocadastro';
 
 const ProductRegister = () => {
     return (
         <div>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <h1> Cadastrar produtos </h1>
-            <FormularioCadastroUser/>
+            <FormularioProdutos/>
         </div>
     );
 }
