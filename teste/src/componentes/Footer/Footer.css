@@ -48,13 +48,14 @@ li{
     padding-top: 4px;
 }
 
-/* .pagamento{
-    display: flex;
-    gap: 20px;
-} */
-
 .footer-cash{
     display: flex;
-    flex-direction: column;
-    gap: 30px;
+    max-width: 60%;
+    margin-left: -2%;
+    margin-top: -10%;
+}
+
+.face{
+    margin-top: 1%;
+    max-width: 10%;
 }
