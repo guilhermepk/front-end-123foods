@@ -44,14 +44,19 @@ const FormularioProdutos = () => {
     formData.append('description', formValues.description);
     formData.append('price', parseFloat(formValues.price));
   
-    // for (const image of formValues.images) {
-    //   formData.append('files', image);
-    // }
+    for (const image of formValues.images) {
+      formData.append('files', image);
+    }
 
 
   
     fetch('http://localhost:3000/foods', {
       method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+        'Content-Type': 'multipart/form-data'
+      },
       body: formData,
     })
       .then((response) => response.json())
