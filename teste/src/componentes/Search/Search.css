@@ -2,8 +2,8 @@
   display: flex;
   width: 40%;
   height: 30px;
-  margin-left: -6%;
-  margin-top: -15px;
+  margin-right: 6rem;
+  margin-top: -0.9rem;
 }
 
 .search-input {
@@ -27,7 +27,7 @@
 }
 
 .lupa-a{
-  margin-left: -29px;
+  margin-left: -1.8rem;
 }
 
 

@@ -36,8 +36,8 @@
 .conteudo{
   display: flex;
   gap: 22px;
-  margin-right: 5%;
-  margin-top: -5px;
+  margin-right: 2rem;
+  margin-top: -1rem;
 }
 
 .carrinho:hover{
@@ -75,15 +75,15 @@
 
 .logo {
   display: flex;
-  margin-left: -60%;
-  width: 210px;
+  margin-left: -8rem;
+  width: 340px;
   height: 140px;
-  margin-top: -20px;
+  margin-top: -1rem;
 }
 
 .categorias{
-  margin-left: 8%;
-  margin-top: -0.7%;
+  margin-left: 6rem;
+  margin-top: -0.3rem;
   color: #ffffff;
   height: 40px;
   width: 40px;
@@ -109,7 +109,7 @@ h1{
   margin: 80px 0; 
   padding: 0px;
   border-radius: 10px;
-  margin-top: 7%;
+  margin-top: 5rem;
   border: solid;
 }
 @media (min-width: 1500px) and (max-width: 5000px)
@@ -156,8 +156,8 @@ h1{
 .close{
   display: flex;
   color: rgb(186, 23, 23);
-  margin-top: 1%;
-  margin-left: 100%;
+  margin-top: 0.1rem;
+  margin-left: 26rem;
   cursor: pointer;
   width: 15%;
   height: 10%;
@@ -193,22 +193,22 @@ h1{
 .login-button {
   align-self: center;
   text-align: center;
-  width: 135px;
-  height: 50px;
+  width: 150px;
+  height: 60px;
   background-color: #9E0000;
   color: #fff;
   border: solid rgb(20, 20, 20);
   border-radius: 8px;
   cursor: pointer;
   font-size: 22px;
-  margin-top: 5%;
+  margin-top: 2rem;
   font-family: 'Oswald';
   font-weight: 700;
 }
 
 .login-text{
-  margin-top: -3%;
-  margin-left: 30%;
+  margin-top: 0.1rem;
+  margin-left: 2.6rem;
 }
 
 .login-button:hover{
@@ -234,20 +234,19 @@ h1{
   text-decoration: none;
   color: #000000;
   padding: 14px;
-  margin-top: 3%;
-  
+  margin-top: 0.5rem;
 }
 
 .password-input-icon{
     background-color: #E1C59B;
     position: relative;
-    margin-top: -14%;
+    margin-top: -3rem;
     padding-top: 0.005%;
     padding-left: 0.005%;
     padding-bottom: 0.005%;
     padding-right: 0.005%;
     width: 15%;
-    margin-left: 85%;
+    margin-left: 19rem;
     border-radius: 10px;
     border: none;
     color: #000000;
@@ -259,7 +258,7 @@ h1{
   }
 
   .password-input{
-      margin-bottom: 5%;
+      margin-bottom: 1rem;
     
   }
   .password-input{
@@ -270,7 +269,7 @@ h1{
   
     .password-label{
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
     font-size: 28px;
     width: 339px;
     height: 29px;

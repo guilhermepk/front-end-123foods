@@ -1,8 +1,5 @@
 import './Footer.css';
-import {MdPix} from 'react-icons/md';
-import {FaCcMastercard} from 'react-icons/fa';
-import {FaCcVisa} from 'react-icons/fa';
-import {FaRegCreditCard} from 'react-icons/fa';
+import {FaSquareFacebook} from 'react-icons/fa';
 
 function Footer(){
     return(
@@ -41,11 +38,17 @@ function Footer(){
                     </a>
                 </ul>
                 </div>
-                <div>
+                <div className="redes">
                 <ul className="primeiro">
                     <h2>Siga-nos nas redes sociais</h2>
-                    <a>
-                        <img className='face' src="/imagens/face.png"></img>
+                    <a className="click" href=''> 
+                        <img src="/imagens/linkedin.png"></img>
+                    </a>
+                    <a className="click-insta" href="">
+                        <img src="/imagens/insta.png"></img>
+                    </a>
+                    <a className="click" href=''>
+                        <img src="/imagens/face.png"></img>
                     </a>
                 </ul>
                 </div>

@@ -12,7 +12,7 @@
     color: #FFF5E7;
     font-family: "Oswald";
     font-weight: 700;
-    margin-top: 45%;
+    margin-top: 40rem;
 }
 
 .grid-footer{
@@ -23,7 +23,7 @@
 }
 
 h2{
-    margin-top: 5%;
+    margin-top: 2rem;
     color: #FFF5E7;
     font-size: 28px;
 
@@ -39,23 +39,29 @@ li{
 .primeiro{
     display: flex;
     flex-direction: column;
-    margin-left: 15%;
+    margin-left: 4rem;
     gap: 5px;
-    margin-top: 5%;
+    margin-top: 1rem;
 }
 
 .footer-link{
-    padding-top: 4px;
+    padding-top: 0.3rem;
 }
 
 .footer-cash{
-    display: flex;
-    max-width: 60%;
-    margin-left: -2%;
-    margin-top: -10%;
+    max-width: 200px;
+    margin-top: -2rem;
 }
 
-.face{
-    margin-top: 1%;
-    max-width: 10%;
+.redes{
+    display: flex;
+    
+}
+
+.click{
+    max-width: 15%;
+}
+
+.click-insta{
+    max-width: 55px;
 }
