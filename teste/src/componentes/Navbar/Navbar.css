@@ -75,14 +75,14 @@
 
 .logo {
   display: flex;
+  max-width: 200px;
   margin-left: -8rem;
-  width: 340px;
   height: 140px;
   margin-top: -1rem;
 }
 
 .categorias{
-  margin-left: 6rem;
+  margin-left: 8rem;
   margin-top: -0.3rem;
   color: #ffffff;
   height: 40px;

@@ -85,9 +85,7 @@ const togglePasswordVisibility = (event) => {
       <nav className="navbar">
         <ul className="nav-list">
           <div>
-          <a href="">
             <a href='/'> <img className="logo" src="./imagens/logoSemFundo.png" alt="Logo" /> </a>
-          </a>
           </div>  
           <a href="" className='categorias'>
           <BiMenu className="categorias"/>
