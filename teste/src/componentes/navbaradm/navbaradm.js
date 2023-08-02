@@ -22,16 +22,7 @@ const NavbarAdm=()=>{
               <Link to="/admin/bannerlist"><GiKnightBanner/>Listagem de banners</Link>
             </li>
             <li>
-
-
-
-
-
-
-
-              <Link to="/admin/product-register"><TbPaperBag/>Produtos</Link>
-
-              <Link to="/admin/product-register"><TbPaperBag/>Cadastro de Produtos</Link>
+              <Link to="/admin/product-register"><TbPaperBag/>Cadastrar Produtos</Link>
               <Link to='/admin/product-list'> <TbPaperBag/> Lista de Produtos </Link>
 
             </li>
