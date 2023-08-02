@@ -19,7 +19,6 @@ const Navbar = () => {
   const [showUserInfoModal, setShowUserInfoModal] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   const [showImageUploadModal, setShowImageUploadModal] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -68,6 +67,7 @@ const Navbar = () => {
   const handleImageUploadButtonClick = () => {
     setShowImageUploadModal(true);
   };
+
 const togglePasswordVisibility = (event) => {
       event.preventDefault();
       setShowPassword(!showPassword);
@@ -134,13 +134,15 @@ const togglePasswordVisibility = (event) => {
     <div className="container-fluid">
       <nav className="navbar">
         <ul className="nav-list">
-          <div>
-            <a href='/'> <img className="logo" src="./imagens/logoSemFundo.png" alt="Logo" /> </a>
-          </div>  
-          <a href="" className='categorias'>
-          <BiMenu className="categorias"/>
-          </a>
-          <Search/>
+          <div className="logo">
+            <a href=''> <img src="./imagens/logoSemFundo.png" alt="Logo" /> </a>
+          </div>
+          <div className="categorias">
+        <div>
+          <BiMenu className="categoria-icon"/>
+        </div>
+      </div>  
+              <Search/>
           <div className="conteudo">
             <a href="#" onClick={handleProfileClick}>
               <CgProfile className="perfil"/>

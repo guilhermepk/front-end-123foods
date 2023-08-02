@@ -16,9 +16,6 @@
 }
 
 .grid-footer{
-    display: grid;
-    grid-column: 1/5;
-    grid-row: 1/3;
     padding: 20px;
 }
 
@@ -29,12 +26,28 @@ h2{
 
 }
 
+@media (max-width: 3000px) and (min-width: 800px) { 
+
 li{
     display: grid;
-    grid-template-columns: repeat(5, 2fr);
-    
-    
+    grid-template-columns: 20% 20% 20% 20% 20%;
+  }
+
+.apagar{
+    display: none;
 }
+
+}
+
+@media (max-width: 800px) and (min-width: 0px) { 
+
+    li{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 200px;
+    }
+    
+    }
 
 .primeiro{
     display: flex;
@@ -58,10 +71,72 @@ li{
     
 }
 
-.click{
-    max-width: 15%;
+@media (max-width: 3000px) and (min-width: 1400px) { 
+
+.click-facebook{
+    max-width: 34px;
+    margin-top: -60px;
+    margin-left: 10rem;
+}
 }
 
-.click-insta{
-    max-width: 55px;
+@media (max-width: 1400px) and (min-width: 800px) { 
+
+    .click-facebook{
+        max-width: 34px;
+        
+    }
+    }
+
+
+@media (max-width: 3000px) and (min-width: 1000px) { 
+
+    .click-insta{
+        max-width: 45px;
+        margin-top: -60px;
+        margin-left: 5rem;
+    }
+    }
+
+@media (max-width: 1000px) and (min-width: 800px) { 
+
+    .click-insta{
+        max-width: 45px;
+    }
+    }
+
+    @media (max-width: 800px) and (min-width: 0px) { 
+
+        .click-insta{
+            max-width: 45px;
+            margin-top: -60px;
+            margin-left: 5rem;
+        }
+
+        .click-facebook{
+            max-width: 34px;
+            margin-top: -60px;
+            margin-left: 10rem;
+        }
+        }
+
+        @media (max-width: 1400px) and (min-width: 0px) { 
+
+            .container{
+                height: 400px;
+            }
+            }
+
+            @media (max-width: 875px) and (min-width: 0px) { 
+
+                .container{
+                    height: 450px;
+                }
+                }
+
+
+.click-linkedin{
+    max-width: 34px;
+    margin-left: 1rem;
+
 }
