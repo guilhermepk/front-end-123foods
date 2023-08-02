@@ -4,6 +4,7 @@ import './navbaradm.css'
 
 import {GiKnightBanner} from 'react-icons/gi';
 import {TbPaperBag} from 'react-icons/tb';
+
 const NavbarAdm=()=>{
   const userInfo = JSON.parse(localStorage.getItem('userInfo'));
   return(
@@ -27,7 +28,12 @@ const NavbarAdm=()=>{
 
 
 
+
               <Link to="/admin/product-register"><TbPaperBag/>Produtos</Link>
+
+              <Link to="/admin/product-register"><TbPaperBag/>Cadastro de Produtos</Link>
+              <Link to='/admin/product-list'> <TbPaperBag/> Lista de Produtos </Link>
+
             </li>
           </ul>
         </div>

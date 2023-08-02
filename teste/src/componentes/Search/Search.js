@@ -40,12 +40,9 @@ const Search = () => {
     <a className="lupa-a">
       <BiSearchAlt className="lupa" onClick={() => performSearch(searchValue)} />
     </a>
-
-
         
     </div>
   );
 };
 
 export default Search;
-
