@@ -30,6 +30,13 @@ function Footer(){
                     <a className="footer-link">Trabalhe Conosco</a>
                 </ul>
                 </div>
+                <div className="apagar">
+                <ul className="primeiro">
+                    <h2></h2>
+                    <a className="footer-link"></a>
+                    <a className="footer-link"></a>
+                </ul>
+                </div>
                 <div className="pagamento">
                 <ul className="primeiro">
                     <h2>Pagamento</h2>
@@ -41,13 +48,13 @@ function Footer(){
                 <div className="redes">
                 <ul className="primeiro">
                     <h2>Siga-nos nas redes sociais</h2>
-                    <a className="click" href=''> 
+                    <a className="click-linkedin" href="https://br.linkedin.com/company/pormade"> 
                         <img src="/imagens/linkedin.png"></img>
                     </a>
-                    <a className="click-insta" href="">
+                    <a className="click-insta" href="https://www.instagram.com/pormadeoficial/">
                         <img src="/imagens/insta.png"></img>
                     </a>
-                    <a className="click" href=''>
+                    <a className="click-facebook" href="https://www.facebook.com/pormadeonline/?locale=pt_BR">
                         <img src="/imagens/face.png"></img>
                     </a>
                 </ul>
