@@ -12,6 +12,13 @@ body{
   position: relative;
 }
 
+.imagem-usuario {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #333;
+}
 .navbar {
   background: #9E0000;
 }
@@ -340,6 +347,58 @@ h1{
     font-family: 'Oswald';
     font-weight: 700;
     }
+.user-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.imagem-usuario {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #333;
+}
+
+.botao-hover {
+  display: none;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.user-image-container:hover .botao-hover {
+  display: block;
+}
+
+
+
+
+.image-upload-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Transparência para fundo escuro */
+}
+
+.image-upload-modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+}
 
     /* @media (max-width: 2000px) and (min-width: 1750px) {
   .conteudo {

@@ -100,6 +100,8 @@ const FormularioCadastroUser = () => {
   };
 
   return (
+    <div>
+      <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
     <form  onSubmit={handleSubmit}>
       <label>
         Name:
@@ -227,7 +229,7 @@ const FormularioCadastroUser = () => {
         </div>
       </label>
       <button type="submit">Submit</button>
-    </form>
+    </form></div>
   );
 };
 

@@ -8,6 +8,7 @@ import {IoIosClose} from 'react-icons/io';
 import {AiOutlineBell} from 'react-icons/ai';
 import {BiMenu} from 'react-icons/bi';
 import Search from '../Search/Search';
+import Dropzone from "react-dropzone";
 
 const Navbar = () => {
   const [username, setUsername] = useState('');
@@ -18,11 +19,12 @@ const Navbar = () => {
   const [showUserInfoModal, setShowUserInfoModal] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  
+
 const togglePasswordVisibility = (event) => {
       event.preventDefault();
       setShowPassword(!showPassword);
     };
+
   useEffect(() => {
     const storedUserInfo = localStorage.getItem('userInfo');
     if (storedUserInfo) {
@@ -66,7 +68,7 @@ const togglePasswordVisibility = (event) => {
       setShowLoginForm(false);
       setUserInfo(data);
       setShowUserInfoModal(true);
-      localStorage.setItem('userInfo', JSON.stringify(data)); 
+      localStorage.setItem('userInfo', JSON.stringify(data));
     } catch (error) {
       setError ('Email ou Senha incorretos');
     }
@@ -145,7 +147,6 @@ const togglePasswordVisibility = (event) => {
               <button className='login-button' type="submit"><li className="login-text">Login</li></button>
               <p className='conta-possuir'>Não possui conta? </p>
 
-              {/* <a href="../Formulariocadastro/formulariocadastro" target="_blank"> */}
               <a href='/user-register' target='_blank'> Registre-se agora! </a>
 
             </form>
@@ -164,8 +165,42 @@ const togglePasswordVisibility = (event) => {
          <p>Telefone: {userInfo.phone}</p>
          <p>CPF: {userInfo.cpf}</p>
           <p>Endereço: {userInfo.street}</p>
-          <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" />
-          <button onClick={handleLogout}>Logout</button>
+            <div className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
+              <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-usuario" />
+              {showUploadButton && (
+                  <button className="botao-hover" onClick={handleImageUploadButtonClick}>Atualizar Imagem</button>
+              )}
+            </div>
+            {showImageUploadModal && (
+                <div  className="image-upload-modal">
+                  <div  className="image-upload-modal-content">
+      <span className="close" onClick={() => setShowImageUploadModal(false)}>
+        &times;
+      </span>
+                    <h2>Atualizar Imagem do Usuário</h2>
+                    <form onSubmit={handleUploadImage}>
+                    <Dropzone onDrop={handleImageDrop}>
+                      {({ getRootProps, getInputProps }) => (
+                          <div className="dropzone" {...getRootProps()}>
+                            <input {...getInputProps()} />
+                            <p>Arraste e solte uma imagem aqui, ou clique para selecionar uma imagem.</p>
+                            {selectedImage && (
+                                <div>
+                                  <p>Imagem selecionada: {selectedImage.name}</p>
+                                  <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada" />
+                                </div>
+                            )}
+                          </div>
+                      )}
+                    </Dropzone>
+                      <button type={"submit"}>Salvar</button>
+                    </form>
+
+                  </div>
+                </div>
+            )}
+
+            <button onClick={handleLogout}>Logout</button>
           </div>
         </div>
       )}

@@ -4,11 +4,13 @@ import './navbaradm.css'
 
 import {GiKnightBanner} from 'react-icons/gi';
 import {TbPaperBag} from 'react-icons/tb';
+
 const NavbarAdm=()=>{
-    return(
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  return(
         <div>
       <div className="admin-container">
-    
+        <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-usuario" />     <p>{userInfo.name}</p>
         <div className="admin-sidebar">
           <h3>Admin Dashboard</h3>
           <ul className="admin-nav">
@@ -17,10 +19,21 @@ const NavbarAdm=()=>{
             </li>
             <li>
               <Link to="/admin/banner"><GiKnightBanner/>Cadastro de banners</Link>
-              <Link to="/admin/banner/list"><GiKnightBanner/>Listagem de banners</Link>
+              <Link to="/admin/bannerlist"><GiKnightBanner/>Listagem de banners</Link>
             </li>
             <li>
+
+
+
+
+
+
+
               <Link to="/admin/product-register"><TbPaperBag/>Produtos</Link>
+
+              <Link to="/admin/product-register"><TbPaperBag/>Cadastro de Produtos</Link>
+              <Link to='/admin/product-list'> <TbPaperBag/> Lista de Produtos </Link>
+
             </li>
           </ul>
         </div>

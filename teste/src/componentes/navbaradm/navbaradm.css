@@ -42,3 +42,10 @@
     background-color: #555;
     color: #fff;
   }
+.imagem-usuario {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #333;
+}
