@@ -19,6 +19,54 @@ const Navbar = () => {
   const [showUserInfoModal, setShowUserInfoModal] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showImageUploadModal, setShowImageUploadModal] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageDrop = (acceptedFiles) => {
+    setSelectedImage(acceptedFiles[0]);
+  };
+
+  const fetchUpdatedUserInfo = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3000/users/${userInfo.id}`);
+      const data = response.data;
+      return data;
+    } catch (error) {
+      console.error('Erro ao buscar os dados do usuário:', error);
+      return null;
+    }
+  };
+
+  const handleUploadImage = async () => {
+    try {
+      const formData = new FormData();
+      formData.append('file', selectedImage);
+
+      await axios.patch(`http://localhost:3000/users/${userInfo.id}/upload`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+
+      const updatedUserInfo = await fetchUpdatedUserInfo();
+
+      if (updatedUserInfo) {
+        setUserInfo(updatedUserInfo);
+        localStorage.setItem('userInfo', JSON.stringify(updatedUserInfo));
+      }
+
+      setSelectedImage(null);
+      setShowImageUploadModal(false);
+    } catch (error) {
+      console.error('Erro ao enviar a imagem:', error);
+    }
+  };
+  const [showUploadButton, setShowUploadButton] = useState(false);
+
+  const handleImageUploadButtonClick = () => {
+    setShowImageUploadModal(true);
+  };
 
 const togglePasswordVisibility = (event) => {
       event.preventDefault();
