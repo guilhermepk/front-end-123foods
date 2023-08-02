@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 
 const FormularioProdutos = () => {
-  const [formValues, setFormValues] = useState({
+  const initialFormValues = {
     name: '',
     brand: '',
     weight: '',
@@ -11,13 +11,10 @@ const FormularioProdutos = () => {
     amount: '',
     description: '',
     price: '',
-    images: []
-  });
+    image: null
+  }
 
-  const handleImageChange = (e) => {
-    const images = Array.from(e.target.files);
-    setFormValues({ ...formValues, images });
-  };
+  const [formValues, setFormValues] = useState(initialFormValues);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,36 +39,25 @@ const FormularioProdutos = () => {
     formData.append('amount', parseInt(formValues.amount));
     formData.append('description', formValues.description);
     formData.append('price', parseFloat(formValues.price));
-  
-    for (const image of formValues.images) {
-      formData.append('files', image);
-    }
-
-
+    formData.append('file', formValues.image);
   
     fetch('http://localhost:3000/foods', {
       method: 'POST',
-      mode: 'no-cors',
       headers: {
-        'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
-        'Content-Type': 'multipart/form-data'
+        'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
       },
       body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        setFormValues(initialFormValues);
       })
       .catch((error) => {
         console.error(error);
       });
   };
   
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   sendDataToServer(formValues);
-  // };
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: handleFileDrop,
     accept: 'image/*',
@@ -100,7 +86,7 @@ const FormularioProdutos = () => {
     console.log('Enviando', price, 'como price, do tipo', typeof(price))
     formData.append('price', price);
 
-    formData.append('files', data.images);
+    formData.append('file', data.image);
     
   
     fetch('http://localhost:3000/foods', {
@@ -125,7 +111,7 @@ const FormularioProdutos = () => {
         name="name"
         value={formValues.name}
         onChange={handleChange}
-        placeholder='Digite o ome que será exibido'
+        placeholder='Pringles clássico, Suco Kappo de uva, etc.'
       />
     </label>
     <label>
@@ -135,6 +121,7 @@ const FormularioProdutos = () => {
         name="brand"
         value={formValues.brand}
         onChange={handleChange}
+        placeholder='Nenhuma, Pringles, Kappo, ElmaChips, etc.'
       />
     </label>
     <label>
@@ -144,15 +131,17 @@ const FormularioProdutos = () => {
         name="weight"
         value={formValues.weight}
         onChange={handleChange}
+        placeholder='5, 240, 500, 1, etc.'
       />
     </label>
     <label>
-      Unidade de medida (Kg, g, L, ml, etc):
+      Unidade de medida:
       <input
         type="text"
         name="unit_of_measurement"
         value={formValues.unit_of_measurement}
         onChange={handleChange}
+        placeholder='Kg, g, L, ml'
       />
     </label>
     <label>
@@ -162,24 +151,29 @@ const FormularioProdutos = () => {
         name="category"
         value={formValues.category}
         onChange={handleChange}
+        placeholder='Salgados, Doces, Frios, Leites e derivados, etc.'
       />
     </label>
     <label>
-      Quantidade:
+      Quantidade em estoque:
       <input
         type="number"
         name="amount"
         value={formValues.amount}
         onChange={handleChange}
+        placeholder='5, 7, 13, 20, etc.'
       />
     </label>
     <label>
       Descrição:
-      <input
+      <textarea
         type="text"
         name="description"
         value={formValues.description}
         onChange={handleChange}
+        placeholder='Batata chips Pringles sabor Churrasco'
+        rows={3}
+        style={{ resize: 'none' }}
       />
     </label>
     <label>
@@ -189,11 +183,11 @@ const FormularioProdutos = () => {
         name="price"
         value={formValues.price}
         onChange={handleChange}
+        placeholder='14,99; 26,37; 49,99; etc.'
       />
     </label>
 
-    {/* ENVIO DE IMAGEM */}
-    {/* <label>
+    <label>
       Imagens:
       <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
         <input {...getInputProps()} />
@@ -207,22 +201,6 @@ const FormularioProdutos = () => {
               <p>Arraste e solte a imagem aqui ou clique para selecionar</p>
             )}
           </>
-        )}
-      </div>
-    </label> */}
-   
-   <label>
-      Imagens:
-      <div>
-        <input type="file" accept="image/*" multiple onChange={handleImageChange} />
-        {formValues.images.length > 0 ? (
-          <div>
-            {formValues.images.map((image) => (
-              <img key={image.name} src={URL.createObjectURL(image)} alt="Imagem selecionada" />
-            ))}
-          </div>
-        ) : (
-          <p>Arraste e solte as imagens aqui ou clique para selecionar</p>
         )}
       </div>
     </label>
