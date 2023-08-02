@@ -4,6 +4,7 @@ import './navbaradm.css'
 
 import {GiKnightBanner} from 'react-icons/gi';
 import {TbPaperBag} from 'react-icons/tb';
+
 const NavbarAdm=()=>{
     return(
         <div>
@@ -20,7 +21,8 @@ const NavbarAdm=()=>{
               <Link to="/admin/banner/list"><GiKnightBanner/>Listagem de banners</Link>
             </li>
             <li>
-              <Link to="/admin/product-register"><TbPaperBag/>Produtos</Link>
+              <Link to="/admin/product-register"><TbPaperBag/>Cadastro de Produtos</Link>
+              <Link to='/admin/product-list'> <TbPaperBag/> Lista de Produtos </Link>
             </li>
           </ul>
         </div>
