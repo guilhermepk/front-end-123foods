@@ -1,105 +1,74 @@
-import React, { useState, useEffect } from "react";
-import { useDropzone } from "react-dropzone";
-import axios from "axios";
-import "./BannerCadastro.css";
-import NavbarAdm from "../../../componentes/navbaradm/navbaradm";
+import React, { useState } from 'react';
+import axios from 'axios';
+import Dropzone from 'react-dropzone';
+import NavbarAdm from '../../../componentes/navbaradm/navbaradm';
+import './BannerCadastro.css'
+const BannerForm = () => {
+  const [alt, setAlt] = useState('');
+  const [selectedImage, setSelectedImage] = useState(null);
 
-const BannerCadastro = () => {
-  const [banners, setBanners] = useState([]);
-  const [altText, setAltText] = useState("");
-  const [imageFile, setImageFile] = useState(null);
-  const [uploadStatus, setUploadStatus] = useState("");
-
-  const fetchBanners = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/banners");
-      setBanners(response.data);
-    } catch (error) {
-      console.error("Erro ao buscar banners:", error);
-    }
+  const handleAltChange = (event) => {
+    setAlt(event.target.value);
   };
 
-  useEffect(() => {
-    fetchBanners();
-  }, []);
-
-  const onDrop = async (acceptedFiles) => {
-    const file = acceptedFiles[0];
-    setImageFile(file);
-    setAltText("");
-    setUploadStatus("Imagem selecionada. Insira o texto alternativo e clique em 'Salvar'");
+  const handleImageDrop = (acceptedFiles) => {
+    setSelectedImage(acceptedFiles[0]);
   };
 
-  const handleDeleteBanner = async (bannerId) => {
-    try {
-      await axios.delete(`http://localhost:3000/banners/${bannerId}`);
-      const updatedBanners = banners.filter((banner) => banner.id !== bannerId);
-      setBanners(updatedBanners);
-    } catch (error) {
-      console.error("Erro ao excluir banner:", error);
-    }
-  };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  const handleSubmit = async () => {
     try {
       const formData = new FormData();
-      formData.append("alt", altText);
-      formData.append("file", imageFile);
+      formData.append('file', selectedImage); // Ajuste para o campo "file" do backend
+      formData.append('alt', alt);
 
-      await axios.post("http://localhost:3000/banners", formData, {
+      await axios.post('http://localhost:3000/banners', formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          'Content-Type': 'multipart/form-data',
         },
       });
 
-      setBanners([...banners, { alt: altText, image: URL.createObjectURL(imageFile) }]);
-      setAltText("");
-      setImageFile(null);
-      setUploadStatus("Banner cadastrado com sucesso!");
+      console.log('sucesso');
+
     } catch (error) {
-      console.error("Erro ao cadastrar banner:", error);
+      // Seu código aqui para lidar com erros de envio.
+      console.error('Erro ao enviar o banner:', error);
     }
   };
 
-  const { getRootProps, getInputProps } = useDropzone({
-    accept: "image/*",
-    onDrop,
-  });
-
   return (
-    <div>
-      <NavbarAdm />
-      <div className="banner-cadastro-container">
-        <h2>Cadastrar Banner</h2>
-        <div className="dropzone" {...getRootProps()}>
-          <input {...getInputProps()} />
-          <p>Arraste e solte uma imagem aqui ou clique para selecionar.</p>
-          <p>Descrição da imagem (Alt):</p>
-          <input
-            type="text"
-            value={altText}
-            onChange={(e) => setAltText(e.target.value)}
-          />
-          <button onClick={handleSubmit}>Salvar</button>
-        </div>
-        {uploadStatus && <p>{uploadStatus}</p>}
-        <div className="banners-list">
-          {banners.map((banner, index) => (
-            <div key={index} className="banner-item">
-              <img
-                src={banner.image}
-                alt={banner.alt}
-                className="banner-thumbnail"
-              />
-              <button onClick={() => handleDeleteBanner(banner.id)}>
-                Excluir
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+      <>
+        <NavbarAdm />
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="alt">Alt do Banner:</label>
+            <input type="text" id="alt" value={alt} onChange={handleAltChange} />
+          </div>
+          <div>
+            <label htmlFor="bannerImage">Imagem do Banner:</label>
+            <Dropzone onDrop={handleImageDrop}>
+              {({ getRootProps, getInputProps }) => (
+                  <div className="dropzone" {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    <p>Arraste e solte uma imagem aqui, ou clique para selecionar uma imagem.</p>
+                    {selectedImage && (
+                        <div>
+                          <p>Imagem selecionada: {selectedImage.name}</p>
+                          <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada" />
+                        </div>
+                    )}
+                  </div>
+              )}
+            </Dropzone>
+          </div>
+          <div>
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+      </>
   );
 };
 
-export default BannerCadastro;
+export default BannerForm;
+
