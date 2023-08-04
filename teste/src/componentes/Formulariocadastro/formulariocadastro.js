@@ -1,13 +1,16 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './Formulariocadastrouser.css'
+import InputMask from 'react-input-mask';
+import iziToast from 'izitoast';
+
 const FormularioCadastroUser = () => {
   const [formValues, setFormValues] = useState({
     name: '',
     date_of_birth: '',
     gender: '',
     cpf: '',
-    phone: '',
+    phone: '+55',
     email: '',
     password: '',
     city: '',
@@ -19,10 +22,7 @@ const FormularioCadastroUser = () => {
   });
 
   const [userCEP, setUserCEP] = useState('');
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
+
 
   const handleFileDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
@@ -38,6 +38,24 @@ const FormularioCadastroUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     sendDataToServer(formValues);
+  };
+  const handleSuccess = () => {
+    iziToast.success({
+      title: 'Sucesso',
+      message: 'Cadastrado com sucesso',
+      timeout: 10000,
+      onClosing: () => {
+        window.close();
+      },
+    });
+  };
+
+  const handleError = (error) => {
+    console.error(error);
+    iziToast.error({
+      title: 'Erro',
+      message: 'Ocorreu um erro durante o cadastro',
+    });
   };
 
   const sendDataToServer = (data) => {
@@ -63,41 +81,50 @@ const FormularioCadastroUser = () => {
       .then(response => response.json())
       .then(data => {
         console.log(data);
+        handleSuccess();
       })
       .catch(error => {
         console.error(error);
+        handleError(error);
       });
   };
   const handleCEPChange = (e) => {
-    const cep = e.target.value;
-    setUserCEP(cep);
-
+    const { value } = e.target;
+    setFormValues({ ...formValues, cep: value });
+  };
+  const genderOptions = ['Masculino', 'Feminino', 'Outro'];
+  const handleCEPBlur =async () => {
+    const cep = formValues.cep.replace(/\D/g, '');
     if (cep.length === 8) {
-      fetchAddressByCEP(cep); 
-    }
-  };
+      try {
+        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await response.json();
 
-  const fetchAddressByCEP = async (cep) => {
-    try {
-      const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-      const data = await response.json();
+        if (data.erro) {
+          throw new Error('CEP inválido');
+        }
 
-      if (data.erro) {
-        throw new Error('CEP inválido');
+        setFormValues((prevFormValues) => ({
+          ...prevFormValues,
+          state: data.uf,
+          city: data.localidade,
+          street: data.logradouro,
+          cep: data.cep,
+        }));
+      } catch (error) {
+        console.error(error);
+        iziToast.error({
+          title: 'Erro',
+          message: 'CEP inválido',
+        });
       }
-
-      setFormValues({
-        ...formValues,
-        state: data.uf,
-        city: data.localidade,
-        street: data.logradouro,
-        cep:data.cep,
-      });
-
-    } catch (error) {
-      console.error(error);
     }
   };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+
 
   return (
     <div>
@@ -123,16 +150,19 @@ const FormularioCadastroUser = () => {
       </label>
       <label>
         Gênero:
-        <input
-          type="text"
-          name="gender"
-          value={formValues.gender}
-          onChange={handleChange}
-        />
+        <select name="gender" value={formValues.gender} onChange={handleChange}>
+          <option value="">Selecione</option>
+          {genderOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+          ))}
+        </select>
       </label>
       <label>
         CPF:
-        <input
+        <InputMask
+            mask="999.999.999-99"
           type="text"
           name="cpf"
           value={formValues.cpf}
@@ -141,11 +171,11 @@ const FormularioCadastroUser = () => {
       </label>
       <label>
         Telefone:
-        <input
-          type="text"
-          name="phone"
-          value={formValues.phone}
-          onChange={handleChange}
+        <InputMask
+            mask="+99 (99) 99999-9999"
+            name="phone"
+            value={formValues.phone}
+            onChange={handleChange}
         />
       </label>
       <label>
@@ -166,6 +196,17 @@ const FormularioCadastroUser = () => {
           onChange={handleChange}
         />
       </label>
+      <label>
+      CEP:
+        <InputMask
+            mask="99999-999"
+            type="text"
+            name="cep"
+            value={formValues.cep}
+            onChange={handleCEPChange}
+            onBlur={handleCEPBlur}
+        />
+    </label>
       <label>
         Cidade:
         <input
@@ -202,15 +243,7 @@ const FormularioCadastroUser = () => {
           onChange={handleChange}
         />
       </label>
-      <label>
-        CEP:
-        <input
-          type="text"
-          name="cep"
-          value={formValues.cep}
-          onChange={handleCEPChange}
-        />
-      </label>
+
       <label>
         Imagem:
         <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
