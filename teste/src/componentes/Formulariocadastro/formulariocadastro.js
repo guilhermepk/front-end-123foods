@@ -45,7 +45,7 @@ const FormularioCadastroUser = () => {
       message: 'Cadastrado com sucesso',
       timeout: 10000,
       onClosing: () => {
-        window.close();
+       // window.close();
       },
     });
   };
@@ -71,7 +71,10 @@ const FormularioCadastroUser = () => {
     formData.append('street', data.street);
     formData.append('state', data.state);
     formData.append('cep', data.cep);
-    formData.append('file', data.image);
+    if (formValues.image!=null){
+      formData.append('file', data.image);
+    }
+
     formData.append('numberhouse', data.numberhouse);
 
     fetch('http://localhost:3000/users', {
