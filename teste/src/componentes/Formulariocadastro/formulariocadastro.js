@@ -45,7 +45,7 @@ const FormularioCadastroUser = () => {
       message: 'Cadastrado com sucesso',
       timeout: 10000,
       onClosing: () => {
-        window.close();
+       // window.close();
       },
     });
   };
@@ -74,6 +74,9 @@ const FormularioCadastroUser = () => {
 
 
     
+    if (formValues.image!=null){
+      formData.append('file', data.image);
+    }
 
     formData.append('numberhouse', data.numberhouse);
 
