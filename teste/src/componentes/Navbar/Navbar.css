@@ -108,7 +108,6 @@ h1{
   font-family: 'Oswald';
   font-size: 28px;
   color: #000000;
-  margin-top: -10%;
   font-weight: 700;
 }
 
@@ -126,6 +125,7 @@ h1{
   border: solid;
   width: 500px;
 }
+
 @media (min-width: 1500px) and (max-width: 5000px)
 {
   .modal{
@@ -178,13 +178,13 @@ h1{
   }
 }
 
-@media (min-width: 0px) and (max-width: 650px)
+/* @media (min-width: 0px) and (max-width: 650px)
 {
   .nav-list{
     margin-right: 40%;
     
   }
-}
+} */
 
 @media (min-width: 0px) and (max-width: 1700px)
 {
@@ -211,21 +211,9 @@ h1{
 }
 
 
-@media (min-width: 0px) and (max-width: 830px)
-{
-  .nav-list{
-    margin-left: -5%;
-    
-  }
-}
-
-
-
-
 .close{
   display: flex;
   color: rgb(186, 23, 23);
-  margin-top: 0.1rem;
   margin-left: 26rem;
   cursor: pointer;
   width: 15%;
@@ -238,12 +226,16 @@ h1{
 }
 
 .login-form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-  font-family: 'Oswald';
-  font-weight: 700;
-  border: none;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    border-radius: 10px;
+    font-family: 'Oswald';
+    font-weight: 700;
+    margin-top: -4rem;
 }
 
 
@@ -277,7 +269,7 @@ h1{
 
 .login-text{
   margin-top: 0.1rem;
-  margin-left: 2.6rem;
+  margin-left: 3.3rem;
 }
 
 .login-button:hover{

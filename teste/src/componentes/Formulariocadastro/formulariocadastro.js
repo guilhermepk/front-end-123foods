@@ -71,7 +71,10 @@ const FormularioCadastroUser = () => {
     formData.append('street', data.street);
     formData.append('state', data.state);
     formData.append('cep', data.cep);
-    formData.append('file', data.image);
+
+
+    
+
     formData.append('numberhouse', data.numberhouse);
 
     fetch('http://localhost:3000/users', {
@@ -92,7 +95,7 @@ const FormularioCadastroUser = () => {
     const { value } = e.target;
     setFormValues({ ...formValues, cep: value });
   };
-  const genderOptions = ['Masculino', 'Feminino', 'Outro'];
+  const genderOptions = ['Masculino', 'Feminino', 'Outros'];
   const handleCEPBlur =async () => {
     const cep = formValues.cep.replace(/\D/g, '');
     if (cep.length === 8) {
@@ -125,11 +128,12 @@ const FormularioCadastroUser = () => {
     setFormValues({ ...formValues, [name]: value });
   };
 
+  {/*eu não sei*/}
 
   return (
     <div>
-      <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-    <form  onSubmit={handleSubmit}>
+      <h1> Cadastre-se! </h1>
+    <form className="form-user"  onSubmit={handleSubmit}>
       <label>
         Name:
         <input
@@ -150,7 +154,7 @@ const FormularioCadastroUser = () => {
       </label>
       <label>
         Gênero:
-        <select name="gender" value={formValues.gender} onChange={handleChange}>
+        <select className="gender-input" name="gender" value={formValues.gender} onChange={handleChange}>
           <option value="">Selecione</option>
           {genderOptions.map((option) => (
               <option key={option} value={option}>
@@ -261,7 +265,7 @@ const FormularioCadastroUser = () => {
           )}
         </div>
       </label>
-      <button type="submit">Submit</button>
+      <button className="button-login" type="submit">Submit</button>
     </form></div>
   );
 };
