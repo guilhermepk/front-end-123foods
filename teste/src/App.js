@@ -12,6 +12,7 @@ import ProductList from './views/admin/product/product-list/ProductList';
 import isAdmin from './views/admin/AdminRouteGuard'
 import BannerCadastro from "./views/admin/banner/cadastrobanner";
 import Bannerlist from "./views/admin/banner/bannerlist";
+import ViewTeste from "./views/ViewTeste";
 
 function NotFound() {
   return (
@@ -31,6 +32,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/view-teste" element={<ViewTeste/>}/>
           <Route path="*" element={<NotFound />} />
           <Route path="/user-register" element={<UserRegister />} />
           <Route path="/admin/product-register" element={isAdmin() ? <ProductRegister /> : <Navigate to="/" />} />
