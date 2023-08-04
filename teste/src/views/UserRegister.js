@@ -6,9 +6,7 @@ const UserRegister = () => {
         <div>
             <h1> Cadastre-se! </h1>
             <FormularioCadastroUser/>
-            <br/><br/><br/>
-            <h2> <Link to='/'> Página Inicial </Link> </h2>
-            <br/><br/><br/>
+
         </div>
     );
 }
