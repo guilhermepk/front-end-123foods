@@ -8,6 +8,7 @@ const Home = () => {
     return (
         <div>
             <Navbar/>
+            <Link to="/view-teste">ViewTeste</Link>
             <Banner/>
             <Filtrocat/>
             <Footer/>

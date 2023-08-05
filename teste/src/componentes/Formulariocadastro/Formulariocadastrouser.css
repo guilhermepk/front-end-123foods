@@ -1,37 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
 
-form {
+h1{
+  margin-top: 5rem;
+  font-family: 'Oswald';
+  font-weight: 700;
+  font-size: 46px;
+}
+
+.form-user{
     display: flex;
     flex-direction: column;
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 5px;
+    margin-top: 8rem;
+    border: solid;
+    background-color: #FFECCE;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
   }
+
+.gender-input{
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
   
   label {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    font-family: 'Oswald';
+    font-weight: 700;
+    font-size: 20px;
+
   }
   
   input {
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 16px;
+    background-color: #ffffff;
   }
   
-  button {
+  .button-login {
     padding: 10px;
-    background-color: #007bff;
+    background-color: #9E0000;
     color: #fff;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    font-family: 'Oswald';
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 2rem;
   }
   
+  .button-login:hover{
+    background-color: #b62121;
+  }
+
 
   .dropzone {
     padding: 20px;
