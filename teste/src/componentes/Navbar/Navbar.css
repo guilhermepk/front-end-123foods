@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
 
+
+
 * {
   box-sizing: border-box;
 }
@@ -113,8 +115,7 @@ body{
 }
 
 .modal {
-  display: flex;
-  position: fixed;
+  
   z-index: 2;
   justify-content: center;
   background-color: #FFECCE;
@@ -139,7 +140,7 @@ body{
 @media (min-width: 1000px) and (max-width: 1500px)
 {
   .modal{
-    height: 500px;
+    height: 520px;
     margin-left: 33%;
     
   }
@@ -148,7 +149,7 @@ body{
 @media (min-width: 800px) and (max-width: 1000px)
 {
   .modal{
-    height: 500px;
+    height: 520px;
     margin-left: 25%;
     
   }
@@ -157,7 +158,7 @@ body{
 @media (min-width: 500px) and (max-width: 800px)
 {
   .modal{
-    height: 500px;
+    height: 520px;
     margin-left: 20%;
     
   }
@@ -213,12 +214,11 @@ body{
 
 
 .close{
-  display: flex;
   color: rgb(186, 23, 23);
-  margin-left: 26rem;
+  margin-left: 27.5rem;
   cursor: pointer;
-  width: 15%;
-  height: 10%;
+  width: 10%;
+  height: 5%;
 }
 
 .close:hover {
@@ -236,7 +236,7 @@ body{
     border-radius: 10px;
     font-family: 'Oswald';
     font-weight: 700;
-    margin-top: -0.5rem;
+    margin-top: 0.5rem;
 }
 
 
@@ -393,20 +393,14 @@ body{
   max-width: 400px;
 }
 
-    /* @media (max-width: 2000px) and (min-width: 1750px) {
-  .conteudo {
-    margin-right: 180px;
-  }
-}  */
+.perfil-usuario{
+  display: flex;
+  justify-content: center;
+  margin-top: 0.6rem;
+  color: #000000;
+  font-weight: 700;
+}
 
-/* @media (max-width: 2000px) and (min-width: 1750px) {
-  .logo {
-    margin-left: -100px;
-  } */
-
-/* @media (max-width: 1750px) and (min-width: 1500px) {
-  .conteudo {
-    margin-right: 20px;
-    } 
-  }   */
-/* } */
+.conta-usuario{
+  
+}

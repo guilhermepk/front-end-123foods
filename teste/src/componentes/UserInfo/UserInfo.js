@@ -3,6 +3,7 @@ import Dropzone from "react-dropzone";
 import { Eye, EyeOff} from 'react-feather';
 import {IoIosClose} from 'react-icons/io';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const UserInfo = () => {
     const [username, setUsername] = useState('');
@@ -100,7 +101,6 @@ const UserInfo = () => {
 
     const handleLoginFormSubmit = async (event) => {
         event.preventDefault();
-
         try {
             const response = await axios.post('http://localhost:3000/users/login', {
                 username,
@@ -113,8 +113,10 @@ const UserInfo = () => {
             setUserInfo(data);
             setShowUserInfoModal(true);
             localStorage.setItem('userInfo', JSON.stringify(data));
+            Swal.fire('Bem vindo', 'Login bem sucedido', 'success');
         } catch (error) {
             setError ('Email ou Senha incorretos');
+            Swal.fire('Ops...', 'Erro ao completar o login...', 'error'); 
         }
 
         setUsername('');
@@ -159,8 +161,6 @@ const UserInfo = () => {
                             <button className="password-input-icon" onClick={togglePasswordVisibility}>
                                 {showPassword ? <Eye /> : <EyeOff />}
                             </button>
-                            <br />
-                            {error && <p>{error}</p>}
                             <button className='login-button' type="submit"><li className="login-text">Login</li></button>
                             <p className='conta-possuir'>Não possui conta? </p>
 
@@ -176,12 +176,14 @@ const UserInfo = () => {
                         <span className="close" onClick={closeModal}>
                             &times;
                         </span>
-                        <h2>Informações do Usuário</h2>
+                        <h2 className="perfil-usuario">Informações do Usuário</h2>
+                        <div className="conta-usuario">
                         <p>Nome: {userInfo.name}</p>
                         <p>Email: {userInfo.email}</p>
                         <p>Telefone: {userInfo.phone}</p>
                         <p>CPF: {userInfo.cpf}</p>
                         <p>Endereço: {userInfo.street}</p>
+                        </div>
                         <div className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
                             <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-usuario" />
                             {showUploadButton && (

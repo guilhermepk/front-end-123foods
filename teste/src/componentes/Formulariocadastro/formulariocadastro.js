@@ -134,27 +134,29 @@ const FormularioCadastroUser = () => {
   {/*eu não sei*/}
 
   return (
-    <div>
-      <h1> Cadastre-se! </h1>
+    <div className="cadastro-usuario">
+      <section className="section-cadastro">
+      <h1 className="cadastro"> Cadastre-se! </h1>
     <form className="form-user"  onSubmit={handleSubmit}>
-      <label>
+      <label className='name'>
         Name:
-        <input
+        <input className="input-campo"
           type="text"
           name="name"
           value={formValues.name}
           onChange={handleChange}
         />
       </label>
-      <label>
+      <label className='date'>
         Data de Nascimento:
-        <input
+        <input className="input-campo"
           type="date"
           name="date_of_birth"
           value={formValues.date_of_birth}
           onChange={handleChange}
         />
       </label>
+      <div>
       <label>
         Gênero:
         <select className="gender-input" name="gender" value={formValues.gender} onChange={handleChange}>
@@ -166,11 +168,12 @@ const FormularioCadastroUser = () => {
           ))}
         </select>
       </label>
+      </div>
       <label>
         CPF:
         <InputMask
             mask="999.999.999-99"
-          type="text"
+          type="text" className="input-campo"
           name="cpf"
           value={formValues.cpf}
           onChange={handleChange}
@@ -180,14 +183,14 @@ const FormularioCadastroUser = () => {
         Telefone:
         <InputMask
             mask="+99 (99) 99999-9999"
-            name="phone"
+            name="phone" className="input-campo"
             value={formValues.phone}
             onChange={handleChange}
         />
       </label>
       <label>
         Email:
-        <input
+        <input className="input-campo"
           type="email"
           name="email"
           value={formValues.email}
@@ -196,7 +199,7 @@ const FormularioCadastroUser = () => {
       </label>
       <label>
         Senha:
-        <input
+        <input className="input-campo"
           type="password"
           name="password"
           value={formValues.password}
@@ -207,7 +210,7 @@ const FormularioCadastroUser = () => {
       CEP:
         <InputMask
             mask="99999-999"
-            type="text"
+            type="text" className="input-campo"
             name="cep"
             value={formValues.cep}
             onChange={handleCEPChange}
@@ -216,7 +219,7 @@ const FormularioCadastroUser = () => {
     </label>
       <label>
         Cidade:
-        <input
+        <input className="input-campo"
           type="text"
           name="city"
           value={formValues.city}
@@ -225,7 +228,7 @@ const FormularioCadastroUser = () => {
       </label>
       <label>
         Rua:
-        <input
+        <input className="input-campo"
           type="text"
           name="street"
           value={formValues.street}
@@ -234,7 +237,7 @@ const FormularioCadastroUser = () => {
       </label>
       <label>
         Numero ou Apto:
-        <input
+        <input className="input-campo"
           type="text"
           name="numberhouse"
           value={formValues.numberhouse}
@@ -243,7 +246,7 @@ const FormularioCadastroUser = () => {
       </label>
       <label>
         Estado:
-        <input
+        <input className="input-campo"
           type="text"
           name="state"
           value={formValues.state}
@@ -269,7 +272,9 @@ const FormularioCadastroUser = () => {
         </div>
       </label>
       <button className="button-login" type="submit">Submit</button>
-    </form></div>
+    </form>
+    </section>
+    </div>
   );
 };
 
