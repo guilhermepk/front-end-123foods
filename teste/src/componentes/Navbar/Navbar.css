@@ -108,7 +108,7 @@ body{
   display: flex;
   justify-content: center;
   font-family: 'Oswald';
-  font-size: 28px;
+  font-size: 40px;
   color: #000000;
   font-weight: 700;
   margin-top: -2.5rem;
@@ -131,7 +131,7 @@ body{
 @media (min-width: 1500px) and (max-width: 5000px)
 {
   .modal{
-    height: 520px;
+    height: 540px;
     margin-left: 38%;
     
   }
@@ -222,7 +222,7 @@ body{
 }
 
 .close:hover {
-  color: rgb(186, 23, 23);
+  color: rgb(255, 0, 0);
   
 }
 
@@ -340,7 +340,8 @@ body{
     font-family: 'Oswald';
     font-weight: 700;
     }
-.user-image-container {
+
+  .user-image-container {
   position: relative;
   display: inline-block;
 }
@@ -399,8 +400,4 @@ body{
   margin-top: 0.6rem;
   color: #000000;
   font-weight: 700;
-}
-
-.conta-usuario{
-  
 }

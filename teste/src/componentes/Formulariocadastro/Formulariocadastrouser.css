@@ -10,15 +10,22 @@
   display: block;
   padding: 2rem;
   font-family: 'Oswald';
-  font-weight: 700;
   font-size: 46px;
   margin-left: 43.5%;
 }
 
-.section-cadastro{
-  padding: 10px;
+.cadastro-usuario{
+  font-family: 'Oswald';
+  font-weight: bold;
 }
 
+.dados{
+  font-size: 28px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  font-weight: bold;
+
+}
 .form-user{
     display: flex;
     flex-direction: column;
@@ -29,6 +36,7 @@
     background-color: #FFECCE;
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    height: 30rem;
   }
 
 .gender-input{
@@ -40,12 +48,16 @@
 }
 
   
-  label {
+  .label-texto {
     display: block;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     font-family: 'Oswald';
     font-weight: 700;
     font-size: 20px;
+  }
+
+  .input-data{
+    margin-left: 30rem;
   }
 
   @media (max-width: 3000px) and (min-width: 1000px){
@@ -75,7 +87,68 @@
     }
   }
 
-  .input-campo {
+  .div-nome{
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+    margin-left: 1.2rem;
+  }
+
+  .div-cpf{
+    margin-left: 20rem;
+    margin-top: -6.2rem;
+  }
+
+  .div-telepone{
+    margin-left: 35rem;
+    margin-top: -4.2rem;
+  }
+
+  .div-email{
+    margin-left: 1.2rem;
+    margin-top: 2.5rem;
+  }
+
+  .div-senha{
+    margin-left: 28rem;
+    margin-top: -4.1rem;
+  }
+
+  .div-data{
+    margin-left: 1.2rem;
+    margin-top: 3rem;
+  }
+
+  .input-nome {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #E1C59B;
+    width: 16rem;
+    height: 2rem;
+  }
+
+  .input-cpf {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #E1C59B;
+    width: 12rem;
+    height: 2rem;
+  }
+  
+  .input-telepone {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #E1C59B;
+    width: 14rem;
+    height: 2rem;
+  }
+
+  .input-data {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -83,20 +156,46 @@
     background-color: #E1C59B;
     width: 20rem;
     height: 2rem;
+    margin-left: -1.2rem;
   }
-  
+
+  .input-email {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #E1C59B;
+    width: 24rem;
+    height: 2rem;
+  }
+
+  .input-senha {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #E1C59B;
+    width: 21rem;
+    height: 2rem;
+  }
+
+  .input-data{
+    margin-left: 0.1rem;
+  }
+
   .button-login {
     padding: 10px;
     background-color: #9E0000;
     color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border: solid rgb(10, 10, 10);
+    border-radius: 8px;
     cursor: pointer;
     font-family: 'Oswald';
     font-weight: 700;
-    font-size: 18px;
-    margin-top: 2rem;
+    font-size: 22px;
+    margin-top: -3rem;
+    margin-left: 30rem;
+    width: 12rem;
   }
   
   .button-login:hover{
@@ -127,3 +226,8 @@
     margin-top: 10px;
   }
   
+  .texto-imagem{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }

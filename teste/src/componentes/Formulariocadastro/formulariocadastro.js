@@ -138,25 +138,69 @@ const FormularioCadastroUser = () => {
       <section className="section-cadastro">
       <h1 className="cadastro"> Cadastre-se! </h1>
     <form className="form-user"  onSubmit={handleSubmit}>
-      <label className='name'>
-        Name:
-        <input className="input-campo"
+      <h1 className="dados">Dados Pessoais</h1>
+      <div className="div-nome">
+      <label className="label-texto">
+        Nome:
+        </label>
+        <input className="input-nome"
           type="text"
           name="name"
           value={formValues.name}
           onChange={handleChange}
+          placeholder='Insira seu nome'
         />
+        </div>
+      <div className="div-cpf">
+      <label className="label-texto">
+        CPF:
       </label>
-      <label className='date'>
-        Data de Nascimento:
-        <input className="input-campo"
-          type="date"
-          name="date_of_birth"
-          value={formValues.date_of_birth}
+        <InputMask
+          mask="999.999.999-99"
+          type="text" className="input-cpf"
+          name="cpf"
+          value={formValues.cpf}
           onChange={handleChange}
+          placeholder='Insira seu CPF'
         />
+        </div>
+      <div className="div-telepone">
+      <label className="label-texto">
+        Telefone:
       </label>
-      <div>
+        <InputMask
+            mask="+99 (99) 99999-9999"
+            name="phone" className="input-telepone"
+            value={formValues.phone}
+            onChange={handleChange}
+            placeholder='Insira seu telepone'
+        />
+        </div>
+        <div className="div-email">
+      <label className="label-texto">
+        Email:
+      </label> 
+        <input className="input-email"
+          type="email"
+          name="email"
+          value={formValues.email}
+          onChange={handleChange}
+          placeholder='Insira seu email'
+        />
+        </div>
+        <div className="div-senha">
+        <label className="label-texto">
+        Senha:
+      </label>
+        <input className="input-senha"
+          type="password"
+          name="password"
+          value={formValues.password}
+          onChange={handleChange}
+          placeholder='Insira sua senha'
+        />
+        </div>
+      {/* <div>
       <label>
         Gênero:
         <select className="gender-input" name="gender" value={formValues.gender} onChange={handleChange}>
@@ -168,45 +212,19 @@ const FormularioCadastroUser = () => {
           ))}
         </select>
       </label>
-      </div>
-      <label>
-        CPF:
-        <InputMask
-            mask="999.999.999-99"
-          type="text" className="input-campo"
-          name="cpf"
-          value={formValues.cpf}
+      </div> */}
+      <div className="div-data">
+      <label className="label-texto">
+        Data de Nascimento:
+        </label>
+        <input className="input-data"
+          type="date"
+          name="date_of_birth"
+          value={formValues.date_of_birth}
           onChange={handleChange}
         />
-      </label>
-      <label>
-        Telefone:
-        <InputMask
-            mask="+99 (99) 99999-9999"
-            name="phone" className="input-campo"
-            value={formValues.phone}
-            onChange={handleChange}
-        />
-      </label>
-      <label>
-        Email:
-        <input className="input-campo"
-          type="email"
-          name="email"
-          value={formValues.email}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Senha:
-        <input className="input-campo"
-          type="password"
-          name="password"
-          value={formValues.password}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
+        </div>
+      {/* <label>
       CEP:
         <InputMask
             mask="99999-999"
@@ -252,10 +270,11 @@ const FormularioCadastroUser = () => {
           value={formValues.state}
           onChange={handleChange}
         />
-      </label>
-
-      <label>
+      </label> */}
+      {/* <div>
+      <label className="texto-imagem">
         Imagem:
+      </label>
         <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
           <input {...getInputProps()} />
           {isDragActive ? (
@@ -270,8 +289,9 @@ const FormularioCadastroUser = () => {
             </>
           )}
         </div>
-      </label>
-      <button className="button-login" type="submit">Submit</button>
+        </div> */}
+      
+      <button className="button-login" type="submit">Cadastrar</button>
     </form>
     </section>
     </div>
