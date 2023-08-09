@@ -1,5 +1,7 @@
 import './Footer.css';
-import {FaSquareFacebook} from 'react-icons/fa';
+import {ImFacebook2} from 'react-icons/im';
+import {ImLinkedin} from 'react-icons/im';
+import {BsInstagram} from 'react-icons/bs';
 
 function Footer(){
     return(
@@ -26,7 +28,7 @@ function Footer(){
                 <div>
                 <ul className="primeiro">
                     <h2>Contato</h2>
-                    <a className="footer-link">faleconosco@123foods.com</a>
+                    <a className="footer-link">faleconosco @123foods.com</a>
                     <a className="footer-link">Trabalhe Conosco</a>
                 </ul>
                 </div>
@@ -45,18 +47,25 @@ function Footer(){
                     </a>
                 </ul>
                 </div>
-                <div className="redes">
+                <div>
                 <ul className="primeiro">
                     <h2>Siga-nos nas redes sociais</h2>
+                   <div className="div-linkedin">
                     <a className="click-linkedin" href="https://br.linkedin.com/company/pormade"> 
-                        <img src="/imagens/linkedin.png"></img>
+                    <ImLinkedin className="linkedin-cor" />
                     </a>
+                   </div>
+                    <div className="div-insta">
                     <a className="click-insta" href="https://www.instagram.com/pormadeoficial/">
-                        <img src="/imagens/insta.png"></img>
+                        <BsInstagram className="instagram-cor" />
                     </a>
+                    </div>
+                    <div className="div-face">
                     <a className="click-facebook" href="https://www.facebook.com/pormadeonline/?locale=pt_BR">
-                        <img src="/imagens/face.png"></img>
+                    <ImFacebook2 className="face-cor" />
                     </a>
+                    </div>
+                    
                 </ul>
                 </div>
                 </li>

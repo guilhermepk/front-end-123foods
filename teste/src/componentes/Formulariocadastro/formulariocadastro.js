@@ -136,7 +136,9 @@ const FormularioCadastroUser = () => {
   return (
     <div className="cadastro-usuario">
       <section className="section-cadastro">
+      <div className="cadastro-nome">
       <h1 className="cadastro"> Cadastre-se! </h1>
+      </div>
     <form className="form-user"  onSubmit={handleSubmit}>
       <h1 className="dados">Dados Pessoais</h1>
       <div className="div-nome">

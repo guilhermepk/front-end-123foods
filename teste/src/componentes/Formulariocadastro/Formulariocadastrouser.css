@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=VT323&display=swap');
 
 * {
   margin: 0;
@@ -6,12 +9,16 @@
   box-sizing: border-box;
 }
 
+.cadastro-nome{
+  display: flex;
+  justify-content: center;
+}
+
 .cadastro{
   display: block;
   padding: 2rem;
   font-family: 'Oswald';
   font-size: 46px;
-  margin-left: 43.5%;
 }
 
 .cadastro-usuario{
@@ -52,7 +59,7 @@
     display: block;
     margin-bottom: 5px;
     font-family: 'Oswald';
-    font-weight: 700;
+    font-weight: 400;
     font-size: 20px;
   }
 

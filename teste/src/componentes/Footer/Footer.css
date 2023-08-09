@@ -7,12 +7,35 @@
 }
 
 .container{
-    height: 300px;
     background: #9E0000;
     color: #FFF5E7;
     font-family: "Oswald";
     font-weight: 700;
     margin-top: 40rem;
+}
+
+@media (max-width: 3000px) and (min-width: 1700px) { 
+
+    .container{
+        height: 300px;
+    }
+
+}
+
+@media (max-width: 1700px) and (min-width: 1020px) { 
+
+    .container{
+        height: 400px;
+    }
+
+}
+
+@media (max-width: 1020px) and (min-width: 0px) { 
+
+    .container{
+        height: 500px;
+    }
+
 }
 
 .grid-footer{
@@ -66,35 +89,24 @@ li{
     margin-top: -2rem;
 }
 
-.redes{
-    display: flex;
-    
+
+.linkedin-cor{
+    color: #FFF5E7;
 }
 
-@media (max-width: 3000px) and (min-width: 1400px) { 
-
-.click-facebook{
-    max-width: 34px;
-    margin-top: -60px;
-    margin-left: 10rem;
-}
+.instagram-cor{
+    color: #FFF5E7;
 }
 
-@media (max-width: 1400px) and (min-width: 800px) { 
+.face-cor{
+    color: #FFF5E7;
+}
+
+/* @media (max-width: 1400px) and (min-width: 800px) { 
 
     .click-facebook{
         max-width: 34px;
         
-    }
-    }
-
-
-@media (max-width: 3000px) and (min-width: 1000px) { 
-
-    .click-insta{
-        max-width: 45px;
-        margin-top: -60px;
-        margin-left: 5rem;
     }
     }
 
@@ -132,11 +144,73 @@ li{
                 .container{
                     height: 450px;
                 }
-                }
+                } */
 
+    .click-linkedin{
+        font-size: 30px;
+        max-width: 0;
+    }
 
-.click-linkedin{
-    max-width: 34px;
-    margin-left: 1rem;
+    .click-insta{
+        font-size: 30px;
+        max-width: 0;
+    }
 
-}
+    .click-facebook{
+        font-size: 30px;
+        max-width: 0;
+    } 
+
+    @media (max-width: 3000px) and (min-width: 1450px) { 
+        .div-face{
+            margin-left: 11rem;
+            margin-top: -3.1rem;
+        }
+
+        .div-linkedin{
+            margin-left: 3rem;
+            margin-top: 0.2rem;
+        }
+
+        .div-insta{
+            margin-left: 7rem;
+            margin-top: -3.1rem;
+        }
+
+    }
+
+    @media (max-width: 1450px) and (min-width: 0px) { 
+        .div-face{
+            margin-left: 3.8rem;
+            margin-top: 0rem;
+        }
+
+        .div-linkedin{
+            margin-left: 2rem;
+            margin-top: 0.2rem;
+        }
+
+        .div-insta{
+            margin-left: 5rem;
+            margin-top: -3.1rem;
+        }
+
+    }
+
+    @media (max-width: 1450px) and (min-width: 0px) { 
+        .div-face{
+            margin-left: 2.8rem;
+            margin-top: 0rem;
+        }
+
+        .div-linkedin{
+            margin-left: 1rem;
+            margin-top: 0.2rem;
+        }
+
+        .div-insta{
+            margin-left: 4rem;
+            margin-top: -3.1rem;
+        }
+
+    }
