@@ -13,6 +13,7 @@ import isAdmin from './views/admin/AdminRouteGuard'
 import BannerCadastro from "./views/admin/banner/cadastrobanner";
 import Bannerlist from "./views/admin/banner/bannerlist";
 import ViewTeste from "./views/ViewTeste";
+import FormularioNotification from "./componentes/Formularionotificacao/formularionotificacao";
 
 function NotFound() {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/view-teste" element={<ViewTeste/>}/>
           <Route path="*" element={<NotFound />} />
           <Route path="/user-register" element={<UserRegister />} />
+            <Route path="/notification" element={<FormularioNotification />} />
           <Route path="/admin/product-register" element={isAdmin() ? <ProductRegister /> : <Navigate to="/" />} />
             <Route path="/admin/banner" element={isAdmin() ? <BannerCadastro /> : <Navigate to="/" />} />
             <Route path="/admin/bannerlist" element={isAdmin() ? <Bannerlist /> : <Navigate to="/" />} />
