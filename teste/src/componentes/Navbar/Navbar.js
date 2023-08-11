@@ -3,7 +3,6 @@ import './Navbar.css';
 import {CgProfile} from 'react-icons/cg';
 import {FiShoppingCart} from 'react-icons/fi';
 import {AiOutlineBell} from 'react-icons/ai';
-import {BiMenu} from 'react-icons/bi';
 import Search from '../Search/Search';
 import { useState, useEffect} from 'react';
 import Dropzone from "react-dropzone";
@@ -144,20 +143,16 @@ const Navbar = () => {
             <a href=''> <img src="./imagens/logoSemFundo.png" alt="Logo" /> </a>
           </div>
           <div className="categorias">
-        <div>
-          <BiMenu className="categoria-icon"/>
-        </div>
       </div>  
               <Search/>
           <div className="conteudo">
-            
+          {userInfo && userInfo.admin && (
+              <a href="/admin"><button className="botao-admin"> Admin </button></a>
+            )}
+           
             <a href="#" onClick={handleProfileClick}>
               <CgProfile className="perfil"/>
             </a>
-
-            {userInfo && userInfo.admin && (
-              <a href="/admin"><button> Admin </button></a>
-            )}
 
             <a href="">
               <FiShoppingCart className="carrinho"/>
@@ -211,24 +206,59 @@ const Navbar = () => {
                 </div>
             )}
             {showUserInfoModal && userInfo && (
-                <div className="modal">
-                    <div className="modal-content">
-                        <span className="close" onClick={closeModal}>
-                            &times;
-                        </span>
-                        <h2 className="perfil-usuario">Informações do Usuário</h2>
-                        <div className="conta-usuario">
-                        <p>Nome: {userInfo.name}</p>
-                        <p>Email: {userInfo.email}</p>
-                        <p>Telefone: {userInfo.phone}</p>
-                        <p>CPF: {userInfo.cpf}</p>
-                        <p>Endereço: {userInfo.street}</p>
-                        </div>
+                <div className="modal-usuario">
+                   <div className="modal-conteudo">
+                        <h2 className="perfil-usuario">Olá, Gabriel</h2>
                         <div className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
-                            <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-usuario" />
+                            <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-perfil" />
                             {showUploadButton && (
                                 <button className="botao-hover" onClick={handleImageUploadButtonClick}>Atualizar Imagem</button>
                             )}
+                        </div>
+                        <div className="conta-usuario">
+                        <label className="label-dados">
+                            Nome:
+                        </label>
+                        <input
+                        className="dados-pessoais" type='text'
+                        value={userInfo.name}
+                        disabled
+                        />
+                        <label className="label-dados">
+                            Email:
+                        </label>
+                        <input
+                        className="dados-pessoais" type='text'
+                        value={userInfo.email}
+                        disabled
+                        />
+                        <label className="label-dados">
+                            Telepone:
+                        </label>
+                        <input
+                        className="dados-pessoais" type='text'
+                        value={userInfo.phone}
+                        disabled
+                        />
+                        <label className="label-dados">
+                            CPF:
+                        </label>
+                        <input
+                        className="dados-pessoais" type='text'
+                        value={userInfo.cpf}
+                        disabled
+                        />
+                        <button className="button-alterar">
+                            Alterar informações
+                        </button>
+                        {/* <label>
+                            Endereço:
+                        </label>
+                        <input
+                        className="dados-pessoais" type='text'
+                        value={userInfo.street}
+                        disabled
+                        /> */}
                         </div>
                         {showImageUploadModal && (
                             <div  className="image-upload-modal">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BiSearchAlt } from 'react-icons/bi';
 import './Search.css';
+import {BiMenu} from 'react-icons/bi';
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -29,6 +30,7 @@ const Search = () => {
 
   return (
     <div className="search">
+      <BiMenu className="categoria-icon"/>
       <input 
         type="text"
         placeholder="  Pesquisar:"
@@ -36,7 +38,6 @@ const Search = () => {
         value={searchValue}
         onChange={handleInputChange}
       />
-
     <a className="lupa-a">
       <BiSearchAlt className="lupa" onClick={() => performSearch(searchValue)} />
     </a>

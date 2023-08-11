@@ -10,15 +10,6 @@
     text-align: center;
     cursor: pointer;
   }
-   
-  button {
-    margin-top: 5px;
-    background-color: #f00;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-
 
 .banners-list {
   display: flex;

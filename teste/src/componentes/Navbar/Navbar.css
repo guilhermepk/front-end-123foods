@@ -85,20 +85,21 @@ body{
 
 .logo {
   margin-left: -4rem;
-  max-width: 200px;
-  height: 140px;
-  min-width: 200px;
+  max-width: 220px;
+  height: 150px;
+  min-width: 220px;
 }
 
 .categorias{
   margin-top: 0.3rem;
-  margin-left: 25rem;
+  margin-left: 27rem;
 }
 
 .categoria-icon{
   color: #ffffff;
   height: 40px;
   width: 40px;
+  margin-top: -0.3rem;
 }
 
 .login{
@@ -113,7 +114,6 @@ body{
 
 .modal {
   z-index: 2;
-  justify-content: center;
   background-color: #FFECCE;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5); 
   margin: 80px 0; 
@@ -122,6 +122,124 @@ body{
   margin-top: 5rem;
   border: solid;
   width: 500px;
+}
+
+.modal-usuario{
+  z-index: 2;
+  display: flex;
+  background-color: #FFECCE;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5); 
+  margin: 80px 0; 
+  padding: 0px;
+  margin-top: 5rem;
+  border: solid;
+  width: 988px;
+  height: 525px;
+  margin-left: 25%;
+  border-radius: 0 10px 10px 0px;
+}
+
+.perfil-usuario{
+  font-family: 'Oswald';
+  margin-right: 20rem;
+}
+
+
+.conta-usuario{
+  display: grid;
+  margin-left: 35rem;
+  margin-top: -15rem;
+  font-weight: 400;
+  font-size: 22px;
+  font-family: 'Oswald';
+  gap: 15px;
+}
+
+.dados-pessoais{
+  padding: 10px;
+  border: 1px solid #E1C59B;
+  background-color: #E1C59B;
+  border-radius: 10px;
+  width: 375px;
+  height: 35px;
+  border: none;
+  font-size: 20px;
+  box-sizing: border-box;
+  font-weight: 300;
+}
+
+.button-alterar{
+  width: 138px;
+  height: 59px;
+  border-radius: 12px;
+  border: 2px solid #333;
+  background-color: #9E0000;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: 'Oswald';
+  font-weight: 400;
+  font-size: 16px;
+  margin-left: 7rem;
+  margin-top: 1rem;
+}
+
+.button-alterar:hover{
+  background-color: #850101;
+}
+
+.modal-conteudo{
+  display: block;
+}
+
+.user-image-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 11rem;
+}
+
+.imagem-perfil{
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #000000;
+}
+
+.botao-hover {
+  display: none;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.user-image-container:hover .botao-hover {
+  display: block;
+}
+
+.image-upload-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Transparência para fundo escuro */
+}
+
+.image-upload-modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
 }
 
 @media (min-width: 1500px) and (max-width: 5000px)
@@ -338,58 +456,6 @@ body{
     font-weight: 400;
     }
 
-  .user-image-container {
-  position: relative;
-  display: inline-block;
-}
-
-.imagem-usuario {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #333;
-}
-
-.botao-hover {
-  display: none;
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #333;
-  color: #fff;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-}
-
-.user-image-container:hover .botao-hover {
-  display: block;
-}
-
-
-
-
-.image-upload-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Transparência para fundo escuro */
-}
-
-.image-upload-modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
-}
 
 .perfil-usuario{
   display: flex;
@@ -397,4 +463,20 @@ body{
   margin-top: 0.6rem;
   color: #000000;
   font-weight: 700;
+}
+
+.botao-admin {
+  margin-top: 0.7rem;
+  color: #fff;
+  cursor: pointer;
+  background-color: #b70303;
+  font-family: 'Oswald';
+  font-weight: 600;
+  border: solid rgb(20, 20, 20);
+  border-radius: 8px;
+}
+
+
+.botao-admin:hover{
+  background-color: #820101;
 }
