@@ -120,7 +120,7 @@ body{
   padding: 0px;
   border-radius: 10px;
   margin-top: 5rem;
-  border: solid;
+  border: 2px solid #000000;
   width: 500px;
 }
 
@@ -132,22 +132,98 @@ body{
   margin: 80px 0; 
   padding: 0px;
   margin-top: 5rem;
-  border: solid;
-  width: 988px;
+  border: 2px solid #000000;
+  width: 1150px;
   height: 525px;
   margin-left: 25%;
   border-radius: 0 10px 10px 0px;
 }
 
+.modal-usuario1{
+  width: 200px;
+  background-color: #FFECCE;
+  border-right: 2px solid #000000;
+
+}
+
+.botao-perfil{
+  width: 198px;
+  height: 47px;
+  color: #FFFFFF;
+  background-color: #9E0000;
+  font-family: 'Oswald';
+  font-size: 20px;
+  border-bottom: 2px solid #000000;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.botao-compras{
+  width: 198px;
+  height: 47px;
+  color: #FFFFFF;
+  background-color: #9E0000;
+  font-family: 'Oswald';
+  font-size: 20px;
+  border-bottom: 2px solid #000000;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.botao-historico{
+  width: 198px;
+  height: 47px;
+  color: #FFFFFF;
+  background-color: #9E0000;
+  font-family: 'Oswald';
+  font-size: 20px;
+  border-bottom: 2px solid #000000;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.botao-enderecos{
+  width: 198px;
+  height: 47px;
+  color: #FFFFFF;
+  background-color: #9E0000;
+  font-family: 'Oswald';
+  font-size: 20px;
+  border-bottom: 2px solid #000000;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.botao-sair{
+  position: relative 0;
+
+  width: 198px;
+  height: 47px;
+  color: #FFFFFF;
+  background-color: #9E0000;
+  font-family: 'Oswald';
+  font-size: 20px;
+  border-bottom: 2px solid #000000;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  
+}
+
 .perfil-usuario{
   font-family: 'Oswald';
-  margin-right: 20rem;
+  margin-right: 26rem;
+
 }
 
 
 .conta-usuario{
   display: grid;
-  margin-left: 35rem;
+  margin-left: 28rem;
   margin-top: -15rem;
   font-weight: 400;
   font-size: 22px;
@@ -194,7 +270,7 @@ body{
 .user-image-container {
   position: relative;
   display: inline-block;
-  margin-left: 11rem;
+  margin-left: 5rem;
 }
 
 .imagem-perfil{
