@@ -157,6 +157,7 @@ body{
   border-left: none;
   border-right: none;
   border-top: none;
+  
 }
 
 .botao-compras{
@@ -170,6 +171,7 @@ body{
   border-left: none;
   border-right: none;
   border-top: none;
+  cursor: pointer;
 }
 
 .botao-historico{
@@ -183,6 +185,7 @@ body{
   border-left: none;
   border-right: none;
   border-top: none;
+  cursor: pointer;
 }
 
 .botao-enderecos{
@@ -196,11 +199,12 @@ body{
   border-left: none;
   border-right: none;
   border-top: none;
+  cursor: pointer;
 }
 
 .botao-sair{
   position: relative 0;
-
+  cursor: pointer;
   width: 198px;
   height: 47px;
   color: #FFFFFF;
@@ -450,7 +454,7 @@ body{
   height: 60px;
   background-color: #9E0000;
   color: #fff;
-  border: solid rgb(20, 20, 20);
+  border: 2px solid #000000;
   border-radius: 8px;
   cursor: pointer;
   font-size: 22px;

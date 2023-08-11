@@ -39,7 +39,7 @@
     margin: 0 auto;
     padding: 20px;
     border-radius: 5px;
-    border: solid;
+    border: 2px solid #000000;
     background-color: #FFECCE;
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
