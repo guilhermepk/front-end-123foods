@@ -27,7 +27,10 @@ const NavbarAdm=()=>{
             <h3 className={minimized ? 'hidden' : ''}>Admin Dashboard</h3>
             <ul className={`admin-nav ${minimized ? 'hidden' : ''}`}>
               <li>
-                <Link to="/admin">Home</Link>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/admin">Admin Home</Link>
               </li>
               <li>
                 <Link to="/admin/banner"><FaImage/>Cadastro de banners</Link>
