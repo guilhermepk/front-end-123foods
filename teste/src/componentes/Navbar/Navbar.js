@@ -200,15 +200,30 @@ const Navbar = () => {
                             <p className='conta-possuir'>Não possui conta? </p>
 
                             <a href='/user-register' target='_blank'> Registre-se agora! </a>
-
                         </form>
                     </div>
                 </div>
             )}
             {showUserInfoModal && userInfo && (
                 <div className="modal-usuario">
+                    <div className="modal-usuario1">
+                        <button className="botao-perfil">
+                            Meu perfil
+                        </button>
+                        <button className="botao-compras">
+                            Minhas compras
+                        </button>
+                        <button className="botao-historico">
+                            Histórico de Compras
+                        </button>
+                        <button className="botao-enderecos">
+                            Endereços Cadastrados
+                        </button>
+                        <button className="botao-sair" onClick={handleLogout}>Sair</button>
+                    </div>
                    <div className="modal-conteudo">
-                        <h2 className="perfil-usuario">Olá, Gabriel</h2>
+                        <h2 className="perfil-usuario">
+                            Olá, Gabriel</h2>
                         <div className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
                             <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-perfil" />
                             {showUploadButton && (
@@ -233,7 +248,7 @@ const Navbar = () => {
                         disabled
                         />
                         <label className="label-dados">
-                            Telepone:
+                            Telefone:
                         </label>
                         <input
                         className="dados-pessoais" type='text'
@@ -287,7 +302,6 @@ const Navbar = () => {
                             </div>
                             </div>
                         )}
-                        <button onClick={handleLogout}>Logout</button>
                     </div>
                 </div>
             )}
