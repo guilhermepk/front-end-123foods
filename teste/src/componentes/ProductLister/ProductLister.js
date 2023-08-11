@@ -4,7 +4,7 @@ import { Card, Col, Container, Pagination, Row } from "react-bootstrap";
 const ProductLister = () => {
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const productsPerPage = 9;
+    const productsPerPage = 5;
 
     useEffect(() => {
         fetch('http://localhost:3000/foods')
@@ -31,13 +31,14 @@ const ProductLister = () => {
                                       onLoad={() => console.log(`Imagem carregada: /uploads/${product.images[0]?.path}`)}
                                       onError={() => console.log(`Erro ao carregar a imagem: /uploads/${product.images[0]?.path}`)}/>
                             <Card.Body>
-                                <Card.Title>{product.name}</Card.Title>
-                                <Card.Text>{product.price}</Card.Text>
+                                <Card.Title>{`Nome: ${product.name}`}</Card.Title>
+                                <Card.Text>{`Preço: ${product.price}`}</Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
                 ))}
             </Row>
+
             <Pagination className="justify-content-center mt-4">
                 {Array.from({ length: Math.ceil(products.length / productsPerPage) }).map((_, index) => (
                     <Pagination.Item

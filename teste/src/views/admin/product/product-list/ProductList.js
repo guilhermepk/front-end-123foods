@@ -1,9 +1,10 @@
 import ProductLister from '../../../../componentes/ProductLister/ProductLister';
+import { Link } from "react-router-dom";
 
 const ProductRegister = () => {
     return (
         <div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <Link to="/admin"> Admin Home</Link>
             <h1> Produtos </h1>
             <ProductLister/>
         </div>
