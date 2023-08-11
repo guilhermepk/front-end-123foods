@@ -25,7 +25,7 @@ const Navbar = () => {
 
   const handleProfileClick = () => {
       if (userInfo) {
-          setShowUserInfoModal(true);
+        showUserInfoModal ? setShowUserInfoModal(false) : setShowUserInfoModal(true);
       } else {
           setShowLoginForm(true);
       }
@@ -223,7 +223,7 @@ const Navbar = () => {
                     </div>
                    <div className="modal-conteudo">
                         <h2 className="perfil-usuario">
-                            Olá, Gabriel</h2>
+                            Olá, {userInfo.name}</h2>
                         <div className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
                             <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-perfil" />
                             {showUploadButton && (
