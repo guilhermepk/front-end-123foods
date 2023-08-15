@@ -33,7 +33,7 @@ const Navbar = () => {
 
   const handleImageDrop = (acceptedFiles) => {
       setSelectedImage(acceptedFiles[0]);
-  };
+  }
 
   const fetchUpdatedUserInfo = async () => {
       try {
@@ -48,6 +48,7 @@ const Navbar = () => {
   };
 
   const handleUploadImage = async () => {
+    console.log('oi');
       try {
           const formData = new FormData();
           formData.append('file', selectedImage);
@@ -227,7 +228,12 @@ const Navbar = () => {
                         <h2 className="perfil-usuario">
                             Olá, {userInfo.name}</h2>
                         <div className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
-                            <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-perfil" />
+                            {userInfo.image && (
+                                <img src={`/uploads/${userInfo.image}`} alt="User Image" className="imagem-perfil" />
+                            )}
+                            {!userInfo.image && (
+                                <img src={`/uploads/imagem-padrao.gif`} alt="Default User Image" className="imagem-perfil" />
+                            )}
                             {showUploadButton && (
                                 <button className="botao-hover" onClick={handleImageUploadButtonClick}>Atualizar Imagem</button>
                             )}
@@ -299,7 +305,7 @@ const Navbar = () => {
                                                 </div>
                                             )}
                                         </Dropzone>
-                                        <button type={"submit"}>Salvar</button>
+                                        <button type="submit">Salvar</button>
                                     </form>
                             </div>
                             </div>

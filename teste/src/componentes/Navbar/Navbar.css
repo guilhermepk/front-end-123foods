@@ -16,7 +16,7 @@ body{
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #333;
+  border: 2px solid #000000;
 }
 .navbar {
   background: #9E0000;
@@ -555,7 +555,7 @@ body{
   background-color: #b70303;
   font-family: 'Oswald';
   font-weight: 600;
-  border: solid rgb(20, 20, 20);
+  border: 2px solid #000000;
   border-radius: 8px;
 }
 

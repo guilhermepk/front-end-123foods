@@ -194,7 +194,7 @@
     padding: 10px;
     background-color: #9E0000;
     color: #fff;
-    border: solid rgb(10, 10, 10);
+    border: 2px solid #000000;
     border-radius: 8px;
     cursor: pointer;
     font-family: 'Oswald';
