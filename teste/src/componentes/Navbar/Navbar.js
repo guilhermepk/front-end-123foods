@@ -219,7 +219,9 @@ const Navbar = () => {
                         <button className="botao-enderecos">
                             Endereços Cadastrados
                         </button>
+                        <div className="botao-sair-top">
                         <button className="botao-sair" onClick={handleLogout}>Sair</button>
+                        </div>
                     </div>
                    <div className="modal-conteudo">
                         <h2 className="perfil-usuario">

@@ -211,11 +211,14 @@ body{
   background-color: #9E0000;
   font-family: 'Oswald';
   font-size: 20px;
-  border-bottom: 2px solid #000000;
+  border: 2px solid #000000;
   border-left: none;
   border-right: none;
-  border-top: none;
   
+}
+
+.botao-sair-top{
+  margin-top: 18rem;
 }
 
 .perfil-usuario{
@@ -252,7 +255,7 @@ body{
   width: 138px;
   height: 59px;
   border-radius: 12px;
-  border: 2px solid #333;
+  border: 2px solid #000000;
   background-color: #9E0000;
   color: #ffffff;
   cursor: pointer;
