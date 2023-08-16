@@ -10,6 +10,7 @@ import { Eye, EyeOff} from 'react-feather';
 import {IoIosClose} from 'react-icons/io';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import {BsArrowLeftCircle} from 'react-icons/bs';
 
 const Navbar = () => {
   const [username, setUsername] = useState('');
@@ -225,14 +226,17 @@ const Navbar = () => {
                         </div>
                     </div>
                    <div className="modal-conteudo">
+                    <a onClick={closeModal}> 
+                        <BsArrowLeftCircle className="seta-voltar" />
+                    </a>
                         <h2 className="perfil-usuario">
                             Olá, {userInfo.name}</h2>
                         <div className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
                             {userInfo.image && (
-                                <img src={`/uploads/${userInfo.image}`} alt="User Image" className="imagem-perfil" />
+                                <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-perfil" />
                             )}
                             {!userInfo.image && (
-                                <img src={`/uploads/imagem-padrao.gif`} alt="Default User Image" className="imagem-perfil" />
+                                <img src={`http://localhost:3000/uploads/imagem-padrao.gif`} alt="Default User Image" className="imagem-perfil" />
                             )}
                             {showUploadButton && (
                                 <button className="botao-hover" onClick={handleImageUploadButtonClick}>Atualizar Imagem</button>
@@ -286,26 +290,26 @@ const Navbar = () => {
                         {showImageUploadModal && (
                             <div  className="image-upload-modal">
                             <div  className="image-upload-modal-content">
-                                <span className="close" onClick={() => setShowImageUploadModal(false)}>
+                                <span className="close-image" onClick={() => setShowImageUploadModal(false)}>
                                     &times;
                                 </span>
-                                    <h2>Atualizar Imagem do Usuário</h2>
-                                    <form onSubmit={handleUploadImage}>
+                                    <h2 className="atualizar-imagem">Atualizar Imagem do Usuário</h2>
+                                    <form className="form-imagem" onSubmit={handleUploadImage}>
                                         <Dropzone onDrop={handleImageDrop}>
                                             {({ getRootProps, getInputProps }) => (
                                                 <div className="dropzone" {...getRootProps()}>
                                                     <input {...getInputProps()} />
-                                                    <p>Arraste e solte uma imagem aqui, ou clique para selecionar uma imagem.</p>
+                                                    <p className="selecionar-imagem">Selecionar imagem:</p>
                                                     {selectedImage && (
                                                         <div>
-                                                            <p>Imagem selecionada: {selectedImage.name}</p>
+                                                            
                                                             <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada" />
                                                         </div>
                                                     )}
                                                 </div>
                                             )}
                                         </Dropzone>
-                                        <button type="submit">Salvar</button>
+                                        <button  className="botao-salvar" type="submit">Salvar</button>
                                     </form>
                             </div>
                             </div>

@@ -133,9 +133,9 @@ body{
   padding: 0px;
   margin-top: 5rem;
   border: 2px solid #000000;
-  width: 1150px;
+  width: 1100px;
   height: 525px;
-  margin-left: 25%;
+  margin-left: 22%;
   border-radius: 0 10px 10px 0px;
 }
 
@@ -145,6 +145,8 @@ body{
   border-right: 2px solid #000000;
 
 }
+
+
 
 .botao-perfil{
   width: 198px;
@@ -157,7 +159,25 @@ body{
   border-left: none;
   border-right: none;
   border-top: none;
+  cursor: pointer;
   
+}
+
+.seta-voltar{
+  display: block;
+  font-size: 40px;
+  margin-top: -3rem;
+  margin-left: -12rem;
+  color: #9E0000;
+  cursor: pointer;
+}
+
+.seta-voltar:hover{
+  color: #800000;
+}
+
+.botao-perfil:hover{
+  background-color: #850101;
 }
 
 .botao-compras{
@@ -174,6 +194,10 @@ body{
   cursor: pointer;
 }
 
+.botao-compras:hover{
+  background-color: #850101;
+}
+
 .botao-historico{
   width: 198px;
   height: 47px;
@@ -186,6 +210,10 @@ body{
   border-right: none;
   border-top: none;
   cursor: pointer;
+}
+
+.botao-historico:hover{
+  background-color: #850101;
 }
 
 .botao-enderecos{
@@ -202,6 +230,10 @@ body{
   cursor: pointer;
 }
 
+.botao-enderecos:hover{
+  background-color: #850101;
+}
+
 .botao-sair{
   position: relative 0;
   cursor: pointer;
@@ -214,12 +246,14 @@ body{
   border: 2px solid #000000;
   border-left: none;
   border-right: none;
-  
-}
-
-.botao-sair-top{
   margin-top: 18rem;
 }
+
+.botao-sair:hover{
+  background-color: #850101;
+}
+
+
 
 .perfil-usuario{
   font-family: 'Oswald';
@@ -277,12 +311,12 @@ body{
 .user-image-container {
   position: relative;
   display: inline-block;
-  margin-left: 5rem;
+  margin-left: 6rem;
 }
 
 .imagem-perfil{
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #000000;
@@ -291,8 +325,9 @@ body{
 .botao-hover {
   display: none;
   position: absolute;
+  cursor: pointer;
   bottom: 5px;
-  left: 50%;
+  margin-left: 8rem;
   transform: translateX(-50%);
   background-color: #333;
   color: #fff;
@@ -318,11 +353,58 @@ body{
 }
 
 .image-upload-modal-content {
-  background-color: #fff;
+  background-color: #ffefd5;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  max-width: 400px;
+  max-width: 500px;
+  height: 500px;
+  border: 2px solid #2c2c2c;
+  border-radius: 10px;
+  font-family: 'Oswald';
+}
+
+.atualizar-imagem{
+  color: #000000;
+  font-size: 25px;
+  margin-left: 5rem;
+  margin-top: -2.5rem;
+  margin-bottom: 3rem;
+}
+
+.form-imagem{
+  width: 350px;
+  margin-left: 3rem;
+}
+
+.botao-salvar{
+  font-family: 'Oswald';
+  background-color: #9E0000;
+  width: 100px;
+  height:40px;
+  border-radius: 8px;
+  margin-left: 7.7rem;
+  margin-top: 2.5rem;
+  border: 2px solid #000000;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.botao-salvar:hover{
+  background-color: #820101;
+}
+
+.close-image{
+  display: block;
+  color: rgb(186, 23, 23);
+  margin-left: 27.5rem;
+  cursor: pointer;
+  font-size: 50px;
+  margin-top: -2rem;
+}
+
+.close-image:hover{
+  color:  rgb(255, 0, 0);;
 }
 
 @media (min-width: 1500px) and (max-width: 5000px)
