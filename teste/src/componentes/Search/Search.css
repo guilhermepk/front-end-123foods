@@ -1,9 +1,22 @@
 .search {
   display: flex;
-  width: 40%;
+  width: 60%;
   height: 30px;
-  margin-right: 18rem;
+  margin-right: 22rem;
   gap: 20px;
+}
+
+.categorias{
+  margin-top: 0.1rem;
+  margin-left: 27rem;
+}
+
+.categoria-icon{
+  color: #ffffff;
+  height: 40px;
+  width: 40px;
+  margin-top: -0.3rem;
+  cursor: pointer;
 }
 
 .search-input {
@@ -30,13 +43,6 @@
   margin-left: -1.8rem;
 }
 
-@media (min-width: 0px) and (max-width: 830px)
-{
-  .search{
-    margin-right: 2%;
-    
-  }
-}
 
 
 

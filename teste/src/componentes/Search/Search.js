@@ -30,7 +30,9 @@ const Search = () => {
 
   return (
     <div className="search">
+      <div className="categorias">
       <BiMenu className="categoria-icon"/>
+      </div>
       <input 
         type="text"
         placeholder="  Pesquisar:"

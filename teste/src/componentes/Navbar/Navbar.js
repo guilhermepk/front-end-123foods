@@ -143,9 +143,7 @@ const Navbar = () => {
         <ul className="nav-list">
           <div className="logo">
             <a href=''> <img src="./imagens/logoSemFundo.png" alt="Logo" /> </a>
-          </div>
-          <div className="categorias">
-      </div>  
+          </div>  
               <Search/>
           <div className="conteudo">
           {userInfo && userInfo.admin && (
@@ -236,7 +234,7 @@ const Navbar = () => {
                                 <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-perfil" />
                             )}
                             {!userInfo.image && (
-                                <img src={`http://localhost:3000/uploads/imagem-padrao.gif`} alt="Default User Image" className="imagem-perfil" />
+                                <img src={`http://localhost:3000/uploads/imagem-padrao.gif`} alt="Default User Image" className="imagem-perfil"/>
                             )}
                             {showUploadButton && (
                                 <button className="botao-hover" onClick={handleImageUploadButtonClick}>Atualizar Imagem</button>
@@ -294,16 +292,16 @@ const Navbar = () => {
                                     &times;
                                 </span>
                                     <h2 className="atualizar-imagem">Atualizar Imagem do Usuário</h2>
+                                    <p className="selecionar-imagem">Selecionar imagem:</p>
                                     <form className="form-imagem" onSubmit={handleUploadImage}>
                                         <Dropzone onDrop={handleImageDrop}>
                                             {({ getRootProps, getInputProps }) => (
                                                 <div className="dropzone" {...getRootProps()}>
                                                     <input {...getInputProps()} />
-                                                    <p className="selecionar-imagem">Selecionar imagem:</p>
                                                     {selectedImage && (
                                                         <div>
                                                             
-                                                            <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada" />
+                                                            <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada"  className='imagem-selecionar'/>
                                                         </div>
                                                     )}
                                                 </div>

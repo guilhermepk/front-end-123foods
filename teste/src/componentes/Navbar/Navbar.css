@@ -20,6 +20,7 @@ body{
 }
 .navbar {
   background: #9E0000;
+  width: 100%;
 }
 
 .nav-list {
@@ -47,7 +48,7 @@ body{
 .conteudo{
   display: flex;
   gap: 22px;
-  margin-right: 4rem;
+  margin-right: 2rem;
 }
 
 .carrinho:hover{
@@ -90,17 +91,7 @@ body{
   min-width: 220px;
 }
 
-.categorias{
-  margin-top: 0.3rem;
-  margin-left: 27rem;
-}
 
-.categoria-icon{
-  color: #ffffff;
-  height: 40px;
-  width: 40px;
-  margin-top: -0.3rem;
-}
 
 .login{
   display: flex;
@@ -174,10 +165,6 @@ body{
 
 .seta-voltar:hover{
   color: #800000;
-}
-
-.botao-perfil:hover{
-  background-color: #850101;
 }
 
 .botao-compras{
@@ -312,14 +299,16 @@ body{
   position: relative;
   display: inline-block;
   margin-left: 6rem;
+  width: 200px;
+  height: 200px;
 }
 
 .imagem-perfil{
-  width: 200px;
-  height: 200px;
+  max-width: 100%;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #000000;
+  overflow: hidden;
 }
 
 .botao-hover {
@@ -372,9 +361,21 @@ body{
   margin-bottom: 3rem;
 }
 
+.selecionar-imagem{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 4rem;
+  font-size: 18px;
+}
+
 .form-imagem{
   width: 350px;
   margin-left: 3rem;
+}
+
+.imagem-selecionar{
+  max-width: 100%;
 }
 
 .botao-salvar{
@@ -383,7 +384,7 @@ body{
   width: 100px;
   height:40px;
   border-radius: 8px;
-  margin-left: 7.7rem;
+  margin-left: 7.8rem;
   margin-top: 2.5rem;
   border: 2px solid #000000;
   color: #ffffff;
@@ -406,6 +407,7 @@ body{
 .close-image:hover{
   color:  rgb(255, 0, 0);;
 }
+
 
 @media (min-width: 1500px) and (max-width: 5000px)
 {
@@ -466,14 +468,6 @@ body{
     
   }
 } */
-
-@media (min-width: 0px) and (max-width: 1700px)
-{
-  .categorias{
-    margin-left: 8%;
-    
-  }
-}
 
 @media (min-width: 0px) and (max-width: 1100px)
 {
