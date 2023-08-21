@@ -5,7 +5,6 @@ import Navbar from './componentes/Navbar/Navbar';
 import FormularioCadastroUser from './componentes/Formulariocadastro/formulariocadastro';
 
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
