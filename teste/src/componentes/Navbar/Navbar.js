@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+import { useUserInfo } from '../UserInfo/UserInfo';
 import { CgProfile } from 'react-icons/cg';
 import { FiShoppingCart } from 'react-icons/fi';
 import { AiOutlineBell } from 'react-icons/ai';
@@ -25,24 +26,20 @@ const Navbar = () => {
     const [showLoginForm, setShowLoginForm] = useState(false);
     const [showUserInfoModal, setShowUserInfoModal] = useState(false);
     const [token, setToken] = useState(null);
-    const [userInfo,setUserInfo] = useState(null);
+    
     const [decoded_token, setDecodedToken] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showUploadButton,setShowUploadButton] = useState(null);
     const [showImageUploadModal, setShowImageUploadModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
+    
+    const userId = decoded_token?.sub; 
+    const userInfo=useUserInfo(token,userId);
+
+
 
     const handleProfileClick = () => {
         if (decoded_token) {
-            fetchUpdatedUserInfo()
-            .then(data => {
-                if (data !== null) {
-                    setUserInfo(data);
-                }
-            })
-            .catch(error => {
-                console.error('Erro ao buscar os dados do usuário:', error);
-            });
             setShowUserInfoModal(!showUserInfoModal);
         } else {
             setShowLoginForm(true);
@@ -54,20 +51,7 @@ const Navbar = () => {
         setSelectedImage(acceptedFiles[0]);
     };
 
-    const fetchUpdatedUserInfo = async () => {
-        try {
-            const response = await axios.get(`http://localhost:3000/users/${decoded_token.sub}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-            const data = response.data;
-            return data;
-        } catch (error) {
-            console.error('Erro ao buscar os dados do usuário:', error);
-            return null;
-        }
-    };
+   
     const handleUploadImage = async () => {
         try {
             const formData = new FormData();
@@ -78,15 +62,7 @@ const Navbar = () => {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`,
                 },
-            });
-
-            const updatedUserInfo = await fetchUpdatedUserInfo();
-
-            if (updatedUserInfo) {
-                localStorage.setItem('userInfo', JSON.stringify(updatedUserInfo));
-            }
-            console.log(updatedUserInfo)
-
+            })
             setSelectedImage(null);
             setShowImageUploadModal(false);
         } catch (error) {

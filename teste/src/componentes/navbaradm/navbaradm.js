@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import axios from 'axios';
+import { useUserInfo } from '../UserInfo/UserInfo';
 import { Link } from "react-router-dom";
 import './navbaradm.css'
+import jwt_decode from 'jwt-decode';
 import{AiTwotoneNotification} from 'react-icons/ai'
 import {FaImage} from 'react-icons/fa';
 import {TbPaperBag} from 'react-icons/tb';
 import {RiNotificationBadgeFill}from 'react-icons/ri'
 const NavbarAdm=()=>{
+  
   const [minimized, setMinimized] = useState(false);
-  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-
+  const token = localStorage.getItem('payload');
+  const decoded_token = jwt_decode(token);
+    const userId = decoded_token?.sub; 
+    const userInfo=useUserInfo(token,userId);
   const toggleMinimize = () => {
     setMinimized(!minimized);
   };
+  
   return(
       <div>
         <div className={`admin-container ${minimized ? 'hide-content' : ''}`}>
           <div className={`admin-sidebar ${minimized ? 'minimized' : ''}`}>
             <div className="user-column" onClick={toggleMinimize}>
-              <img
-                  src={`http://localhost:3000/uploads/${userInfo.image}`}
-                  alt="User Image"
-                  className={`imagem-usuario ${minimized ? 'minimized' : ''}`}
-              />
-              {!minimized && <p className="nameuser">{userInfo.name}</p>}
+            {userInfo && (
+                    <img
+                      src={`http://localhost:3000/uploads/${userInfo.image}`}
+                      alt="User Image"
+                      className={`imagem-usuario ${minimized ? 'minimized' : ''}`}
+                    />
+                  )}
+              {userInfo && (<p className="nameuser">{userInfo.name}</p>)}
             </div>
             <h3 className={minimized ? 'hidden' : ''}>Admin Dashboard</h3>
             <ul className={`admin-nav ${minimized ? 'hidden' : ''}`}>
