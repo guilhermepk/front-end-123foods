@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+
 import { CgProfile } from 'react-icons/cg';
 import { FiShoppingCart } from 'react-icons/fi';
 import { AiOutlineBell } from 'react-icons/ai';
@@ -14,7 +15,6 @@ import Swal from 'sweetalert2';
 import jwt_decode from 'jwt-decode';
 
 import {BsArrowLeftCircle} from 'react-icons/bs';
-
 
 
 const Navbar = () => {
