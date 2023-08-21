@@ -9,7 +9,6 @@ function Footer(){
             <div className=''>
                 <section className='grid-footer'>
                 <li>
-                <div>
                 <ul className="primeiro">
                     <h2>Atendimento ao Cliente</h2>
                     <a className="footer-link">Como comprar?</a>
@@ -17,21 +16,16 @@ function Footer(){
                     <a className="footer-link">Pedidos, Cancelamento, Trocas e Devoluções</a>
                     <a className="footer-link">Problemas com Entrega</a>
                 </ul>
-                </div>
-                <div>
                 <ul className="primeiro">
                     <h2>Conheça-nos</h2>
                     <a className="footer-link">Nossa História</a>
                     <a className="footer-link">Nossa Loja</a>
                 </ul>
-                </div>
-                <div>
                 <ul className="primeiro">
                     <h2>Contato</h2>
                     <a className="footer-link">faleconosco @123foods.com</a>
                     <a className="footer-link">Trabalhe Conosco</a>
                 </ul>
-                </div>
                 <div className="apagar">
                 <ul className="primeiro">
                     <h2></h2>

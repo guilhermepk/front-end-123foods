@@ -1,15 +1,10 @@
 .search {
   display: flex;
-  width: 60%;
+  width: 30%;
   height: 30px;
-  margin-right: 22rem;
-  gap: 20px;
+  gap: 16px;
 }
 
-.categorias{
-  margin-top: 0.1rem;
-  margin-left: 27rem;
-}
 
 .categoria-icon{
   color: #ffffff;
@@ -34,9 +29,7 @@
   background-color: #FFE2B6;
   border-radius: 0px 10px 10px 0px; 
   padding: 4px 2px 3px 6px;
-  display: block;
   margin-top: 0px;
-  margin-bottom: center;
 }
 
 .lupa-a{
