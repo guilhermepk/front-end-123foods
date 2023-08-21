@@ -18,6 +18,7 @@ import {BsArrowLeftCircle} from 'react-icons/bs';
 
 
 const Navbar = () => {
+    const [fetchedUserInfo, setFetchedUserInfo] = useState(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -25,13 +26,16 @@ const Navbar = () => {
     const [showLoginForm, setShowLoginForm] = useState(false);
     const [showUserInfoModal, setShowUserInfoModal] = useState(false);
     const [token, setToken] = useState(null);
+    const [userInfo,setUserInfo] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [showUploadButton,setShowUploadButton] = useState(null);
     const [showImageUploadModal, setShowImageUploadModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
 
     const handleProfileClick = () => {
         if (decoded_token) {
+            fetchUpdatedUserInfo();
             setShowUserInfoModal(!showUserInfoModal);
         } else {
             setShowLoginForm(true);
@@ -50,14 +54,14 @@ const Navbar = () => {
                 },
             });
             const data = response.data;
-            console.log('Response:', response);
-            console.log('Data:', data);
             return data;
         } catch (error) {
             console.error('Erro ao buscar os dados do usuário:', error);
             return null;
         }
     };
+    console.log('userinfo fora da funcção:',userInfo)
+console.log('token descodificado:',decoded_token)
 
     const handleUploadImage = async () => {
         try {
@@ -100,8 +104,12 @@ const Navbar = () => {
             const decodedToken = jwt_decode(storedToken);
             setDecodedToken(decodedToken);
         }
+        const fetchUserData = async () => {
+            const userData = await fetchUpdatedUserInfo();
+            setFetchedUserInfo(userData); 
+        };
     }, []);
-
+console.log('setfetch:',)
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
     };
@@ -289,14 +297,14 @@ const Navbar = () => {
                         <button className="button-alterar">
                             Alterar informações
                         </button>
-                        {/* <label>
+                        <label>
                             Endereço:
                         </label>
                         <input
                         className="dados-pessoais" type='text'
                         value={userInfo.street}
                         disabled
-                        /> */}
+                        />
                         </div>
                         {showImageUploadModal && (
                             <div  className="image-upload-modal">
