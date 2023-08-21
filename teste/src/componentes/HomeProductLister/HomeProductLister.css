@@ -1,0 +1,30 @@
+*{
+    font-family: 'Oswald';
+}
+
+.cards {
+    display: block;
+    justify-content: center;
+    margin-left: 17.9rem;
+    margin-right: 17.9rem;
+    margin-top: 90px;
+    padding: 20px;
+    border: solid 2px black;
+    color: #9E0000;
+    font-size: 22px;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    border-radius: 18px;
+}
+
+.productCard{
+    margin-left: 5px;
+    margin-right: 5px;
+    display: block;
+    justify-content: center;
+    border: solid 2px black;
+}
+
+.cardHeader{
+    margin-bottom: 20px;
+}

@@ -3,6 +3,7 @@ import Navbar from '../componentes/Navbar/Navbar';
 import Banner from '../componentes/Banner/Banner';
 import Filtrocat from '../componentes/Filtrocategorias/filtrocategorias';
 import Footer from '../componentes/Footer/Footer';
+import HomeProductLister from '../componentes/HomeProductLister/HomeProductLister'
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Link to="/view-teste">ViewTeste</Link>
             <Banner/>
             <Filtrocat/>
+            <HomeProductLister/>
             <Footer/>
         </div>
     );
