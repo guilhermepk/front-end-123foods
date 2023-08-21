@@ -3,6 +3,7 @@ import {
   Routes,
   Route,Navigate
 } from "react-router-dom";
+
 import Home from './views/Home';
 import Admin from './views/admin/Admin';
 import UserRegister from './views/UserRegister';

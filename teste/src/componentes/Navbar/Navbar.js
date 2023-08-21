@@ -18,7 +18,6 @@ import {BsArrowLeftCircle} from 'react-icons/bs';
 
 
 const Navbar = () => {
-    const [fetchedUserInfo, setFetchedUserInfo] = useState(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -35,12 +34,21 @@ const Navbar = () => {
 
     const handleProfileClick = () => {
         if (decoded_token) {
-            fetchUpdatedUserInfo();
+            fetchUpdatedUserInfo()
+            .then(data => {
+                if (data !== null) {
+                    setUserInfo(data);
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao buscar os dados do usuário:', error);
+            });
             setShowUserInfoModal(!showUserInfoModal);
         } else {
             setShowLoginForm(true);
         }
     };
+
 
     const handleImageDrop = (acceptedFiles) => {
         setSelectedImage(acceptedFiles[0]);
@@ -60,9 +68,6 @@ const Navbar = () => {
             return null;
         }
     };
-    console.log('userinfo fora da funcção:',userInfo)
-console.log('token descodificado:',decoded_token)
-
     const handleUploadImage = async () => {
         try {
             const formData = new FormData();
@@ -80,6 +85,7 @@ console.log('token descodificado:',decoded_token)
             if (updatedUserInfo) {
                 localStorage.setItem('userInfo', JSON.stringify(updatedUserInfo));
             }
+            console.log(updatedUserInfo)
 
             setSelectedImage(null);
             setShowImageUploadModal(false);
@@ -104,12 +110,7 @@ console.log('token descodificado:',decoded_token)
             const decodedToken = jwt_decode(storedToken);
             setDecodedToken(decodedToken);
         }
-        const fetchUserData = async () => {
-            const userData = await fetchUpdatedUserInfo();
-            setFetchedUserInfo(userData); 
-        };
     }, []);
-console.log('setfetch:',)
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
     };
@@ -156,7 +157,7 @@ console.log('setfetch:',)
         setShowLoginForm(false);
         setShowUserInfoModal(false);
     };
-
+    console.log('token',decoded_token)
 
   return (
     <div className="container-fluid">
@@ -167,7 +168,7 @@ console.log('setfetch:',)
           </div>  
               <Search/>
           <div className="conteudo">
-          {userInfo && userInfo.admin && (
+          {decoded_token && decoded_token.admin && (
               <a href="/admin"><button className="botao-admin"> Admin </button></a>
             )}
            
@@ -267,7 +268,7 @@ console.log('setfetch:',)
                         </label>
                         <input
                         className="dados-pessoais" type='text'
-                        //value={userInfo.name}
+                        value={userInfo.name}
                         disabled
                         />
                         <label className="label-dados">
@@ -275,7 +276,7 @@ console.log('setfetch:',)
                         </label>
                         <input
                         className="dados-pessoais" type='text'
-                        //value={userInfo.email}
+                        value={userInfo.email}
                         disabled
                         />
                         <label className="label-dados">
@@ -283,7 +284,7 @@ console.log('setfetch:',)
                         </label>
                         <input
                         className="dados-pessoais" type='text'
-                        //value={userInfo.phone}
+                        value={userInfo.phone}
                         disabled
                         />
                         <label className="label-dados">
@@ -291,7 +292,7 @@ console.log('setfetch:',)
                         </label>
                         <input
                         className="dados-pessoais" type='text'
-                        //value={userInfo.cpf}
+                        value={userInfo.cpf}
                         disabled
                         />
                         <button className="button-alterar">
