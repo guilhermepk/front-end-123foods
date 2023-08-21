@@ -1,17 +1,30 @@
 
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import jwt_decode from 'jwt-decode';
-    export const fetchUpdatedUserInfo = async (token, decodedToken) => {
-      try {
-        const response = await axios.get(`http://localhost:3000/users/${decodedToken.sub}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        const data = response.data;
-        return data;
-      } catch (error) {
-        console.error('Erro ao buscar os dados do usuário:', error);
-        return null;
-      }
-    };
+
+export const useUserInfo = (token, userId) => {
+    const [userInfo, setUserInfo] = useState(null);
+
+    useEffect(() => {
+        const fetchUserInfo = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3000/users/${userId}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                const data = response.data;
+                setUserInfo(data);
+            } catch (error) {
+                console.error('Erro ao buscar os dados do usuário:', error);
+                setUserInfo(null);
+            }
+        };
+
+        if (token && userId) {
+            fetchUserInfo();
+        }
+    }, [token, userId]);
+
+    return userInfo;
+};

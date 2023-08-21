@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import axios from 'axios';
-
+import { useUserInfo } from '../UserInfo/UserInfo';
 import { Link } from "react-router-dom";
 import './navbaradm.css'
 import jwt_decode from 'jwt-decode';
@@ -9,44 +9,16 @@ import {FaImage} from 'react-icons/fa';
 import {TbPaperBag} from 'react-icons/tb';
 import {RiNotificationBadgeFill}from 'react-icons/ri'
 const NavbarAdm=()=>{
-  const [decoded_token, setDecodedToken] = useState(null);
+  
   const [minimized, setMinimized] = useState(false);
-      const [userInfo,setUserInfo] = useState(null);const [token, setToken] = useState(null);
+  const token = localStorage.getItem('payload');
+  const decoded_token = jwt_decode(token);
+    const userId = decoded_token?.sub; 
+    const userInfo=useUserInfo(token,userId);
   const toggleMinimize = () => {
     setMinimized(!minimized);
   };
-  useEffect(() => {
-    const storedToken = localStorage.getItem('payload');
-    if (storedToken) {
-        setToken(storedToken);
-        const decodedToken = jwt_decode(storedToken);
-        setDecodedToken(decodedToken); 
-        fetchUpdatedUserInfo()
-            .then(data => {
-                if (data !== null) {
-                    setUserInfo(data);
-                }
-            })
-            .catch(error => {
-                console.error('Erro ao buscar os dados do usuário:', error);
-            });
-    }
-}, []);
-  const fetchUpdatedUserInfo = async () => {
-        try {
-            const response = await axios.get(`http://localhost:3000/users/${decoded_token.sub}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-            const data = response.data;
-            return data;
-        } catch (error) {
-            console.error('Erro ao buscar os dados do usuário:', error);
-            return null;
-        }
-    };
-
+  
   return(
       <div>
         <div className={`admin-container ${minimized ? 'hide-content' : ''}`}>
