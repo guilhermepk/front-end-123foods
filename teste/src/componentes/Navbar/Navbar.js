@@ -298,14 +298,14 @@ const Navbar = () => {
                         <button className="button-alterar">
                             Alterar informações
                         </button>
-                        <label>
+                        {/* <label>
                             Endereço:
                         </label>
                         <input
                         className="dados-pessoais" type='text'
                         value={userInfo.street}
                         disabled
-                        />
+                        /> */}
                         </div>
                         {showImageUploadModal && (
                             <div  className="image-upload-modal">

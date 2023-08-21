@@ -18,12 +18,12 @@ function Banner() {
   }, []);
 
   return (
-    <main>
+    <main className='principal'>
     <div className="banner">
-      <Carousel showThumbs={false}>
+      <Carousel showThumbs={false} className="carrosel">
         {banners.map((banner) => (
           <div key={banner.id}>
-            <img className="img"src={`http://localhost:3000/uploads/${banner.image}`} alt={banner.alt} />
+            <img className="img1"src={`http://localhost:3000/uploads/${banner.image}`} alt={banner.alt} />
           </div>
         ))}
       </Carousel>

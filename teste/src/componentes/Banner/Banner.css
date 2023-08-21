@@ -1,15 +1,17 @@
+.principal{
+  margin-top: 5rem;
+}
+
 .banner {
     max-width: 70%; 
-    height: 100%;
     margin: 0 auto; 
-    padding-top: 80px; 
     overflow: hidden;
+    border-radius: 16px 16px 0px 0px;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #000000;
+    border-top: 2px solid #000000;
   }
-  
-  .banner .img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
+
   
   .carousel-control-next{
     background-color: brown;
@@ -20,10 +22,14 @@
   }
   
   .carousel .slider-wrapper {
-    padding: 0; 
+    padding: 0;
   }
 
   .carousel .slide {
     display: flex; 
     justify-content: center; 
+  }
+
+  .mudar-slide{
+    background-color: rgb(255, 255, 255);
   }

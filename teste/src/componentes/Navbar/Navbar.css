@@ -298,15 +298,14 @@ body{
 .user-image-container {
   position: relative;
   display: inline-block;
-  margin-left: 6rem;
-  width: 200px;
-  height: 200px;
+  margin-left: 4rem;
 }
 
 .imagem-perfil{
-  max-width: 100%;
+  display: flex;
+  width: 100%;
   border-radius: 50%;
-  object-fit: cover;
+  /* object-fit: cover; */
   border: 2px solid #000000;
   overflow: hidden;
 }
@@ -315,8 +314,10 @@ body{
   display: none;
   position: absolute;
   cursor: pointer;
-  bottom: 5px;
-  margin-left: 6.5rem;
+  width: 100px;
+  height: 40px;
+  bottom: 80px;
+  margin-left: 8.2rem;
   transform: translateX(-50%);
   background-color: #333;
   color: #fff;
