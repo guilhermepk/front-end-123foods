@@ -226,7 +226,7 @@ const Navbar = () => {
                         <BsArrowLeftCircle className="seta-voltar" />
                     </a>
                         <h2 className="perfil-usuario">
-                            Olá, {userInfo.name}</h2>
+                            Olá, {userInfo.name}!</h2>
                         <div className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
                             {userInfo.image && (
                                 <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-perfil" />

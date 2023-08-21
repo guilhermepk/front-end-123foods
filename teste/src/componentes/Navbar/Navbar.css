@@ -302,10 +302,10 @@ body{
 }
 
 .imagem-perfil{
-  display: flex;
-  width: 100%;
+  width: 250px;
+  height: 200px;
   border-radius: 50%;
-  /* object-fit: cover; */
+  object-fit: cover;
   border: 2px solid #000000;
   overflow: hidden;
 }
@@ -316,7 +316,7 @@ body{
   cursor: pointer;
   width: 100px;
   height: 40px;
-  bottom: 80px;
+  bottom: 70px;
   margin-left: 8.2rem;
   transform: translateX(-50%);
   background-color: #333;
@@ -620,9 +620,10 @@ body{
 .perfil-usuario{
   display: flex;
   justify-content: center;
-  margin-top: 0.6rem;
+  margin-top: 0.8rem;
   color: #000000;
   font-weight: 700;
+  margin-right: 28rem;
 }
 
 .botao-admin {
