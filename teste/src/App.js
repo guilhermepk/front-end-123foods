@@ -4,7 +4,7 @@ import {
   Route,Navigate
 } from "react-router-dom";
 
-import Home from './views/Home';
+import Home from './views/Home/Home';
 import Admin from './views/admin/Admin';
 import UserRegister from './views/UserRegister';
 import ProductRegister from './views/admin/product/product-register/ProductRegister';
@@ -13,7 +13,6 @@ import ProductList from './views/admin/product/product-list/ProductList';
 import isAdmin from './views/admin/AdminRouteGuard'
 import BannerCadastro from "./views/admin/banner/cadastrobanner";
 import Bannerlist from "./views/admin/banner/bannerlist";
-import ViewTeste from "./views/ViewTeste";
 import FormularioNotification from "./componentes/Formularionotificacao/formularionotificacao";
 
 function NotFound() {
@@ -31,7 +30,6 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/view-teste" element={<ViewTeste/>}/>
           <Route path="*" element={<NotFound />} />
           <Route path="/user-register" element={<UserRegister />} />
             <Route path="/notification" element={<FormularioNotification />} />

@@ -2,29 +2,65 @@
     font-family: 'Oswald';
 }
 
-.cards {
-    display: block;
+.cardList {
     justify-content: center;
-    margin-left: 17.9rem;
-    margin-right: 17.9rem;
-    margin-top: 90px;
-    padding: 20px;
     border: solid 2px black;
     color: #9E0000;
-    font-size: 22px;
+    background-color: #FFECCE;
     display: grid;
-    grid-template-columns: 20% 20% 20% 20%;
-    border-radius: 18px;
+    border-radius: 0% 0% 2% 2%;
+    padding: 20px;
+    font-size: 22px;
+
+    grid-template-columns: 50% 50%;
+    
 }
 
-.productCard{
+.cardProduct {
+    background-color: #ECD4AF;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
     margin-left: 5px;
     margin-right: 5px;
-    display: block;
-    justify-content: center;
-    border: solid 2px black;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-.cardHeader{
-    margin-bottom: 20px;
+.cardImg {
+    padding: 7.5%;
+}
+
+@media (min-width: 0px) and (max-width: 200px){
+    .cardList {
+        grid-template-columns: 100%
+    }
+}
+
+@media(min-width: 200px) and (max-width: 850px){
+    .cardList {
+        grid-template-columns: 50% 50%;
+    }
+    .cardProduct {
+        background-color: #ECD4AF;
+        justify-content: center;
+        text-align: center;
+        border-radius: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+@media (min-width: 850px) and (max-width: 1300px){
+    .cardList {
+        grid-template-columns: 33% 33% 33%;
+    }
+}
+
+@media (min-width: 1300px){
+    .cardList {
+        grid-template-columns: 25% 25% 25% 25%;
+    }
 }

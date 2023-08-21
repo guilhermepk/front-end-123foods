@@ -3,14 +3,13 @@
 }
 
 .banner {
-    max-width: 70%; 
-    margin: 0 auto; 
-    overflow: hidden;
-    border-radius: 16px 16px 0px 0px;
-    border-left: 2px solid #000000;
-    border-right: 2px solid #000000;
-    border-top: 2px solid #000000;
-  }
+  margin: 0 auto; 
+  overflow: hidden;
+  border-radius: 18px 18px 0px 0px;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+  border-top: 2px solid #000000;
+}
 
   .carousel-control-next{
     background-color: brown;
@@ -30,5 +29,5 @@
   }
 
   .mudar-slide{
-    background-color: rgb(255, 255, 255);
+    background-color: white;
   }

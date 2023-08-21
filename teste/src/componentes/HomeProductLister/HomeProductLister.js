@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
-// import "bootstrap/dist/css/bootstrap.min.css";
 
+
+// import "bootstrap/dist/css/bootstrap.min.css";
 import './HomeProductLister.css'
 
 const HomeProductLister = () => {
@@ -20,21 +19,18 @@ const HomeProductLister = () => {
 
     return (
         <div>
-            <li className='cards'>
+            <li className='cardList'>
             {products.map((product, index) => (
-                <Col key={index} md={4} className="colCards">
-                    <Card className="productCard">
-                        <Card.Header className="cardHeader">
-                            {product.name}
-                        </Card.Header>
-                        <Card.Body>
-                            <Card.Img
+                <Col key={index}>
+                    <Card className="cardProduct">
+                            <Card.Img className="cardImg"
                                 src={`http://localhost:3000/uploads/${product.images[0]?.path}`}
                                 onLoad={() => console.log(`Imagem carregada: /uploads/${product.images[0]?.path}`)}
                                 onError={() => console.log(`Erro ao carregar a imagem: /uploads/${product.images[0]?.path}`)}
                             />
+                            <p>{product.name}</p>
+                            <p>{product.brand}</p>
                             <p>R$ {product.price}</p>
-                        </Card.Body>
                     </Card>
                 </Col>
             ))}
