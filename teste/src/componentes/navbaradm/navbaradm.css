@@ -10,7 +10,7 @@
   width: 250px;
   background-color: #333;
   color: #fff;
-  transition: width 0.3s ease;
+  transition: 0.3s ease;
   overflow: hidden;
   height: 100vh;
   position: fixed;
@@ -34,8 +34,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  padding: 16px;
   cursor: pointer;
+  margin-bottom: 30px;
+}
+
+h3{
+  padding: 16px;
+}
+
+h3:hover{
+  background-color: #4a4a4a;
+  border-radius: 12px;
 }
 
 
@@ -56,7 +66,7 @@
 
 .nameuser {
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -75,8 +85,6 @@
 }
 
 .admin-nav.hidden {
-
-
   display: none;
 }
 
@@ -110,7 +118,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  gap: 30px;
+  gap: 32px;
  }
 
 .li-itens{
