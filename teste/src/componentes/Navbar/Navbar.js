@@ -140,7 +140,7 @@ const Navbar = () => {
       <nav className="navbar">
         <ul className="nav-list">
           <div className="logo">
-            <a href=''> <img src="./imagens/logoSemFundo.png" alt="Logo" /> </a>
+            <a href=''> <img src="./imagens/logoSemFundo.png" alt="Logo" className="logo-123"/> </a>
           </div>  
               <Search/>
           <div className="conteudo">
