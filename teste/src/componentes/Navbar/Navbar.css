@@ -3,6 +3,13 @@
   box-sizing: border-box;
 }
 
+.modal,
+.modal-usuario,
+.image-upload-modal {
+  position: fixed; 
+  z-index: 100; 
+  
+}
 body{
   margin: 0;
 }
