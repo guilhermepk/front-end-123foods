@@ -20,9 +20,9 @@ function Banner() {
   return (
     <main className='principal'>
     <div className="banner">
-      <Carousel showThumbs={false} className="carrosel">
+      <Carousel showThumbs={false}>
         {banners.map((banner) => (
-          <div key={banner.id}>
+          <div key={banner.id} className='banner-img'>
             <img className="img1"src={`http://localhost:3000/uploads/${banner.image}`} alt={banner.alt} />
           </div>
         ))}

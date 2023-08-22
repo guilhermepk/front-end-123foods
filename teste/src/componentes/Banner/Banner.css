@@ -11,28 +11,37 @@
   border-top: 2px solid #000000;
 }
 
-  .carousel-control-next{
-    background-color: brown;
-  }
-  
-  .carousel-root {
-    max-width: 100%; 
-  }
-  
-  .carousel .slider-wrapper {
-    padding: 0;
-  }
+.banner-img {
+  min-height: auto;
+}
 
-  .carousel .slide {
-    display: flex; 
-    justify-content: center; 
-  }
+.carousel-control-next{
+  background-color: brown;
+}
 
-  .mudar-slide{
-    background-color: white;
-  }
+.carousel-root {
+  max-width: 100%; 
+}
+
+.carousel .slider-wrapper {
+  padding: 0;
+}
+
+.carousel .slide {
+  display: flex; 
+  justify-content: center; 
+}
+
+.mudar-slide{
+  background-color: white;
+}
+
+.carousel-status{
   
-  .carousel-status{
-    
-    visibility: hidden !important;
-  }
+  visibility: hidden !important;
+}
+
+.img1 {
+  min-width: 1520px;
+  min-height: 1090px;
+}

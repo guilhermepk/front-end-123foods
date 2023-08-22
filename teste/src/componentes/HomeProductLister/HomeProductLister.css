@@ -4,7 +4,9 @@
 
 .cardList {
     justify-content: center;
-    border: solid 2px black;
+    border-left: solid black 2px;
+    border-right: solid black 2px;
+    border-bottom: solid black 2px;
     color: #9E0000;
     background-color: #FFECCE;
     display: grid;
