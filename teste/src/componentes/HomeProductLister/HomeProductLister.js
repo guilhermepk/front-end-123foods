@@ -3,28 +3,12 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
 
 import './HomeProductLister.css'
-import { Pagination } from "react-bootstrap";
 
-const  HomeProductLister = () => {
+const HomeProductLister = () => {
     const [products, setProducts] = useState([]);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const productsPerPage = 4;
-
-    const indexOfLastProduct = currentPage * productsPerPage;
-    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-
-    const paginate = (pageNumber) => {
-        setCurrentPage(pageNumber);
-        for(let x = 0; x < pages.length; x++){
-            if (pages[x] === currentPage){
-                console.log('aaaaa', pages[x])
-            }
-        }
-    };
-
-    const pages = Array.from({ length: Math.ceil(products.length / productsPerPage) });
+    const [productsPerPage] = useState(5);
 
     useEffect(() => {
         fetch('http://localhost:3000/foods')
@@ -34,36 +18,49 @@ const  HomeProductLister = () => {
             });
     }, []);
 
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+    
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    const pageButtons = document.getElementsByClassName('pageButton');
+    for(let x = 0; x< pageButtons.length; x++){
+        if(pageButtons[x].textContent == currentPage){
+            pageButtons[x].className = 'currentPageButton'
+        }
+    }
+
+
     const Pag = () => {
         return (
-            <Pagination className="pages">
-                {pages.map((_, index) => (
-                    <Pagination.Item className="page"
-                        key={index + 1}
-                        onClick={() => paginate(index + 1)}
-                    >
+            <div className="pagination">
+                {Array.from({ length: Math.ceil(products.length / productsPerPage) }).map((_, index) => (
+                    <button key={index} onClick={() => paginate(index + 1)} className="pageButton">
                         {index + 1}
-                    </Pagination.Item>
+                    </button>
                 ))}
-            </Pagination>
+            </div>
         );
     }
 
     return (
         <div className="divList">
             <Pag/>
-            <li className='cardList'>
+            <ul className='cardList'>
                 {currentProducts.map((product, index) => (
-                    <Col key={index}>
+                    <Col key={index} className="cardCol">
                         <Card className="cardProduct">
-                            <a href={`/product/${product.id}`}>
-                                <div className="divImg">
-                                    <Card.Img className="cardImg"
-                                        src={`http://localhost:3000/uploads/${product.images[0]?.path}`}
-                                        onLoad={() => console.log(`Imagem carregada: /uploads/${product.images[0]?.path}`)}
-                                        onError={() => console.log(`Erro ao carregar a imagem: /uploads/${product.images[0]?.path}`)}
-                                    />
-                                    <p>{product.name}</p>
+                            <a href={`/product/${product.id}`} className="linkCard">
+                                <div className="nameDiv">
+                                    <h1 className="productName">{product.name}</h1>
+                                </div>
+                                <Card.Img className="cardImg"
+                                    src={`http://localhost:3000/uploads/${product.images[0]?.path}`}
+                                    onLoad={() => console.log(`Imagem carregada: /uploads/${product.images[0]?.path}`)}
+                                    onError={() => console.log(`Erro ao carregar a imagem: /uploads/${product.images[0]?.path}`)}
+                                />
+                                <div className="cardTexts">
                                     <p>{product.brand}</p>
                                     <p>R$ {product.price}</p>
                                 </div>
@@ -71,7 +68,7 @@ const  HomeProductLister = () => {
                         </Card>
                     </Col>
                 ))}
-            </li>
+            </ul>
             <Pag/>
         </div>
     );
