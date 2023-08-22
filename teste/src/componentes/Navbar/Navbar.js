@@ -114,7 +114,6 @@ const Navbar = () => {
           {decoded_token && decoded_token.admin && (
               <a href="/admin"><button className="botao-admin"> Admin </button></a>
             )}
-           
             <a href="#" onClick={handleProfileClick}>
               <CgProfile className="perfil"/>
             </a>

@@ -532,7 +532,6 @@ body{
   padding: 2px;
   font-size: 22px;
   font-weight: 600;
-  font-family: 'Oswald';
 }
 
 .login-form a:hover {
@@ -573,7 +572,6 @@ body{
   }
   .password-input{
     color: #000000;
-    font-family: 'Oswald';
     font-weight: 700;
     }
   
@@ -600,17 +598,18 @@ body{
 }
 
 .botao-admin {
-  margin-top: 0.7rem;
-  color: #fff;
+  width: 60px;
+  height: 50px;
+  color: #000000;
   cursor: pointer;
-  background-color: #b70303;
-  font-family: 'Oswald';
+  background-color: #fff;
   font-weight: 600;
   border: 2px solid #000000;
-  border-radius: 8px;
+  border-radius: 12px;
+  font-size: 16px;
 }
 
 
 .botao-admin:hover{
-  background-color: #820101;
+  background-color: #FFE2B6;
 }
