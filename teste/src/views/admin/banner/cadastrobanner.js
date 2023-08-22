@@ -47,16 +47,16 @@ const BannerForm = () => {
       <>
         <NavbarAdm />
         <form onSubmit={handleSubmit}>
-          <div>
+          <h1 className="h1-banner">Cadastro Banner</h1>
+          <div className="link-banner">
+            <label htmlFor="link">Link do Banner:</label>
+            <input type="text" className="input-link" id="link" value={link}onChange={handleLinkChange} />
+          </div>
+          <div className="alt-banner">
             <label htmlFor="alt">Alt do Banner:</label>
-            <input type="text" id="alt" value={alt} onChange={handleAltChange} />
+            <input type="text" className="input-alt" id="alt" value={alt} onChange={handleAltChange} />
           </div>
-          <div>
-            <label htmlFor="link">link do Banner:</label>
-            <input type="text" id="link" value={link}onChange={handleLinkChange} />
-          </div>
-          <div>
-            <label htmlFor="bannerImage">Imagem do Banner:</label>
+          <div className="image-banner">
             <Dropzone onDrop={handleImageDrop}>
               {({ getRootProps, getInputProps }) => (
                   <div className="dropzone" {...getRootProps()}>
@@ -64,7 +64,7 @@ const BannerForm = () => {
                     <p>Arraste e solte uma imagem aqui, ou clique para selecionar uma imagem.</p>
                     {selectedImage && (
                         <div>
-                          <p>Imagem selecionada: {selectedImage.name}</p>
+                          {/* <p>Imagem selecionada: {selectedImage.name}</p> */}
                           <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada" />
                         </div>
                     )}
@@ -72,8 +72,8 @@ const BannerForm = () => {
               )}
             </Dropzone>
           </div>
-          <div>
-            <button type="submit">Enviar</button>
+          <div className="botao-alterar-banner">
+            <button className="botao-banner" type="submit">Enviar</button>
           </div>
         </form>
       </>

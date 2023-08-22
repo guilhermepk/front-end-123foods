@@ -13,15 +13,15 @@ const FormularioCadastroUser = () => {
     phone: '+55',
     email: '',
     password: '',
-    city: '',
-    street:'',
-    state:'',
-    cep:'',
-    numberhouse:'',
+    // city: '',
+    // street:'',
+    // state:'',
+    // cep:'',
+    // numberhouse:'',
     image: null,
   });
 
-  const [userCEP, setUserCEP] = useState('');
+  // const [userCEP, setUserCEP] = useState('');
 
 
   const handleFileDrop = useCallback((acceptedFiles) => {
@@ -67,10 +67,10 @@ const FormularioCadastroUser = () => {
     formData.append('phone', data.phone);
     formData.append('email', data.email);
     formData.append('password', data.password);
-    formData.append('city', data.city);
-    formData.append('street', data.street);
-    formData.append('state', data.state);
-    formData.append('cep', data.cep);
+    // formData.append('city', data.city);
+    // formData.append('street', data.street);
+    // formData.append('state', data.state);
+    // formData.append('cep', data.cep);
 
 
     
@@ -78,7 +78,7 @@ const FormularioCadastroUser = () => {
       formData.append('file', data.image);
     }
 
-    formData.append('numberhouse', data.numberhouse);
+    // formData.append('numberhouse', data.numberhouse);
 
     fetch('http://localhost:3000/users', {
       method: 'POST',
@@ -94,44 +94,43 @@ const FormularioCadastroUser = () => {
         handleError(error);
       });
   };
-  const handleCEPChange = (e) => {
-    const { value } = e.target;
-    setFormValues({ ...formValues, cep: value });
-  };
+  // const handleCEPChange = (e) => {
+  //   const { value } = e.target;
+  //   setFormValues({ ...formValues, cep: value });
+  // };
   const genderOptions = ['Masculino', 'Feminino', 'Outros'];
-  const handleCEPBlur =async () => {
-    const cep = formValues.cep.replace(/\D/g, '');
-    if (cep.length === 8) {
-      try {
-        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-        const data = await response.json();
+  // const handleCEPBlur =async () => {
+  //   const cep = formValues.cep.replace(/\D/g, '');
+  //   if (cep.length === 8) {
+  //     try {
+  //       const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+  //       const data = await response.json();
 
-        if (data.erro) {
-          throw new Error('CEP inválido');
-        }
+  //       if (data.erro) {
+  //         throw new Error('CEP inválido');
+  //       }
 
-        setFormValues((prevFormValues) => ({
-          ...prevFormValues,
-          state: data.uf,
-          city: data.localidade,
-          street: data.logradouro,
-          cep: data.cep,
-        }));
-      } catch (error) {
-        console.error(error);
-        iziToast.error({
-          title: 'Erro',
-          message: 'CEP inválido',
-        });
-      }
-    }
-  };
+  //       setFormValues((prevFormValues) => ({
+  //         ...prevFormValues,
+  //         state: data.uf,
+  //         city: data.localidade,
+  //         street: data.logradouro,
+  //         cep: data.cep,
+  //       }));
+  //     } catch (error) {
+  //       console.error(error);
+  //       iziToast.error({
+  //         title: 'Erro',
+  //         message: 'CEP inválido',
+  //       });
+  //     }
+  //   }
+  // };
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
 
-  {/*eu não sei*/}
 
   return (
     <div className="cadastro-usuario">

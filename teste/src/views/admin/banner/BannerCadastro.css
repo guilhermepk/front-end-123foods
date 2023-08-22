@@ -3,18 +3,78 @@
     margin: 0 auto;
     padding: 20px;
   }
+
+  .h1-banner{
+    display: flex;
+    justify-content: center;
+    margin-left: 12rem;
+    color: #000000;
+  }
+  
   
   .dropzone {
-    border: 2px dashed #ccc;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
+    border: 2px dashed #4a4a4a;
+    margin-left: 10rem;
   }
 
-.banners-list {
+.link-banner{
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  margin-top: 8rem;
+  margin-left: 10rem;
+  padding: 28px;
+}
+
+.input-link{
+  background-color: #999999;
+  border-radius: 6px;
+  border: none;
+  width: 250px;
+}
+
+.botao-banner:hover{
+  background-color: #000000;
+}
+
+.alt-banner{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-left: 10.5rem;
+}
+
+.input-alt{
+  background-color: #999999;
+  border-radius: 6px;
+  border: none;
+  width: 250px;
+  height: 25px;
+  margin-bottom: 8rem;
+}
+
+.label-banner{
+  display: flex;
+  justify-content: center;
+  padding: 60px;
+}
+
+.image-banner{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.banner-form-image{
+  width: 20px;
+  height: 150px;
+}
+
+.botao-alterar-banner{
+  display: flex;
+  justify-content: center;
+
 }
 
 .banner-item {
@@ -26,6 +86,19 @@
   width: 200px;
   height: 100px;
   object-fit: cover;
+}
+
+.botao-banner{
+  width: 80px;
+  height: 50px;
+  border-radius: 6px;
+  border: 2px solid #000000;
+  color: #ffffff;
+  background-color: #4a4a4a;
+  cursor: pointer;
+  transition: 0.6s;
+  margin-left: 10rem;
+  font-size: 18px;
 }
 
 
