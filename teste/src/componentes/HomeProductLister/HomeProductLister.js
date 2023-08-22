@@ -23,6 +23,7 @@ const HomeProductLister = () => {
             {products.map((product, index) => (
                 <Col key={index}>
                     <Card className="cardProduct">
+                        <div className="divImg">
                             <Card.Img className="cardImg"
                                 src={`http://localhost:3000/uploads/${product.images[0]?.path}`}
                                 onLoad={() => console.log(`Imagem carregada: /uploads/${product.images[0]?.path}`)}
@@ -31,6 +32,7 @@ const HomeProductLister = () => {
                             <p>{product.name}</p>
                             <p>{product.brand}</p>
                             <p>R$ {product.price}</p>
+                        </div>
                     </Card>
                 </Col>
             ))}
