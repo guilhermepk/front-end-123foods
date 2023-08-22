@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
+import NavbarAdm from '../navbaradm/navbaradm';
 
 const FormularioProdutos = () => {
   const initialFormValues = {
@@ -103,6 +104,8 @@ const FormularioProdutos = () => {
   };
 
   return (
+    <div>
+    <NavbarAdm/>
     <form onSubmit={handleSubmit}>
     <label>
       Nome do produto:
@@ -207,7 +210,7 @@ const FormularioProdutos = () => {
 
     <button type="submit"> Enviar </button>
   </form>
-  );
+ </div> );
 };
 
 export default FormularioProdutos;

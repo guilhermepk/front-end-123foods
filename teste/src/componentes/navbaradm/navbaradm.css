@@ -1,31 +1,85 @@
-/* navbaradm.css */
-/* ... outras regras CSS ... */
 
-.admin-sidebar.minimized {
-  width: 80px;
-  flex-direction: column;
+.admin-container {
+  display: flex;
 }
 
-.admin-nav.minimized {
-  display: none;
+.admin-sidebar {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.admin-sidebar.minimized {
+  width: 70px;
 }
 
 .user-column {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  padding: 20px;
   cursor: pointer;
+}
+
+.imagem-usuario {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+}
+
+.user-column.minimized .imagem-usuario {
+  width: 40px;
+  height: 40px;
 }
 
 .nameuser {
   margin-top: 10px;
-  font-size: 14px;
-  text-align: center;
+  font-weight: bold;
 }
 
-.hidden {
+.admin-nav {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-nav.hidden {
   display: none;
 }
 
+.admin-nav li {
+  margin: 10px 0;
+  padding-left: 20px;
+}
 
+.admin-nav li a {
+  color: #fff;
+  text-decoration: none;
+  display: block; 
+  padding: 10px 0; 
+  
+}
+
+.admin-nav li a svg {
+  margin-right: 10px;
+}
+
+.admin-content {
+  flex-grow: 1;
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+}
+
+.admin-content.minimized-content {
+  margin-left: 70px;
+}
