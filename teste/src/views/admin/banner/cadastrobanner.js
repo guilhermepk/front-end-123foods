@@ -3,12 +3,17 @@ import axios from 'axios';
 import Dropzone from 'react-dropzone';
 import NavbarAdm from '../../../componentes/navbaradm/navbaradm';
 import './BannerCadastro.css'
+import { Link } from 'react-feather';
 const BannerForm = () => {
   const [alt, setAlt] = useState('');
+  const [link, setLink] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
 
   const handleAltChange = (event) => {
     setAlt(event.target.value);
+  };
+  const handleLinkChange = (event) => {
+    setLink(event.target.value);
   };
 
   const handleImageDrop = (acceptedFiles) => {
@@ -22,6 +27,7 @@ const BannerForm = () => {
       const formData = new FormData();
       formData.append('file', selectedImage); // Ajuste para o campo "file" do backend
       formData.append('alt', alt);
+      formData.append('link', link);
 
       await axios.post('http://localhost:3000/banners', formData, {
         headers: {
@@ -44,6 +50,10 @@ const BannerForm = () => {
           <div>
             <label htmlFor="alt">Alt do Banner:</label>
             <input type="text" id="alt" value={alt} onChange={handleAltChange} />
+          </div>
+          <div>
+            <label htmlFor="link">link do Banner:</label>
+            <input type="text" id="link" value={link}onChange={handleLinkChange} />
           </div>
           <div>
             <label htmlFor="bannerImage">Imagem do Banner:</label>
