@@ -1,8 +1,7 @@
-<<<<<<< Updated upstream
+
 /* navbaradm.css */
 /* ... outras regras CSS ... */
-=======
-<<<<<<< HEAD
+
 .admin-container {
   display: flex;
 }
@@ -18,11 +17,9 @@
   left: 0;
   top: 0;
 }
-=======
 /* navbaradm.css */
 /* ... outras regras CSS ... */
->>>>>>> 38348bfb826398238579caba5365c54ec09a7907
->>>>>>> Stashed changes
+
 
 .admin-sidebar.minimized {
   width: 80px;
@@ -41,9 +38,7 @@
   cursor: pointer;
 }
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
+
 .imagem-usuario {
   width: 80px;
   height: 80px;
@@ -58,21 +53,18 @@
   height: 40px;
 }
 
-=======
->>>>>>> 38348bfb826398238579caba5365c54ec09a7907
->>>>>>> Stashed changes
+
 .nameuser {
   margin-top: 10px;
   font-size: 14px;
   text-align: center;
-<<<<<<< Updated upstream
 }
 
 .hidden {
-=======
+
 }
 
-<<<<<<< HEAD
+
 .navbar-adm-main{
   margin-bottom: 30px;
 }
@@ -83,17 +75,13 @@
 }
 
 .admin-nav.hidden {
-=======
-.hidden {
->>>>>>> 38348bfb826398238579caba5365c54ec09a7907
->>>>>>> Stashed changes
+
+
   display: none;
 }
 
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
+
 .admin-nav li a {
   color: #fff;
   text-decoration: none;
@@ -122,7 +110,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  gap: 14px;
+  gap: 30px;
  }
 
 .li-itens{
@@ -135,6 +123,3 @@
 .li-itens:hover{
   background-color: #4a4a4a;
 }
-=======
->>>>>>> 38348bfb826398238579caba5365c54ec09a7907
->>>>>>> Stashed changes
