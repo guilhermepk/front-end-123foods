@@ -31,3 +31,8 @@
   .mudar-slide{
     background-color: white;
   }
+  
+  .carousel-status{
+    
+    visibility: hidden !important;
+  }

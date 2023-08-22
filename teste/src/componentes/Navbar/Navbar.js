@@ -98,6 +98,7 @@ const Navbar = () => {
     const handleLogout = () => {
         setIsLoggedIn(false);
         setToken(null);
+        closeModal(true)
         setDecodedToken(null);
         localStorage.removeItem('payload');
     };
@@ -316,5 +317,4 @@ const Navbar = () => {
     </div>
   );
 };
-  
 export default Navbar;
