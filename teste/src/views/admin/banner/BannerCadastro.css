@@ -1,58 +1,31 @@
-/* Estilos para o componente BannerForm */
-form {
-  padding: 2rem;
+.banner-cadastro-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .dropzone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+.banners-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-form div {
-  margin-bottom: 1.5rem;
-}
-
-label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-input {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-.dropzone {
-  border: 2px dashed #ccc;
-  border-radius: 4px;
-  padding: 1rem;
+.banner-item {
+  margin: 10px;
   text-align: center;
-  cursor: pointer;
 }
 
-button[type="submit"] {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-button[type="submit"]:hover {
-  background-color: #2980b9;
-}
-
-.selected-image-container {
-  margin-top: 1rem;
-}
-
-.selected-image {
-  max-width: 100%;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-top: 1rem;
+.banner-thumbnail {
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
 }
 
 
