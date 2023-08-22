@@ -31,31 +31,40 @@ const NavbarAdm=()=>{
                       className={`imagem-usuario ${minimized ? 'minimized' : ''}`}
                     />
                   )}
+              <div className="navbar-adm-main">
               {userInfo && (<p className="nameuser">{userInfo.name}</p>)}
             </div>
             <h3 className={minimized ? 'hidden' : ''}>Admin Dashboard</h3>
+            </div>
             <ul className={`admin-nav ${minimized ? 'hidden' : ''}`}>
-              <li>
+              <div className="main-adm">
+              <li className="li-itens">
                 <Link to="/">Home</Link>
               </li>
-              <li>
+              <li className="li-itens">
                 <Link to="/admin">Admin Home</Link>
               </li>
-              <li>
+              <li className="li-itens">
                 <Link to="/admin/banner"><FaImage/>Cadastro de banners</Link>
-                <Link to="/admin/bannerlist"><FaImage/>Listagem de banners</Link>
               </li>
-              <li>
+              <li className="li-itens">
+              <Link to="/admin/bannerlist"><FaImage/>Listagem de banners</Link>
+              </li>
+              <li className="li-itens">
                 <Link to="/admin/product-register"><TbPaperBag/>Cadastrar Produtos</Link>
-                <Link to='/admin/product-list'> <TbPaperBag/> Lista de Produtos </Link>
-
               </li>
-              <li>
+              <li className="li-itens">
+              <Link to='/admin/product-list'> <TbPaperBag/> Lista de Produtos </Link>
+              </li>
+              <li className="li-itens">
                 <Link to="/admin/notifications"><AiTwotoneNotification/>Criar Notificação</Link>
-                <Link to='/admin/notifications-list'> <RiNotificationBadgeFill/> Lista de Notificações</Link>
-
               </li>
+              <li className="li-itens">
+              <Link to='/admin/notifications-list'> <RiNotificationBadgeFill/> Lista de Notificações</Link>
+              </li>
+              </div>
             </ul>
+           
           </div>
 
           <div className={`admin-content ${minimized ? 'minimized-content' : ''}`}>

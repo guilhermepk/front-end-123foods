@@ -1,5 +1,28 @@
+<<<<<<< Updated upstream
 /* navbaradm.css */
 /* ... outras regras CSS ... */
+=======
+<<<<<<< HEAD
+.admin-container {
+  display: flex;
+}
+
+.admin-sidebar {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+=======
+/* navbaradm.css */
+/* ... outras regras CSS ... */
+>>>>>>> 38348bfb826398238579caba5365c54ec09a7907
+>>>>>>> Stashed changes
 
 .admin-sidebar.minimized {
   width: 80px;
@@ -18,14 +41,100 @@
   cursor: pointer;
 }
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+.imagem-usuario {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  transition: all 0.3s ease;
+}
+
+.user-column.minimized .imagem-usuario {
+  width: 40px;
+  height: 40px;
+}
+
+=======
+>>>>>>> 38348bfb826398238579caba5365c54ec09a7907
+>>>>>>> Stashed changes
 .nameuser {
   margin-top: 10px;
   font-size: 14px;
   text-align: center;
+<<<<<<< Updated upstream
 }
 
 .hidden {
+=======
+}
+
+<<<<<<< HEAD
+.navbar-adm-main{
+  margin-bottom: 30px;
+}
+
+.admin-nav {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-nav.hidden {
+=======
+.hidden {
+>>>>>>> 38348bfb826398238579caba5365c54ec09a7907
+>>>>>>> Stashed changes
   display: none;
 }
 
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+.admin-nav li a {
+  color: #fff;
+  text-decoration: none;
+  display: block; 
+  padding: 10px 0; 
+  
+}
+
+.admin-nav li a svg {
+  margin-right: 10px;
+}
+
+.admin-content {
+  flex-grow: 1;
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+}
+
+.admin-content.minimized-content {
+  margin-left: 70px;
+}
+  
+.main-adm{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 14px;
+ }
+
+.li-itens{
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.li-itens:hover{
+  background-color: #4a4a4a;
+}
+=======
+>>>>>>> 38348bfb826398238579caba5365c54ec09a7907
+>>>>>>> Stashed changes
