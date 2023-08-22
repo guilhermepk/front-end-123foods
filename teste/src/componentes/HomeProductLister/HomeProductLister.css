@@ -2,16 +2,42 @@
     font-family: 'Oswald';
 }
 
-.cardList {
+.pages{
+    display: flex;
     justify-content: center;
+}
+
+.page {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    min-width: 25px;
+    border: 2px solid black;
+    border-radius: 9px;
+    background-color: #ECD4AF;
+    
+}
+
+a.page-link {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.divList{
     border-left: solid black 2px;
     border-right: solid black 2px;
     border-bottom: solid black 2px;
-    color: #9E0000;
     background-color: #FFECCE;
-    display: grid;
     border-radius: 0% 0% 2% 2%;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
+}
+
+.cardList {
+    display: grid;
     font-size: 22px;
 
     grid-template-columns: 50% 50%;
