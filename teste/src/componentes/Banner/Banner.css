@@ -13,6 +13,8 @@
 
 .banner-img {
   min-height: auto;
+  align-items: center;
+  display: flex;
 }
 
 .carousel-control-next{
@@ -41,7 +43,11 @@
   visibility: hidden !important;
 }
 
-.img1 {
-  min-width: 1520px;
-  min-height: 1090px;
+/* .img1 {
+  min-width: 800px;
+  min-height: 500px;
+} */
+
+.img1{
+  min-height: 225%;
 }
