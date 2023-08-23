@@ -6,6 +6,7 @@ export const useUserInfo = (token, userId) => {
     const [userInfo, setUserInfo] = useState(null);
 
     useEffect(() => {
+        
         const fetchUserInfo = async () => {
             try {
                 const response = await axios.get(`http://localhost:3000/users/${userId}`, {

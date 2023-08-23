@@ -16,6 +16,7 @@ import jwt_decode from 'jwt-decode';
 
 import {BsArrowLeftCircle} from 'react-icons/bs';
 import PerfilUsuario from '../PerfilUsuario/PerfilUsuario';
+import UserAddress from '../Useraddress/UserAddress';
 
 const Navbar = () => {
     const [username, setUsername] = useState('');
@@ -185,7 +186,8 @@ const Navbar = () => {
             <a onClick={closeModal}> 
                         <BsArrowLeftCircle className="seta-voltar" />
                     </a>
-                <PerfilUsuario />
+                {/* <PerfilUsuario /> */}
+                <UserAddress></UserAddress>
             </div>
             </div>
             
