@@ -7,14 +7,48 @@
   .h1-banner{
     display: flex;
     justify-content: center;
-    margin-left: 12rem;
+    margin-left: 11rem;
     color: #000000;
   }
   
   
   .dropzone {
-    border: 2px dashed #4a4a4a;
+    border: none;
     margin-left: 10rem;
+    display: table;
+    font-size:1em;
+    background: -webkit-linear-gradient(left, #9E0000 50%, transparent 50%), 
+    -webkit-linear-gradient(left, #9E0000 50%, transparent 50%), 
+    -webkit-linear-gradient(top, #9E0000 50%, transparent 50%), 
+    -webkit-linear-gradient(top, #9E0000 50%, transparent 50%);
+  }
+  
+  .dropzone{
+  background-size: 12px 2px, 12px 2px, 2px 12px, 2px 12px;
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-position: 0 0, left bottom, 0 0, right 0;
+  }
+
+  .dropzone:hover{
+    -webkit-animation: anima-borda 10s linear infinite;
+    animation: anima-borda 10s linear infinite;
+  }
+
+  @-webkit-keyframes anima-borda {
+    0% {
+      background-position: 0 0, left bottom, 0 0, right 0;
+    }
+    100% {
+      background-position: 1000px 0, -1000px bottom, 0 -1000px, right 1000px;
+    }
+  }
+  @keyframes anima-borda {
+    0% {
+      background-position: 0 0, left bottom, 0 0, right 0;
+    }
+    100% {
+      background-position: 1000px 0, -1000px bottom, 0 -1000px, right 1000px;
+    }
   }
 
 .link-banner{
