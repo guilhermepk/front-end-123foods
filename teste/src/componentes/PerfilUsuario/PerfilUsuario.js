@@ -56,16 +56,7 @@ const PerfilUsuario = (props) => {
         }
     }, []);
 
-    // const handleLogout = () => {
-    //     console.log('userinfo: ', userInfo)
-    //     setToken(null);
-    //     setDecodedToken(null);
-    //     localStorage.removeItem('payload');
-    //     window.location.reload()
-    // };
-
-    
-
+ 
 
     return(
         userInfo && (

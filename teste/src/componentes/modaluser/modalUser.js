@@ -3,6 +3,7 @@ import '../Navbar/Navbar.css';
 import React, { useState, useEffect } from 'react';
 import { useUserInfo } from '../UserInfo/UserInfo';
 import jwt_decode from 'jwt-decode';
+import { IoIosLogOut } from 'react-icons/io';
 
 
 const ModalUser= ({handleLogout,}) => {
@@ -11,8 +12,6 @@ const ModalUser= ({handleLogout,}) => {
     const [decoded_token, setDecodedToken] = useState(null);
     const userId = decoded_token?.sub; 
     const userInfo=useUserInfo(token,userId);
-    const [showLoginForm, setShowLoginForm] = useState(false);
-    const [showUserInfoModal, setShowUserInfoModal] = useState(false);
 
     useEffect(() => {
         const storedToken = localStorage.getItem('payload');
@@ -24,14 +23,6 @@ const ModalUser= ({handleLogout,}) => {
     }, []);
     
     
-    // const handleLogout = () => {
-    //     console.log('userinfo: ', userInfo)
-    //     setToken(null);
-    //     setDecodedToken(null);
-    //     localStorage.removeItem('payload');
-    //     window.location.reload()
-    // };
-
     return(
 <div>
 <div className="modal-usuario1">
@@ -48,7 +39,10 @@ const ModalUser= ({handleLogout,}) => {
                         Endereços Cadastrados
                     </button>
                     <div className="botao-sair-top">
-                    <button className="botao-sair" onClick={handleLogout}>Sair</button>
+                    <button className="botao-sair" onClick={handleLogout}>
+                        <IoIosLogOut className="botao-logoutReact" size={20} color="white" />
+                            Sair
+                    </button>
                     </div>
                 </div>
 </div>
