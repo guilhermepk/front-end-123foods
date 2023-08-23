@@ -64,8 +64,10 @@ a.page-link {
     border-right: solid black 2px;
     border-bottom: solid black 2px;
     background-color: #FFECCE;
+    border-radius: 0 0 18px 18px;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    border-radius: 0px 0px 18px 18px
 }
 
 .cardList {
