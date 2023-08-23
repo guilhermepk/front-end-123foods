@@ -4,7 +4,6 @@ import { useUserInfo } from '../UserInfo/UserInfo';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import {BsArrowLeftCircle} from 'react-icons/bs';
-
 import jwt_decode from 'jwt-decode';
 
 const PerfilUsuario = (props) => {
@@ -16,18 +15,9 @@ const PerfilUsuario = (props) => {
     const [selectedImage, setSelectedImage] = useState(null);
     const userId = decoded_token?.sub; 
     const userInfo=useUserInfo(token,userId);
-    // const [showLoginForm, setShowLoginForm] = useState(false);
-    // const [showUserInfoModal, setShowUserInfoModal] = useState(false);
-
     console.log('userinfo:', userInfo);
 
-    // const saimodal = () => {
-    //     if (decoded_token) {
-    //         showUserInfoModal ? setShowUserInfoModal(false) : setShowUserInfoModal(true);
-    //     } else {
-    //         showLoginForm ? setShowLoginForm(false) : setShowLoginForm(true);
-    //     }
-    // };
+
 
     const handleImageDrop = (acceptedFiles) => {
         setSelectedImage(acceptedFiles[0]);
@@ -65,41 +55,23 @@ const PerfilUsuario = (props) => {
         }
     }, []);
 
-    const handleLogout = () => {
-        console.log('userinfo: ', userInfo)
-        setToken(null);
-        setDecodedToken(null);
-        localStorage.removeItem('payload');
-        window.location.reload()
-    };
+    // const handleLogout = () => {
+    //     console.log('userinfo: ', userInfo)
+    //     setToken(null);
+    //     setDecodedToken(null);
+    //     localStorage.removeItem('payload');
+    //     window.location.reload()
+    // };
 
     
 
 
     return(
         userInfo && (
-            <div className="modal-usuario">
-                <div className="modal-usuario1">
-                    <button className="botao-perfil">
-                        Meu perfil
-                    </button>
-                    <button className="botao-compras">
-                        Minhas compras
-                    </button>
-                    <button className="botao-historico">
-                        Histórico de Compras
-                    </button>
-                    <button className="botao-enderecos">
-                        Endereços Cadastrados
-                    </button>
-                    <div className="botao-sair-top">
-                    <button className="botao-sair" onClick={handleLogout}>Sair</button>
-                    </div>
-                </div>
-               <div className="modal-conteudo">
-               {/* <a onClick={saimodal}> 
-                        <BsArrowLeftCircle className="seta-voltar" />
-                    </a> */}
+            // <div className="modal-usuario">
+            // <ModalUser/>
+                
+               <div>
                     <h2 className="perfil-usuario">
                         Olá, {userInfo.name}!</h2>
                     <div className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
@@ -185,7 +157,6 @@ const PerfilUsuario = (props) => {
                         </div>
                     )}
                 </div>
-            </div>
         )
     );
 };
