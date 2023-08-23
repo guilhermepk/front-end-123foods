@@ -1,0 +1,55 @@
+
+.modal-produtos{
+    display: flex;
+    justify-content: center;
+}
+
+.cadastro-produtos{
+    display: grid;
+    grid-template-columns: 22% 22% 22% 22%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 1000px;
+    height: 610px;
+    background-color: rgb(129, 129, 129);
+    border-radius: 16px;
+}
+
+.input-produtos{
+    border-radius: 6px;
+    height: 25px;
+    border: none;
+    width: 200px;
+}
+
+.input-produtos1{
+    border-radius: 6px;
+    height: 25px;
+    border: none;
+    width: 250px;
+}
+
+.marca-input{
+    margin-left: 20rem;
+}
+
+.imagem-banner-click{
+    cursor: pointer;
+}
+
+.botao-banner-salvar{
+    border-radius: 6px;
+    border: none;
+    height: 40px;
+    width: 150px;
+    background-color: #9E0000;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: 0,2s;
+    font-size: 18px;
+}
+
+.botao-banner-salvar:hover{
+    background-color: #820101;
+}

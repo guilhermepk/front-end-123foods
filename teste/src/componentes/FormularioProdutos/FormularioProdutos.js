@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
+import './FormularioProdutos.css';
 
 const FormularioProdutos = () => {
   const initialFormValues = {
@@ -103,71 +104,81 @@ const FormularioProdutos = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-    <label>
+    <form className="modal-produtos" onSubmit={handleSubmit}>
+    <div className="cadastro-produtos">
+    <label className="label-produtos">
       Nome do produto:
       <input
         type="text"
+        className="input-produtos1"
         name="name"
         value={formValues.name}
         onChange={handleChange}
         placeholder='Pringles clássico, Suco Kappo de uva, etc.'
       />
     </label>
-    <label>
+    
+    <label className="label-produtos">
       Marca:
       <input
         type="text"
+        className="input-produtos"
         name="brand"
         value={formValues.brand}
         onChange={handleChange}
         placeholder='Nenhuma, Pringles, Kappo, ElmaChips, etc.'
       />
     </label>
-    <label>
+    
+    <label className="label-produtos">
       Peso:
       <input
         type="number"
+        className="input-produtos"
         name="weight"
         value={formValues.weight}
         onChange={handleChange}
         placeholder='5, 240, 500, 1, etc.'
       />
     </label>
-    <label>
+    <label className="label-produtos">
       Unidade de medida:
       <input
         type="text"
+        className="input-produtos"
         name="unit_of_measurement"
         value={formValues.unit_of_measurement}
         onChange={handleChange}
         placeholder='Kg, g, L, ml'
       />
     </label>
-    <label>
+    <label className="label-produtos">
       Categoria:
       <input
         type="text"
+        className="input-produtos"
         name="category"
         value={formValues.category}
         onChange={handleChange}
         placeholder='Salgados, Doces, Frios, Leites e derivados, etc.'
       />
     </label>
-    <label>
+    <label className="label-produtos">
       Quantidade em estoque:
       <input
         type="number"
+        className="input-produtos"
         name="amount"
         value={formValues.amount}
         onChange={handleChange}
         placeholder='5, 7, 13, 20, etc.'
       />
     </label>
-    <label>
+    <label className="label-produtos">
       Descrição:
       <textarea
         type="text"
+        className="input-produtos"
         name="description"
         value={formValues.description}
         onChange={handleChange}
@@ -176,20 +187,20 @@ const FormularioProdutos = () => {
         style={{ resize: 'none' }}
       />
     </label>
-    <label>
+    <label className="label-produtos">
       Preço:
       <input
         type="number"
+        className="input-produtos"
         name="price"
         value={formValues.price}
         onChange={handleChange}
         placeholder='14,99; 26,37; 49,99; etc.'
       />
     </label>
-
-    <label>
+    <label className="label-produtos">
       Imagens:
-      <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`}>
+      <div {...getRootProps()} className={`dropzone-produtos ${isDragActive ? 'active' : ''}`}>
         <input {...getInputProps()} />
         {isDragActive ? (
           <p>Arraste a imagem aqui...</p>
@@ -198,14 +209,14 @@ const FormularioProdutos = () => {
             {formValues.image ? (
               <img src={URL.createObjectURL(formValues.image)} alt="Imagem selecionada" />
             ) : (
-              <p>Arraste e solte a imagem aqui ou clique para selecionar</p>
+              <p className="imagem-banner-click">Arraste e solte a imagem aqui ou clique para selecionar</p>
             )}
           </>
         )}
       </div>
     </label>
-
-    <button type="submit"> Enviar </button>
+    <button  className="botao-banner-salvar" type="submit"> Enviar </button>
+    </div>
   </form>
   );
 };
