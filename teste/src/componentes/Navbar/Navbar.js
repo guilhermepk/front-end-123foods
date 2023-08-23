@@ -10,7 +10,7 @@ import { Eye, EyeOff } from 'react-feather';
 import { IoIosClose } from 'react-icons/io';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
+import ModalUser from '../modaluser/modalUser';
 
 import jwt_decode from 'jwt-decode';
 
@@ -168,7 +168,17 @@ const Navbar = () => {
                     </div>
                 </div>
             )}
-        {showUserInfoModal && <PerfilUsuario />}
+            {showUserInfoModal && (
+            <div className="modal-usuario">
+            <ModalUser/>
+            <div className="modal-conteudo">
+                {/* <PerfilUsuario /> */}
+            </div>
+            </div>
+            
+            
+            
+            )}
     </div>
   );
 };
