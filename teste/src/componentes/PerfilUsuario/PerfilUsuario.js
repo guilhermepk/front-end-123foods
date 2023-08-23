@@ -36,6 +36,7 @@ const PerfilUsuario = (props) => {
                 },
             })
             setSelectedImage(null);
+            window.location.reload()
             setShowImageUploadModal(false);
         } catch (error) {
             console.error('Erro ao enviar a imagem:', error);
@@ -68,9 +69,6 @@ const PerfilUsuario = (props) => {
 
     return(
         userInfo && (
-            // <div className="modal-usuario">
-            // <ModalUser/>
-                
                <div>
                     <h2 className="perfil-usuario">
                         Olá, {userInfo.name}!</h2>
@@ -118,17 +116,7 @@ const PerfilUsuario = (props) => {
                     value={userInfo.cpf}
                     disabled
                     />
-                    <button className="button-alterar">
-                        Alterar informações
-                    </button>
-                    {/* <label>
-                        Endereço:
-                    </label>
-                    <input
-                    className="dados-pessoais" type='text'
-                    value={userInfo.street}
-                    disabled
-                    /> */}
+                
                     </div>
                     {showImageUploadModal && (
                         <div  className="image-upload-modal">

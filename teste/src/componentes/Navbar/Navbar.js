@@ -17,8 +17,6 @@ import jwt_decode from 'jwt-decode';
 import {BsArrowLeftCircle} from 'react-icons/bs';
 import PerfilUsuario from '../PerfilUsuario/PerfilUsuario';
 
-
-
 const Navbar = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -44,7 +42,6 @@ const Navbar = () => {
             showLoginForm ? setShowLoginForm(false) : setShowLoginForm(true);
         }
     };
-
 
     const togglePasswordVisibility = (event) => {
         event.preventDefault();
@@ -94,6 +91,15 @@ const Navbar = () => {
         setPassword('');
 
         setShowUserInfoModal(false);
+    };
+   
+    
+    const handleLogout = () => {
+        console.log('userinfo: ', userInfo)
+        setToken(null);
+        setDecodedToken(null);
+        localStorage.removeItem('payload');
+        closeModal(true)
     };
 
     const closeModal = () => {
@@ -170,9 +176,16 @@ const Navbar = () => {
             )}
             {showUserInfoModal && (
             <div className="modal-usuario">
-            <ModalUser/>
+            <ModalUser
+            handleLogout={handleLogout}
+
+
+            />
             <div className="modal-conteudo">
-                {/* <PerfilUsuario /> */}
+            <a onClick={closeModal}> 
+                        <BsArrowLeftCircle className="seta-voltar" />
+                    </a>
+                <PerfilUsuario />
             </div>
             </div>
             

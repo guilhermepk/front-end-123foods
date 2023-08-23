@@ -4,12 +4,15 @@ import React, { useState, useEffect } from 'react';
 import { useUserInfo } from '../UserInfo/UserInfo';
 import jwt_decode from 'jwt-decode';
 
-const ModalUser= () => {
+
+const ModalUser= ({handleLogout,}) => {
     
     const [token, setToken] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null);
     const userId = decoded_token?.sub; 
     const userInfo=useUserInfo(token,userId);
+    const [showLoginForm, setShowLoginForm] = useState(false);
+    const [showUserInfoModal, setShowUserInfoModal] = useState(false);
 
     useEffect(() => {
         const storedToken = localStorage.getItem('payload');
@@ -19,13 +22,15 @@ const ModalUser= () => {
             setDecodedToken(decodedToken);
         }
     }, []);
-    const handleLogout = () => {
-        console.log('userinfo: ', userInfo)
-        setToken(null);
-        setDecodedToken(null);
-        localStorage.removeItem('payload');
-        window.location.reload()
-    };
+    
+    
+    // const handleLogout = () => {
+    //     console.log('userinfo: ', userInfo)
+    //     setToken(null);
+    //     setDecodedToken(null);
+    //     localStorage.removeItem('payload');
+    //     window.location.reload()
+    // };
 
     return(
 <div>
