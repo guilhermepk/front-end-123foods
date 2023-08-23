@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NavbarAdm from '../../../componentes/navbaradm/navbaradm';
+import './Bannerlist.css'
 
 const BannerList = () => {
     const [banners, setBanners] = useState([]);
@@ -32,7 +33,7 @@ const BannerList = () => {
         <>
             <NavbarAdm />
             <div className="banner-list-container">
-                <h2 className={'titulo'}>Listagem de Banners</h2>
+                <h1 className="titulo-banner">Listagem de Banners</h1>
                 <div className="banner-list">
                     {banners.map((banner) => (
                         <div key={banner.id} className="banner-item">
@@ -41,7 +42,7 @@ const BannerList = () => {
                             </div>
                             <div className="banner-info">
                                 <p>{banner.alt}</p>
-                                <button onClick={() => handleDeleteBanner(banner.id)}>Excluir</button>
+                                <button className="botao-excluir-banner" onClick={() => handleDeleteBanner(banner.id)}>Excluir</button>
                             </div>
                         </div>
                     ))}

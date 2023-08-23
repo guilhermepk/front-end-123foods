@@ -74,8 +74,8 @@ const Navbar = () => {
             });
             const data = response.data;
             const token = data.access_token;
-            console.log('Token:', token);
-            console.log('Sucesso no Login:', data);
+            // console.log('Token:', token);
+            // console.log('Sucesso no Login:', data);
             setError('');
             setShowLoginForm(false);
             setToken(token);
@@ -107,7 +107,7 @@ const Navbar = () => {
         setShowLoginForm(false);
         setShowUserInfoModal(false);
     };
-    console.log('token',decoded_token)
+    //console.log('token',decoded_token)
 
   return (
     <div className="container-fluid">

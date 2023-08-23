@@ -4,6 +4,8 @@ import Dropzone from 'react-dropzone';
 import NavbarAdm from '../../../componentes/navbaradm/navbaradm';
 import './BannerCadastro.css'
 import { Link } from 'react-feather';
+import Swal from 'sweetalert2';
+
 const BannerForm = () => {
   const [alt, setAlt] = useState('');
   const [link, setLink] = useState('');
@@ -36,9 +38,10 @@ const BannerForm = () => {
       });
 
       console.log('sucesso');
-
+      Swal.fire('Sucesso', 'Banner cadastrado com sucesso', 'success');
     } catch (error) {
       // Seu código aqui para lidar com erros de envio.
+      Swal.fire('Ops...', 'Erro ao tentar cadastrar banner...', 'error');
       console.error('Erro ao enviar o banner:', error);
     }
   };
@@ -61,7 +64,7 @@ const BannerForm = () => {
               {({ getRootProps, getInputProps }) => (
                   <div className="dropzone" {...getRootProps()}>
                     <input {...getInputProps()} />
-                    <p>Arraste e solte uma imagem aqui, ou clique para selecionar uma imagem.</p>
+                    <p className="texto-banner">Arraste e solte uma imagem aqui, ou clique para selecionar uma imagem</p>
                     {selectedImage && (
                         <div>
                           {/* <p>Imagem selecionada: {selectedImage.name}</p> */}

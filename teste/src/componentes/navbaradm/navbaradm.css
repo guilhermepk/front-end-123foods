@@ -105,7 +105,7 @@ h3:hover{
 
 .admin-content {
   flex-grow: 1;
-  background-color: #f0f0f0;
+  background-color: #333;
   padding: 20px;
   margin-left: 250px;
   transition: margin-left 0.3s ease;

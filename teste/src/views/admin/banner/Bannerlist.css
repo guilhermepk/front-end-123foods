@@ -1,3 +1,7 @@
+.titulo-banner{
+    margin-left: 9rem;
+}
+
 .banner-list-container {
     display: flex;
     flex-direction: column;
@@ -15,13 +19,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
-    width: 200px;
+    padding: 0px;
+    width: 1000px;
+    margin-left: 10rem;
+    margin-top: 5rem;
+    
 }
 
 .thumbnail-container {
-    width: 150px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -36,6 +43,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
+    margin-right: 2rem;
 }
 
 .banner-info p {
@@ -52,5 +60,12 @@
     cursor: pointer;
     font-size: 14px;
     margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    transition: 0.2s; 
+}
+
+.banner-info button:hover{
+    background-color: darkred;
 }
 
