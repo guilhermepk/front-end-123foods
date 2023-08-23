@@ -46,11 +46,25 @@ const UserAddress = () => {
     };
 console.log('useraddress',useraddress)
     return(
-       
-        userId !== null && (
+<div>
+        {userId !== null && (
             <div>
-                {useraddress && useraddress.length > 0 ? (
-                useraddress.map((address, index) => (
+                {useraddress && useraddress.length === 1 && (
+                    <div key={useraddress[0].id}>
+                        <h3>Endereço 1</h3>
+                        <p>Cidade: {useraddress[0].city}</p>
+                        <p>Rua: {useraddress[0].street}</p>
+                        <p>Estado: {useraddress[0].state}</p>
+                        <p>Cep: {useraddress[0].cep}</p>
+                        <p>Bairro: {useraddress[0].district}</p>
+                        <p>Complemento: {useraddress[0].complement}</p>
+                        <p>Número: {useraddress[0].numberhouse}</p>
+                        <button>Adicionar Endereço</button>
+                    </div>
+                )}
+
+                {useraddress && useraddress.length > 1 && (
+                    useraddress.map((address, index) => (
                         <div key={address.id}>
                             <h3>Endereço {index + 1}</h3>
                             <p>Cidade: {address.city}</p>
@@ -62,14 +76,16 @@ console.log('useraddress',useraddress)
                             <p>Número: {address.numberhouse}</p>
                         </div>
                     ))
-                ) : (
+                )}
+
+                {(!useraddress || useraddress.length <= 0) && (
                     <div>
-                    <h3>Endereço 1</h3>
-                    <button>Adicionar Endereço</button>
-                </div>
+                        <button>Adicionar Endereço</button>
+                    </div>
                 )}
             </div>
-        )
+        )}
+    </div>
 
     )
 }
