@@ -61,7 +61,7 @@ const HomeProductLister = () => {
                                 </div>
                                 <Card.Img className="cardImg"
                                     src={`http://localhost:3000/uploads/${product.images[0]?.path}`}
-                                    onLoad={() => console.log(`Imagem carregada: /uploads/${product.images[0]?.path}`)}
+                                    //onLoad={() => console.log(`Imagem carregada: /uploads/${product.images[0]?.path}`)}
                                     onError={() => console.log(`Erro ao carregar a imagem: /uploads/${product.images[0]?.path}`)}
                                 />
                                 <div className="cardTexts">

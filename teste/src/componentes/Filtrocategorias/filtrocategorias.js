@@ -16,7 +16,6 @@ const Filtrocat = () => {
         console.error(`Erro ao buscar alimentos da categoria ${category}:`, error);
       });
   };
-  console.log(foods)
 
   useEffect(() => {
     handleCategoryClick('promoções');
