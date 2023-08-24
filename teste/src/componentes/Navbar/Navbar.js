@@ -26,9 +26,9 @@ const Navbar = () => {
     const [showLoginForm, setShowLoginForm] = useState(false);
     const [showUserInfoModal, setShowUserInfoModal] = useState(false);
     const [token, setToken] = useState(null);
-    
+    const [showUserinf,setshowUserinf]=useState(true);
     const [decoded_token, setDecodedToken] = useState(null);
-
+    const [Showaddress,setshowaddress]=useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     
     const userId = decoded_token?.sub; 
@@ -101,10 +101,15 @@ const Navbar = () => {
         setDecodedToken(null);
         localStorage.removeItem('payload');
         closeModal(true)
-    };
-
+    }
+    const handleaddress=()=>{
+        setshowaddress(true);
+        setshowUserinf(false);
+    }
     const closeModal = () => {
         setShowLoginForm(false);
+        setshowaddress(false)
+        setshowUserinf(true)
         setShowUserInfoModal(false);
     };
     //console.log('token',decoded_token)
@@ -179,15 +184,16 @@ const Navbar = () => {
             <div className="modal-usuario">
             <ModalUser
             handleLogout={handleLogout}
-
-
+            handleaddress={handleaddress}
             />
             <div className="modal-conteudo">
             <a onClick={closeModal}> 
-                        <BsArrowLeftCircle className="seta-voltar" />
-                    </a>
-                {/* <PerfilUsuario /> */}
-                <UserAddress></UserAddress>
+                <BsArrowLeftCircle className="seta-voltar" />
+            </a>
+                {showUserinf&&(<PerfilUsuario />)}
+                
+                {Showaddress &&(<UserAddress />)}
+                
             </div>
             </div>
             
