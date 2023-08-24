@@ -36,7 +36,11 @@ const HomeProductLister = () => {
         return (
             <div className="pagination">
                 {Array.from({ length: Math.ceil(products.length / productsPerPage) }).map((_, index) => (
-                    <button key={index} onClick={() => paginate(index + 1)} className="pageButton">
+                    <button
+                        key={index}
+                        onClick={() => paginate(index + 1)}
+                        className={index+1 === currentPage ? 'currentPageButton' : 'pageButton'}
+                    >
                         {index + 1}
                     </button>
                 ))}
