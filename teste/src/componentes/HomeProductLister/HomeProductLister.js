@@ -24,13 +24,6 @@ const HomeProductLister = () => {
     
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    const pageButtons = document.getElementsByClassName('pageButton');
-    for(let x = 0; x< pageButtons.length; x++){
-        if(pageButtons[x].textContent == currentPage){
-            pageButtons[x].className = 'currentPageButton'
-        }
-    }
-
 
     const Pag = () => {
         return (
