@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './filtrocat.css';
+import HomeProductLister from '../HomeProductLister/HomeProductLister';
 
 const Filtrocat = () => {
   const categories = ['PROMOÇÕES', 'SALGADOS', 'DOCES', 'BEBIDAS', 'NATURAIS'];
@@ -22,13 +23,17 @@ const Filtrocat = () => {
   }, []);
 
   return (
-    <p className="navbarcat">
-      {categories.map((category, index) => (
-        <button className='button-category' key={index} onClick={() => handleCategoryClick(category)}>
-          {category}
-        </button>
-      ))}
-    </p>
+    <div>
+      <p className="navbarcat">
+        {categories.map((category, index) => (
+          <button className='button-category' key={index} onClick={() => handleCategoryClick(category)}>
+            {category}
+          </button>
+        ))}
+      </p>
+
+      <HomeProductLister/>
+    </div>
   );
 };
 
