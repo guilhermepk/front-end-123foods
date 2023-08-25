@@ -13,15 +13,11 @@ const FormularioCadastroUser = () => {
     phone: '+55',
     email: '',
     password: '',
-    // city: '',
-    // street:'',
-    // state:'',
-    // cep:'',
-    // numberhouse:'',
+  
     image: null,
   });
 
-  // const [userCEP, setUserCEP] = useState('');
+  
 
 
   const handleFileDrop = useCallback((acceptedFiles) => {
@@ -67,10 +63,7 @@ const FormularioCadastroUser = () => {
     formData.append('phone', data.phone);
     formData.append('email', data.email);
     formData.append('password', data.password);
-    // formData.append('city', data.city);
-    // formData.append('street', data.street);
-    // formData.append('state', data.state);
-    // formData.append('cep', data.cep);
+
 
 
     
@@ -94,38 +87,9 @@ const FormularioCadastroUser = () => {
         handleError(error);
       });
   };
-  // const handleCEPChange = (e) => {
-  //   const { value } = e.target;
-  //   setFormValues({ ...formValues, cep: value });
-  // };
+ 
   const genderOptions = ['Masculino', 'Feminino', 'Outros'];
-  // const handleCEPBlur =async () => {
-  //   const cep = formValues.cep.replace(/\D/g, '');
-  //   if (cep.length === 8) {
-  //     try {
-  //       const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-  //       const data = await response.json();
-
-  //       if (data.erro) {
-  //         throw new Error('CEP inválido');
-  //       }
-
-  //       setFormValues((prevFormValues) => ({
-  //         ...prevFormValues,
-  //         state: data.uf,
-  //         city: data.localidade,
-  //         street: data.logradouro,
-  //         cep: data.cep,
-  //       }));
-  //     } catch (error) {
-  //       console.error(error);
-  //       iziToast.error({
-  //         title: 'Erro',
-  //         message: 'CEP inválido',
-  //       });
-  //     }
-  //   }
-  // };
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
@@ -225,53 +189,6 @@ const FormularioCadastroUser = () => {
           onChange={handleChange}
         />
         </div>
-      {/* <label>
-      CEP:
-        <InputMask
-            mask="99999-999"
-            type="text" className="input-campo"
-            name="cep"
-            value={formValues.cep}
-            onChange={handleCEPChange}
-            onBlur={handleCEPBlur}
-        />
-    </label>
-      <label>
-        Cidade:
-        <input className="input-campo"
-          type="text"
-          name="city"
-          value={formValues.city}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Rua:
-        <input className="input-campo"
-          type="text"
-          name="street"
-          value={formValues.street}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Numero ou Apto:
-        <input className="input-campo"
-          type="text"
-          name="numberhouse"
-          value={formValues.numberhouse}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Estado:
-        <input className="input-campo"
-          type="text"
-          name="state"
-          value={formValues.state}
-          onChange={handleChange}
-        />
-      </label> */}
       {/* <div>
       <label className="texto-imagem">
         Imagem:
