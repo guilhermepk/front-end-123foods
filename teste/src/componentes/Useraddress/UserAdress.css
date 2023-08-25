@@ -1,0 +1,11 @@
+.endereco {
+    max-width: 50%;
+}
+
+.numero-endereco {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    font-weight: 700;
+    font-size: 2rem;
+}

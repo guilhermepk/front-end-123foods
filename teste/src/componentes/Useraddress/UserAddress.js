@@ -1,3 +1,4 @@
+import './UserAdress.css'
 import React, { useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
@@ -50,15 +51,64 @@ console.log('useraddress',useraddress)
         {userId !== null && (
             <div>
                 {useraddress && useraddress.length === 1 && (
-                    <div key={useraddress[0].id}>
-                        <h3>Endereço 1</h3>
-                        <p>Cidade: {useraddress[0].city}</p>
-                        <p>Rua: {useraddress[0].street}</p>
-                        <p>Estado: {useraddress[0].state}</p>
-                        <p>Cep: {useraddress[0].cep}</p>
-                        <p>Bairro: {useraddress[0].district}</p>
-                        <p>Complemento: {useraddress[0].complement}</p>
-                        <p>Número: {useraddress[0].numberhouse}</p>
+                    <div className="endereco" key={useraddress[0].id}>
+                        <h3 className="numero-endereco">Endereço 1</h3>
+                        <label className="label-endereco">
+                            Cidade:
+                        </label>
+                        <input
+                        className="dados-endereco" type='text'
+                        value={useraddress[0].city}
+                        disabled
+                        />
+                        <label className="label-endereco">
+                            Rua:
+                        </label>
+                        <input
+                        className="dados-endereco" type='text'
+                        value={useraddress[0].street}
+                        disabled
+                        />
+                        <label className="label-endereco">
+                            Estado:
+                        </label>
+                        <input
+                        className="dados-endereco" type='text'
+                        value={useraddress[0].state}
+                        disabled
+                        />
+                        <label className="label-endereco">
+                            CEP:
+                        </label>
+                        <input
+                        className="dados-endereco" type='text'
+                        value={useraddress[0].cep}
+                        disabled
+                        />
+                        <label className="label-endereco">
+                            Bairro:
+                        </label>
+                        <input
+                        className="dados-endereco" type='text'
+                        value={useraddress[0].district}
+                        disabled
+                        />
+                        <label className="label-endereco">
+                            Complemento:
+                        </label>
+                        <input
+                        className="dados-endereco" type='text'
+                        value={useraddress[0].complement}
+                        disabled
+                        />
+                        <label className="label-endereco">
+                            Número:
+                        </label>
+                        <input
+                        className="dados-endereco" type='text'
+                        value={useraddress[0].numberhouse}
+                        disabled
+                        />
                         <button>Adicionar Endereço</button>
                     </div>
                 )}
