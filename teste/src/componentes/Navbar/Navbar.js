@@ -8,7 +8,6 @@ import Search from '../Search/Search';
 import Dropzone from 'react-dropzone';
 import { Eye, EyeOff } from 'react-feather';
 import { IoIosClose } from 'react-icons/io';
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import ModalUser from '../modaluser/modalUser';
 
@@ -17,39 +16,26 @@ import jwt_decode from 'jwt-decode';
 import {BsArrowLeftCircle} from 'react-icons/bs';
 import PerfilUsuario from '../PerfilUsuario/PerfilUsuario';
 import UserAddress from '../Useraddress/UserAddress';
+import AddressCadastro from '../Useraddress/UserAddresscadastro';
+import Login from '../Login/login';
 
 const Navbar = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
-    const [error, setError] = useState('');
+    // const [username, setUsername] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [showPassword, setShowPassword] = useState(false);
+    // const [error, setError] = useState('');
     const [showLoginForm, setShowLoginForm] = useState(false);
     const [showUserInfoModal, setShowUserInfoModal] = useState(false);
     const [token, setToken] = useState(null);
+    const [decoded_token, setDecodedToken] = useState(null)
     const [showUserinf,setshowUserinf]=useState(true);
-    const [decoded_token, setDecodedToken] = useState(null);
+    ;
     const [Showaddress,setshowaddress]=useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     
     const userId = decoded_token?.sub; 
     const userInfo=useUserInfo(token,userId);
-
-
-
-    const handleProfileClick = () => {
-        if (decoded_token) {
-            showUserInfoModal ? setShowUserInfoModal(false) : setShowUserInfoModal(true);
-        } else {
-            showLoginForm ? setShowLoginForm(false) : setShowLoginForm(true);
-        }
-    };
-
-    const togglePasswordVisibility = (event) => {
-        event.preventDefault();
-        setShowPassword(!showPassword);
-    };
-
-    useEffect(() => {
+ useEffect(() => {
         const storedToken = localStorage.getItem('payload');
         if (storedToken) {
             setToken(storedToken);
@@ -57,42 +43,20 @@ const Navbar = () => {
             setDecodedToken(decodedToken);
         }
     }, []);
-    const handleUsernameChange = (event) => {
-        setUsername(event.target.value);
-    };
 
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
-    };
 
-    const handleLoginFormSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            const response = await axios.post('http://localhost:3000/users/login', {
-                username,
-                password,
-            });
-            const data = response.data;
-            const token = data.access_token;
-            // console.log('Token:', token);
-            // console.log('Sucesso no Login:', data);
-            setError('');
-            setShowLoginForm(false);
-            setToken(token);
-            setDecodedToken(jwt_decode(token));
-            localStorage.setItem('payload', token);
-            setShowUserInfoModal(true);
-            Swal.fire('Bem vindo', 'Login bem sucedido', 'success');
-        } catch (error) {
-            setError('Email ou Senha incorretos');
-            Swal.fire('Ops...', 'Erro ao completar o login...', 'error');
+    const handleProfileClick = () => {
+        if (decoded_token) {
+            showUserInfoModal ? setShowUserInfoModal(false) : setShowUserInfoModal(true);
+        } else {
+            showLoginForm ? setShowLoginForm(false) : setShowLoginForm(true);
+            console.log('dt', decoded_token)
         }
-
-        setUsername('');
-        setPassword('');
-
-        setShowUserInfoModal(false);
     };
+
+
+   
+ 
    
     
     const handleLogout = () => {
@@ -145,38 +109,7 @@ const Navbar = () => {
                 <div className="modal">
                     <div className="modal-content">
                         <IoIosClose className="close" onClick={closeModal}/>
-                        <h1 className="login">Login</h1>
-                        <form className="login-form" onSubmit={handleLoginFormSubmit}>
-                            <label className="password-label"> 
-                                Email:
-                            </label>
-                            <input
-                                className="password-input" type="text"
-                                value={username}
-                                onChange={handleUsernameChange}
-                                required
-                                placeholder='Digite seu email'
-                            />
-                            <br/>
-                            <label className="password-label" htmlFor="password2">
-                                Senha:{' '}
-                            </label>
-                            <input
-                                className="password-input "
-                                obrigatorio={true}
-                                type={showPassword ? 'text' : 'password'}
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder="Digite sua senha"
-                            />
-                            <button className="password-input-icon" onClick={togglePasswordVisibility}>
-                                {showPassword ? <Eye /> : <EyeOff />}
-                            </button>
-                            <button className='login-button' type="submit"><li className="login-text">Login</li></button>
-                            <p className='conta-possuir'>Não possui conta? </p>
-
-                            <a href='/user-register' target='_blank'> Registre-se agora! </a>
-                        </form>
+                        <Login/>
                     </div>
                 </div>
             )}
@@ -193,6 +126,7 @@ const Navbar = () => {
                 {showUserinf&&(<PerfilUsuario />)}
                 
                 {Showaddress &&(<UserAddress />)}
+             
                 
             </div>
             </div>
