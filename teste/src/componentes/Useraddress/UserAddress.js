@@ -49,8 +49,12 @@ const UserAddress = ({handleregisterAddress}) => {
     return(
 <div>
         {userId !== null && (
-            <div><h3 className="titulo-endereco">Endereço 1</h3>
+            <div>
+                {useraddress && useraddress.length === 1 && (
+                    <div className="endereco-um">    
+                        <h3 className="titulo-endereco">Endereço 1</h3>
                         <div className="endereco-container" key={useraddress[0].id}>
+                            <div>
                             <label className="label-endereco">
                                 Cidade:
                             </label>
@@ -59,6 +63,8 @@ const UserAddress = ({handleregisterAddress}) => {
                             value={useraddress[0].city}
                             disabled
                             />
+                            </div>
+                            <div>
                             <label className="label-endereco">
                                 Rua:
                             </label>
@@ -67,6 +73,8 @@ const UserAddress = ({handleregisterAddress}) => {
                             value={useraddress[0].street}
                             disabled
                             />
+                            </div>
+                            <div>
                             <label className="label-endereco">
                                 Estado:
                             </label>
@@ -75,6 +83,8 @@ const UserAddress = ({handleregisterAddress}) => {
                             value={useraddress[0].state}
                             disabled
                             />
+                            </div>
+                            <div>
                             <label className="label-endereco">
                                 CEP:
                             </label>
@@ -83,6 +93,8 @@ const UserAddress = ({handleregisterAddress}) => {
                             value={useraddress[0].cep}
                             disabled
                             />
+                            </div>
+                            <div>
                             <label className="label-endereco">
                                 Bairro:
                             </label>
@@ -91,6 +103,8 @@ const UserAddress = ({handleregisterAddress}) => {
                             value={useraddress[0].district}
                             disabled
                             />
+                            </div>
+                            <div>
                             <label className="label-endereco">
                                 Complemento:
                             </label>
@@ -99,6 +113,8 @@ const UserAddress = ({handleregisterAddress}) => {
                             value={useraddress[0].complement}
                             disabled
                             />
+                            </div>
+                            <div>
                             <label className="label-endereco">
                                 Número:
                             </label>
@@ -107,10 +123,8 @@ const UserAddress = ({handleregisterAddress}) => {
                             value={useraddress[0].numberhouse}
                             disabled
                             />
-                        </div>
-                {useraddress && useraddress.length === 1 && (
-                    <div className="endereco-um">    
-                        
+                            </div>
+                        </div>       
                         <button className="botao-adicionar" onClick={handleregisterAddress}>Adicionar Endereço</button>
                     </div>    
                 )}
@@ -134,11 +148,13 @@ const UserAddress = ({handleregisterAddress}) => {
 
                 {(!useraddress || useraddress.length <= 0) && (
                     <div>
+                    <div>
                         <button onClick={handleregisterAddress}>Adicionar Endereço</button>
                     </div>
                     <div>
-                    <button onClick={handleregisterAddress}>Adicionar Endereço</button>
-                </div>
+                        <button onClick={handleregisterAddress}>Adicionar Endereço</button>
+                    </div>
+                    </div>
                 )}
             </div>
         )}
