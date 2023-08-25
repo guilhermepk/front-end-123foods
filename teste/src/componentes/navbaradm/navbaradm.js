@@ -34,7 +34,7 @@ const NavbarAdm=()=>{
               <div className="navbar-adm-main">
               {userInfo && (<p className="nameuser">{userInfo.name}</p>)}
             </div>
-            <h3 className={minimized ? 'hidden' : ''}>Admin Dashboard</h3>
+            <h3 className="titulo-admin">Admin Dashboard</h3>
             </div>
             <ul className={`admin-nav ${minimized ? 'hidden' : ''}`}>
               <div className="main-adm">

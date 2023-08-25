@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './FormularioProdutos.css';
+import { Link } from "react-router-dom";
 
 const FormularioProdutos = () => {
   const initialFormValues = {
@@ -105,7 +106,8 @@ const FormularioProdutos = () => {
 
   return (
     <form className="modal-produtos" onSubmit={handleSubmit}>
-    <div className="cadastro-produtos">
+      <h1 className="cadastro-texto"> Cadastrar produtos </h1>
+    <div className="cadastro-produtos1">
     <label className="label-produtos">
       Nome do produto:
       <input
@@ -117,35 +119,35 @@ const FormularioProdutos = () => {
         placeholder='Pringles clássico, Suco Kappo de uva, etc.'
       />
     </label>
-    
     <label className="label-produtos">
       Marca:
       <input
         type="text"
-        className="input-produtos"
+        className="input-produtos2"
         name="brand"
         value={formValues.brand}
         onChange={handleChange}
         placeholder='Nenhuma, Pringles, Kappo, ElmaChips, etc.'
       />
     </label>
-    
     <label className="label-produtos">
       Peso:
       <input
         type="number"
-        className="input-produtos"
+        className="input-produtos3"
         name="weight"
         value={formValues.weight}
         onChange={handleChange}
         placeholder='5, 240, 500, 1, etc.'
       />
     </label>
+    </div>
+    <div className="cadastro-produtos2">
     <label className="label-produtos">
       Unidade de medida:
       <input
         type="text"
-        className="input-produtos"
+        className="input-produtos4"
         name="unit_of_measurement"
         value={formValues.unit_of_measurement}
         onChange={handleChange}
@@ -156,7 +158,7 @@ const FormularioProdutos = () => {
       Categoria:
       <input
         type="text"
-        className="input-produtos"
+        className="input-produtos5"
         name="category"
         value={formValues.category}
         onChange={handleChange}
@@ -167,13 +169,14 @@ const FormularioProdutos = () => {
       Quantidade em estoque:
       <input
         type="number"
-        className="input-produtos"
+        className="input-produtos6"
         name="amount"
         value={formValues.amount}
         onChange={handleChange}
         placeholder='5, 7, 13, 20, etc.'
       />
     </label>
+    </div>
     <label className="label-produtos">
       Descrição:
       <textarea
@@ -198,6 +201,8 @@ const FormularioProdutos = () => {
         placeholder='14,99; 26,37; 49,99; etc.'
       />
     </label>
+    {/* <li>
+    <div className="imagem-modal">
     <label className="label-produtos">
       Imagens:
       <div {...getRootProps()} className={`dropzone-produtos ${isDragActive ? 'active' : ''}`}>
@@ -217,6 +222,7 @@ const FormularioProdutos = () => {
     </label>
     <button  className="botao-banner-salvar" type="submit"> Enviar </button>
     </div>
+    </li> */}
   </form>
   );
 };
