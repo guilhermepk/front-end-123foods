@@ -7,13 +7,12 @@ import { AiOutlineBell } from 'react-icons/ai';
 import Search from '../Search/Search';
 import { IoIosClose } from 'react-icons/io';
 import ModalUser from '../modaluser/modalUser';
-
 import jwt_decode from 'jwt-decode';
-
 import {BsArrowLeftCircle} from 'react-icons/bs';
 import PerfilUsuario from '../PerfilUsuario/PerfilUsuario';
 import UserAddress from '../Useraddress/UserAddress';
 import Login from '../Login/login';
+import AddressCadastro from '../Useraddress/UserAddresscadastro';
 
 const Navbar = () => {
 
@@ -22,7 +21,7 @@ const Navbar = () => {
     const [token, setToken] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null)
     const [showUserinf,setshowUserinf]=useState(true);
-    ;
+    const [ShowregisterAddress,setshowregisteraddress]=useState(false);
     const [Showaddress,setshowaddress]=useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     
@@ -46,6 +45,11 @@ const Navbar = () => {
             console.log('dt', decoded_token)
         }
     };
+    const handleregisterAddress=()=>{
+        setshowaddress(false);
+        setshowUserinf(false);
+        setshowregisteraddress(true)
+    }
 
     
     const handleLogout = () => {
@@ -59,10 +63,12 @@ const Navbar = () => {
     const handleaddress=()=>{
         setshowaddress(true);
         setshowUserinf(false);
+        setshowregisteraddress(false)
     }
 
     const closeModal = () => {
         setShowLoginForm(false);
+        setshowregisteraddress(false)
         setshowaddress(false)
         setshowUserinf(true)
         setShowUserInfoModal(false);
@@ -114,7 +120,9 @@ const Navbar = () => {
                 <BsArrowLeftCircle className="seta-voltar" />
             </a>
                 {showUserinf&&(<PerfilUsuario />)}
-                {Showaddress &&(<UserAddress />)}    
+                {Showaddress &&(<UserAddress handleregisterAddress={handleregisterAddress} />)}    
+                {ShowregisterAddress&&(<AddressCadastro/> )
+                }
             </div>
             </div>
 

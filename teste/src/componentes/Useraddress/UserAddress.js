@@ -3,7 +3,7 @@ import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 import { useUserInfo } from '../UserInfo/UserInfo';
 
-const UserAddress = () => {
+const UserAddress = ({handleregisterAddress}) => {
     const [token, setToken] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null);
     const [useraddress, setUseraddress] = useState(null);
@@ -59,7 +59,7 @@ console.log('useraddress',useraddress)
                         <p>Bairro: {useraddress[0].district}</p>
                         <p>Complemento: {useraddress[0].complement}</p>
                         <p>Número: {useraddress[0].numberhouse}</p>
-                        <button>Adicionar Endereço</button>
+                        <button onClick={handleregisterAddress}>Adicionar Endereço</button>
                     </div>
                 )}
 
@@ -80,7 +80,7 @@ console.log('useraddress',useraddress)
 
                 {(!useraddress || useraddress.length <= 0) && (
                     <div>
-                        <button>Adicionar Endereço</button>
+                        <button onClick={handleregisterAddress}>Adicionar Endereço</button>
                     </div>
                 )}
             </div>
