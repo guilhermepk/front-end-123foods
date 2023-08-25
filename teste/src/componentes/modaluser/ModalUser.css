@@ -1,0 +1,87 @@
+.botao-perfil{
+    width: 198px;
+    height: 47px;
+    color: #FFFFFF;
+    background-color: #9E0000;
+    font-family: 'Oswald';
+    font-size: 20px;
+    border-bottom: 2px solid #000000;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    cursor: pointer;
+}
+
+.botao-compras{
+    width: 198px;
+    height: 47px;
+    color: #FFFFFF;
+    background-color: #9E0000;
+    font-family: 'Oswald';
+    font-size: 20px;
+    border-bottom: 2px solid #000000;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    cursor: pointer;
+}
+
+.botao-compras:hover{
+    background-color: #850101;
+}
+
+.botao-historico{
+    width: 198px;
+    height: 47px;
+    color: #FFFFFF;
+    background-color: #9E0000;
+    font-family: 'Oswald';
+    font-size: 20px;
+    border-bottom: 2px solid #000000;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    cursor: pointer;
+}
+
+.botao-historico:hover{
+    background-color: #850101;
+}
+
+.botao-enderecos{
+    width: 198px;
+    height: 47px;
+    color: #FFFFFF;
+    background-color: #9E0000;
+    font-family: 'Oswald';
+    font-size: 20px;
+    border-bottom: 2px solid #000000;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    cursor: pointer;
+}
+
+.botao-enderecos:hover{
+    background-color: #850101;
+}
+
+.botao-sair{
+    position: relative 0;
+    cursor: pointer;
+    width: 198px;
+    height: 47px;
+    color: #FFFFFF;
+    background-color: #9E0000;
+    font-family: 'Oswald';
+    font-size: 20px;
+    border: 2px solid #000000;
+    border-left: none;
+    border-right: none;
+    margin-top: 18rem;
+}
+
+.botao-sair:hover{
+    background-color: #850101;
+}
+ 
