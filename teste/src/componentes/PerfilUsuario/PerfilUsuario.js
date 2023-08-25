@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useUserInfo } from '../UserInfo/UserInfo';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
-import {BsArrowLeftCircle} from 'react-icons/bs';
 import jwt_decode from 'jwt-decode';
 
 const PerfilUsuario = (props) => {

@@ -1,37 +1,90 @@
 
 .modal-produtos{
     display: flex;
-    justify-content: center;
-}
-
-.cadastro-produtos{
-    display: grid;
-    grid-template-columns: 22% 22% 22% 22%;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column;
+    margin: 0 auto;
     width: 1000px;
     height: 610px;
     background-color: rgb(129, 129, 129);
     border-radius: 16px;
+    border: 2px solid #000000;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.cadastro-produtos1{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 4rem;
+    
+}
+
+.cadastro-produtos2{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 4rem;
+}
+
+.cadastro-texto{
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+
+.label-produtos{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+
 }
 
 .input-produtos{
     border-radius: 6px;
-    height: 25px;
+    height: 28px;
     border: none;
     width: 200px;
 }
 
 .input-produtos1{
     border-radius: 6px;
-    height: 25px;
+    height: 28px;
+    border: none;
+    width: 300px;
+}
+
+.input-produtos2{
+    border-radius: 6px;
+    height: 28px;
+    border: none;
+    width: 300px;
+}
+
+.input-produtos3{
+    border-radius: 6px;
+    height: 28px;
+    border: none;
+    width: 200px;
+}
+
+.input-produtos4{
+    border-radius: 6px;
+    height: 28px;
     border: none;
     width: 250px;
 }
 
-.marca-input{
-    margin-left: 20rem;
+.input-produtos5{
+    border-radius: 6px;
+    height: 28px;
+    border: none;
+    width: 200px;
+}
+
+.input-produtos6{
+    border-radius: 6px;
+    height: 28px;
+    border: none;
+    width: 200px;
+
 }
 
 .imagem-banner-click{
@@ -53,3 +106,9 @@
 .botao-banner-salvar:hover{
     background-color: #820101;
 }
+
+.imagem-botao-modal{
+    display: flex;
+    
+}
+

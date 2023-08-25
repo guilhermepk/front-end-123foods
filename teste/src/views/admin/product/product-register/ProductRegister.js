@@ -5,7 +5,6 @@ const ProductRegister = () => {
     return (
         <div>
             <Link to="/admin"> Admin Home</Link>
-            <h1> Cadastrar produtos </h1>
             <FormularioProdutos/>
         </div>
     );
