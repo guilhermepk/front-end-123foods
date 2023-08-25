@@ -1,5 +1,5 @@
 
-import '../Navbar/Navbar.css';
+import './ModalUser.css';
 import React, { useState, useEffect } from 'react';
 import { useUserInfo } from '../UserInfo/UserInfo';
 import jwt_decode from 'jwt-decode';

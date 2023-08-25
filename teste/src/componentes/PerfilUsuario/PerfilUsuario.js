@@ -1,4 +1,4 @@
-import '../Navbar/Navbar.css';
+import './PerfilUsuario.css';
 import React, { useState, useEffect } from 'react';
 import { useUserInfo } from '../UserInfo/UserInfo';
 import Dropzone from 'react-dropzone';
