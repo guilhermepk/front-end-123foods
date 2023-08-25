@@ -15,6 +15,7 @@ import BannerCadastro from "./views/admin/banner/cadastrobanner";
 import Bannerlist from "./views/admin/banner/bannerlist";
 import ProductView from "./views/ProductView";
 import Notification from "./views/admin/notification/notification";
+import Notificationf from "./views/admin/notification/list_notificationf";
 
 function NotFound() {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
           <Route path="/user-register" element={<UserRegister />} />
           <Route path="/admin/notifications" element={isAdmin() ? <Notification/> : <Navigate to="/" />} />
+          <Route path="/admin/notifications/list" element={isAdmin() ? <Notificationf/> : <Navigate to="/" />} />
 
           <Route path="/admin" element={isAdmin() ? <Admin /> : <Navigate to="/" />} />
             <Route path="/admin/product-register" element={isAdmin() ? <ProductRegister /> : <Navigate to="/" />} />

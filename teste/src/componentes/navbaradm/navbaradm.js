@@ -60,7 +60,7 @@ const NavbarAdm=()=>{
                 <Link to="/admin/notifications"><AiTwotoneNotification/>Criar Notificação</Link>
               </li>
               <li className="li-itens">
-              <Link to='/admin/notifications-list'> <RiNotificationBadgeFill/> Lista de Notificações</Link>
+              <Link to='/admin/notifications/list'> <RiNotificationBadgeFill/> Lista de Notificações</Link>
               </li>
               </div>
             </ul>

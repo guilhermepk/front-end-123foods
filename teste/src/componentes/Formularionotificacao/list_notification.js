@@ -1,0 +1,56 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+
+const NotificationList = () => {
+    const [notifications, setnotifications] = useState([]);
+
+    const fetchnotifications = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/notifications');
+            setnotifications(response.data);
+        } catch (error) {
+            console.error('Erro ao buscar notifications:', error);
+        }
+    };
+
+    const handleDeletenotification = async (notificationId) => {
+        try {
+            await axios.delete(`http://localhost:3000/notifications/${notificationId}`);
+            const updatednotifications = notifications.filter((notification) => notification.id !== notificationId);
+            setnotifications(updatednotifications);
+        } catch (error) {
+            console.error('Erro ao excluir notification:', error);
+        }
+    };
+console.log("notigficação:",notifications)
+    useEffect(() => {
+        fetchnotifications();
+    }, []);
+
+    return (
+        <div>
+            <div className="notification-list-container">
+                <h1 className="titulo-notification">Listagem de notifications</h1>
+                <div className="notification-list">
+                    {notifications.map((notification) => (
+                        <div key={notification.id} className="notification-item">
+                            <div className="notification-info">
+                                    <p>{notification.title}</p>
+                                    </div>
+                            <div className="notification-info">
+                                <p>{notification.message}</p>
+                                </div>
+                            <div className="notification-info">
+                                <p>{notification.link}</p>
+                                <button className="botao-excluir-notification" onClick={() => handleDeletenotification(notification.id)}>Excluir</button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default NotificationList;
