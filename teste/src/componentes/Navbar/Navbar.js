@@ -42,6 +42,11 @@ const Navbar = () => {
 
 
     const handleProfileClick = () => {
+        setshowMyshoppins(false)
+        setshowaddress(false);
+        setshowUserinf(true);
+        setshowregisteraddress(false);
+        setshowpurchasesHistoric(false)
         if (decoded_token) {
             showUserInfoModal ? setShowUserInfoModal(false) : setShowUserInfoModal(true);
         } else {
