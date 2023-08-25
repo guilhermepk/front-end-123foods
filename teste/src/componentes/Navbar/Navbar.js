@@ -13,6 +13,7 @@ import PerfilUsuario from '../PerfilUsuario/PerfilUsuario';
 import UserAddress from '../Useraddress/UserAddress';
 import Login from '../Login/login';
 import AddressCadastro from '../Useraddress/UserAddresscadastro';
+import PurchasesHistoric from '../purchaseshistoric/purchaseshistoric';
 
 const Navbar = () => {
 
@@ -21,6 +22,7 @@ const Navbar = () => {
     const [token, setToken] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null)
     const [showUserinf,setshowUserinf]=useState(true);
+    const [showpurchasesHistoric,setshowpurchasesHistoric]=useState(false);
     const [ShowregisterAddress,setshowregisteraddress]=useState(false);
     const [Showaddress,setshowaddress]=useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
@@ -42,13 +44,27 @@ const Navbar = () => {
             showUserInfoModal ? setShowUserInfoModal(false) : setShowUserInfoModal(true);
         } else {
             showLoginForm ? setShowLoginForm(false) : setShowLoginForm(true);
-            console.log('dt', decoded_token)
         }
     };
+    const handlemyprofile=()=>{
+        setshowaddress(false);
+        setshowUserinf(true);
+        setshowregisteraddress(false);
+        setshowpurchasesHistoric(false)
+    }
+
+    const handlepurchasesHistoric=()=>{
+        setshowpurchasesHistoric(true)
+        setshowaddress(false);
+        setshowUserinf(false);
+        setshowregisteraddress(false)
+    }
+
     const handleregisterAddress=()=>{
         setshowaddress(false);
         setshowUserinf(false);
         setshowregisteraddress(true)
+        setshowpurchasesHistoric(false)
     }
 
     
@@ -64,6 +80,7 @@ const Navbar = () => {
         setshowaddress(true);
         setshowUserinf(false);
         setshowregisteraddress(false)
+        setshowpurchasesHistoric(false)
     }
 
     const closeModal = () => {
@@ -114,14 +131,17 @@ const Navbar = () => {
             <ModalUser
             handleLogout={handleLogout}
             handleaddress={handleaddress}
+            handlemyprofile={handlemyprofile}
+            handlepurchasesHistoric={handlepurchasesHistoric}
             />
             <div className="modal-conteudo">
             <a onClick={closeModal}> 
                 <BsArrowLeftCircle className="seta-voltar" />
             </a>
-                {showUserinf&&(<PerfilUsuario />)}
+                {showUserinf &&(<PerfilUsuario />)}
+                {showpurchasesHistoric &&(<PurchasesHistoric />)}
                 {Showaddress &&(<UserAddress handleregisterAddress={handleregisterAddress} />)}    
-                {ShowregisterAddress&&(<AddressCadastro/> )
+                {ShowregisterAddress&&(<AddressCadastro /> )
                 }
             </div>
             </div>

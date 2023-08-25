@@ -15,7 +15,7 @@ const PerfilUsuario = (props) => {
     const [selectedImage, setSelectedImage] = useState(null);
     const userId = decoded_token?.sub; 
     const userInfo=useUserInfo(token,userId);
-    console.log('userinfo:', userInfo);
+    
 
 
 

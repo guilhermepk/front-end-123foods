@@ -38,7 +38,6 @@ const UserAddress = ({handleregisterAddress}) => {
             });
             const data = response.data;
             setUseraddress(data);
-            console.log('useraddress:', data);
         } catch (error) {
             console.error('Erro ao buscar os dados do usuário:', error);
             setUseraddress(null);

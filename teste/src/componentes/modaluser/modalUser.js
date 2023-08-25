@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode';
 import { IoIosLogOut } from 'react-icons/io';
 
 
-const ModalUser= ({handleLogout,handleaddress}) => {
+const ModalUser= ({handleLogout,handleaddress,handlemyprofile,handlepurchasesHistoric}) => {
     
     const [token, setToken] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null);
@@ -25,13 +25,13 @@ const ModalUser= ({handleLogout,handleaddress}) => {
     
     return(
         <div className="modal-usuario1">
-                    <button className="botao-perfil">
+                    <button className="botao-perfil" onClick={handlemyprofile}>
                         Meu perfil
                     </button>
-                    <button className="botao-compras">
+                    <button className="botao-compras" onClick={handlepurchasesHistoric}>
                         Minhas compras
                     </button>
-                    <button className="botao-historico">
+                    <button className="botao-historico" onClick={handlepurchasesHistoric}>
                         Histórico de Compras
                     </button>
                     <button className="botao-enderecos" onClick={handleaddress}>
