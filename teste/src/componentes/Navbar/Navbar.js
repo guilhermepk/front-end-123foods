@@ -12,6 +12,7 @@ import {BsArrowLeftCircle} from 'react-icons/bs';
 import PerfilUsuario from '../PerfilUsuario/PerfilUsuario';
 import UserAddress from '../Useraddress/UserAddress';
 import Login from '../Login/login';
+import Myshopping from '../Myshopping/Myshopping';
 import AddressCadastro from '../Useraddress/UserAddresscadastro';
 import PurchasesHistoric from '../purchaseshistoric/purchaseshistoric';
 
@@ -22,6 +23,7 @@ const Navbar = () => {
     const [token, setToken] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null)
     const [showUserinf,setshowUserinf]=useState(true);
+    const [showMyshoppins,setshowMyshoppins]=useState(false);
     const [showpurchasesHistoric,setshowpurchasesHistoric]=useState(false);
     const [ShowregisterAddress,setshowregisteraddress]=useState(false);
     const [Showaddress,setshowaddress]=useState(false);
@@ -46,7 +48,15 @@ const Navbar = () => {
             showLoginForm ? setShowLoginForm(false) : setShowLoginForm(true);
         }
     };
+    const handlemyshoppings=()=>{
+        setshowMyshoppins(true)
+        setshowaddress(false);
+        setshowUserinf(false);
+        setshowregisteraddress(false);
+        setshowpurchasesHistoric(false)
+    }
     const handlemyprofile=()=>{
+        setshowMyshoppins(false)
         setshowaddress(false);
         setshowUserinf(true);
         setshowregisteraddress(false);
@@ -54,6 +64,7 @@ const Navbar = () => {
     }
 
     const handlepurchasesHistoric=()=>{
+        setshowMyshoppins(false)
         setshowpurchasesHistoric(true)
         setshowaddress(false);
         setshowUserinf(false);
@@ -61,6 +72,7 @@ const Navbar = () => {
     }
 
     const handleregisterAddress=()=>{
+        setshowMyshoppins(false)
         setshowaddress(false);
         setshowUserinf(false);
         setshowregisteraddress(true)
@@ -77,6 +89,7 @@ const Navbar = () => {
     }
 
     const handleaddress=()=>{
+        setshowMyshoppins(false)
         setshowaddress(true);
         setshowUserinf(false);
         setshowregisteraddress(false)
@@ -131,6 +144,7 @@ const Navbar = () => {
             <ModalUser
             handleLogout={handleLogout}
             handleaddress={handleaddress}
+            handlemyshoppings={handlemyshoppings}
             handlemyprofile={handlemyprofile}
             handlepurchasesHistoric={handlepurchasesHistoric}
             />
@@ -140,6 +154,7 @@ const Navbar = () => {
             </a>
                 {showUserinf &&(<PerfilUsuario />)}
                 {showpurchasesHistoric &&(<PurchasesHistoric />)}
+                {showMyshoppins &&(<Myshopping />)}
                 {Showaddress &&(<UserAddress handleregisterAddress={handleregisterAddress} />)}    
                 {ShowregisterAddress&&(<AddressCadastro /> )
                 }
