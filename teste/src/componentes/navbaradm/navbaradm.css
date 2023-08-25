@@ -39,12 +39,12 @@
   margin-bottom: 30px;
 }
 
-h3{
+.titulo-admin{
   padding: 16px;
   transition: 0.3s; 
 }
 
-h3:hover{
+.titulo-admin:hover{
   background-color: #4a4a4a;
   border-radius: 12px;
 }
@@ -70,11 +70,6 @@ h3:hover{
   font-size: 20px;
   text-align: center;
 }
-
-.hidden {
-
-}
-
 
 .navbar-adm-main{
   margin-bottom: 30px;

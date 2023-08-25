@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 import { useUserInfo } from '../UserInfo/UserInfo';
 
-const UserAddress = () => {
+const UserAddress = ({handleregisterAddress}) => {
     const [token, setToken] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null);
     const [useraddress, setUseraddress] = useState(null);
@@ -51,6 +51,7 @@ console.log('useraddress',useraddress)
         {userId !== null && (
             <div>
                 {useraddress && useraddress.length === 1 && (
+
                     <div className="endereco" key={useraddress[0].id}>
                         <h3 className="numero-endereco">Endereço 1</h3>
                         <label className="label-endereco">
@@ -109,7 +110,8 @@ console.log('useraddress',useraddress)
                         value={useraddress[0].numberhouse}
                         disabled
                         />
-                        <button>Adicionar Endereço</button>
+                        <button onClick={handleregisterAddress}>Adicionar Endereço</button>
+
                     </div>
                 )}
 
@@ -130,7 +132,7 @@ console.log('useraddress',useraddress)
 
                 {(!useraddress || useraddress.length <= 0) && (
                     <div>
-                        <button>Adicionar Endereço</button>
+                        <button onClick={handleregisterAddress}>Adicionar Endereço</button>
                     </div>
                 )}
             </div>
