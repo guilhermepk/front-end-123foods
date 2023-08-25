@@ -1,12 +1,18 @@
+:root{
+    --main-bg-color: black;
+}
+
+
 
 .modal-produtos{
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin-left: 35rem;
+    margin-top: 1rem;
     width: 1000px;
-    height: 610px;
+    height: 820px;
     background-color: rgb(129, 129, 129);
-    border-radius: 16px;
+    border-radius: 12px;
     border: 2px solid #000000;
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);
 }
@@ -22,74 +28,151 @@
     display: flex;
     justify-content: space-around;
     margin-bottom: 4rem;
+    gap: 1rem;
+}
+
+.cadastro-produtos3{
+    display: flex;
+    margin-bottom: 3rem;
+    margin-left: 2.4rem;
+    gap: 5rem;
+}
+
+.div-imagens{
+    margin-left: 20rem;
 }
 
 .cadastro-texto{
     margin-top: 2rem;
     margin-left: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 .label-produtos{
     display: flex;
     flex-direction: column;
     font-size: 20px;
-
-}
-
-.input-produtos{
-    border-radius: 6px;
-    height: 28px;
-    border: none;
-    width: 200px;
+    gap: 8px;
 }
 
 .input-produtos1{
-    border-radius: 6px;
+    border-radius: 8px;
     height: 28px;
     border: none;
     width: 300px;
 }
 
 .input-produtos2{
-    border-radius: 6px;
+    border-radius: 8px;
     height: 28px;
     border: none;
     width: 300px;
 }
 
 .input-produtos3{
-    border-radius: 6px;
+    border-radius: 8px;
     height: 28px;
     border: none;
     width: 200px;
 }
 
 .input-produtos4{
-    border-radius: 6px;
+    border-radius: 8px;
     height: 28px;
     border: none;
     width: 250px;
 }
 
 .input-produtos5{
-    border-radius: 6px;
+    border-radius: 8px;
+    height: 28px;
+    border: none;
+    width: 300px;
+}
+
+.input-produtos6{
+    border-radius: 8px;
     height: 28px;
     border: none;
     width: 200px;
 }
 
-.input-produtos6{
-    border-radius: 6px;
+.input-produtos7{
+    border-radius: 8px;
+    height: 28px;
+    border: none;
+    width: 300px;
+
+}
+
+.input-produtos8{
+    border-radius: 8px;
     height: 28px;
     border: none;
     width: 200px;
+    margin-bottom: 1rem;
+}
 
+.label-imagem{
+    font-size: 26px;
+    margin-left: 26rem;
+    
+}
+
+.teste{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
 .imagem-banner-click{
     cursor: pointer;
+    margin-left: 11rem;
+    font-size: 18px;
+    width: 600px;
+    height: 100px;
+    margin-bottom: 2.5rem;
+    margin-top: 2rem;
+    border: none;
+    display: table;
+    font-size:1em;
+    background: -webkit-linear-gradient(left, #9E0000 50%, transparent 50%), 
+    -webkit-linear-gradient(left, #9E0000 50%, transparent 50%), 
+    -webkit-linear-gradient(top, #9E0000 50%, transparent 50%), 
+    -webkit-linear-gradient(top, #9E0000 50%, transparent 50%);
 }
+
+
+
+    .imagem-banner-click{
+        background-color: #b9b9b9;
+        background-size: 12px 2px, 12px 2px, 2px 12px, 2px 12px;
+        background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+        background-position: 0 0, left bottom, 0 0, right 0;
+        }
+
+
+    .imagem-banner-click:hover{
+        -webkit-animation: anima-borda 10s linear infinite;
+        animation: anima-borda 10s linear infinite;
+      }
+    
+      @-webkit-keyframes anima-borda {
+        0% {
+          background-position: 0 0, left bottom, 0 0, right 0;
+        }
+        100% {
+          background-position: 1000px 0, -1000px bottom, 0 -1000px, right 1000px;
+        }
+      }
+      @keyframes anima-borda {
+        0% {
+          background-position: 0 0, left bottom, 0 0, right 0;
+        }
+        100% {
+          background-position: 1000px 0, -1000px bottom, 0 -1000px, right 1000px;
+        }
+      } 
 
 .botao-banner-salvar{
     border-radius: 6px;
@@ -101,14 +184,15 @@
     cursor: pointer;
     transition: 0,2s;
     font-size: 18px;
+    margin-left: 23.7rem;
 }
 
 .botao-banner-salvar:hover{
     background-color: #820101;
 }
 
-.imagem-botao-modal{
-    display: flex;
-    
-}
 
+.imagem-modal{
+    display: flex;
+    justify-content: center;
+}
