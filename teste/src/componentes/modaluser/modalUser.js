@@ -24,8 +24,7 @@ const ModalUser= ({handleLogout,handleaddress}) => {
     
     
     return(
-<div>
-<div className="modal-usuario1">
+        <div className="modal-usuario1">
                     <button className="botao-perfil">
                         Meu perfil
                     </button>
@@ -45,11 +44,6 @@ const ModalUser= ({handleLogout,handleaddress}) => {
                     </button>
                     </div>
                 </div>
-</div>
-
-
-
-
 
     );
 }

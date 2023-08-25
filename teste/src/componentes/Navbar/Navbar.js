@@ -5,10 +5,7 @@ import { CgProfile } from 'react-icons/cg';
 import { FiShoppingCart } from 'react-icons/fi';
 import { AiOutlineBell } from 'react-icons/ai';
 import Search from '../Search/Search';
-import Dropzone from 'react-dropzone';
-import { Eye, EyeOff } from 'react-feather';
 import { IoIosClose } from 'react-icons/io';
-import Swal from 'sweetalert2';
 import ModalUser from '../modaluser/modalUser';
 
 import jwt_decode from 'jwt-decode';
@@ -16,14 +13,10 @@ import jwt_decode from 'jwt-decode';
 import {BsArrowLeftCircle} from 'react-icons/bs';
 import PerfilUsuario from '../PerfilUsuario/PerfilUsuario';
 import UserAddress from '../Useraddress/UserAddress';
-import AddressCadastro from '../Useraddress/UserAddresscadastro';
 import Login from '../Login/login';
 
 const Navbar = () => {
-    // const [username, setUsername] = useState('');
-    // const [password, setPassword] = useState('');
-    // const [showPassword, setShowPassword] = useState(false);
-    // const [error, setError] = useState('');
+
     const [showLoginForm, setShowLoginForm] = useState(false);
     const [showUserInfoModal, setShowUserInfoModal] = useState(false);
     const [token, setToken] = useState(null);
@@ -54,10 +47,6 @@ const Navbar = () => {
         }
     };
 
-
-   
- 
-   
     
     const handleLogout = () => {
         console.log('userinfo: ', userInfo)
@@ -66,17 +55,19 @@ const Navbar = () => {
         localStorage.removeItem('payload');
         closeModal(true)
     }
+
     const handleaddress=()=>{
         setshowaddress(true);
         setshowUserinf(false);
     }
+
     const closeModal = () => {
         setShowLoginForm(false);
         setshowaddress(false)
         setshowUserinf(true)
         setShowUserInfoModal(false);
     };
-    //console.log('token',decoded_token)
+
 
   return (
     <div className="container-fluid">
@@ -101,7 +92,6 @@ const Navbar = () => {
             <a href="">
               <AiOutlineBell className="notificacao"/>
             </a>
-            
           </div>
         </ul>
       </nav>
@@ -109,7 +99,7 @@ const Navbar = () => {
                 <div className="modal">
                     <div className="modal-content">
                         <IoIosClose className="close" onClick={closeModal}/>
-                        <Login/>
+                        <Login />
                     </div>
                 </div>
             )}
@@ -124,17 +114,13 @@ const Navbar = () => {
                 <BsArrowLeftCircle className="seta-voltar" />
             </a>
                 {showUserinf&&(<PerfilUsuario />)}
-                
-                {Showaddress &&(<UserAddress />)}
-             
-                
+                {Showaddress &&(<UserAddress />)}    
             </div>
             </div>
-            
-            
-            
+
             )}
     </div>
   );
 };
+
 export default Navbar;

@@ -1,6 +1,6 @@
 import { Eye, EyeOff } from 'react-feather';
 import React, { useState, useEffect } from 'react';
-import '../Navbar/Navbar.css';
+import './Login.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import jwt_decode from 'jwt-decode';

@@ -1,34 +1,27 @@
-
 * {
   box-sizing: border-box;
 }
 
-/* NAVBAR */
 .modal,
-/* NAVBAR */
 .modal-usuario{
   position: fixed; 
   z-index: 100;   
 }
 
-/* NAVBAR */
 body{
   margin: 0;
 }
 
-/* NAVBAR */
 .container-fluid {
   position: relative;
 }
 
-/* NAVBAR */
 .navbar {
   background: #9E0000;
   width: 100%;
   
 }
 
-/* NAVBAR */
 .nav-list {
   list-style: none;
   margin: 0;
@@ -38,23 +31,19 @@ body{
   align-items: center;
 }
 
-/* NAVBAR */
 .nav-list li {
   display: inline;
 }
 
-/* NAVBAR */
 .nav-list li a {
   color: #fff;
   text-decoration: none;
 }
 
-/* NAVBAR */
 .nav-list li a:hover {
   background-color: black;
 }
 
-/* NAVBAR */
 .conteudo{
   display: flex;
   gap: 22px;
@@ -62,22 +51,18 @@ body{
   
 }
 
-/* NAVBAR */
 .carrinho:hover{
   color: #FFE2B6;
 }
 
-/* NAVBAR */
 .perfil:hover{
   color: #FFE2B6;
 }
 
-/* NAVBAR */
 .notificacao:hover{
   color: #FFE2B6;
 }
 
-/* NAVBAR */
 .carrinho {
   height: 45px;
   width: 45px;
@@ -85,7 +70,6 @@ body{
   transform: 0.6;
 }
 
-/* NAVBAR */
 .perfil {
   height: 45px;
   width: 45px;
@@ -93,7 +77,6 @@ body{
   transform: 0.6;
 }
 
-/* NAVBAR */
 .notificacao{
   height: 47px;
   width: 47px;
@@ -101,7 +84,6 @@ body{
   transform: 0.6;
 }
 
-/* NAVBAR */
 .logo {
   max-width: 220px;
   min-width: 220px;
@@ -109,24 +91,10 @@ body{
   
 }
 
-/* NAVBAR */
 .logo-123{
   margin-top: 0.1rem;
 }
 
-/* NAVBAR */
-/* LOGIN */
-.login{
-  display: flex;
-  justify-content: center;
-  font-family: 'Oswald';
-  font-size: 40px;
-  color: #000000;
-  font-weight: 600;
-  margin-top: -2.5rem;
-}
-
-/* NAVBAR */
 .modal {
   z-index: 2;
   background-color: #FFECCE;
@@ -139,7 +107,6 @@ body{
   width: 500px;
 }
 
-/* NAVBAR */
 .modal-usuario{
   z-index: 2;
   display: flex;
@@ -155,14 +122,6 @@ body{
   border-radius: 0 10px 10px 0px;
 }
 
-.modal-usuario1{
-  width: 200px;
-  background-color: #FFECCE;
-  border-right: 2px solid #000000;
-
-}
-
-/* NAVBAR */
 .seta-voltar{
   display: block;
   font-size: 40px;
@@ -172,7 +131,6 @@ body{
   cursor: pointer;
 }
 
-/* NAVBAR */
 .seta-voltar:hover{
   color: #800000;
 }
@@ -196,12 +154,10 @@ body{
   background-color: #850101;
 } */
 
-/* NAVBAR */
 .modal-conteudo{
   display: block;
 }
 
-/* NAVBAR */
 @media (min-width: 1500px) and (max-width: 5000px)
 {
   .modal{
@@ -211,7 +167,6 @@ body{
   }
 }
 
-/* NAVBAR */
 @media (min-width: 1000px) and (max-width: 1500px)
 {
   .modal{
@@ -221,7 +176,6 @@ body{
   }
 }
 
-/* NAVBAR */
 @media (min-width: 800px) and (max-width: 1000px)
 {
   .modal{
@@ -231,7 +185,6 @@ body{
   }
 }
 
-/* NAVBAR */
 @media (min-width: 500px) and (max-width: 800px)
 {
   .modal{
@@ -241,7 +194,6 @@ body{
   }
 }
 
-/* NAVBAR */
 .close{
   color: rgb(186, 23, 23);
   margin-left: 27.5rem;
@@ -250,91 +202,11 @@ body{
   height: 5%;
 }
 
-/* NAVBAR */
 .close:hover {
   color: rgb(255, 0, 0);
   
 }
 
-/* NAVBAR */
-/* LOGIN */
-.login-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    border-radius: 10px;
-    font-family: 'Oswald';
-    font-weight: 300;
-    margin-top: 0.5rem;
-}
-
-/* NAVBAR */
-/* LOGIN */
-.login-form input {
-  padding: 10px;
-  border: 1px solid #E1C59B;
-  background-color: #E1C59B;
-  border-radius: 10px;
-  width: 100%;
-  height: 40px;
-  border: none;
-  font-size: 20px;
-  box-sizing: border-box;
-  font-weight: 300;
-}
-
-/* NAVBAR */
-/* LOGIN */
-.login-button {
-  align-self: center;
-  text-align: center;
-  width: 150px;
-  height: 60px;
-  background-color: #9E0000;
-  color: #fff;
-  border: 2px solid #000000;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 22px;
-  margin-top: 2rem;
-  font-family: 'Oswald';
-  font-weight: 600;
-}
-
-/* NAVBAR */
-/* LOGIN */
-.login-text{
-  margin-top: 0.1rem;
-  margin-left: 3.2rem;
-}
-
-/* NAVBAR */
-/* LOGIN */
-.login-button:hover{
-  background-color: #b62121;
-}
-
-/* NAVBAR */
-/* LOGIN */
-.login-form a {
-  text-align: center;
-  text-decoration: none;
-  color: #000000;
-  padding: 2px;
-  font-size: 22px;
-  font-weight: 600;
-}
-
-/* NAVBAR */
-/* LOGIN */
-.login-form a:hover {
-  color: rgb(186, 23, 23);
-}
-
-/* NAVBAR */
 .conta-possuir{
   text-align: center;
   text-decoration: none;
@@ -343,57 +215,6 @@ body{
   margin-top: 0.5rem;
 }
 
-/* NAVBAR */
-/* LOGIN */
-.password-input-icon{
-  background-color: #E1C59B;
-  position: relative;
-  margin-top: -3rem;
-  padding-top: 0.005%;
-  padding-left: 0.005%;
-  padding-bottom: 0.005%;
-  padding-right: 0.005%;
-  width: 15%;
-  margin-left: 19rem;
-  border-radius: 10px;
-  border: none;
-  color: #000000;
-}
-
-/* NAVBAR */
-/* LOGIN */
-.password-input-icon:hover{
-  color: rgb(186, 23, 23);
-}
-
-/* NAVBAR */
-/* LOGIN */
-.password-input{
-  margin-bottom: 1rem;  
-}
-
-/* NAVBAR */
-/* LOGIN */
-.password-input{
-  color: #000000;
-  font-weight: 700;
-}
-
-/* NAVBAR */
-/* LOGIN */
-.password-label{
-  display: block;
-  margin-bottom: 1.5rem;
-  font-size: 28px;
-  width: 339px;
-  height: 29px;
-  margin-left: 10px;
-  color: #000000;
-  font-family: 'Oswald';
-  font-weight: 400;
-}
-
-/* NAVBAR */
 .botao-admin {
   width: 60px;
   height: 50px;
@@ -406,7 +227,6 @@ body{
   font-size: 16px;
 }
 
-/* NAVBAR */
 .botao-admin:hover{
   background-color: #FFE2B6;
 }
