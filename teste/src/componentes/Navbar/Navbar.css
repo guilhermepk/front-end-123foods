@@ -115,11 +115,11 @@ body{
   margin: 80px 0; 
   padding: 0px;
   margin-top: 5rem;
+  border-radius: 10px;
   border: 2px solid #000000;
   width: 1100px;
   height: 525px;
   margin-left: 22%;
-  border-radius: 0 10px 10px 0px;
 }
 
 .seta-voltar{
