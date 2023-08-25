@@ -1,12 +1,12 @@
 import FormularioNotification from "../../../componentes/Formularionotificacao/formularionotificacao";
+import NavbarAdm from "../../../componentes/navbaradm/navbaradm";
 
-const formularionotification= () => {
+const Notification= () => {
     return (
         <div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <h1> Criação de Notificação  </h1>
+            <NavbarAdm/>
             <FormularioNotification/>
         </div>
     );
 }
-export default formularionotification;
+export default Notification;

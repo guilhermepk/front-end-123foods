@@ -13,8 +13,8 @@ import ProductList from './views/admin/product/product-list/ProductList';
 import isAdmin from './views/admin/AdminRouteGuard'
 import BannerCadastro from "./views/admin/banner/cadastrobanner";
 import Bannerlist from "./views/admin/banner/bannerlist";
-import FormularioNotification from "./componentes/Formularionotificacao/formularionotificacao";
 import ProductView from "./views/ProductView";
+import Notification from "./views/admin/notification/notification";
 
 function NotFound() {
   return (
@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/" element={<Home/>}/>
           <Route path="*" element={<NotFound />} />
           <Route path="/user-register" element={<UserRegister />} />
-          <Route path="/notification" element={<FormularioNotification />} />
+          <Route path="/admin/notifications" element={isAdmin() ? <Notification/> : <Navigate to="/" />} />
 
           <Route path="/admin" element={isAdmin() ? <Admin /> : <Navigate to="/" />} />
             <Route path="/admin/product-register" element={isAdmin() ? <ProductRegister /> : <Navigate to="/" />} />
