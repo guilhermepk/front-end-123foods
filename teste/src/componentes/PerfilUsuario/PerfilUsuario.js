@@ -117,19 +117,24 @@ const PerfilUsuario = (props) => {
                                     <h2 className="atualizar-imagem">Atualizar Imagem do Usuário</h2>
                                     <p className="selecionar-imagem">Selecionar imagem:</p>
                                     <form className="form-imagem" onSubmit={handleUploadImage}>
-                                        <Dropzone onDrop={handleImageDrop}>
+                                    <div className="campo-selecionar">
+                                    <Dropzone onDrop={handleImageDrop}>
                                             {({ getRootProps, getInputProps }) => (
-                                                <div className="dropzone" {...getRootProps()}>
+                                                <div className="selecionar-imagem-banner" {...getRootProps()}>
                                                     <input {...getInputProps()} />
+                                                    <p className="texto-mudar-imagem">Clique aqui para selecionar uma imagem</p>
                                                     {selectedImage && (
-                                                        <div>
-                                                            <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada"  className='imagem-selecionar'/>
+                                                        <div className="mudar-imagem-margin">
+                                                        <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada" className="mudar-imagem-perfil"/>
                                                         </div>
                                                     )}
                                                 </div>
                                             )}
-                                        </Dropzone>
+                                            </Dropzone>
+                                        </div>
+                                        <div className="botao-salvar-margin">
                                         <button  className="botao-salvar" type="submit">Salvar</button>
+                                        </div>
                                     </form>
                             </div>
                         </div>

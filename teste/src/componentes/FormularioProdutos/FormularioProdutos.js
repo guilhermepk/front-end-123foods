@@ -152,7 +152,7 @@ const FormularioProdutos = () => {
         name="unit_of_measurement"
         value={formValues.unit_of_measurement}
         onChange={handleChange}
-        placeholder=' Inserir unidade de medida'
+        placeholder='  Kg, g'
       />
     </label>
     <label className="label-produtos">
@@ -214,7 +214,7 @@ const FormularioProdutos = () => {
         ) : (
           <>
             {formValues.image ? (
-              <img src={URL.createObjectURL(formValues.image)} alt="Imagem selecionada" />
+              <img src={URL.createObjectURL(formValues.image)} className="img-banner" alt="Imagem selecionada" />
             ) : (
               <p className="teste">Arraste e solte a imagem aqui ou clique para selecionar</p>
             )}

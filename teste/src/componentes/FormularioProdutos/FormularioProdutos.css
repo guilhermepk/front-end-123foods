@@ -126,6 +126,8 @@
 }
 
 .imagem-banner-click{
+    display: flex;
+    justify-content: center;
     cursor: pointer;
     margin-left: 11rem;
     font-size: 18px;
@@ -134,7 +136,6 @@
     margin-bottom: 2.5rem;
     margin-top: 2rem;
     border: none;
-    display: table;
     font-size:1em;
     background: -webkit-linear-gradient(left, #9E0000 50%, transparent 50%), 
     -webkit-linear-gradient(left, #9E0000 50%, transparent 50%), 
@@ -195,4 +196,11 @@
 .imagem-modal{
     display: flex;
     justify-content: center;
+}
+
+.img-banner{
+    height: 80px;
+    width: 600px;
+    overflow: hidden;
+    object-fit: cover;
 }
