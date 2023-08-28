@@ -13,7 +13,7 @@ import ProductList from './views/admin/product/product-list/ProductList';
 import isAdmin from './views/admin/AdminRouteGuard'
 import BannerCadastro from "./views/admin/banner/cadastrobanner";
 import Bannerlist from "./views/admin/banner/bannerlist";
-import ProductView from "./views/ProductView";
+import ProductView from "./views/ProductPages/ProductView";
 import Notification from "./views/admin/notification/notification";
 import Notificationf from "./views/admin/notification/list_notificationf";
 

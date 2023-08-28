@@ -1,0 +1,23 @@
+.ProductPage-main{
+    background-color: #fff6e7;
+    display: flex;
+    justify-content: center;
+}
+.Product{
+    border: 1px solid black ;
+    border-radius: 19px;
+    margin: 9%;
+    background-color: #FFE2B6;
+}
+.Product-name{
+    color: black;
+}
+.Product-image{
+    width: 305px;
+    height:344px;
+}
+.Product-description{
+color: black;
+justify-content: center;
+font-size: 130%;
+}

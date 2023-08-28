@@ -60,6 +60,7 @@ const HomeProductLister = () => {
                                 <div className="cardTexts">
                                     <p>{product.brand}</p>
                                     <p>R$ {product.price}</p>
+                                    <button className="button">Comprar</button>
                                 </div>
                             </a>
                         </Card>

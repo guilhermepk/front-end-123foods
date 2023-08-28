@@ -132,3 +132,20 @@ a.page-link {
         grid-template-columns: 20% 20% 20% 20% 20%;
     }
 }
+.button {
+    background-color: #9E0000;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    transition: 0.2s; 
+}
+
+.button:hover{
+    background-color: darkred;
+}
