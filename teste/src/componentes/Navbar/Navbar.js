@@ -135,10 +135,6 @@ const Navbar = () => {
   
   var interval = 60 * 60 * 1000; 
   setInterval(checkTokenExpiration, interval);
-    console.log('token:',token);
-    console.log('payload:',decoded_token);
-
-
   return (
     <div className="container-fluid">
       <nav className="navbar">
