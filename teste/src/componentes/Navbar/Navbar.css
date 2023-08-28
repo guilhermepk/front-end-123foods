@@ -96,7 +96,7 @@ body{
 }
 
 .modal {
-  z-index: 2;
+  z-index: 4;
   background-color: #FFECCE;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5); 
   margin: 80px 0; 
@@ -108,18 +108,18 @@ body{
 }
 
 .modal-usuario{
-  z-index: 2;
+  z-index: 4;
   display: flex;
   background-color: #FFECCE;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5); 
   margin: 80px 0; 
   padding: 0px;
   margin-top: 5rem;
+  border-radius: 10px;
   border: 2px solid #000000;
   width: 1100px;
   height: 525px;
   margin-left: 22%;
-  border-radius: 0 10px 10px 0px;
 }
 
 .seta-voltar{
@@ -155,7 +155,7 @@ body{
 } */
 
 .modal-conteudo{
-  display: block;
+  display: flex;
 }
 
 @media (min-width: 1500px) and (max-width: 5000px)

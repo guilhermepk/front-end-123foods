@@ -135,4 +135,10 @@
   font-size: 18px;
 }
 
+.imagem-texto{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+
+}
 
