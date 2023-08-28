@@ -47,13 +47,13 @@ const UserAddress = ({handleregisterAddress}) => {
     };
 
     return(
-<div>
+<div className='modal-total'>
         {userId !== null && (
             <div>
                 {useraddress && useraddress.length === 1 && (
                     <div className="endereco-um">    
-                        <h3 className="titulo-endereco">Endereço 1</h3>
                         <div className="endereco-container" key={useraddress[0].id}>
+                        <h3 className="titulo-endereco">Endereço 1</h3>
                             <div>
                             <label className="label-endereco">
                                 Cidade:
@@ -124,23 +124,93 @@ const UserAddress = ({handleregisterAddress}) => {
                             disabled
                             />
                             </div>
-                        </div>       
+                        </div>
+                        <div className='botao-adicionar-div'>       
                         <button className="botao-adicionar" onClick={handleregisterAddress}>Adicionar Endereço</button>
+                        </div>
                     </div>    
                 )}
 
                 {useraddress && useraddress.length > 1 && (
                     useraddress.map((address, index) => (
                         <div className="endereco-dois">
-                            <div key={address.id}>
-                                <h3>Endereço {index + 1}</h3>
-                                <p>Cidade: {address.city}</p>
-                                <p>Rua: {address.street}</p>
-                                <p>Estado: {address.state}</p>
-                                <p>Cep: {address.cep}</p>
-                                <p>Bairro: {address.district}</p>
-                                <p>Complemento: {address.complement}</p>
-                                <p>Número: {address.numberhouse}</p>
+                            <div endereco-container key={address.id}>
+                                <h3 className="titulo-endereco">Endereço {index + 1}</h3>
+                                <div>
+                                    <label className='label-endereco'>
+                                        Cidade:
+                                    </label> 
+                                    <input className='dados-endereco' 
+                                    type='text' 
+                                    value={address.city} 
+                                    disabled
+                                    />
+                                </div>
+                                <div>
+                                    <label className='label-endereco'>
+                                        Rua:
+                                    </label> 
+                                    <input className='dados-endereco' 
+                                    type='text' 
+                                    value={address.street} 
+                                    disabled
+                                    />
+                                </div>
+                                <div>
+                                    <label className='label-endereco'>
+                                        Estado:
+                                    </label> 
+                                    <input className='dados-endereco' 
+                                    type='text' 
+                                    value={address.state} 
+                                    disabled
+                                    />
+                                </div>
+                                <div>
+                                    <label className='label-endereco'>
+                                        Cep:
+                                    </label> 
+                                    <input className='dados-endereco' 
+                                    type='text' 
+                                    value={address.cep} 
+                                    disabled
+                                    />
+                                </div>
+                                <div>
+                                    <label className='label-endereco'>
+                                        Bairro:
+                                    </label> 
+                                    <input className='dados-endereco' 
+                                    type='text' 
+                                    value={address.district} 
+                                    disabled
+                                    />
+                                </div>
+                                <div>
+                                    <label className='label-endereco'>
+                                        Complemento:
+                                    </label> 
+                                    <input className='dados-endereco' 
+                                    type='text' 
+                                    value={address.complement} 
+                                    disabled
+                                    />
+                                </div>
+                                <div>
+                                    <label className='label-endereco'>
+                                        Número:
+                                    </label> 
+                                    <input className='dados-endereco' 
+                                    type='text' 
+                                    value={address.numberhouse} 
+                                    disabled
+                                    />
+                                </div>
+                            </div>
+                            <div className='botao-excluir-div'>       
+                                <button className="botao-excluir" onClick={handleregisterAddress}>
+                                    Excluir
+                                    </button>
                             </div>
                         </div>    
                     ))

@@ -1,18 +1,32 @@
- .endereco-container {
+.modal-total {
+    width: 898px;
+    overflow: hidden;
+}
+
+.endereco-um {
+    display: inline-block;
+    width: 449px;
     padding: 1rem 2rem 1rem 2rem
+} 
+
+.endereco-dois {
+    display: inline-block;
+    width: 449px;
+    padding: 1rem 2rem 1rem 2rem;
+    height: 521px;
+    border-right: 2px solid #000;
 } 
 
 .titulo-endereco {
     display: flex;
     justify-content: center;
-    margin: 1rem 0 1rem 0;
-    font-weight: 700;
     font-size: 2rem;
 }
 
 .label-endereco {
     font-size: 20px;
     margin-right: 1rem;
+    margin-left: 1rem;
 }
 
 .dados-endereco {
@@ -21,16 +35,26 @@
     border-radius: 10px;
     height: 35px;
     font-size: 20px;
-    margin-top: 1rem;
+    margin: 1rem 1rem 0 0;
     padding-left: 10px;
 }
 
-.botao-adicionar {
+.botao-adicionar-div {
+    padding-left: 65%;
+}
+
+.botao-excluir-div {
+    padding: 1rem 0 1rem 8rem;
+}
+
+.botao-adicionar,
+.botao-excluir {
     border-radius: 10px;
+    font-size: 1rem;
     border: 2px solid #000;
     height: 3rem;
     width: 7rem;
     background-color: #9E0000;
     cursor: pointer;
     color: #fff;
-}
+} 
