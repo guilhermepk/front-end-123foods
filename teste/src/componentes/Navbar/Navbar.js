@@ -108,6 +108,35 @@ const Navbar = () => {
         setshowUserinf(true)
         setShowUserInfoModal(false);
     };
+    function checkTokenExpiration() {
+      var token = localStorage.getItem('payload');
+      console.log('token dentro:',token)
+  
+      try {
+          var decoded_token = jwt_decode(token);
+          var exp_timestamp = decoded_token.exp;
+          var exp_date = new Date(exp_timestamp * 1000);
+          var time_until_exp = exp_date - new Date();
+          var one_hour = 60 * 60 * 1000;
+  
+          if (time_until_exp <= one_hour) {
+              console.log("Falta menos de 1 hora para a expiração do token. Realizando logout automático...");
+              handleLogout(true);
+          }
+  
+      } catch (error) {
+          if (error.name === "TokenExpiredError") {
+              console.log("O token já expirou.");
+          } else {
+              console.log("Erro na decodificação do token.");
+          }
+      }
+  }
+  
+  var interval = 60 * 60 * 1000; 
+  setInterval(checkTokenExpiration, interval);
+    console.log('token:',token);
+    console.log('payload:',decoded_token);
 
 
   return (
