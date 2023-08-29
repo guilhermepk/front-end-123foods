@@ -15,8 +15,6 @@ const HomeproductLister = (props) => {
             .then((data) => setProducts(data));
     }, [props.category]);
 
-    console.log(products)
-
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
     const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);

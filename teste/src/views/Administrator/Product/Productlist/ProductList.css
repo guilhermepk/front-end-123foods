@@ -1,0 +1,15 @@
+.h1-products{
+    font-size: 250%;
+    display: flex;
+    justify-content: center;
+}
+
+.products{
+    
+    margin-right: 20rem;
+}
+
+.teste{
+    display: flex;
+    justify-content: center;
+}

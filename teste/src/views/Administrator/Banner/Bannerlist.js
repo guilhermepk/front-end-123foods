@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import NavbarAdm from '../../../componentes/NavigationbarAdm/NavigationbarAdm';
+import NavigationbarAdm from '../../../componentes/NavigationbarAdm/NavigationbarAdm';
 import './Bannerlist.css'
 
 const BannerList = () => {
@@ -31,7 +31,7 @@ const BannerList = () => {
 
     return (
         <>
-            <NavbarAdm />
+            <NavigationbarAdm />
             <div className="banner-list-container">
                 <h1 className="titulo-banner">Listagem de Banners</h1>
                 <div className="banner-list">
