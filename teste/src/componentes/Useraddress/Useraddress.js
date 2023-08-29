@@ -53,81 +53,81 @@ const Useraddress = ({handleregisterAddress}) => {
                 {useraddress && useraddress.length === 1 && (
                     <div className="endereco-um">    
                         <div className="endereco-container" key={useraddress[0].id}>
-                        <h3 className="titulo-endereco">Endereço 1</h3>
-                            <div>
-                            <label className="label-endereco">
-                                Cidade:
-                            </label>
-                            <input
-                            className="dados-endereco" type='text'
-                            value={useraddress[0].city}
-                            disabled
-                            />
-                            </div>
-                            <div>
-                            <label className="label-endereco">
-                                Rua:
-                            </label>
-                            <input
-                            className="dados-endereco" type='text'
-                            value={useraddress[0].street}
-                            disabled
-                            />
-                            </div>
-                            <div>
-                            <label className="label-endereco">
-                                Estado:
-                            </label>
-                            <input
-                            className="dados-endereco" type='text'
-                            value={useraddress[0].state}
-                            disabled
-                            />
-                            </div>
-                            <div>
-                            <label className="label-endereco">
-                                CEP:
-                            </label>
-                            <input
-                            className="dados-endereco" type='text'
-                            value={useraddress[0].cep}
-                            disabled
-                            />
-                            </div>
-                            <div>
-                            <label className="label-endereco">
-                                Bairro:
-                            </label>
-                            <input
-                            className="dados-endereco" type='text'
-                            value={useraddress[0].district}
-                            disabled
-                            />
-                            </div>
-                            <div>
-                            <label className="label-endereco">
-                                Complemento:
-                            </label>
-                            <input
-                            className="dados-endereco" type='text'
-                            value={useraddress[0].complement}
-                            disabled
-                            />
-                            </div>
-                            <div>
-                            <label className="label-endereco">
-                                Número:
-                            </label>
-                            <input
-                            className="dados-endereco" type='text'
-                            value={useraddress[0].numberhouse}
-                            disabled
-                            />
-                            </div>
+                            <h3 className="titulo-endereco-um">Endereço 1</h3>
+                                <div>
+                                    <label className="label-endereco">
+                                        Cidade:
+                                    </label>
+                                    <input
+                                    className="dados-endereco-um" type='text'
+                                    value={useraddress[0].city}
+                                    disabled
+                                    />
+                                </div>
+                                    <div>
+                                    <label className="label-endereco">
+                                        Rua:
+                                    </label>
+                                    <input
+                                    className="dados-endereco-um" type='text'
+                                    value={useraddress[0].street}
+                                    disabled
+                                    />
+                                </div>
+                                    <div>
+                                    <label className="label-endereco">
+                                        Estado:
+                                    </label>
+                                    <input
+                                    className="dados-endereco-um" type='text'
+                                    value={useraddress[0].state}
+                                    disabled
+                                    />
+                                </div>
+                                <div>
+                                    <label className="label-endereco">
+                                        CEP:
+                                    </label>
+                                    <input
+                                    className="dados-endereco-um" type='text'
+                                    value={useraddress[0].cep}
+                                    disabled
+                                    />
+                                </div>
+                                    <div>
+                                    <label className="label-endereco">
+                                        Bairro:
+                                    </label>
+                                    <input
+                                    className="dados-endereco-um" type='text'
+                                    value={useraddress[0].district}
+                                    disabled
+                                    />
+                                </div>
+                                    <div>
+                                    <label className="label-endereco">
+                                        Complemento:
+                                    </label>
+                                    <input
+                                    className="dados-endereco-um" type='text'
+                                    value={useraddress[0].complement}
+                                    disabled
+                                    />
+                                </div>
+                                <div>
+                                    <label className="label-endereco">
+                                        Número:
+                                    </label>
+                                    <input
+                                    className="dados-endereco-um" type='text'
+                                    value={useraddress[0].numberhouse}
+                                    disabled
+                                    />
+                                </div>
                         </div>
-                        <div className='botao-adicionar-div'>       
-                        <button className="botao-adicionar" onClick={handleregisterAddress}>Adicionar Endereço</button>
-                        </div>
+                            <div className='botao-adicionar-div'>       
+                                <button className="botao-adicionar" onClick={handleregisterAddress}>Adicionar Endereço</button>
+                            </div>
                     </div>    
                 )}
 
@@ -210,7 +210,8 @@ const Useraddress = ({handleregisterAddress}) => {
                             <div className='botao-excluir-div'>       
                                 <button className="botao-excluir" onClick={handleregisterAddress}>
                                     Excluir
-                                    </button>
+                                </button>
+                                <a className='adress-alter' href='/adress-alter' target='_blank'> Alterar endereço</a>
                             </div>
                         </div>    
                     ))
@@ -218,11 +219,11 @@ const Useraddress = ({handleregisterAddress}) => {
 
                 {(!useraddress || useraddress.length <= 0) && (
                     <div>
-                    <div>
-                        <button onClick={handleregisterAddress}>Adicionar Endereço</button>
+                    <div className='add-endereco-um'>
+                        <button className='botao-add-endereco-um' onClick={handleregisterAddress}>Adicionar Endereço</button>
                     </div>
-                    <div>
-                        <button onClick={handleregisterAddress}>Adicionar Endereço</button>
+                    <div className='add-endereco-dois'>
+                        <button className='botao-add-endereco-dois' onClick={handleregisterAddress}>Adicionar Endereço</button>
                     </div>
                     </div>
                 )}
