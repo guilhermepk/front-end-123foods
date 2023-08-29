@@ -120,7 +120,6 @@
 .li-itens{
   font-size: 18px;
   display: flex;
-  flex-direction: column;
   transition: 0.2s; 
 }
 

@@ -69,7 +69,7 @@
 }
 
 .botao-banner:hover{
-  background-color: #000000;
+  background-color: darkred;
 }
 
 .alt-banner{
@@ -128,7 +128,7 @@
   border-radius: 6px;
   border: 2px solid #000000;
   color: #ffffff;
-  background-color: #4a4a4a;
+  background-color: #9E0000;
   cursor: pointer;
   transition: 0.6s;
   margin-left: 10rem;

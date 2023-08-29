@@ -90,7 +90,7 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     max-width: 500px;
-    height: 550px;
+    height: 580px;
     border: 2px solid #2c2c2c;
     border-radius: 10px;
     font-family: 'Oswald';
@@ -118,6 +118,7 @@
 .mudar-imagem-perfil{
     max-width: 400px;
     max-height: 200px;
+    margin-top: rem;
 }
 
 .botao-salvar-margin{
@@ -164,6 +165,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
+    
 }
 
 .campo-selecionar{
@@ -172,7 +174,6 @@
 }
 
 .selecionar-imagem-banner{
-    border: none;
     margin-bottom: 4rem;
     width: 350px;
     height: 100px;
