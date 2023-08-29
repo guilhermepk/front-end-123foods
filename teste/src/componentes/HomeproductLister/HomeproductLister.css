@@ -2,6 +2,12 @@
     font-family: 'Oswald';
 }
 
+.no-product{
+    display: flex;
+    justify-content: center;
+    font-size: 200%;
+}
+
 .pagination{
     display: flex;
     justify-content: center;
