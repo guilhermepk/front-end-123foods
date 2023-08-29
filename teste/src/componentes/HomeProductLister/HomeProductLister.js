@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
 
-import './HomeProductLister.css'
+import './HomeproductLister.css'
 
-const HomeProductLister = () => {
+const HomeproductLister = () => {
     const [products, setProducts] = useState([]);
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -72,4 +72,4 @@ const HomeProductLister = () => {
     );
 }
 
-export default HomeProductLister;
+export default HomeproductLister;

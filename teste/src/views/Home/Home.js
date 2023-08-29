@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
-import Navbar from '../../componentes/Navbar/Navbar';
+import Navigationbar from '../../componentes/Navigationbar/Navigationbar';
 import Banner from '../../componentes/Banner/Banner';
-import Filtrocat from '../../componentes/Filtrocategorias/filtrocategorias';
 import Footer from '../../componentes/Footer/Footer';
-
+import FilterCategories from'../../componentes/Filtercategories/Filtercategories';
 import './Home.css'
 
 const Home = () => {
     return (
         <div className="home-main" >
-            <Navbar/>
+            <Navigationbar/>
             <div className="products">
                 <Banner/>
-                <Filtrocat/>
+                <FilterCategories />
             </div>
             <Footer/>
         </div>

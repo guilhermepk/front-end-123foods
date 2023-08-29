@@ -1,16 +1,16 @@
 import { useParams } from "react-router-dom";
-import ProductPage from "../../componentes/ProductPage/ProductPage";
-import Navbar from '../../componentes/Navbar/Navbar';
+import Productpage from "../../componentes/Productpage/Productpage";
+import Navigationbar from '../../componentes/Navigationbar/Navigationbar';
 
-const ProductView = () => {
+const Productview = () => {
     const { productId } = useParams();
 
     return (
         <div className="ProductView-main">
-            <Navbar />
-            <ProductPage productId={productId}/>
+            <Navigationbar />
+            <Productpage productId={productId}/>
         </div>
     );
 }
 
-export default ProductView;
+export default Productview;

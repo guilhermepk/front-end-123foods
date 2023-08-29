@@ -5,17 +5,17 @@ import {
 } from "react-router-dom";
 
 import Home from './views/Home/Home';
-import Admin from './views/admin/Admin';
-import UserRegister from './views/UserRegister';
-import ProductRegister from './views/admin/product/product-register/ProductRegister';
-import ProductList from './views/admin/product/product-list/ProductList';
+import Admin from './views/Administrator/Admin';
+import Userregister from './views/Userregister';
+import Productregister from './views/Administrator/Product/Productregister/Productregister';
+import Productlist from './views/Administrator/Product/Productlist/ProductList';
 
-import isAdmin from './views/admin/AdminRouteGuard'
-import BannerCadastro from "./views/admin/banner/cadastrobanner";
-import Bannerlist from "./views/admin/banner/bannerlist";
-import ProductView from "./views/ProductPages/ProductView";
-import Notification from "./views/admin/notification/notification";
-import Notificationf from "./views/admin/notification/list_notificationf";
+import Isadmin from './views/Administrator/AdminrouteGuard'
+import Bannerregister from "./views/Administrator/Banner/Bannnerregister";
+import Bannerlist from "./views/Administrator/Banner/Bannerlist";
+import Productview from "./views/Productpages/Productview";
+import Notification from "./views/Administrator/Notification/Notification";
+import NotificationlistFront from "./views/Administrator/Notification/NotificationlistFront";
 
 function NotFound() {
   return (
@@ -33,17 +33,17 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="*" element={<NotFound />} />
-          <Route path="/user-register" element={<UserRegister />} />
-          <Route path="/admin/notifications" element={isAdmin() ? <Notification/> : <Navigate to="/" />} />
-          <Route path="/admin/notifications/list" element={isAdmin() ? <Notificationf/> : <Navigate to="/" />} />
+          <Route path="/user-register" element={<Userregister />} />
+          <Route path="/admin/notifications" element={Isadmin() ? <Notification/> : <Navigate to="/" />} />
+          <Route path="/admin/notifications/list" element={Isadmin() ? <NotificationlistFront/> : <Navigate to="/" />} />
 
-          <Route path="/admin" element={isAdmin() ? <Admin /> : <Navigate to="/" />} />
-            <Route path="/admin/product-register" element={isAdmin() ? <ProductRegister /> : <Navigate to="/" />} />
-            <Route path="/admin/banner" element={isAdmin() ? <BannerCadastro /> : <Navigate to="/" />} />
-            <Route path="/admin/bannerlist" element={isAdmin() ? <Bannerlist /> : <Navigate to="/" />} />
-            <Route path="/admin/product-list" element={isAdmin() ? <ProductList/> : <Navigate to='/'/>} />
+          <Route path="/admin" element={Isadmin() ? <Admin /> : <Navigate to="/" />} />
+            <Route path="/admin/product-register" element={Isadmin() ? <Productregister /> : <Navigate to="/" />} />
+            <Route path="/admin/banner" element={Isadmin() ? <Bannerregister /> : <Navigate to="/" />} />
+            <Route path="/admin/bannerlist" element={Isadmin() ? <Bannerlist /> : <Navigate to="/" />} />
+            <Route path="/admin/product-list" element={Isadmin() ? <Productlist/> : <Navigate to='/'/>} />
 
-          <Route path='/product/:productId' element={<ProductView/>} />
+          <Route path='/product/:productId' element={<Productview/>} />
         </Routes>
       </Router>
     </div>

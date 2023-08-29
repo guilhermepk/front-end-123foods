@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export const useUserInfo = (token, userId) => {
-    const [userInfo, setUserInfo] = useState(null);
+export const useUserinfo = (token, userId) => {
+    const [userinfo, setUserInfo] = useState(null);
 
     useEffect(() => {
         
@@ -27,5 +27,5 @@ export const useUserInfo = (token, userId) => {
         }
     }, [token, userId]);
 
-    return userInfo;
+    return userinfo;
 };

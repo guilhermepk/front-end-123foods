@@ -1,17 +1,17 @@
-import './UserAdress.css'
+import './Useradress.css'
 import React, { useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
-import { useUserInfo } from '../UserInfo/UserInfo';
+import { useUserinfo } from '../Userinfo/Userinfo';
 
-const UserAddress = ({handleregisterAddress}) => {
+const Useraddress = ({handleregisterAddress}) => {
     const [token, setToken] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null);
     const [useraddress, setUseraddress] = useState(null);
     const [userId, setUserId] = useState(null);
     const [hasFetchedUserAddress, setHasFetchedUserAddress] = useState(false); 
 
-    const userInfo = useUserInfo(token, userId);
+    const userInfo = useUserinfo(token, userId);
 
     useEffect(() => {
         const storedToken = localStorage.getItem('payload');
@@ -232,4 +232,4 @@ const UserAddress = ({handleregisterAddress}) => {
 
     )
 }
-export default UserAddress;
+export default Useraddress;

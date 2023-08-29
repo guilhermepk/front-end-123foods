@@ -1,4 +1,4 @@
-const PurchasesHistoric=()=>{
+const Purchaseshistoric=()=>{
 
 
     return(
@@ -7,4 +7,4 @@ const PurchasesHistoric=()=>{
         </div>
     )
 }
-export default PurchasesHistoric;
+export default Purchaseshistoric;

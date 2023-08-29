@@ -1,10 +1,10 @@
-import FormularioCadastroUser from '../componentes/Formulariocadastro/formulariocadastro';
+import Registrationform from '../componentes/Registrationform/Registrationform';
 import { Link } from "react-router-dom";
 
 const UserRegister = () => {
     return (
         <div>
-            <FormularioCadastroUser/>
+            <Registrationform/>
 
         </div>
     );

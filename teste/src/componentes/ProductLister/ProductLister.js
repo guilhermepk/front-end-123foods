@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Col, Container, Pagination, Row } from "react-bootstrap";
 
-const ProductLister = () => {
+const Productlister = () => {
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 5;
@@ -54,4 +54,4 @@ const ProductLister = () => {
     );
 }
 
-export default ProductLister;
+export default Productlister;

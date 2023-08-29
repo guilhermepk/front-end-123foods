@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import './productPage.css'
-const ProductPage = (props) => {
+import './productpage.css'
+const Productpage = (props) => {
     const [product, setProduct] = useState([]);
 
     useEffect(() => {
@@ -35,4 +35,4 @@ const ProductPage = (props) => {
     );
 }
 
-export default ProductPage;
+export default Productpage;
