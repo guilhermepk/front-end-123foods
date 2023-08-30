@@ -3,25 +3,31 @@
     z-index: 100;  
 }
 
+.name-and-image{
+    margin-top: 25px;
+}
+
 .perfil-usuario{
-    font-family: 'Oswald';
-    margin-right: 26rem;
     display: flex;
     justify-content: center;
+    font-family: 'Oswald';
     margin-top: 0.8rem;
     color: #000000;
     font-weight: 700;
-    margin-right: 28rem;
+}
+
+.user-data{
+    display: grid;
+    grid-template-columns: 60% 60%;
 }
 
 .conta-usuario{
+    margin-top: 2.5rem;
     display: grid;
-    margin-left: 28rem;
-    margin-top: -15rem;
     font-weight: 400;
     font-size: 22px;
     font-family: 'Oswald';
-    gap: 15px;
+    gap: 10px;
 }
 
 .dados-pessoais{
@@ -44,8 +50,8 @@
 }
 
 .imagem-perfil{
-    width: 250px;
-    height: 200px;
+    min-width: 350px;
+    min-height: 350px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #000000;
