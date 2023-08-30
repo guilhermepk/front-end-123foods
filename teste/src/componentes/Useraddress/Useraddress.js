@@ -126,6 +126,12 @@ const Useraddress = ({handleregisterAddress}) => {
                                     disabled
                                     />
                                 </div>
+                            <div className='botao-excluir-div'>       
+                                <button className="botao-excluir" onClick={() => Addressdelete(useraddress[0].id)}>
+                                    Excluir
+                                </button>
+                                <a className='adress-alter' href='/adress-alter' target='_blank'> Alterar endereço</a>
+                            </div>    
                         </div>
                             <div className='botao-adicionar-div'>
                                 <IoIosAddCircleOutline className='icon-add' onClick={handleregisterAddress} size={40} />       

@@ -1,0 +1,79 @@
+.titulo-cadastro-endereco {
+    font-size: 2.5rem;
+    padding: 1.5rem 0 0 2rem;
+}
+
+.form-cadastro-endereco {
+    margin: 3rem 1rem 1rem 3rem;
+    width: 800px;
+    height: 373px;
+}
+
+.label-endereco-cadastro {
+    font-size: 1.5rem;
+    padding-right: 1rem;
+}
+
+.input-campo {
+    border: none;
+    border-radius: 10px;
+    height: 35px;
+    background-color: #E1C59B;
+    font-size: 1.25rem;
+    padding-left: 0.5rem;
+}
+
+.botao-cadastro-endereco {
+    height: 60px;
+    width: 180px;
+    font-size: 1.5rem;
+    color: #FFF;
+    background-color: #9E0000;
+    border: 2px solid #000;
+    border-radius: 12px;
+    margin-left: 3rem;
+    cursor: pointer;
+}
+
+.botao-cadastro-endereco:hover {
+    background-color: #850101;
+}
+
+.cep-div,
+.cidade-div,
+.rua-div,
+.numero-div,
+.estado-div,
+.complemento-div,
+.bairro-div {
+    display: inline-flex;
+    padding: 1.7rem 1rem;
+}
+
+.input-campo.cep {
+    width: 110px;
+}
+
+.input-campo.cidade {
+    width: 180px;
+}
+
+.input-campo.rua {
+    width: 220px;
+}
+
+.input-campo.numero {
+    width: 80px;
+}
+
+.input-campo.estado {
+    width: 70px;
+}
+
+.input-campo.bairro {
+    width: 310px;
+}
+
+.input-campo.complemento {
+    width: 330px;
+}
