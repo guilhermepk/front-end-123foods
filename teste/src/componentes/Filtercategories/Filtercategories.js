@@ -5,17 +5,30 @@ import HomeProductLister from '../HomeproductLister/HomeproductLister';
 
 const Filtercategories = () => {
   const categories = ['PROMOÇÕES', 'SALGADOS', 'DOCES', 'BEBIDAS', 'NATURAIS'];
-  const [category, setCategory] = useState('promoções')
+  const [category, setCategory] = useState(null)
+  const [clicked, setClicked] = useState(null);
 
   return (
     <div>
-      <p className="navbarcat">
+      <ul className="navbarcat">
         {categories.map((category, index) => (
-          <button className='button-category' key={index} onClick={() => setCategory(category)}>
+          <button
+            className={clicked == category ? 'category-clicked' : 'button-category'}
+            key={index}
+            onClick={() => {
+              if(clicked == category){
+                setClicked(null)
+                setCategory(null)
+              }else{
+                setClicked(category)
+                setCategory(category)
+              }
+            }}
+          >
             {category}
           </button>
         ))}
-      </p>
+      </ul>
 
       <HomeProductLister category={category} />
     </div>

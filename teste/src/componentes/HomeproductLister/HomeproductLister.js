@@ -9,11 +9,21 @@ const HomeproductLister = (props) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage] = useState(5);
 
+    console.log(props.category)
+
     useEffect(() => {
-        fetch(`http://localhost:3000/foods/filter/category/${props.category}`)
-            .then((response) => response.json())
-            .then((data) => setProducts(data));
+        if(props.category) {
+            fetch(`http://localhost:3000/foods/filter/category/${props.category}`)
+                .then((response) => response.json())
+                .then((data) => setProducts(data))
+        }else if(props.category === null){
+            fetch(`http://localhost:3000/foods`)
+                .then((response) => response.json())
+                .then((data) => setProducts(data))
+        }
     }, [props.category]);
+
+    console.log(products)
 
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
