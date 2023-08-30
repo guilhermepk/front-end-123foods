@@ -9,7 +9,7 @@ const Productlist = () => {
             <NavigationbarAdm />
 
             <h1 className='h1-products'> Produtos </h1>
-            <div className='teste'> <AdmProductLister className='products'/> </div>
+            <div className='teste'> <AdmProductLister className='adm-products'/> </div>
         </>
     );
 }

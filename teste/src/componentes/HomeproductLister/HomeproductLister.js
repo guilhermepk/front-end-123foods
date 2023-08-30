@@ -16,7 +16,7 @@ const HomeproductLister = (props) => {
             fetch(`http://localhost:3000/foods/filter/category/${props.category}`)
                 .then((response) => response.json())
                 .then((data) => setProducts(data))
-        }else if(props.category === null){
+        }else{
             fetch(`http://localhost:3000/foods`)
                 .then((response) => response.json())
                 .then((data) => setProducts(data))
@@ -82,8 +82,8 @@ const HomeproductLister = (props) => {
                     </Col>
                 ))}
             </ul>
-            {currentProducts.length === 0 && (
-                <p className="no-product">Nenhum produto encontrado</p>
+            {currentProducts.length === 0 && props.category &&(
+                <p className="no-product">Nenhum produto encontrado para a categoria {props.category}</p>
             )}
             <Pag/>
         </div>
