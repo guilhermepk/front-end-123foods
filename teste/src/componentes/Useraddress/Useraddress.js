@@ -2,6 +2,7 @@ import './Useradress.css'
 import React, { useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
+import { IoIosAddCircleOutline } from 'react-icons/io';
 import { useUserinfo } from '../Userinfo/Userinfo';
 
 const Useraddress = ({handleregisterAddress}) => {
@@ -125,7 +126,8 @@ const Useraddress = ({handleregisterAddress}) => {
                                     />
                                 </div>
                         </div>
-                            <div className='botao-adicionar-div'>       
+                            <div className='botao-adicionar-div'>
+                                <IoIosAddCircleOutline className='icon-add' onClick={handleregisterAddress} size={40} />       
                                 <button className="botao-adicionar" onClick={handleregisterAddress}>Adicionar Endereço</button>
                             </div>
                     </div>    
@@ -220,10 +222,12 @@ const Useraddress = ({handleregisterAddress}) => {
                 {(!useraddress || useraddress.length <= 0) && (
                     <div>
                     <div className='add-endereco-um'>
-                        <button className='botao-add-endereco-um' onClick={handleregisterAddress}>Adicionar Endereço</button>
+                        <IoIosAddCircleOutline className='icon-add-um' onClick={handleregisterAddress} size={40} />
+                        <button className='botao-add-endereco-um' onClick={handleregisterAddress} >Adicionar Endereço</button>
                     </div>
                     <div className='add-endereco-dois'>
-                        <button className='botao-add-endereco-dois' onClick={handleregisterAddress}>Adicionar Endereço</button>
+                        <IoIosAddCircleOutline className='icon-add-dois' onClick={handleregisterAddress} size={40} />
+                        <button className='botao-add-endereco-dois' onClick={handleregisterAddress} >Adicionar Endereço</button>
                     </div>
                     </div>
                 )}
