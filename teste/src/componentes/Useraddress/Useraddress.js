@@ -4,6 +4,7 @@ import jwt_decode from 'jwt-decode';
 import axios from 'axios';
 import { IoIosAddCircleOutline } from 'react-icons/io';
 import { useUserinfo } from '../Userinfo/Userinfo';
+import Addressdelete from './UseraddressDelete';
 
 const Useraddress = ({handleregisterAddress}) => {
     const [token, setToken] = useState(null);
@@ -210,7 +211,7 @@ const Useraddress = ({handleregisterAddress}) => {
                                 </div>
                             </div>
                             <div className='botao-excluir-div'>       
-                                <button className="botao-excluir" onClick={handleregisterAddress}>
+                                <button className="botao-excluir" onClick={() => Addressdelete(address.id)}>
                                     Excluir
                                 </button>
                                 <a className='adress-alter' href='/adress-alter' target='_blank'> Alterar endereço</a>
