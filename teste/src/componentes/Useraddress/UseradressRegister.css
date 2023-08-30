@@ -25,13 +25,14 @@
 
 .botao-cadastro-endereco {
     height: 60px;
-    width: 150px;
-    font-size: 1.2rem;
+    width: 180px;
+    font-size: 1.5rem;
     color: #FFF;
     background-color: #9E0000;
     border: 2px solid #000;
-    border-radius: 10px;
-    margin-left: 5rem;
+    border-radius: 12px;
+    margin-left: 3rem;
+    cursor: pointer;
 }
 
 .botao-cadastro-endereco:hover {
@@ -46,7 +47,7 @@
 .complemento-div,
 .bairro-div {
     display: inline-flex;
-    padding: 1.5rem 1rem;
+    padding: 1.7rem 1rem;
 }
 
 .input-campo.cep {
