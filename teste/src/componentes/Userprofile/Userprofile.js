@@ -14,14 +14,10 @@ const Userprofile = (props) => {
     const [selectedImage, setSelectedImage] = useState(null);
     const userId = decoded_token?.sub; 
     const userInfo=useUserinfo(token,userId);
-    
-
-
 
     const handleImageDrop = (acceptedFiles) => {
         setSelectedImage(acceptedFiles[0]);
     };
-
 
     const handleUploadImage = async () => {
         try {
@@ -55,92 +51,95 @@ const Userprofile = (props) => {
         }
     }, []);
 
- 
-
     return(
         userInfo && (
-               <div>
-                    <h2 className="perfil-usuario">
-                        Olá, {userInfo.name}!</h2>
-                    <div className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
-                        {userInfo.image && (
-                            <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-perfil" />
-                        )}
-                        {!userInfo.image && (
-                            <img src={`http://localhost:3000/uploads/imagem-padrao.gif`} alt="Default User Image" className="imagem-perfil"/>
-                        )}
-                        {showUploadButton && (
-                            <button className="botao-hover" onClick={handleImageUploadButtonClick}>Atualizar Imagem</button>
-                        )}
-                    </div>
-                    <div className="conta-usuario">
-                    <label className="label-dados">
-                        Nome:
-                    </label>
-                    <input
-                    className="dados-pessoais" type='text'
-                    value={userInfo.name}
-                    disabled
-                    />
-                    <label className="label-dados">
-                        Email:
-                    </label>
-                    <input
-                    className="dados-pessoais" type='text'
-                    value={userInfo.email}
-                    disabled
-                    />
-                    <label className="label-dados">
-                        Telefone:
-                    </label>
-                    <input
-                    className="dados-pessoais" type='text'
-                    value={userInfo.phone}
-                    disabled
-                    />
-                    <label className="label-dados">
-                        CPF:
-                    </label>
-                    <input
-                    className="dados-pessoais" type='text'
-                    value={userInfo.cpf}
-                    disabled
-                    />
-                
-                    </div>
-                    {showImageUploadModal && (
-                        <div  className="image-upload-modal">
-                            <div  className="image-upload-modal-content">
-                                <span className="close-image" onClick={() => setShowImageUploadModal(false)}>
-                                    &times;
-                                </span>
-                                    <h2 className="atualizar-imagem">Atualizar Imagem do Usuário</h2>
-                                    <p className="selecionar-imagem">Selecionar imagem:</p>
-                                    <form className="form-imagem" onSubmit={handleUploadImage}>
-                                    <div className="campo-selecionar">
-                                    <Dropzone onDrop={handleImageDrop}>
-                                            {({ getRootProps, getInputProps }) => (
-                                                <div className="selecionar-imagem-banner" {...getRootProps()}>
-                                                    
-                                                    <input {...getInputProps()} />
-                
-                                                    {selectedImage && (
-                                                        <div className="mudar-imagem-margin">
-                                                        <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada" className="mudar-imagem-perfil"/>
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            )}
-                                            </Dropzone>
-                                        </div>
-                                        <div className="botao-salvar-margin">
-                                        <button  className="botao-salvar" type="submit">Salvar</button>
-                                        </div>
-                                    </form>
-                            </div>
+            <div>
+                <div className='user-data'>
+                    <div className='name-and-image'>
+                        <h2 className="perfil-usuario"> Olá, {userInfo.name}! </h2>
+                        <div className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
+                            {userInfo.image && (
+                                <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-perfil" />
+                            )}
+                            {!userInfo.image && (
+                                <img src={`http://localhost:3000/uploads/imagem-padrao.gif`} alt="Default User Image" className="imagem-perfil"/>
+                            )}
+                            {showUploadButton && (
+                                <button className="botao-hover" onClick={handleImageUploadButtonClick}>Atualizar Imagem</button>
+                            )}
                         </div>
-                    )}
+                    </div>
+
+                    <div className="conta-usuario">
+                        <label className="label-dados">
+                            Nome:
+                        </label>
+                        <input
+                            className="dados-pessoais" type='text'
+                            value={userInfo.name}
+                            disabled
+                        />
+                        <label className="label-dados">
+                            Email:
+                        </label>
+                        <input
+                        className="dados-pessoais" type='text'
+                        value={userInfo.email}
+                        disabled
+                        />
+                        <label className="label-dados">
+                            Telefone:
+                        </label>
+                        <input
+                        className="dados-pessoais" type='text'
+                        value={userInfo.phone}
+                        disabled
+                        />
+                        <label className="label-dados">
+                            CPF:
+                        </label>
+                        <input
+                        className="dados-pessoais" type='text'
+                        value={userInfo.cpf}
+                        disabled
+                        />
+                
+                    </div>
                 </div>
+
+                {showImageUploadModal && (
+                    <div  className="image-upload-modal">
+                        <div  className="image-upload-modal-content">
+                            <span className="close-image" onClick={() => setShowImageUploadModal(false)}>
+                                &times;
+                            </span>
+                                <h2 className="atualizar-imagem">Atualizar Imagem do Usuário</h2>
+                                <p className="selecionar-imagem">Selecionar imagem:</p>
+                                <form className="form-imagem" onSubmit={handleUploadImage}>
+                                <div className="campo-selecionar">
+                                <Dropzone onDrop={handleImageDrop}>
+                                        {({ getRootProps, getInputProps }) => (
+                                            <div className="selecionar-imagem-banner" {...getRootProps()}>
+                                                
+                                                <input {...getInputProps()} />
+            
+                                                {selectedImage && (
+                                                    <div className="mudar-imagem-margin">
+                                                    <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada" className="mudar-imagem-perfil"/>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
+                                        </Dropzone>
+                                    </div>
+                                    <div className="botao-salvar-margin">
+                                    <button  className="botao-salvar" type="submit">Salvar</button>
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+                )}
+            </div>
         )
     );
 };
