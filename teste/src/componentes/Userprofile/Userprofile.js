@@ -121,8 +121,9 @@ const Userprofile = (props) => {
                                     <Dropzone onDrop={handleImageDrop}>
                                             {({ getRootProps, getInputProps }) => (
                                                 <div className="selecionar-imagem-banner" {...getRootProps()}>
+                                                    
                                                     <input {...getInputProps()} />
-                                                    <p className="texto-mudar-imagem">Clique aqui para selecionar uma imagem</p>
+                
                                                     {selectedImage && (
                                                         <div className="mudar-imagem-margin">
                                                         <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada" className="mudar-imagem-perfil"/>

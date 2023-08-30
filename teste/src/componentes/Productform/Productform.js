@@ -216,7 +216,7 @@ const Productform= () => {
             {formValues.image ? (
               <img src={URL.createObjectURL(formValues.image)} className="img-banner" alt="Imagem selecionada" />
             ) : (
-              <p className="teste">Arraste e solte a imagem aqui ou clique para selecionar</p>
+              <p className="teste">Arraste a imagem aqui</p>
             )}
           </>
         )}
