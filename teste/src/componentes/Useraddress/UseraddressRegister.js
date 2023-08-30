@@ -104,76 +104,90 @@ const Addressregister=()=>{
 
 
     return(
-<div>
-<form onSubmit={handleSubmit}>
-    <label>
-      CEP:
-        <InputMask
-            mask="99999-999"
-            type="text" className="input-campo"
-            name="cep"
-            value={formValues.cep}
-            onChange={handleCEPChange}
-            onBlur={handleCEPBlur}
-        />
-    </label>
-      <label>
+<div className='container-cadastro-endereco'>
+  <h3 className='titulo-cadastro-endereco'> Cadastro de Endereço</h3>
+  <form className='form-cadastro-endereco' onSubmit={handleSubmit}>
+    <div className='cep-div'>
+      <label className='label-endereco-cadastro'>
+        CEP:
+      </label>
+      <InputMask
+        mask="99999-999"
+        type="text" className="input-campo cep"
+        name="cep"
+        value={formValues.cep}
+        onChange={handleCEPChange}
+        onBlur={handleCEPBlur}
+      />
+    </div>
+    <div className='cidade-div'>
+      <label className='label-endereco-cadastro'>
         Cidade:
-        <input className="input-campo"
-          type="text"
-          name="city"
-          value={formValues.city}
-          onChange={handleChange}
-        />
       </label>
-      <label>
+      <input className="input-campo cidade"
+        type="text"
+        name="city"
+        value={formValues.city}
+        onChange={handleChange}
+      /> 
+    </div>
+    <div className='rua-div'>
+      <label className='label-endereco-cadastro'>
         Rua:
-        <input className="input-campo"
-          type="text"
-          name="street"
-          value={formValues.street}
-          onChange={handleChange}
-        />
       </label>
-      <label>
-        Numero ou Apto:
-        <input className="input-campo"
-          type="text"
-          name="numberhouse"
-          value={formValues.numberhouse}
-          onChange={handleChange}
-        />
+      <input className="input-campo rua"
+        type="text"
+        name="street"
+        value={formValues.street}
+        onChange={handleChange}
+      />    
+    </div>
+    <div className='numero-div'>
+      <label className='label-endereco-cadastro'>
+        Numero:
       </label>
-      <label>
+      <input className="input-campo numero"
+        type="text"
+        name="numberhouse"
+        value={formValues.numberhouse}
+        onChange={handleChange}
+      />
+    </div>
+    <div className='estado-div'>
+      <label className='label-endereco-cadastro'>
         Estado:
-        <input className="input-campo"
-          type="text"
-          name="state"
-          value={formValues.state}
-          onChange={handleChange}
-        />
       </label>
-      <label>
-        Complemento:
-        <input className="input-campo"
-          type="text"
-          name="complement"
-          value={formValues.complement}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
+      <input className="input-campo estado"
+        type="text"
+        name="state"
+        value={formValues.state}
+        onChange={handleChange}
+      />
+    </div>
+    <div className='bairro-div'>
+      <label className='label-endereco-cadastro'>
         Bairro:
-        <input className="input-campo"
-          type="text"
-          name="district"
-          value={formValues.district}
-          onChange={handleChange}
-        />
       </label>
-      <button className="button-login" type="submit" >Cadastrar</button>
-
-</form>
+      <input className="input-campo bairro"
+        type="text"
+        name="district"
+        value={formValues.district}
+        onChange={handleChange}
+      />
+    </div>
+    <div className='complemento-div'>
+      <label className='label-endereco-cadastro'>
+        Complemento:
+      </label>
+      <input className="input-campo complemento"
+        type="text"
+        name="complement"
+        value={formValues.complement}
+        onChange={handleChange}
+      />
+    </div>
+        <button className="botao-cadastro-endereco" type="submit" >Cadastrar</button>
+  </form>
 </div>
 
 
