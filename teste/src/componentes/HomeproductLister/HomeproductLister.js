@@ -9,8 +9,6 @@ const HomeproductLister = (props) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage] = useState(5);
 
-    console.log(props.category)
-
     useEffect(() => {
         setCurrentPage(1);
         if(props.category) {
@@ -23,8 +21,6 @@ const HomeproductLister = (props) => {
                 .then((data) => setProducts(data))
         }
     }, [props.category]);
-
-    console.log(products)
 
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;

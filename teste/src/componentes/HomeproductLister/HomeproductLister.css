@@ -27,7 +27,11 @@
     min-height: 30px;
 }
 
-.pageButton{
+button.pageButton:hover{
+    background-color: #d3bc9a;
+}
+
+.pageButton {
     background-color: #ECD4AF;
     cursor: pointer;
 
