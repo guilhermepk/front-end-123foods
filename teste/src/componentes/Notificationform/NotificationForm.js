@@ -38,11 +38,16 @@ const Notificationform = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-notification">
+            <div className="div-notification">
+                <h1 className="h1-notification">Cadastro notificação</h1>
+                <div className="div-grid-title">
             <label>
                 Titulo:
                 <input
+                    className="title-input"
                     type="text"
+                    placeholder=" Digite o título"
                     name="title"
                     value={formValues.title}
                     onChange={handleChange}
@@ -51,23 +56,28 @@ const Notificationform = () => {
             <label>
                 Link da notificação:
                 <input
+                    className="title-input"
                     type="text"
-                    placeholder="ex:www.123foods/salada.com.br"
+                    placeholder=" ex:www.123foods/salada.com.br"
                     name="link"
                     value={formValues.link}
                     onChange={handleChange}
                 />
             </label>
-            <label>
+            <label className="teste2">
                 Mensagem:
-                <textarea
+                <input
                     type="text"
+                    className="title-input"
+                    placeholder=" Digite sua mensagem"
                     name="message"
                     value={formValues.message}
                     onChange={handleChange}
                 />
             </label>
-            <button type="submit">Submit</button>
+            </div>
+            <button className="button-notification" type="submit">Enviar</button>
+            </div>
         </form>
     );
 };

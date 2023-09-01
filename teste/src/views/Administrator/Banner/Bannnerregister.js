@@ -49,15 +49,14 @@ const Bannerregister = () => {
   return (
       <>
         <NavbarAdm />
-        <form onSubmit={handleSubmit}>
+        <div className='pica'>
+        <form onSubmit={handleSubmit} className="form-banner">
           <h1 className="h1-banner">Cadastro Banner</h1>
           <div className="link-banner">
             <label htmlFor="link">Link do Banner:</label>
             <input type="text" className="input-link" id="link" value={link}onChange={handleLinkChange} />
-          </div>
-          <div className="alt-banner">
             <label htmlFor="alt">Alt do Banner:</label>
-            <input type="text" className="input-alt" id="alt" value={alt} onChange={handleAltChange} />
+            <input type="text" className="input-link" id="alt" value={alt} onChange={handleAltChange} />
           </div>
           <div className="image-banner">
             <Dropzone onDrop={handleImageDrop}>
@@ -75,10 +74,12 @@ const Bannerregister = () => {
               )}
             </Dropzone>
           </div>
+          
           <div className="botao-alterar-banner">
             <button className="botao-banner" type="submit">Enviar</button>
           </div>
         </form>
+        </div>
       </>
   );
 };

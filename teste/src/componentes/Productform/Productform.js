@@ -117,7 +117,7 @@ const Productform= () => {
         name="name"
         value={formValues.name}
         onChange={handleChange}
-        placeholder=' Inserir produtos'
+        placeholder='Inserir produtos'
       />
     </label>
     <label className="label-produtos">
@@ -128,7 +128,7 @@ const Productform= () => {
         name="brand"
         value={formValues.brand}
         onChange={handleChange}
-        placeholder=' Inserir marca'
+        placeholder='Inserir marca'
       />
     </label>
     <label className="label-produtos">
@@ -139,7 +139,7 @@ const Productform= () => {
         name="weight"
         value={formValues.weight}
         onChange={handleChange}
-        placeholder=' Inserir peso'
+        placeholder='Inserir peso'
       />
     </label>
     </div>
@@ -152,7 +152,7 @@ const Productform= () => {
         name="unit_of_measurement"
         value={formValues.unit_of_measurement}
         onChange={handleChange}
-        placeholder='  Kg, g'
+        placeholder='Kg, g'
       />
     </label>
     <label className="label-produtos">
@@ -163,7 +163,7 @@ const Productform= () => {
         name="category"
         value={formValues.category}
         onChange={handleChange}
-        placeholder=' Inserir categoria'
+        placeholder='Inserir categoria'
       />
     </label>
     <label className="label-produtos">
@@ -174,7 +174,7 @@ const Productform= () => {
         name="amount"
         value={formValues.amount}
         onChange={handleChange}
-        placeholder=' Inserir quantidade'
+        placeholder='Inserir quantidade'
       />
     </label>
     </div>
@@ -187,7 +187,7 @@ const Productform= () => {
         name="description"
         value={formValues.description}
         onChange={handleChange}
-        placeholder=' Inserir descrição'
+        placeholder='Inserir descrição'
         rows={3}
         style={{ resize: 'none' }}
       />
@@ -200,7 +200,7 @@ const Productform= () => {
         name="price"
         value={formValues.price}
         onChange={handleChange}
-        placeholder=' Inserir preço'
+        placeholder='Inserir preço'
       />
     </label>
     </div>
