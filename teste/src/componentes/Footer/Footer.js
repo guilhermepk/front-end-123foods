@@ -10,32 +10,32 @@ function Footer(){
                 <section className='grid-footer'>
                 <li>
                 <ul className="primeiro">
-                    <h2>Atendimento ao Cliente</h2>
+                    <h2 className='titulos'>Atendimento ao Cliente</h2>
                     <a className="footer-link">Como comprar?</a>
                     <a className="footer-link">Problemas com Entrega</a>
                     <a className="footer-link">Pedidos, Cancelamento, Trocas e Devoluções</a>
                     <a className="footer-link">Problemas com Entrega</a>
                 </ul>
                 <ul className="primeiro">
-                    <h2>Conheça-nos</h2>
+                    <h2 className='titulos'>Conheça-nos</h2>
                     <a className="footer-link">Nossa História</a>
                     <a className="footer-link">Nossa Loja</a>
                 </ul>
                 <ul className="primeiro">
-                    <h2>Contato</h2>
+                    <h2 className='titulos'>Contato</h2>
                     <a className="footer-link">faleconosco @123foods.com</a>
                     <a className="footer-link">Trabalhe Conosco</a>
                 </ul>
                 <div className="apagar">
                 <ul className="primeiro">
-                    <h2></h2>
+                    <h2 className='titulos'></h2>
                     <a className="footer-link"></a>
                     <a className="footer-link"></a>
                 </ul>
                 </div>
                 <div className="pagamento">
                 <ul className="primeiro">
-                    <h2>Pagamento</h2>
+                    <h2 className='titulos'>Pagamento</h2>
                     <a className="footer-cash">
                         <img className='img-cash' src="/imagens/icons.png"></img>
                     </a>
@@ -43,7 +43,7 @@ function Footer(){
                 </div>
                 <div>
                 <ul className="primeiro">
-                    <h2>Siga-nos nas redes sociais</h2>
+                    <h2 className='titulos'>Siga-nos nas redes sociais</h2>
                    <div className="div-linkedin">
                     <a className="click-linkedin" href="https://br.linkedin.com/company/pormade"> 
                     <ImLinkedin className="linkedin-cor" />
