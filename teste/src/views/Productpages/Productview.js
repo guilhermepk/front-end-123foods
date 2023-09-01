@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import Footer from "../../componentes/Footer/Footer"
 import Productpage from "../../componentes/Productpage/Productpage";
 import Navigationbar from '../../componentes/Navigationbar/Navigationbar';
 
@@ -9,6 +10,7 @@ const Productview = () => {
         <div className="ProductView-main">
             <Navigationbar />
             <Productpage productId={productId}/>
+            <Footer />
         </div>
     );
 }

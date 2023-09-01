@@ -15,23 +15,26 @@ const Productpage = (props) => {
 
     return (
         <div>
-        <div className="Product">
-        <div>{product.name && <h2 className="Product-name">{product.name}</h2>}</div>
-        <div>{product.images && product.images.length > 0 && (
-            <img className="Product-image" src={`http://localhost:3000/uploads/${product.images[0]?.path}`} alt="Imagem do Produto" />
-        )}  </div>
-        <div className="Product-description">{product.description&& <p >{product.description}
-        </p>}</div>
-        <div>
-        <button>-</button>
-        <p>Qtd</p>
-        <button>+</button>
-            <button type="submit">Comprar</button>
+            <div className="product">
+                <div>{product.name && 
+                    <h2 className="product-name">{product.name}</h2>}
+                </div>
+                <div>{product.images && product.images.length > 0 && (
+                    <img className="product-image" src={`http://localhost:3000/uploads/${product.images[0]?.path}`} alt="Imagem do Produto" />
+                    )}     
+                </div>
+                <div className="product-description">{product.description&&
+                    <p>{product.description}</p>
+                    }
+                </div>
+            <div>
+                <button className="botao-menos">-</button>
+                <p>Qtd</p>
+                <button className="botao-mais">+</button>
+                <button className="botao-comprar" type="submit">Comprar</button>
+            </div>
+            </div>
         </div>
-        
-        </div>
-        
-    </div>
     );
 }
 
