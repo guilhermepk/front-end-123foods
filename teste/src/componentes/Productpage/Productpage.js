@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import './productpage.css'
+import { sendPurchaseRequest } from '../Buy/Buy'; 
+
 const Productpage = (props) => {
     const [product, setProduct] = useState([]);
+    const [qtd, setQtd] = useState(1);
+    const [token, setToken] = useState(null);
 
     useEffect(() => {
         fetch(`http://localhost:3000/foods/${props.productId}`)
@@ -11,8 +15,30 @@ const Productpage = (props) => {
                 console.log('data: ',data);
             });
     }, []);
+    const handleDecreaseClick = () => {
+        if (qtd > 1) {
+            setQtd(qtd - 1);
+        }
+    };
+
+    const handleIncreaseClick = () => {
+        setQtd(qtd + 1);
+    };
+    const handleBuyClick = () => {
+        console.log('Clicou em Comprar'); // Verifique se essa mensagem é exibida no console
+  console.log('productId:', props.productId);
+  console.log('qtd:', qtd);
+  console.log('token:', token);
+  sendPurchaseRequest(props.productId, qtd, token);
+    };
 
 
+  useEffect(() => {
+    const storedToken = localStorage.getItem('payload');
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
     return (
         <div>
             <div className="product">
@@ -28,10 +54,10 @@ const Productpage = (props) => {
                     }
                 </div>
             <div>
-                <button className="botao-menos">-</button>
-                <p>Qtd</p>
-                <button className="botao-mais">+</button>
-                <button className="botao-comprar" type="submit">Comprar</button>
+                <button onClick={handleDecreaseClick}>-</button>
+                <p>Qtd: {qtd}</p>
+                <button onClick={handleIncreaseClick}>+</button>
+                <button type="submit" onClick={handleBuyClick}>Comprar</button>
             </div>
             </div>
         </div>
