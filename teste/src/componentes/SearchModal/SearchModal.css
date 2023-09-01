@@ -1,0 +1,22 @@
+.autocomplete-results{
+    background-color: #FFECCE   ;
+    min-width: 601px;
+    margin-top: 5px;
+    display: block;
+    position: absolute;
+    margin-left: 55px;
+    padding-left: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.suggestion-div{
+    min-width: 200px;
+}
+
+.suggestion-span{
+    font-weight: bold;
+}
