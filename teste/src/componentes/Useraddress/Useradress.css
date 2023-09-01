@@ -39,7 +39,41 @@
     margin: 1rem 1rem 0 0;
     padding-left: 0.5rem;
     margin-right: 0;
-    width: 50%;
+}
+
+.dados-endereco.cidade,
+.dados-endereco-um.cidade {
+    width: 280px;
+}
+
+.dados-endereco.rua,
+.dados-endereco-um.rua {
+    width: 302px;
+}
+
+.dados-endereco.estado,
+.dados-endereco-um.estado {
+    width: 282px;
+}
+
+.dados-endereco.cep,
+.dados-endereco-um.cep {
+    width: 302px;
+}
+
+.dados-endereco.bairro,
+.dados-endereco-um.bairro {
+    width: 284px;
+}
+
+.dados-endereco.numero,
+.dados-endereco-um.numero {
+    width: 272px;
+}
+
+.dados-endereco.complemento,
+.dados-endereco-um.complemento {
+    width: 228px;
 }
 
 .dados-endereco-um {
@@ -81,7 +115,7 @@
     font-size: 1rem;
     border: 2px solid #000;
     height: 3.2rem;
-    width: 7rem;
+    width: 6rem;
     background-color: #9E0000;
     cursor: pointer;
     color: #fff;

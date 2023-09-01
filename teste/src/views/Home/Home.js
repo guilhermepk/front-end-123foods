@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import './Home.css'
+
 import Navigationbar from '../../componentes/Navigationbar/Navigationbar';
 import Banner from '../../componentes/Banner/Banner';
 import Footer from '../../componentes/Footer/Footer';
 import FilterCategories from'../../componentes/Filtercategories/Filtercategories';
-import './Home.css'
 
 const Home = () => {
     return (

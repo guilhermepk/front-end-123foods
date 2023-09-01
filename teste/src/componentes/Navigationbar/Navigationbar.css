@@ -185,8 +185,27 @@ body{
   }
 }
 
-@media (min-width: 500px) and (max-width: 800px)
-{
+@media (min-width: 500px) and (max-width: 800px){
+  .nav-list{
+    display: grid;
+    grid-template-columns: 100%;
+  }
+
+  .navbar-item, .search-div{
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-div{
+    margin-left: 20px;
+    min-width: 1000px;
+  }
+
+  .navbar-item{
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
   .modal{
     height: 520px;
     margin-left: 20%;

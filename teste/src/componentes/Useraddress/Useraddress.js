@@ -61,27 +61,27 @@ const Useraddress = ({handleregisterAddress}) => {
                                         Cidade:
                                     </label>
                                     <input
-                                    className="dados-endereco-um" type='text'
+                                    className="dados-endereco-um cidade" type='text'
                                     value={useraddress[0].city}
                                     disabled
                                     />
                                 </div>
-                                    <div>
+                                <div>
                                     <label className="label-endereco">
                                         Rua:
                                     </label>
                                     <input
-                                    className="dados-endereco-um" type='text'
+                                    className="dados-endereco-um rua" type='text'
                                     value={useraddress[0].street}
                                     disabled
                                     />
                                 </div>
-                                    <div>
+                                <div>
                                     <label className="label-endereco">
                                         Estado:
                                     </label>
                                     <input
-                                    className="dados-endereco-um" type='text'
+                                    className="dados-endereco-um estado" type='text'
                                     value={useraddress[0].state}
                                     disabled
                                     />
@@ -91,28 +91,18 @@ const Useraddress = ({handleregisterAddress}) => {
                                         CEP:
                                     </label>
                                     <input
-                                    className="dados-endereco-um" type='text'
+                                    className="dados-endereco-um cep" type='text'
                                     value={useraddress[0].cep}
                                     disabled
                                     />
                                 </div>
-                                    <div>
+                                <div>
                                     <label className="label-endereco">
                                         Bairro:
                                     </label>
                                     <input
-                                    className="dados-endereco-um" type='text'
+                                    className="dados-endereco-um bairro" type='text'
                                     value={useraddress[0].district}
-                                    disabled
-                                    />
-                                </div>
-                                    <div>
-                                    <label className="label-endereco">
-                                        Complemento:
-                                    </label>
-                                    <input
-                                    className="dados-endereco-um" type='text'
-                                    value={useraddress[0].complement}
                                     disabled
                                     />
                                 </div>
@@ -121,11 +111,22 @@ const Useraddress = ({handleregisterAddress}) => {
                                         Número:
                                     </label>
                                     <input
-                                    className="dados-endereco-um" type='text'
+                                    className="dados-endereco-um numero" type='text'
                                     value={useraddress[0].numberhouse}
                                     disabled
                                     />
                                 </div>
+                                <div>
+                                    <label className="label-endereco">
+                                        Complemento:
+                                    </label>
+                                    <input
+                                    className="dados-endereco-um complemento" type='text'
+                                    value={useraddress[0].complement}
+                                    disabled
+                                    />
+                                </div>
+                                
                             <div className='botao-excluir-div'>       
                                 <button className="botao-excluir" onClick={() => Addressdelete(useraddress[0].id)}>
                                     Excluir
@@ -149,7 +150,7 @@ const Useraddress = ({handleregisterAddress}) => {
                                     <label className='label-endereco'>
                                         Cidade:
                                     </label> 
-                                    <input className='dados-endereco' 
+                                    <input className='dados-endereco cidade' 
                                     type='text' 
                                     value={address.city} 
                                     disabled
@@ -159,7 +160,7 @@ const Useraddress = ({handleregisterAddress}) => {
                                     <label className='label-endereco'>
                                         Rua:
                                     </label> 
-                                    <input className='dados-endereco' 
+                                    <input className='dados-endereco rua' 
                                     type='text' 
                                     value={address.street} 
                                     disabled
@@ -169,7 +170,7 @@ const Useraddress = ({handleregisterAddress}) => {
                                     <label className='label-endereco'>
                                         Estado:
                                     </label> 
-                                    <input className='dados-endereco' 
+                                    <input className='dados-endereco estado' 
                                     type='text' 
                                     value={address.state} 
                                     disabled
@@ -179,7 +180,7 @@ const Useraddress = ({handleregisterAddress}) => {
                                     <label className='label-endereco'>
                                         Cep:
                                     </label> 
-                                    <input className='dados-endereco' 
+                                    <input className='dados-endereco cep' 
                                     type='text' 
                                     value={address.cep} 
                                     disabled
@@ -189,7 +190,7 @@ const Useraddress = ({handleregisterAddress}) => {
                                     <label className='label-endereco'>
                                         Bairro:
                                     </label> 
-                                    <input className='dados-endereco' 
+                                    <input className='dados-endereco bairro' 
                                     type='text' 
                                     value={address.district} 
                                     disabled
@@ -197,24 +198,25 @@ const Useraddress = ({handleregisterAddress}) => {
                                 </div>
                                 <div>
                                     <label className='label-endereco'>
-                                        Complemento:
-                                    </label> 
-                                    <input className='dados-endereco' 
-                                    type='text' 
-                                    value={address.complement} 
-                                    disabled
-                                    />
-                                </div>
-                                <div>
-                                    <label className='label-endereco'>
                                         Número:
                                     </label> 
-                                    <input className='dados-endereco' 
+                                    <input className='dados-endereco numero' 
                                     type='text' 
                                     value={address.numberhouse} 
                                     disabled
                                     />
                                 </div>
+                                <div>
+                                    <label className='label-endereco'>
+                                        Complemento:
+                                    </label> 
+                                    <input className='dados-endereco complemento' 
+                                    type='text' 
+                                    value={address.complement} 
+                                    disabled
+                                    />
+                                </div>
+                                
                             </div>
                             <div className='botao-excluir-div'>       
                                 <button className="botao-excluir" onClick={() => Addressdelete(address.id)}>

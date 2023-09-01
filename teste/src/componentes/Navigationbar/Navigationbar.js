@@ -139,26 +139,34 @@ const Navigationbar = () => {
     <div className="container-fluid">
       <nav className="navbar">
         <ul className="nav-list">
-          <div className="logo">
-            <a href=''> <img src="./imagens/logoSemFundo.png" alt="Logo" className="logo-123"/> </a>
-          </div>  
-              <Search/>
-          <div className="conteudo">
-          {decoded_token && decoded_token.admin && (
-              <a href="/admin"><button className="botao-admin"> Admin </button></a>
-            )}
-            <a href="#" onClick={handleProfileClick}>
-              <CgProfile className="perfil"/>
-            </a>
+            <div className='navbar-item'>
+                <div className="logo">
+                    <a href=''> <img src="./imagens/logoSemFundo.png" alt="Logo" className="logo-123"/> </a>
+                </div>  
+            </div>
+            <div className='navbar-item'>
+                <div className='search-div'>
+                    <Search/>
+                </div>
+            </div>
+            <div className='navbar-item'>
+                <div className="conteudo">
+                    {decoded_token && decoded_token.admin && (
+                        <a href="/admin"><button className="botao-admin"> Admin </button></a>
+                    )}
+                    <a href="#" onClick={handleProfileClick}>
+                        <CgProfile className="perfil"/>
+                    </a>
 
-            <a href="">
-              <FiShoppingCart className="carrinho"/>
-            </a>
+                    <a href="">
+                        <FiShoppingCart className="carrinho"/>
+                    </a>
 
-            <a href="">
-              <AiOutlineBell className="notificacao"/>
-            </a>
-          </div>
+                    <a href="">
+                        <AiOutlineBell className="notificacao"/>
+                    </a>
+                </div>
+            </div>
         </ul>
       </nav>
       {showLoginForm && (
