@@ -12,6 +12,7 @@ const HomeproductLister = (props) => {
     console.log(props.category)
 
     useEffect(() => {
+        setCurrentPage(1);
         if(props.category) {
             fetch(`http://localhost:3000/foods/filter/category/${props.category}`)
                 .then((response) => response.json())
