@@ -4,16 +4,19 @@ import { useUserinfo } from '../Userinfo/Userinfo';
 import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
+import Avatar from 'react-avatar-edit';
 
 const Userprofile = (props) => {
 
     const [token, setToken] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null);
     const [showUploadButton,setShowUploadButton] = useState(null);
-    const [showImageUploadModal, setShowImageUploadModal] = useState(false);
+    const [showImageUploadModal,setShowImageUploadModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const userId = decoded_token?.sub; 
     const userInfo=useUserinfo(token,userId);
+    const [avatarPreview, setAvatarPreview] = useState(null);
+    const [showAvatarModal, setShowAvatarModal] = useState(false);
 
     const handleImageDrop = (acceptedFiles) => {
         setSelectedImage(acceptedFiles[0]);
@@ -42,6 +45,14 @@ const Userprofile = (props) => {
         setShowImageUploadModal(true);
     }
 
+    const onAvatarCrop = (preview) => {
+        setAvatarPreview(preview);
+    }
+
+    const onCloseAvatarModal = () => {
+        setShowAvatarModal(false);
+    }
+
     useEffect(() => {
         const storedToken = localStorage.getItem('payload');
         if (storedToken) {
@@ -58,14 +69,15 @@ const Userprofile = (props) => {
                     <div className='name-and-image'>
                         <h2 className="perfil-usuario"> Olá, {userInfo.name}! </h2>
                         <div className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
-                            {userInfo.image && (
+                            {avatarPreview ? (
+                                <img src={avatarPreview} alt="User Image" className="imagem-perfil" />
+                            ) : userInfo.image ? (
                                 <img src={`http://localhost:3000/uploads/${userInfo.image}`} alt="User Image" className="imagem-perfil" />
-                            )}
-                            {!userInfo.image && (
+                            ) : (
                                 <img src={`http://localhost:3000/uploads/imagem-padrao.gif`} alt="Default User Image" className="imagem-perfil"/>
                             )}
                             {showUploadButton && (
-                                <button className="botao-hover" onClick={handleImageUploadButtonClick}>Atualizar Imagem</button>
+                                <button className="botao-hover" onClick={() => setShowImageUploadModal(true)}>Atualizar Imagem</button>
                             )}
                         </div>
                     </div>
@@ -107,7 +119,7 @@ const Userprofile = (props) => {
                     </div>
                 </div>
 
-                {showImageUploadModal && (
+                {showImageUploadModal &&  (
                     <div  className="image-upload-modal">
                         <div  className="image-upload-modal-content">
                             <span className="close-image" onClick={() => setShowImageUploadModal(false)}>
@@ -115,30 +127,38 @@ const Userprofile = (props) => {
                             </span>
                                 <h2 className="atualizar-imagem">Atualizar Imagem do Usuário</h2>
                                 <p className="selecionar-imagem">Selecionar imagem:</p>
-                                <form className="form-imagem" onSubmit={handleUploadImage}>
-                                <div className="campo-selecionar">
-                                <Dropzone onDrop={handleImageDrop}>
-                                        {({ getRootProps, getInputProps }) => (
-                                            <div className="selecionar-imagem-banner" {...getRootProps()}>
-                                                
-                                                <input {...getInputProps()} />
-            
-                                                {selectedImage && (
-                                                    <div className="mudar-imagem-margin">
-                                                    <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada" className="mudar-imagem-perfil"/>
-                                                    </div>
-                                                )}
+                                <form className="form-imagem">
+                                    <div className="campo-selecionar">
+                                        <Avatar 
+                                            label={"Escolha uma imagem"}
+                                            width={350}
+                                            height={200}
+                                            onCrop={onAvatarCrop}
+                                            onClose={onCloseAvatarModal}
+                                        />
+                                        {selectedImage && (
+                                            <div className="mudar-imagem-margin">
+                                                <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada" className="mudar-imagem-perfil"/>
                                             </div>
                                         )}
-                                        </Dropzone>
                                     </div>
                                     <div className="botao-salvar-margin">
-                                    <button  className="botao-salvar" type="submit">Salvar</button>
+                                    <button  className="botao-salvar" onClick={handleUploadImage} type="submit">Salvar</button>
                                     </div>
                                 </form>
                         </div>
                     </div>
                 )}
+                {/* {showAvatarModal && (
+                    <div className="avatar-modal">
+                        <div className="avatar-modal-content">
+                            <span className="close-avatar" onClick={onCloseAvatarModal}>&times;</span>
+                            <h2 className="atualizar-imagem">Atualizar Avatar</h2>
+                            
+                            <button className="botao-salvar" onSubmit={handleUploadImage}>Salvar</button>
+                        </div>
+                    </div>
+                )} */}
             </div>
         )
     );
