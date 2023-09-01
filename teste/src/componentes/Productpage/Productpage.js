@@ -25,7 +25,7 @@ const Productpage = (props) => {
         setQtd(qtd + 1);
     };
     const handleBuyClick = () => {
-        console.log('Clicou em Comprar'); // Verifique se essa mensagem é exibida no console
+        console.log('Clicou em Comprar'); 
   console.log('productId:', props.productId);
   console.log('qtd:', qtd);
   console.log('token:', token);

@@ -5,9 +5,10 @@
     border-radius: 6px;
   }
 
-  .pica{
+  .form-move{
     display: flex;
     justify-content: center;
+    margin-left: 10rem;
     margin-top: 2rem;
   }
 
@@ -17,13 +18,13 @@
     color: #000000;
     margin-top: 1rem;
     font-size: 40px;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
   }
   
   
   .dropzone {
     margin-top: 4rem;
-    width: 500px;
+    width: 600px;
     height: 200px;
     border: none;
     display: table;
@@ -38,6 +39,7 @@
   background-size: 12px 2px, 12px 2px, 2px 12px, 2px 12px;
   background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
   background-position: 0 0, left bottom, 0 0, right 0;
+  background-color: #b9b9b9;
   }
 
   .dropzone:hover{
@@ -66,9 +68,8 @@
 
 .link-banner{
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  margin-left: 14rem;
+  align-items: center;
   gap: 10px;
   padding: 2px;
 }
@@ -77,7 +78,7 @@
   background-color: #ffffff;
   border-radius: 6px;
   border: none;
-  width: 300px;
+  width: 400px;
   height: 30px;
   padding: 5px;
 }
@@ -95,7 +96,7 @@
 .image-banner{
   display: flex;
   justify-content: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem;
 }
 
 .banner-form-image{
@@ -109,11 +110,6 @@
 
 }
 
-.banner-item {
-  margin: 10px;
-  text-align: center;
-}
-
 .banner-thumbnail {
   width: 200px;
   height: 100px;
@@ -121,22 +117,30 @@
 }
 
 .botao-banner{
-  width: 80px;
-  height: 50px;
+  width: 120px;
+  height: 60px;
   border-radius: 6px;
   border: 2px solid #000000;
   color: #ffffff;
   background-color: #9E0000;
   cursor: pointer;
   transition: 0.6s;
-  font-size: 18px;
+  font-size: 28px;
 }
 
 .imagem-texto{
   display: flex;
-  justify-content: center;
   align-self: center;
-
-
 }
 
+.texto-banner{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-top: 3.5rem;
+}
+
+.img-banner{
+  width: 590px;
+  height: 150px;
+}

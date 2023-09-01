@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card'
-
+import { sendPurchaseRequest } from '../Buy/Buy'; 
 import './HomeproductLister.css'
 
 const HomeproductLister = (props) => {
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [productsPerPage] = useState(5);
-
+    const [qtd, setQtd] = useState(1);
+    const [token, setToken] = useState(null);
     useEffect(() => {
         setCurrentPage(1);
         if(props.category) {
@@ -45,6 +46,19 @@ const HomeproductLister = (props) => {
         );
     }
 
+    const handleBuyClick = (productId) => {
+        console.log('Clicou em Comprar'); 
+        console.log('productId:', productId); 
+        console.log('qtd:', qtd);
+        console.log('token:', token);
+        sendPurchaseRequest(productId, qtd, token);
+    };
+    useEffect(() => {
+        const storedToken = localStorage.getItem('payload');
+        if (storedToken) {
+          setToken(storedToken);
+        }
+      }, []);
     return (
         <div className="divList">
             <Pag/>
@@ -71,10 +85,13 @@ const HomeproductLister = (props) => {
                                 <div className="cardTexts">
                                     <p>{product.brand}</p>
                                     <p>R$ {product.price}</p>
-                                    <button className="button">Comprar</button>
+                                   
                                 </div>
 
-                            </a>
+                            </a> 
+                            <button className="button" onClick={() => handleBuyClick(product.id)}>Comprar</button>
+
+
                         </Card>
                     </Col>
                 ))}

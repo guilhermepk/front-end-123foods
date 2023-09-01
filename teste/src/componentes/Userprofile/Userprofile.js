@@ -5,6 +5,8 @@ import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import Avatar from 'react-avatar-edit';
+import Swal from 'sweetalert2';
+
 
 const Userprofile = (props) => {
 
@@ -37,7 +39,7 @@ const Userprofile = (props) => {
             window.location.reload()
             setShowImageUploadModal(false);
         } catch (error) {
-            console.error('Erro ao enviar a imagem:', error);
+            Swal.fire('Erro', `${error.response.data.message}`, 'error')
         }
     };
 
