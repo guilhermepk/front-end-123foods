@@ -49,7 +49,7 @@ const Bannerregister = () => {
   return (
       <>
         <NavbarAdm />
-        <div className='pica'>
+        <div className='form-move'>
         <form onSubmit={handleSubmit} className="form-banner">
           <h1 className="h1-banner">Cadastro Banner</h1>
           <div className="link-banner">
@@ -63,11 +63,11 @@ const Bannerregister = () => {
               {({ getRootProps, getInputProps }) => (
                   <div className="dropzone" {...getRootProps()}>
                     <input {...getInputProps()} />
-                    <p className="texto-banner">Arraste e solte uma imagem aqui, ou clique para selecionar uma imagem</p>
+                    {/* <p className="texto-banner">Arraste e solte uma imagem aqui, ou clique para selecionar uma imagem</p> */}
                     {selectedImage && (
-                        <div>
+                        <div className='ww'>
                           {/* <p>Imagem selecionada: {selectedImage.name}</p> */}
-                          <img src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada" />
+                          <img className="img-banner" src={URL.createObjectURL(selectedImage)} alt="Imagem selecionada"/>
                         </div>
                     )}
                   </div>
