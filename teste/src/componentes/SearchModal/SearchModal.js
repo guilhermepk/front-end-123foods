@@ -14,25 +14,42 @@ const SearchModal = (props) => {
                 .catch((error) => {
                     console.error('Erro ao buscar alimentos:', error);
                 });
-        } else if (props.value.trim().length === 0) {
+        } else {
             setProducts([]);
         }
     }, [props.value]);
 
-    const lista = [
-        'a',
-        'b',
-        'c'
-    ]
+    // Função para destacar o texto de correspondência na sugestão
+    const highlightMatch = (suggestion, query) => {
+        const index = suggestion.toLowerCase().indexOf(query.toLowerCase());
+        if (index !== -1) {
+            return (
+                <>
+                    {suggestion.substring(0, index)}
+                    <span className="highlight">{suggestion.substring(index, index + query.length)}</span>
+                    {suggestion.substring(index + query.length)}
+                </>
+            );
+        }
+        return suggestion;
+    };
 
     return (
-        <div className='autocomplete-results'>
-            {products.map((product) => (
-                <div>
-                    <p>{product.name}</p>
-                </div>
-            ))}
-        </div>
+        <>{products.length > 0 && (
+            <div className='autocomplete-results'>
+                {products.slice(0, 10).map((product, index) => (
+                    <a
+                        key={index}
+                        href={`/product/${product.id}`}
+                        className='suggestion-link'
+                    >
+                        <p>
+                            {highlightMatch(product.name, props.value)}
+                        </p>
+                    </a>
+                ))}
+            </div>
+        )}</>
     );
 }
 
