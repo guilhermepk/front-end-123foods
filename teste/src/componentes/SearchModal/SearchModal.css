@@ -1,0 +1,41 @@
+.autocomplete-results{
+    background-color: rgb(255, 236, 206);
+    z-index: 9999;
+    min-width: 601px;
+    margin-top: 5px;
+    display: block;
+    position: absolute;
+    margin-left: 55px;
+    padding-left: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.suggestion-div{
+    min-width: 600px;
+    max-width: 600px;
+}
+
+a:-webkit-any-link {
+    color: black;
+    text-decoration: none;
+}
+
+.suggestion-link{
+    margin-left: -5px;
+    padding: 5px;
+    min-width: 600px;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+a.suggestion-link:hover{
+    background-color: #FFE2B6;
+}
+
+.highlight{
+    font-weight: 1000;
+}

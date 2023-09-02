@@ -5,7 +5,6 @@
   gap: 16px;
 }
 
-
 .categoria-icon{
   color: #ffffff;
   height: 40px;
@@ -15,27 +14,25 @@
 }
 
 .search-input {
+  padding: 5px;
   display: flex;
   font-weight: 600;
   border: none;
-  width: 600px;
+  min-width: 600px;
   border-radius: 10px;
 }
 
 .lupa{
   color: #000000;
-  height: 30px;
+  margin-top: 1px;
+  min-height: 28px;
+  max-height: 28px;
   width: 28px;
   background-color: #FFE2B6;
   border-radius: 0px 10px 10px 0px; 
   padding: 4px 2px 3px 6px;
-  margin-top: 0px;
 }
 
 .lupa-a{
-  margin-left: -1.8rem;
+  margin-left: -2.8rem;
 }
-
-
-
-
