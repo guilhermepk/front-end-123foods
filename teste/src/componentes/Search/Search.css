@@ -33,6 +33,11 @@
   padding: 4px 2px 3px 6px;
 }
 
+svg.lupa:hover{
+  background-color: #fad398;
+  cursor: pointer;
+}
+
 .lupa-a{
   margin-left: -2.8rem;
 }

@@ -36,7 +36,7 @@ const Search = () => {
         />
 
         <a className="lupa-a">
-          <BiSearchAlt className="lupa" onClick={() => performSearch(searchValue)} />
+          <BiSearchAlt className="lupa" onClick={() => console.log('pesquisado')} />
         </a>    
       </div>
       <SearchModal value={searchValue}/>
