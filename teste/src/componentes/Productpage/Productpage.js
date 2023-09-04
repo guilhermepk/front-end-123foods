@@ -56,11 +56,11 @@ const Productpage = (props) => {
                     }
                 </div>
                 <div className="button-product">
-                <button onClick={handleDecreaseClick}>-</button>
-                <p>Qtd: {qtd}</p>
-                <button onClick={handleIncreaseClick}>+</button>
-                <button type="submit" onClick={handleBuyClick}>Comprar</button>
+                <button className="button-qtd1" onClick={handleDecreaseClick}>-</button>
+                <p className="button-qtd2">Qtd: {qtd}</p>
+                <button className="button-qtd3" onClick={handleIncreaseClick}>+</button>
                 </div>
+                <button type="submit" onClick={handleBuyClick}>Comprar</button>
             </div>
         </div>
     );

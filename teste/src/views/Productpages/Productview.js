@@ -8,7 +8,7 @@ const Productview = () => {
 
     return (
         <div className="ProductView-main">
-            <Navigationbar/>
+            <header><Navigationbar/></header>
             <Productpage productId={productId}/>
             <Footer />
         </div>

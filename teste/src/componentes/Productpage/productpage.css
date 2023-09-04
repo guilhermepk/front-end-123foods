@@ -27,22 +27,75 @@
     background-color: #ECD4AF;
     align-items: center;
     width: 30%;
-    height: 350px;
+    height: 400px;
 }
 
 .product-name {
-    font-size: 2rem;
+    font-size: 32px;
     margin-bottom: 3rem;
+    width: 40%;
 }
 
 .product-image {
-    width: 80%;
-    height: 100%;
+    min-width: 80%;
+    min-height: 250px;
     
+}
+
+.product-description{
+    width: 400px;
+    height: 200px;
+    margin-top: -24rem;
+    margin-left: 25rem;
 }
 
 .button-product{
     display: flex;
     justify-content: center;
-    margin-left: 10rem;
+    margin-top: 3rem;
+}
+
+.button-qtd1{
+    background-color: #9E0000;
+    color: #ffffff;
+    width: 50px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px 0px 0px 8px;
+    border: none;
+}
+
+.button-qtd2{
+    background-color: #9E0000;
+    color: #ffffff;
+    width: 50px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.button-qtd3{
+    background-color: #9E0000;
+    color: #ffffff;
+    width: 50px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 0px 8px 8px 0px;
+}
+
+.button-qtd1:hover{
+    background-color: #6e0000;
+}
+
+.button-qtd3:hover{
+    background-color: #6e0000;
 }
