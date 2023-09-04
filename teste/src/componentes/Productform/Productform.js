@@ -54,12 +54,13 @@ const Productform= () => {
       .then((data) => {
         console.log(data);
         setFormValues(initialFormValues);
+        window.location.href = ' /admin/product-list';
       })
       .catch((error) => {
         console.error(error);
       });
   };
-  
+ 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: handleFileDrop,
     accept: 'image/*',
