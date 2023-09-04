@@ -15,6 +15,7 @@ const SearchModal = (props) => {
                 .then((response) => response.json())
                 .then((data) => {
                     setProducts(data);
+                    console.log(data)
                 })
                 .catch((error) => {
                     console.error('Erro ao buscar alimentos:', error);
@@ -26,13 +27,13 @@ const SearchModal = (props) => {
 
     // Função para destacar o texto de correspondência na sugestão
     const highlightMatch = (suggestion, query) => {
-        const index = suggestion.toLowerCase().indexOf(query.toLowerCase());
+        const index = suggestion?.toLowerCase().indexOf(query?.toLowerCase());
         if (index !== -1) {
             return (
                 <>
-                    {suggestion.substring(0, index)}
-                    <span className="highlight">{suggestion.substring(index, index + query.length)}</span>
-                    {suggestion.substring(index + query.length)}
+                    {suggestion?.substring(0, index)}
+                    <span className="highlight">{suggestion?.substring(index, index + query?.length)}</span>
+                    {suggestion?.substring(index + query?.length)}
                 </>
             );
         }
