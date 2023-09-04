@@ -11,7 +11,8 @@
     color: #FFF5E7;
     font-family: "Oswald";
     font-weight: 700;
-    margin-top: 15rem;
+    margin-top: 10rem;
+    margin-bottom: 0;
     box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
