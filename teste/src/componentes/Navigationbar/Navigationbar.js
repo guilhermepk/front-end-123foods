@@ -6,29 +6,15 @@ import { FiShoppingCart } from 'react-icons/fi';
 import { AiOutlineBell } from 'react-icons/ai';
 import Search from '../Search/Search';
 import { IoIosClose } from 'react-icons/io';
-import Usermodal from '../Usermodal/Usermodal';
 import jwt_decode from 'jwt-decode';
-import {BsArrowLeftCircle} from 'react-icons/bs';
-import Userprofile from '../Userprofile/Userprofile';
-import Useraddress from '../Useraddress/Useraddress';
 import Login from '../Login/login';
-import Myshopping from '../Myshopping/Myshopping';
-import Addressregister from '../Useraddress/UseraddressRegister';
-import PurchasesHistoric from '../purchaseshistoric/purchaseshistoric';
 
 const Navigationbar = () => {
 
     const [showLoginForm, setShowLoginForm] = useState(false);
-    const [showUserInfoModal, setShowUserInfoModal] = useState(false);
     const [token, setToken] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null)
-    const [showUserinf,setshowUserinf]=useState(true);
-    const [showMyshoppins,setshowMyshoppins]=useState(false);
-    const [showpurchasesHistoric,setshowpurchasesHistoric]=useState(false);
-    const [ShowregisterAddress,setshowregisteraddress]=useState(false);
-    const [Showaddress,setshowaddress]=useState(false);
-    const [selectedImage, setSelectedImage] = useState(null);
-    
+
     const userId = decoded_token?.sub; 
     const userInfo=useUserinfo(token,userId);
  useEffect(() => {
@@ -42,49 +28,13 @@ const Navigationbar = () => {
 
 
     const handleProfileClick = () => {
-        setshowMyshoppins(false)
-        setshowaddress(false);
-        setshowUserinf(true);
-        setshowregisteraddress(false);
-        setshowpurchasesHistoric(false)
         if (decoded_token) {
-            showUserInfoModal ? setShowUserInfoModal(false) : setShowUserInfoModal(true);
+            window.location.href = '/user-page';
         } else {
             showLoginForm ? setShowLoginForm(false) : setShowLoginForm(true);
         }
     };
-    const handlemyshoppings=()=>{
-        setshowMyshoppins(true)
-        setshowaddress(false);
-        setshowUserinf(false);
-        setshowregisteraddress(false);
-        setshowpurchasesHistoric(false)
-    }
-    const handlemyprofile=()=>{
-        setshowMyshoppins(false)
-        setshowaddress(false);
-        setshowUserinf(true);
-        setshowregisteraddress(false);
-        setshowpurchasesHistoric(false)
-    }
-
-    const handlepurchasesHistoric=()=>{
-        setshowMyshoppins(false)
-        setshowpurchasesHistoric(true)
-        setshowaddress(false);
-        setshowUserinf(false);
-        setshowregisteraddress(false)
-    }
-
-    const handleregisterAddress=()=>{
-        setshowMyshoppins(false)
-        setshowaddress(false);
-        setshowUserinf(false);
-        setshowregisteraddress(true)
-        setshowpurchasesHistoric(false)
-    }
-
-    
+   
     const handleLogout = () => {
         console.log('userinfo: ', userInfo)
         setToken(null);
@@ -93,20 +43,9 @@ const Navigationbar = () => {
         closeModal(true)
     }
 
-    const handleaddress=()=>{
-        setshowMyshoppins(false)
-        setshowaddress(true);
-        setshowUserinf(false);
-        setshowregisteraddress(false)
-        setshowpurchasesHistoric(false)
-    }
 
     const closeModal = () => {
         setShowLoginForm(false);
-        setshowregisteraddress(false)
-        setshowaddress(false)
-        setshowUserinf(true)
-        setShowUserInfoModal(false);
     };
     function checkTokenExpiration() {
       var token = localStorage.getItem('payload');
@@ -176,29 +115,6 @@ const Navigationbar = () => {
                         <Login />
                     </div>
                 </div>
-            )}
-            {showUserInfoModal && (
-            <div className="modal-usuario">
-            <Usermodal
-            handleLogout={handleLogout}
-            handleaddress={handleaddress}
-            handlemyshoppings={handlemyshoppings}
-            handlemyprofile={handlemyprofile}
-            handlepurchasesHistoric={handlepurchasesHistoric}
-            />
-            <div className="modal-conteudo">
-            <a onClick={closeModal}> 
-                <BsArrowLeftCircle className="seta-voltar" />
-            </a>
-                {showUserinf &&(<Userprofile />)}
-                {showpurchasesHistoric &&(<PurchasesHistoric />)}
-                {showMyshoppins &&(<Myshopping />)}
-                {Showaddress &&(<Useraddress handleregisterAddress={handleregisterAddress} />)}    
-                {ShowregisterAddress&&(<Addressregister/> )
-                }
-            </div>
-            </div>
-
             )}
     </div>
   );
