@@ -124,7 +124,7 @@ const Userprofile = (props) => {
                                             border={0} // Defina a largura da borda como 0 para remover a borda quadrada
                                             borderRadius={250} // Defina metade da largura/altura para tornar o recorte redondo
                                             color={[255, 255, 255, 0.6]} // Cor de fundo do editor
-                                            scale={3}
+                                            scale={1}
                                         />
                                     <button className="botao-salvar-margin" type="button" onClick={handleUploadImage}>
                                         Salvar

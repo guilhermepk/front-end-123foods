@@ -48,7 +48,7 @@ const Purchaseshistoric=()=>{
     
       return (
         <div>
-          <h1>Minhas Compras</h1>
+          <h1>Histórico de Compras</h1>
           {Object.values(groupedProducts).map((group) => (
             <div key={group.date}>
             <h4>Entregue dia: {group.date.getDate()}/{group.date.getMonth() + 1}</h4>

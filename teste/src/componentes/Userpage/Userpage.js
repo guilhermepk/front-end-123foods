@@ -11,6 +11,7 @@ import PurchasesHistoric from '../purchaseshistoric/purchaseshistoric';
 import React, { useState, useEffect } from 'react';
 import { useUserinfo } from '../Userinfo/Userinfo';
 
+
 const Userpage=()=>{
     const [showUserInfoModal, setShowUserInfoModal] = useState(false);
     const [token, setToken] = useState(null);
@@ -81,11 +82,6 @@ const Userpage=()=>{
     }
 
 
-
-
-
-
-
     const closeModal = () => {
         setshowregisteraddress(false)
         setshowaddress(false)
@@ -94,27 +90,29 @@ const Userpage=()=>{
     };
 
     return(
-<div>
-<div className="modal-usuario">
-        <Usermodal
-            handleLogout={handleLogout}
-            handleaddress={handleaddress}
-            handlemyshoppings={handlemyshoppings}
-            handlemyprofile={handlemyprofile}
-            handlepurchasesHistoric={handlepurchasesHistoric}
-            />
-            <div className="modal-conteudo">
-            <a onClick={closeModal}> 
-                <BsArrowLeftCircle className="seta-voltar" />
-            </a>
-                {showUserinf &&(<Userprofile />)}
-                {showpurchasesHistoric &&(<PurchasesHistoric />)}
-                {showMyshoppins &&(<Myshopping />)}
-                {Showaddress &&(<Useraddress handleregisterAddress={handleregisterAddress} />)}    
-                {ShowregisterAddress&&(<Addressregister/> )
-                }
+        <div>
+            <div className="modal-usuario">
+                <Usermodal
+                    handleLogout={handleLogout}
+                    handleaddress={handleaddress}
+                    handlemyshoppings={handlemyshoppings}
+                    handlemyprofile={handlemyprofile}
+                    handlepurchasesHistoric={handlepurchasesHistoric}
+                />
+                <div className="modal-conteudo">
+                    <a onClick={closeModal}> 
+                        <BsArrowLeftCircle className="seta-voltar" />
+                    </a>
+                        {showUserinf &&(<Userprofile />)}
+                        {showpurchasesHistoric &&(<PurchasesHistoric />)}
+                        {showMyshoppins &&(<Myshopping />)}
+                        {Showaddress &&(<Useraddress handleregisterAddress={handleregisterAddress} />)}    
+                        {ShowregisterAddress&&(<Addressregister/> )
+                        }
+                </div>
             </div>
-    </div>
-</div>)
+            
+        </div>
+        )
 }
 export default Userpage;
