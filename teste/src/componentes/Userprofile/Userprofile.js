@@ -65,43 +65,47 @@ const Userprofile = (props) => {
     return (
         userInfo && (
             <div>
-                <h2 className="perfil-usuario">Olá, {userInfo.name}!</h2>
-                <Dropzone onDrop={handleImageDrop}>
-                    {({ getRootProps, getInputProps }) => (
-                        <div {...getRootProps()} className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
-                            {userInfo.image && (
-                                <img
-                                    src={`http://localhost:3000/uploads/${userInfo.image}`}
-                                    alt="User Image"
-                                    className="imagem-perfil"
-                                />
-                            )}
-                            {!userInfo.image && (
-                                <img
-                                    src={`http://localhost:3000/uploads/imagem-padrao.gif`}
-                                    alt="Default User Image"
-                                    className="imagem-perfil"
-                                />
-                            )}
-                            {showUploadButton && (
-                                <button className="botao-hover" onClick={handleImageUploadButtonClick}>
-                                    Atualizar Imagem
-                                </button>
-                            )}
-                            <input {...getInputProps()} />
+                <div className='user-data'>
+                    <div className='name-and-image'>
+                        <h2 className="perfil-usuario">Olá, {userInfo.name}!</h2>
+                            <Dropzone onDrop={handleImageDrop}>
+                                {({ getRootProps, getInputProps }) => (
+                                    <div {...getRootProps()} className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
+                                        {userInfo.image && (
+                                            <img
+                                                src={`http://localhost:3000/uploads/${userInfo.image}`}
+                                                alt="User Image"
+                                                className="imagem-perfil"
+                                            />
+                                        )}
+                                        {!userInfo.image && (
+                                            <img
+                                                src={`http://localhost:3000/uploads/imagem-padrao.gif`}
+                                                alt="Default User Image"
+                                                className="imagem-perfil"
+                                            />
+                                        )}
+                                        {showUploadButton && (
+                                            <button className="botao-hover" onClick={handleImageUploadButtonClick}>
+                                                Atualizar Imagem
+                                            </button>
+                                        )}
+                                        <input {...getInputProps()} />
+                                    </div>
+                                )}
+                            </Dropzone>
                         </div>
-                    )}
-                </Dropzone>
-                <div className="conta-usuario">
-                    <label className="label-dados">Nome:</label>
-                    <input className="dados-pessoais" type="text" value={userInfo.name} disabled />
-                    <label className="label-dados">Email:</label>
-                    <input className="dados-pessoais" type="text" value={userInfo.email} disabled />
-                    <label className="label-dados">Telefone:</label>
-                    <input className="dados-pessoais" type="text" value={userInfo.phone} disabled />
-                    <label className="label-dados">CPF:</label>
-                    <input className="dados-pessoais" type="text" value={userInfo.cpf} disabled />
-                </div>
+                    <div className="conta-usuario">
+                        <label className="label-dados">Nome:</label>
+                        <input className="dados-pessoais" type="text" value={userInfo.name} disabled />
+                        <label className="label-dados">Email:</label>
+                        <input className="dados-pessoais" type="text" value={userInfo.email} disabled />
+                        <label className="label-dados">Telefone:</label>
+                        <input className="dados-pessoais" type="text" value={userInfo.phone} disabled />
+                        <label className="label-dados">CPF:</label>
+                        <input className="dados-pessoais" type="text" value={userInfo.cpf} disabled />
+                    </div> 
+                
                 {showImageUploadModal && (
                     <div className="image-upload-modal">
                         <div className="image-upload-modal-content">
@@ -126,11 +130,11 @@ const Userprofile = (props) => {
                                         Salvar
                                     </button>
                                 </div>
-
                             </form>
                         </div>
                     </div>
                 )}
+                </div>
             </div>
         )
     );
