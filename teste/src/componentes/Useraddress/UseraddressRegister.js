@@ -129,6 +129,7 @@ const Addressregister=()=>{
         name="city"
         value={formValues.city}
         onChange={handleChange}
+        disabled
       /> 
     </div>
     <div className='rua-div'>
@@ -162,6 +163,7 @@ const Addressregister=()=>{
         name="state"
         value={formValues.state}
         onChange={handleChange}
+        disabled
       />
     </div>
     <div className='bairro-div'>

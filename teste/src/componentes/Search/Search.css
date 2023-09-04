@@ -22,14 +22,37 @@
   border-radius: 10px;
 }
 
+input.search-input:focus:placeholder{
+  color: black;
+}
+
+input.search-input:focus{
+  /* box-shadow: 0 10px 50px 10px; */
+  outline: 0;
+  border: 1px solid black;
+  height: 32px;
+  margin-top: -1px;
+  padding: 4px;
+  
+  /* -webkit-transform: translateY(-8px);
+  -moz-transform: translateY(-8px);
+  -ms-transform: translateY(-8px);
+  -o-transform: translateY(-8px);
+  transform: translateY(-8px); */
+  background-color: rgba(255, 236, 206, 1);
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  /* background-color: rgba(255, 255, 255, 0.5); */
+}
+
 .lupa{
+  border: 1px solid black;
   color: #000000;
-  margin-top: 1px;
-  min-height: 28px;
-  max-height: 28px;
-  width: 28px;
+  margin-left: 0px;
+  margin-top: -1px;
+  height: 32px;
+  width: 32px;
   background-color: #FFE2B6;
-  border-radius: 0px 10px 10px 0px; 
+  border-radius: 0 25px 25px 0; 
   padding: 4px 2px 3px 6px;
 }
 
@@ -39,5 +62,7 @@ svg.lupa:hover{
 }
 
 .lupa-a{
+  display: flex;
+  justify-content: center;
   margin-left: -2.8rem;
 }

@@ -67,7 +67,7 @@ const Search = () => {
           onChange={handleInputChange}
           onKeyDown={handleKeyDown}
           ref={searchInputRef}
-        />
+        ></input>
 
         <a className="lupa-a">
           <BiSearchAlt className="lupa" onClick={() => console.log('pesquisado')} />
