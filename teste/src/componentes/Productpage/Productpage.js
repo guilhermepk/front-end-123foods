@@ -40,25 +40,27 @@ const Productpage = (props) => {
     }
   }, []);
     return (
-        <div>
+        <div className="product-move">
             <div className="product">
-                <div>{product.name && 
+                <div className="product-itens">
+                    {product.name && 
                     <h2 className="product-name">{product.name}</h2>}
-                </div>
-                <div>{product.images && product.images.length > 0 && (
+                    <div className="product-align">
+                    {product.images && product.images.length > 0 && (
                     <img className="product-image" src={`http://localhost:3000/uploads/${product.images[0]?.path}`} alt="Imagem do Produto" />
-                    )}     
+                    )}
+                    </div>     
                 </div>
                 <div className="product-description">{product.description&&
                     <p>{product.description}</p>
                     }
                 </div>
-            <div>
+                <div className="button-product">
                 <button onClick={handleDecreaseClick}>-</button>
                 <p>Qtd: {qtd}</p>
                 <button onClick={handleIncreaseClick}>+</button>
                 <button type="submit" onClick={handleBuyClick}>Comprar</button>
-            </div>
+                </div>
             </div>
         </div>
     );

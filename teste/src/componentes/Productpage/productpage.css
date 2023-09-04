@@ -1,16 +1,48 @@
 .product {
     background-color: #FFECCE;
-    margin: 12rem 10rem;
+    width: 1200px;
+    height: 600px;
     border: 2px solid #000;
     border-radius: 10px;
     padding: 4rem;
 }
 
+.product-move{
+    display: flex;
+    justify-content: center;
+    margin-top: 8rem;
+    gap: 1em;
+}
+
+.product-itens{
+    display: flex;
+    flex-direction: column;
+    margin-left: -1rem;
+    margin-top: -2rem;
+}
+
+.product-align{
+    display: flex;
+    justify-content: center;
+    background-color: #ECD4AF;
+    align-items: center;
+    width: 30%;
+    height: 350px;
+}
+
 .product-name {
-    padding-left: 3rem;
-    font-size: 2.5rem;
+    font-size: 2rem;
+    margin-bottom: 3rem;
 }
 
 .product-image {
-    padding: 2rem 2rem 1rem 4rem;
+    width: 80%;
+    height: 100%;
+    
+}
+
+.button-product{
+    display: flex;
+    justify-content: center;
+    margin-left: 10rem;
 }
