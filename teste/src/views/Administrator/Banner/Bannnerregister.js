@@ -39,6 +39,8 @@ const Bannerregister = () => {
 
       console.log('sucesso');
       Swal.fire('Sucesso', 'Banner cadastrado com sucesso', 'success');
+      setTimeout(()=>{window.location.href = ' /admin/bannerlist';},3000);
+  
     } catch (error) {
       // Seu código aqui para lidar com erros de envio.
       Swal.fire('Ops...', 'Erro ao tentar cadastrar banner...', 'error');
