@@ -1,11 +1,16 @@
-import { useEffect, useState } from 'react';
 import './SearchModal.css';
+
+import { useEffect, useState } from 'react';
+import { setValue } from '../Search/Search';
 
 const SearchModal = (props) => {
     const [products, setProducts] = useState([]);
+    
+
+    const setSearchValue = setValue;
 
     useEffect(() => {
-        if (props.value.trim().length > 0) {
+        if (props.value?.trim().length > 0) {
             fetch(`http://localhost:3000/foods/search?filterValue=${encodeURIComponent(props.value)}`)
                 .then((response) => response.json())
                 .then((data) => {
@@ -41,7 +46,7 @@ const SearchModal = (props) => {
                     <a
                         key={index}
                         href={`/product/${product.id}`}
-                        className='suggestion-link'
+                        className={`suggestion-link ${index === props.selected ? 'selected' : ''}`}
                     >
                         <p>
                             {highlightMatch(product.name, props.value)}
