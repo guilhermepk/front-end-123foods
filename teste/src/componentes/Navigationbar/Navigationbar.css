@@ -104,7 +104,7 @@ body{
   display: flex;
   background-color: #FFECCE;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5); 
-  margin: 80px 0; 
+  margin-bottom: 0;
   padding: 0px;
   margin-top: 5rem;
   border-radius: 10px;
