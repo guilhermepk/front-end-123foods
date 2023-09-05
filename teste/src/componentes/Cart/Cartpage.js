@@ -57,7 +57,7 @@ const Cartpage = () => {
     // Implemente a lógica para processar a compra aqui
   };
 
-  console.log("images", data.food);
+  console.log("images", data[0].food); 
 
   return (
     <div>
