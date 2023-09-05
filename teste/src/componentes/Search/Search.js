@@ -19,18 +19,27 @@ const Search = () => {
     setSearchValue(value);
   }, [value]);
 
+  const relocate = () => {
+    window.location.href = `/search/${searchValue}`
+  }
+
   const handleKeyDown = (event) => {
-    if (event.key === 'ArrowDown') {
-        event.preventDefault(); // Evita que a página role para baixo
-        setSelectedSuggestion((prevSelected) =>
-            prevSelected < 4 ? prevSelected + 1 : prevSelected // Atualize de acordo com o número máximo de sugestões (5 no seu caso)
-        );
-    } else if (event.key === 'ArrowUp') {
-        event.preventDefault(); // Evita que a página role para cima
-        setSelectedSuggestion((prevSelected) =>
-            prevSelected > 0 ? prevSelected - 1 : prevSelected
-        );
-    } //else if (event.key === 'Enter') {
+    if (event.key === 'Enter') {
+      relocate();
+    }
+    // if (event.key === 'ArrowDown') {
+    //   console.log('pra baixo')
+    //     event.preventDefault(); // Evita que a página role para baixo
+    //     setSelectedSuggestion((prevSelected) =>
+    //         prevSelected < 4 ? prevSelected + 1 : prevSelected // Atualize de acordo com o número máximo de sugestões (5 no seu caso)
+    //     );
+    // } else if (event.key === 'ArrowUp') {
+    //   console.log('pra cima')
+    //     event.preventDefault(); // Evita que a página role para cima
+    //     setSelectedSuggestion((prevSelected) =>
+    //         prevSelected > 0 ? prevSelected - 1 : prevSelected
+    //     );
+    //} else if (event.key === 'Enter') {
     //     event.preventDefault();
     //     // Aqui você pode definir o valor do campo de pesquisa com base na sugestão selecionada
     //     if (selectedSuggestion !== -1) {
@@ -70,7 +79,7 @@ const Search = () => {
         ></input>
 
         <a className="lupa-a">
-          <BiSearchAlt className="lupa" onClick={() => console.log('pesquisado')} />
+          <BiSearchAlt className="lupa" onClick={relocate} />
         </a>    
       </div>
       <SearchModal value={searchValue} selected={selectedSuggestion}/>
