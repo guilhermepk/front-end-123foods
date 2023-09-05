@@ -13,7 +13,7 @@ const SearchPage = () => {
         <div>
             <Navigationbar/>
 
-            <h1>{searchValue}</h1>
+            <h1 style={{marginLeft:'100px'}}> Sua busca: {searchValue} </h1>
 
             <SearchList searchValue={searchValue} />
 
