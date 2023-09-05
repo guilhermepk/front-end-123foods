@@ -45,7 +45,6 @@ const Purchaseshistoric=()=>{
         });
         setGroupedProducts(groupedProducts);
       }, [data]);
-    
       return (
         <div>
           <h1>Histórico de Compras</h1>
@@ -55,6 +54,7 @@ const Purchaseshistoric=()=>{
               <ul>
                 {group.products.map((product) => (
                   <li key={product.id}>
+                  <p>nome{}</p>
                     <img src={`http://localhost:3000/uploads/${product.image.path}`} alt="Imagem da compra" />
                     <p>Status: {product.status}</p>
                     <p>Quantidade: {product.amount}</p>

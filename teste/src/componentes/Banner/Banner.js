@@ -18,18 +18,21 @@ function Banner() {
   }, []);
 
   return (
-    <main className='principal'>
-    <div className="banner">
-      <Carousel showThumbs={false}>
-        {banners.map((banner) => (
-          <div key={banner.id} className='banner-img'>
-            <img className="img1"src={`http://localhost:3000/uploads/${banner.image}`} alt={banner.alt} />
-          </div>
-        ))}
-      </Carousel>
-    </div>
-    </main>
+      <div className="banner">
+        <Carousel showThumbs={false}>
+          {banners.map((banner) => (
+            <div key={banner.id} className='banner-img'>
+              <img
+                className="img1"
+                src={`http://localhost:3000/uploads/${banner.image}`}
+                alt={banner.alt}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '18px 18px 0 0' }}
+              />
+            </div>
+          ))}
+        </Carousel>
+      </div>
   );
 }
 
-export default Banner; 
+export default Banner;

@@ -18,6 +18,7 @@ import Notification from "./views/Administrator/Notification/Notification";
 import NotificationlistFront from "./views/Administrator/Notification/NotificationlistFront";
 import Userpage from "./views/Userpage/Userpage";
 import UserPage from "./views/Userpage/Userpage";
+import Viewteste from "./views/viewteste";
 
 function NotFound() {
   return (
@@ -34,6 +35,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/teste" element={<Viewteste/>}/>
           <Route path="*" element={<NotFound />} />
           <Route path="/user-register" element={<Userregister />} />
           <Route path="/user-page" element={<UserPage />} />

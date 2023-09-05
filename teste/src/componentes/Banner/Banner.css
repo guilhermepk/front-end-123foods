@@ -6,17 +6,16 @@
   margin: 0 auto; 
   overflow: hidden;
   border-radius: 18px 18px 0px 0px;
-  border-left: 2px solid #000000;
-  border-right: 2px solid #000000;
-  border-top: 2px solid #000000;
 }
 
 .banner-img {
   min-height: auto;
-  align-items: center;
+  /* align-items: center; */
   display: flex;
 }
-
+/* .banner-height{
+  min-height: 250px;
+} */
 .carousel-control-next{
   background-color: brown;
 }
@@ -43,11 +42,11 @@
   visibility: hidden !important;
 }
 
-/* .img1 {
-  min-width: 800px;
-  min-height: 500px;
-} */
 
-.img1{
-  min-height: 120%;
+
+.img1 {
+  min-height: 20%;
+  width: 100%;
+  object-fit: cover;
 }
+
