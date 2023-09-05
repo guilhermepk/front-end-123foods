@@ -8,6 +8,7 @@ import Search from '../Search/Search';
 import { IoIosClose } from 'react-icons/io';
 import jwt_decode from 'jwt-decode';
 import Login from '../Login/login';
+import Logo from '../Logo/Logo';
 
 const Navigationbar = () => {
 
@@ -79,9 +80,7 @@ const Navigationbar = () => {
       <nav className="navbar">
         <ul className="nav-list">
             <div className='navbar-item'>
-                <div className="logo">
-                    <a href='/'> <img src="./imagens/logoSemFundo.png" alt="Logo" className="logo-123"/> </a>
-                </div>  
+                <Logo/>  
             </div>
             <div className='navbar-item'>
                 <div className='search-div'>

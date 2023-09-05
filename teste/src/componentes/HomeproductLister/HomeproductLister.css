@@ -118,23 +118,23 @@ a.page-link {
     margin-bottom: 10px;
 }
 
-.buyButton {
+button.buyButton {
     margin-bottom: 1rem;
     background-color: #9E0000;
     color: #fff;
     border: none;
-    padding: 8px 12px;
+    padding: 8px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 18px;
     margin-top: 10px;
     width: 100px;
     height: 40px;
     transition: 0.2s; 
 }
 
-.buyButton:hover{
-    font-size: large;
+button.buyButton:hover{
+    font-size: 22px;
     width: 120px;
     height: 50px;
     border: 2px solid black;
