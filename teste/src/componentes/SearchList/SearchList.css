@@ -1,0 +1,132 @@
+/* .no-product{
+    display: flex;
+    justify-content: center;
+    font-size: 200%;
+} */
+
+/* .pagination{
+    display: flex;
+    justify-content: center;
+} */
+
+/* .currentPageButton {
+    border: 2px solid black;
+    background-color: #9E0000;
+    color: #FFECCE;
+
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 25px;
+    border-radius: 10px;
+    min-height: 30px;
+} */
+
+/* button.pageButton:hover{
+    background-color: #d3bc9a;
+}
+
+.pageButton {
+    background-color: #ECD4AF;
+    cursor: pointer;
+
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 25px;
+    border-radius: 10px;
+    min-height: 30px;
+} */
+
+.search-link-card{
+    text-decoration: none;
+    color: black;
+}
+
+.search-product-name{
+    font-size: 130%;
+    font-weight: initial;
+}
+
+/* a.page-link {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+} */
+
+.search-div-list{
+    margin: 30px;
+    border: solid black 2px;
+    background-color: #FFECCE;
+    border-radius: 18px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.search-card-list {
+    display: grid;
+    font-size: 22px;
+
+    grid-template-columns: 50% 50%;
+}
+
+.search-card-col {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.search-card-product {
+    background-color: #ECD4AF;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.search-card-product:hover{
+    border: 2px solid black;
+}
+
+.search-card-img {
+    padding: 7.5%;
+    min-height: 200px;
+    max-height: 200px;
+    max-width: 100%;
+}
+
+.search-card-texts{
+    margin-bottom: 10px;
+}
+
+@media(min-width: 0) and (max-width: 850px){
+    .search-card-list {
+        grid-template-columns: 50% 50%;
+    }
+    .search-card-product {
+        background-color: #ECD4AF;
+        justify-content: center;
+        text-align: center;
+        border-radius: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+@media (min-width: 850px) and (max-width: 1300px){
+    .cardList {
+        grid-template-columns: 25% 25% 25% 25%;
+    }
+}
+
+@media (min-width: 1300px){
+    .cardList {
+        grid-template-columns: 20% 20% 20% 20% 20%;
+    }
+}

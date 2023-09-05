@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card'
+import Card from 'react-bootstrap/Card';
 import { sendPurchaseRequest } from '../Buy/Buy'; 
 import './HomeproductLister.css'
 
@@ -53,6 +53,7 @@ const HomeproductLister = (props) => {
         console.log('token:', token);
         sendPurchaseRequest(productId, qtd, token);
     };
+    
     useEffect(() => {
         const storedToken = localStorage.getItem('payload');
         if (storedToken) {

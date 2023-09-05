@@ -1,26 +1,23 @@
 import { useParams } from "react-router-dom";
 import Footer from "../../componentes/Footer/Footer";
 import Navigationbar from '../../componentes/Navigationbar/Navigationbar';
-import { useEffect, useState } from "react";
+import SearchList from "../../componentes/SearchList/SearchList";
+
 
 const SearchPage = () => {
     const { searchValue } = useParams();
 
-    const [products, setProducts] = useState();
-
-    useEffect(() => {
-        
-    });
+    
 
     return(
         <div>
-            <header><Navigationbar/></header>
-                <div>
-                    {searchValue}
-                </div>
-                <div>
-                    <Footer/>
-                </div>
+            <Navigationbar/>
+
+            <h1>{searchValue}</h1>
+
+            <SearchList searchValue={searchValue} />
+
+            <Footer/>
         </div>
     );
 }
