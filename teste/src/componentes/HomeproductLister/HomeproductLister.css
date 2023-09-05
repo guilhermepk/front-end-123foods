@@ -100,8 +100,11 @@ a.page-link {
     justify-content: center;
     text-align: center;
     border-radius: 10px;
-    min-height: 100%;
-    max-height: 100%;
+    height: 100%;
+}
+
+.cardProduct:hover{
+    border: 2px solid black;
 }
 
 .cardImg {
@@ -113,6 +116,28 @@ a.page-link {
 
 .cardTexts{
     margin-bottom: 10px;
+}
+
+.buyButton {
+    margin-bottom: 1rem;
+    background-color: #9E0000;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    transition: 0.2s; 
+}
+
+.buyButton:hover{
+    font-size: large;
+    width: 120px;
+    height: 50px;
+    border: 2px solid black;
 }
 
 @media(min-width: 0) and (max-width: 850px){
@@ -141,21 +166,4 @@ a.page-link {
     .cardList {
         grid-template-columns: 20% 20% 20% 20% 20%;
     }
-}
-.button {
-    background-color: #9E0000;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 10px;
-    width: 100px;
-    height: 40px;
-    transition: 0.2s; 
-}
-
-.button:hover{
-    background-color: darkred;
 }

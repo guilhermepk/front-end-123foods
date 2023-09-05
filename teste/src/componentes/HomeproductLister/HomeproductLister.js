@@ -89,8 +89,8 @@ const HomeproductLister = (props) => {
                                 </div>
 
                             </a> 
-                            <button className="button" onClick={() => handleBuyClick(product.id)}>Comprar</button>
 
+                            <button className="buyButton" onClick={() => handleBuyClick(product.id)}>Comprar</button>
 
                         </Card>
                     </Col>

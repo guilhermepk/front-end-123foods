@@ -39,6 +39,23 @@
   margin-bottom: 30px;
 }
 
+.item-icon{
+  margin-top: 2px;
+  margin-right: 5px;
+}
+
+a.item-list{
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  margin: 5px;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  background-color: #252525;
+  border-radius: 10px;
+}
+
 .titulo-admin{
   padding: 16px;
   transition: 0.3s; 
@@ -76,6 +93,8 @@
 }
 
 .admin-nav {
+  display: grid;
+  grid-template-columns: 100%;
   list-style: none;
   padding: 0;
 }
@@ -119,7 +138,8 @@
 
 .li-itens{
   font-size: 18px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 100%;
   transition: 0.2s; 
 }
 

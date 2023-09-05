@@ -24,45 +24,44 @@ const NavigationbarAdm=()=>{
         <div className={`admin-container ${minimized ? 'hide-content' : ''}`}>
           <div className={`admin-sidebar ${minimized ? 'minimized' : ''}`}>
             <div className="user-column" onClick={toggleMinimize}>
-            {userInfo && (
-                    <img
-                      src={`http://localhost:3000/uploads/${userInfo.image}`}
-                      alt="User Image"
-                      className={`imagem-usuario ${minimized ? 'minimized' : ''}`}
-                    />
-                  )}
+              {userInfo && (
+                <img
+                  src={`http://localhost:3000/uploads/${userInfo.image}`}
+                  alt="User Image"
+                  className={`imagem-usuario ${minimized ? 'minimized' : ''}`}
+                />
+              )}
               <div className="navbar-adm-main">
-              {userInfo && (<p className="nameuser">{userInfo.name}</p>)}
-            </div>
-            <h3 className="titulo-admin">Admin Dashboard</h3>
+                {userInfo && (<p className="nameuser">{userInfo.name}</p>)}
+              </div>
+              <h3 className="titulo-admin">Admin Dashboard</h3>
             </div>
             <ul className={`admin-nav ${minimized ? 'hidden' : ''}`}>
-              <div className="main-adm">
-              <li className="li-itens">
-                <Link to="/">Home</Link>
-              </li>
-              <li className="li-itens">
-                <Link to="/admin">Admin Home</Link>
-              </li>
-              <li className="li-itens">
-                <Link to="/admin/banner"><FaImage/>Cadastro de banners</Link>
-              </li>
-              <li className="li-itens">
-              <Link to="/admin/bannerlist"><FaImage/>Listagem de banners</Link>
-              </li>
-              <li className="li-itens">
-                <Link to="/admin/product-register"><TbPaperBag/>Cadastrar Produtos</Link>
-              </li>
-              <li className="li-itens">
-              <Link to='/admin/product-list'> <TbPaperBag/> Lista de Produtos </Link>
-              </li>
-              <li className="li-itens">
-                <Link to="/admin/notifications"><AiTwotoneNotification/>Criar Notificação</Link>
-              </li>
-              <li className="li-itens">
-              <Link to='/admin/notifications/list'> <RiNotificationBadgeFill/> Lista de Notificações</Link>
-              </li>
-              </div>
+          
+              <a href="/" className="item-list">
+                Home
+              </a>
+              <a href="/admin" className="item-list">
+                Admin Home
+              </a>
+              <a href="/admin/banner" className="item-list">
+                <div className="item-icon"><FaImage/></div>Cadastro de banners
+              </a>
+              <a href="/admin/bannerlist" className="item-list">
+                <div className="item-icon"><FaImage/></div>Listagem de banners
+              </a>
+              <a href="/admin/product-register" className="item-list">
+                <div className="item-icon"><TbPaperBag/></div>Cadastrar Produtos
+              </a>
+              <a href="/admin/product-list" className="item-list">
+                <div className="item-icon"><TbPaperBag/></div> Lista de Produtos
+              </a>
+              <a href="/admin/notifications" className="item-list">
+                <div className="item-icon"><AiTwotoneNotification/></div>Criar Notificação
+              </a>
+              <a href="/admin/notifications/list" className="item-list">
+                <div className="item-icon"><RiNotificationBadgeFill/></div> Lista de Notificações
+              </a>
             </ul>
            
           </div>
