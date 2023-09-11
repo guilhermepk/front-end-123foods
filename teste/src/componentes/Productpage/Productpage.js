@@ -62,6 +62,9 @@ const Productpage = (props) => {
                 <button className="button-comprar" type="submit" onClick={handleBuyClick}>Comprar</button> 
                 </div>
             </div>
+            <div className="product-carrousel">
+                    <p className="p-carrousel">Carrousel dos produtos uhul</p>
+            </div>
         </div>
     );
 }

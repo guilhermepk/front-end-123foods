@@ -1,6 +1,6 @@
 .search {
   display: flex;
-  width: 35%;
+  justify-content: center;
   height: 30px;
   gap: 16px;
 }
@@ -18,7 +18,7 @@
   display: flex;
   font-weight: 600;
   border: none;
-  min-width: 600px;
+  width: 600px;
   border-radius: 10px;
 }
 

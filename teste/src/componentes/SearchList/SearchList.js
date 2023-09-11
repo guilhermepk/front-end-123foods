@@ -21,8 +21,6 @@ const SearchList = (props) => {
             });
         }
     }, []);
-    
-    console.log('produtos', products);
 
     return(
         <div className="search-div-list">
@@ -41,6 +39,7 @@ const SearchList = (props) => {
                                     onError={() => console.log(`Erro ao carregar a imagem: /uploads/${product.images[0]?.path}`)}
                                 />
                             )}
+                            
 
                             <div className="search-card-texts">
                                 <p>{product.brand}</p>
@@ -53,6 +52,9 @@ const SearchList = (props) => {
                     </Card>
                 </Col>
             ))}
+            {products && products.length === 0 && (
+                <p>Nenhum produto encontrado</p>
+            )}
         </ul>
         </div>
     );

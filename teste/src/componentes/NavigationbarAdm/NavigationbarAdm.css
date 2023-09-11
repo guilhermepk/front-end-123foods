@@ -93,6 +93,7 @@ a.item-list{
 }
 
 .admin-nav {
+  margin-right: 5px;
   display: grid;
   grid-template-columns: 100%;
   list-style: none;
