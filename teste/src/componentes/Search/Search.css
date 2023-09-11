@@ -22,10 +22,6 @@
   border-radius: 10px;
 }
 
-input.search-input:focus:placeholder{
-  color: black;
-}
-
 input.search-input:focus{
   /* box-shadow: 0 10px 50px 10px; */
   outline: 0;
@@ -65,4 +61,48 @@ svg.lupa:hover{
   display: flex;
   justify-content: center;
   margin-left: -2.8rem;
+}
+
+@media (min-width: 0px) and (max-width: 750px){
+  .search-input{
+    width: 400px;
+  }
+}
+@media (min-width: 750px) and (max-width: 800px){
+  .search-input{
+    width: 600px;
+  }
+}
+@media (min-width: 0px) and (max-width: 800px){
+  .search-input{
+    height: 40px
+  }
+  input.search-input:focus{
+    height: 42px;
+  }
+  .categoria-icon{
+    margin-top: 2px;
+  }
+  .lupa{
+    height: 42px;
+    width: 40px;
+  }
+  .search{
+    align-items: center;
+  }
+}
+@media (min-width: 801px) and (max-width: 900px){
+  .search-input{
+    width: 200px;
+  }
+}
+@media (min-width: 900px) and (max-width: 1000px){
+  .search-input{
+    width: 300px;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1250px){
+  .search-input{
+    width: 400px;
+  }
 }
