@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import './Cart.css';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TablePagination from '@mui/material/TablePagination';
+import TableRow from '@mui/material/TableRow';
 
 const Cartpage = () => {
   const [token, setToken] = useState(null);
@@ -51,49 +59,70 @@ const Cartpage = () => {
     setQuantities(newQuantities);
   };
 
-  const handleRemoveClick = (dataId) => {
-      try {
-       axios.delete(`http://localhost:3000/purchases/${dataId}`);
-       Swal.fire( 'Sucesso ao excluir', 'success');
+  const handleRemoveClick = async (dataId) => {
+    try {
+      await axios.delete(`http://localhost:3000/purchases/${dataId}`);
+      Swal.fire('Sucesso ao excluir', 'success');
     } catch (error) {
-        console.error('Erro ao excluir banner:', error);
+      console.error('Erro ao excluir banner:', error);
     }
-
   };
 
   const handlePurchaseClick = () => {
-    
-
-
+    // Implement the logic to process the purchase here
   };
 
-console.log("DATA:",data)
-
   return (
-    <div>
-      <h1>Meu Carrinho de Compras</h1>
-      {data.map((item) => (
-        <div key={item.id}>
-          {item.food && item.image && item.image.path && (
-            <img
-              className="data-image"
-              src={`http://localhost:3000/uploads/${item.image.path}`}
-              alt="Imagem do Produto"
-            />
-          )}
-          <p>Quantidade: {quantities[item.id]}</p>
-          <button onClick={() => handleDecreaseClick(item.id)}>
-            Diminuir Quantidade
-          </button>
-          <p className="button-qtd2">Qtd: {quantities[item.id]}</p>
-          <button onClick={() => handleIncreaseClick(item.id)}>
-            Aumentar Quantidade
-          </button>
-          <button onClick={() => handleRemoveClick(item.id)}>Remover</button>
-        </div>
-      ))}
-      <button onClick={handlePurchaseClick}>Comprar</button>
-    </div>
+    <TableContainer>
+      <div className='tabela'>
+        <h1>Meu Carrinho de Compras</h1>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Imagem</TableCell>
+              <TableCell>Nome</TableCell>
+              <TableCell>Quantidade</TableCell>
+              <TableCell>Ações</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {data.map((item) => (
+              <TableRow key={item.id}>
+                <TableCell>
+                  {item.food && item.image && item.image.path && (
+                    <img
+                      className="data-image"
+                      src={`http://localhost:3000/uploads/${item.image.path}`}
+                      alt="Imagem do Produto"
+                    />
+                  )}
+                </TableCell>
+                <TableCell>
+                <p>{item.food.name}</p>
+
+                </TableCell>
+                <TableCell>
+                  <button onClick={() => handleDecreaseClick(item.id)}>
+                    -
+                  </button>
+                  <p className="button-qtd2">Qtd: {quantities[item.id]}</p>
+                  <button onClick={() => handleIncreaseClick(item.id)}>
+                    +
+                  </button>
+                </TableCell>
+                <TableCell>
+                  <button onClick={() => handleRemoveClick(item.id)}>
+                    Remover
+                  </button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <button onClick={handlePurchaseClick}>Comprar</button>
+      </div>
+    </TableContainer>
   );
 };
+
 export default Cartpage;

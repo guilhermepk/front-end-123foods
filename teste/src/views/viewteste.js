@@ -1,6 +1,6 @@
 
 import Cartpage from "../componentes/Cart/Cartpage";
-
+import Navigationbar from "../componentes/Navigationbar/Navigationbar"
 
 
 const Viewteste=()=>{
@@ -8,7 +8,13 @@ const Viewteste=()=>{
 
     return(
         <div>
-            <Cartpage/>
+        <header><Navigationbar/></header>
+            <div>
+
+                <Cartpage/>
+            </div>
+
+            
         </div>
     )
 }
