@@ -63,7 +63,16 @@ const Productpage = (props) => {
                 </div>
             </div>
             <div className="product-carrousel">
-                    <p className="p-carrousel">Carrousel dos produtos uhul</p>
+                    <div className="product-text">
+                    <p>Itens Relacionados</p>
+                    </div>
+                    <div className="product-list">
+                        <img className="" src="/imagens/12389.png"></img>
+                        <p className="p-product-text">Monster Energy Melancia</p>
+                        <div className="button-buy-product">
+                        <button className="sla">Comprar</button>
+                        </div>
+                    </div>
             </div>
         </div>
     );
