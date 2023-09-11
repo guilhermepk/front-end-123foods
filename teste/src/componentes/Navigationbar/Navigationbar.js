@@ -90,17 +90,17 @@ const Navigationbar = () => {
             <div className='navbar-item'>
                 <div className="conteudo">
                     {decoded_token && decoded_token.admin && (
-                        <a href="/admin"><button className="botao-admin"> Admin </button></a>
+                        <a className='content-button' href="/admin"><button className="botao-admin"> Admin </button></a>
                     )}
-                    <a href="#" onClick={handleProfileClick}>
+                    <a className='content-button' href="#" onClick={handleProfileClick}>
                         <CgProfile className="perfil"/>
                     </a>
 
-                    <a href="">
+                    <a className='content-button' href="">
                         <FiShoppingCart className="carrinho"/>
                     </a>
 
-                    <a href="">
+                    <a className='content-button' href="">
                         <AiOutlineBell className="notificacao"/>
                     </a>
                 </div>

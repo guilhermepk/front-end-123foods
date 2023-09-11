@@ -25,7 +25,8 @@ body{
 .nav-list {
   list-style: none;
   margin: 0;
-  padding: 0px;
+  padding: 10px;
+  margin-right: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,8 +47,8 @@ body{
 
 .conteudo{
   display: flex;
+  justify-content: center;
   gap: 22px;
-  margin-right: 2rem;
   
 }
 
@@ -87,7 +88,6 @@ body{
 .logo {
   max-width: 220px;
   min-width: 220px;
-  margin-left: -3rem;
   
 }
 
@@ -156,55 +156,6 @@ body{
   display: flex;
 }
 
-@media (min-width: 1500px) and (max-width: 5000px)
-{
-  .modal{
-    height: 540px;
-    margin-left: 38%;
-    
-  }
-}
-
-@media (min-width: 1000px) and (max-width: 1500px)
-{
-  .modal{
-    height: 520px;
-    margin-left: 33%;
-    
-  }
-}
-
-@media (min-width: 800px) and (max-width: 1000px)
-{
-  .modal{
-    height: 520px;
-    margin-left: 25%;
-    
-  }
-}
-
-@media (min-width: 500px) and (max-width: 800px){
-  .nav-list{
-    display: grid;
-    grid-template-columns: 100%;
-  }
-
-  .navbar-item{
-    display: flex;
-    justify-content: center;
-  }
-
-  .navbar-item{
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-
-  .modal{
-    height: 520px;
-    margin-left: 20%;
-    
-  }
-}
 
 .close{
   color: rgb(186, 23, 23);
@@ -241,4 +192,75 @@ body{
 
 .botao-admin:hover{
   background-color: #FFE2B6;
+}
+
+.content-button{
+  display: flex;
+  justify-content: center;
+}
+
+img.logo-123{
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1500px) and (max-width: 5000px)
+{
+  .modal{
+    height: 540px;
+    margin-left: 38%;
+    
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1500px)
+{
+  .modal{
+    height: 520px;
+    margin-left: 33%;
+    
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1000px)
+{
+  .modal{
+    height: 520px;
+    margin-left: 25%;
+    
+  }
+}
+
+@media (min-width: 0px) and (max-width: 800px){
+  .conteudo{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+  .nav-list{
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .botao-admin{
+    border-radius: 18px;
+    font-size: 25px;
+    width: 100px;
+    height: 80px;
+  }
+  .perfil, .carrinho, .notificacao{
+    width: 75px;
+    height: 75px;
+  }
+  .navbar-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .modal{
+    height: 520px;
+    margin-left: 20%;
+    
+  }
 }

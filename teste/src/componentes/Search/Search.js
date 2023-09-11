@@ -64,24 +64,23 @@ const Search = () => {
   return (
     <>
       <div className="search">
-        <div className="categorias">
+        <div className="categories-toggle">
           <BiMenu className="categoria-icon"/>
         </div>
+          <input 
+            type="text"
+            placeholder="Pesquisar:"
+            className="search-input"
+            value={searchValue}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            ref={searchInputRef}
+          ></input>
 
-        <input 
-          type="text"
-          placeholder="Pesquisar:"
-          className="search-input"
-          value={searchValue}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
-          ref={searchInputRef}
-        ></input>
-
-        <a className="lupa-a">
-          <BiSearchAlt className="lupa" onClick={relocate} />
-        </a>    
-      </div>
+          <a className="lupa-a">
+            <BiSearchAlt className="lupa" onClick={relocate} />
+          </a>
+        </div>
       <SearchModal value={searchValue} selected={selectedSuggestion}/>
     </>
   );
