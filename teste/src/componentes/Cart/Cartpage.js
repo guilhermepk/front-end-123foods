@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const Cartpage = () => {
   const [token, setToken] = useState(null);
   const [decodedToken, setDecodedToken] = useState(null);
   const [data, setData] = useState([]);
-  const [quantities, setQuantities] = useState({}); 
+  const [quantities, setQuantities] = useState({});
   const userId = decodedToken?.sub;
 
   useEffect(() => {
@@ -24,8 +26,8 @@ const Cartpage = () => {
         .then((data) => {
           setData(data);
           const initialQuantities = {};
-          data.forEach((data) => {
-            initialQuantities[data.id] = 1;
+          data.forEach((item) => {
+            initialQuantities[item.id] = parseInt(item.amount);
           });
           setQuantities(initialQuantities);
         })
@@ -50,43 +52,48 @@ const Cartpage = () => {
   };
 
   const handleRemoveClick = (dataId) => {
-    // Implemente a lógica para remover o produto do carrinho aqui
+      try {
+       axios.delete(`http://localhost:3000/purchases/${dataId}`);
+       Swal.fire( 'Sucesso ao excluir', 'success');
+    } catch (error) {
+        console.error('Erro ao excluir banner:', error);
+    }
+
   };
 
   const handlePurchaseClick = () => {
-    // Implemente a lógica para processar a compra aqui
+    
+
+
   };
 
-  console.log("images", data[0].food); 
+console.log("DATA:",data)
 
   return (
     <div>
       <h1>Meu Carrinho de Compras</h1>
-      {data.map((data) => (
-        <div key={data.id}>
-          {data.images && data.images.length > 0 && (
+      {data.map((item) => (
+        <div key={item.id}>
+          {item.food && item.image && item.image.path && (
             <img
               className="data-image"
-              src={`http://localhost:3000/uploads/${data[data.id].images.path}`}
+              src={`http://localhost:3000/uploads/${item.image.path}`}
               alt="Imagem do Produto"
             />
           )}
-          {/* <p>Produto: {data.food.name}</p> */}
-          <p>Status: {data.status}</p>
-          <p>Quantidade: {quantities[data.id]}</p>
-          <button onClick={() => handleDecreaseClick(data.id)}>
+          <p>Quantidade: {quantities[item.id]}</p>
+          <button onClick={() => handleDecreaseClick(item.id)}>
             Diminuir Quantidade
           </button>
-          <p className="button-qtd2">Qtd: {quantities[data.id]}</p>
-          <button onClick={() => handleIncreaseClick(data.id)}>
+          <p className="button-qtd2">Qtd: {quantities[item.id]}</p>
+          <button onClick={() => handleIncreaseClick(item.id)}>
             Aumentar Quantidade
           </button>
-          <button onClick={() => handleRemoveClick(data.id)}>Remover</button>
+          <button onClick={() => handleRemoveClick(item.id)}>Remover</button>
         </div>
       ))}
       <button onClick={handlePurchaseClick}>Comprar</button>
     </div>
   );
 };
-
 export default Cartpage;
