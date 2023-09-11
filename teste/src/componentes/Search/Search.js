@@ -24,7 +24,7 @@ const Search = () => {
   }
 
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
+    if (searchValue && event.key === 'Enter') {
       relocate();
     }
     // if (event.key === 'ArrowDown') {

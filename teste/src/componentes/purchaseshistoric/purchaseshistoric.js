@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useUserinfo } from '../Userinfo/Userinfo';
 import jwt_decode from 'jwt-decode';
+import './Purchaseshistoric.css';
+
+
 const Purchaseshistoric=()=>{
       const [token, setToken] = useState(null);
       const [decodedToken, setDecodedToken] = useState(null);
@@ -46,10 +49,10 @@ const Purchaseshistoric=()=>{
         setGroupedProducts(groupedProducts);
       }, [data]);
       return (
-        <div>
-          <h1>Histórico de Compras</h1>
+        <div className='table'>
+          {/* <h1>Histórico de Compras</h1> */}
           {Object.values(groupedProducts).map((group) => (
-            <div key={group.date}>
+            <div className='purchases-by-date' key={group.date}>
             <h4>Entregue dia: {group.date.getDate()}/{group.date.getMonth() + 1}</h4>
               <ul>
                 {group.products.map((product) => (
