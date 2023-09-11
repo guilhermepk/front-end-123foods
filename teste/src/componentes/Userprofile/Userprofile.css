@@ -215,3 +215,8 @@
       background-position: 1000px 0, -1000px bottom, 0 -1000px, right 1000px;
     }
   }
+  .zoomfuncional {
+    width: 100%; /* Defina a largura desejada */
+    height: 40px; /* Defina a altura desejada */
+    margin-top: 10px; /* Ajuste conforme necessário */
+  }
