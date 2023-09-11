@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+.modal-content,
+.modal {
+  position: fixed; 
+  z-index: 100;   
+}
+
 body{
   margin: 0;
 }
