@@ -183,14 +183,9 @@ body{
     grid-template-columns: 100%;
   }
 
-  .navbar-item, .search-div{
+  .navbar-item{
     display: flex;
     justify-content: center;
-  }
-
-  .search-div{
-    margin-left: 20px;
-    min-width: 1000px;
   }
 
   .navbar-item{
