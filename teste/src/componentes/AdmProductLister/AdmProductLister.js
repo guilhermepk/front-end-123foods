@@ -16,7 +16,7 @@ const AdmProductLister = () => {
 
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+    const currentProducts = products.length > 0 ? products.slice(indexOfFirstProduct, indexOfLastProduct) : [];
 
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
