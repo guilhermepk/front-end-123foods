@@ -14,7 +14,7 @@ const Userprofile = (props) => {
     const userId = decoded_token?.sub;
     const [showUploadButton, setShowUploadButton] = useState(false);
     const userInfo = useUserinfo(token, userId);
-    const [editor, setEditor] = useState(null); // State para o editor
+    const [editor, setEditor] = useState(null); 
 
     const handleImageDrop = (acceptedFiles) => {
         setSelectedImage(acceptedFiles[0]);
@@ -23,7 +23,7 @@ const Userprofile = (props) => {
     const handleUploadImage = async () => {
         try {
             if (editor) {
-                const canvas = editor.getImage(); // Obtenha a imagem do editor
+                const canvas = editor.getImage();
                 const blob = await new Promise((resolve) => {
                     canvas.toBlob((blob) => {
                         resolve(blob);

@@ -68,9 +68,27 @@ const Cartpage = () => {
     }
   };
 
-  const handlePurchaseClick = () => {
-    // Implement the logic to process the purchase here
+  const handlePurchaseClick = async (data, quantities) => {
+    try {
+      const requests = data.map(async (item) => {
+        const formData = new FormData();
+        formData.append('amount', quantities[item.id]);
+  
+        const response = await axios.patch(`http://localhost:3000/purchases/${item.id}`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+  
+        console.log(`Upload response for product ${item.id}:`, response.data);
+      });
+  
+      await Promise.all(requests);
+    } catch (error) {
+      console.error('Erro ao fazer upload dos produtos:', error);
+    }
   };
+  
 
   return (
     <TableContainer>
@@ -119,7 +137,8 @@ const Cartpage = () => {
             ))}
           </TableBody>
         </Table>
-        <button onClick={handlePurchaseClick}>Comprar</button>
+        <button onClick={() => handlePurchaseClick(data, quantities)}>Comprar</button>
+
       </div>
     </TableContainer>
   );
