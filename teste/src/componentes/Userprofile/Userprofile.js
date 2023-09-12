@@ -5,7 +5,9 @@ import Dropzone from 'react-dropzone';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import AvatarEditor from 'react-avatar-editor'; 
-import Slider from 'react-slider';
+import { Slider } from '@mui/material';
+
+
 const Userprofile = (props) => {
     const [token, setToken] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null);
@@ -24,7 +26,7 @@ const[zoomLevel,setZoomLevel]=useState(1);
         setCanceledImage(false);
       };
     
-      const handleZoomChange = (value) => {
+      const handleZoomChange = (event,value) => {
         setZoomLevel(value);
     };
     
@@ -137,10 +139,11 @@ const[zoomLevel,setZoomLevel]=useState(1);
                     height={300}
                     border={0}
                     borderRadius={250}
-                    scale={zoom}
+                    scale={zoomLevel}
                   />
                   <div className="zoom-slider">
                         <Slider
+                            className='slider'
                             value={zoomLevel}
                             min={1}
                             max={3} 
