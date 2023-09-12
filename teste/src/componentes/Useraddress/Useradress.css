@@ -43,32 +43,38 @@
 
 .dados-endereco.cidade,
 .dados-endereco-um.cidade {
-    width: 280px;
+    margin-left: 45px;
+    width: 233px;
 }
 
 .dados-endereco.rua,
 .dados-endereco-um.rua {
-    width: 302px;
+    margin-left: 68px;
+    width: 233px;
 }
 
 .dados-endereco.estado,
 .dados-endereco-um.estado {
-    width: 282px;
+    margin-left: 48px;
+    width: 233px;
 }
 
 .dados-endereco.cep,
 .dados-endereco-um.cep {
-    width: 302px;
+    margin-left: 68px;
+    width: 233px;
 }
 
 .dados-endereco.bairro,
 .dados-endereco-um.bairro {
-    width: 284px;
+    margin-left: 50px;
+    width: 233px;
 }
 
 .dados-endereco.numero,
 .dados-endereco-um.numero {
-    width: 272px;
+    margin-left: 40px;
+    width: 233px;
 }
 
 .dados-endereco.complemento,
