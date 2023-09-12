@@ -11,7 +11,7 @@ const SearchList = (props) => {
     
     useEffect(() => {
         if (searchValue.trim().length > 0) {
-            fetch(`http://localhost:3000/foods/search?filterValue=${encodeURIComponent(searchValue)}`)
+            fetch(`http://localhost:3000/products/search?filterValue=${encodeURIComponent(searchValue)}`)
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data);

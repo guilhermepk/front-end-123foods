@@ -20,7 +20,7 @@ const AdmProductLister = () => {
     if (productsPerPage < 1) productsPerPage = initialProductsPerPage;
 
     useEffect(() => {
-        fetch('http://localhost:3000/foods')
+        fetch('http://localhost:3000/products')
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data);

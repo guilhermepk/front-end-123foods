@@ -8,7 +8,7 @@ const Productpage = (props) => {
     const [token, setToken] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/foods/${props.productId}`)
+        fetch(`http://localhost:3000/products/${props.productId}`)
             .then((response) => response.json())
             .then((data) => {
                 setProduct(data);

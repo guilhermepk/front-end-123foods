@@ -43,7 +43,7 @@ const Productform= () => {
     formData.append('price', parseFloat(formValues.price));
     formData.append('file', formValues.image);
   
-    fetch('http://localhost:3000/foods', {
+    fetch('http://localhost:3000/products', {
       method: 'POST',
       headers: {
         'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
@@ -92,7 +92,7 @@ const Productform= () => {
     formData.append('file', data.image);
     
   
-    fetch('http://localhost:3000/foods', {
+    fetch('http://localhost:3000/products', {
       method: 'POST', 
       body: formData,
     })
