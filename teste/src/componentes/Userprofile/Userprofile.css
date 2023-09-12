@@ -1,6 +1,6 @@
 .image-upload-modal {
     position: fixed; 
-    z-index: 100;  
+    z-index: 2;  
 }
 
 .name-and-image{
@@ -89,7 +89,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Transparência para fundo escuro */
+    background-color: rgba(0, 0, 0, 0.5); 
 }
 
 .image-upload-modal-content {
@@ -215,8 +215,7 @@
       background-position: 1000px 0, -1000px bottom, 0 -1000px, right 1000px;
     }
   }
-  .zoomfuncional {
-    width: 100%; /* Defina a largura desejada */
-    height: 40px; /* Defina a altura desejada */
-    margin-top: 10px; /* Ajuste conforme necessário */
+  .slider{
+    color: #820101 !important;
   }
+
