@@ -51,15 +51,12 @@ const Search = () => {
   const handleInputChange = (event) => {
     const value = event.target.value;
     setSearchValue(value);
-
-    if (value?.trim().length > 0) {
-      performSearch(value);
-    }
-  };
+    if (value?.trim().length > 0) performSearch(value);
+  }
 
   const performSearch = (value) => {
     setSearchValue(value);
-  };
+  }
 
   return (
     <>
