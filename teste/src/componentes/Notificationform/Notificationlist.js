@@ -32,17 +32,15 @@ console.log("notigficação:",notifications)
     return (
         <div>
             <div className="notification-list-container">
-                <h1 className="titulo-notification">Listagem de notifications</h1>
+                <h1 className="titulo-notification">Listagem de notificações</h1>
                 <div className="notification-list">
                     {notifications.map((notification) => (
                         <div key={notification.id} className="notification-item">
                             <div className="notification-info">
                                     <p>{notification.title}</p>
-                                    </div>
-                            <div className="notification-info">
                                 <p>{notification.message}</p>
                                 </div>
-                            <div className="notification-info">
+                            <div className="notification-link">
                                 <p>{notification.link}</p>
                                 <button className="botao-excluir-notification" onClick={() => handleDeletenotification(notification.id)}>Excluir</button>
                             </div>

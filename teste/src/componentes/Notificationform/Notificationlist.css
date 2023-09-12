@@ -1,5 +1,39 @@
-.notification-list-container{
-    display: flex;
-    justify-content: center;
-    margin-left: 10rem;
+.titulo-notification{
+    margin-left: 18rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
 }
+
+.notification-item{
+    width: 82.5vw;
+    height: 180px;
+    border: solid rgb(200, 200, 200) 0.5px;
+    margin-left: 18rem;
+}
+
+.notification-info{
+    display: grid;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.notification-link{
+    margin-left: 1rem;
+}
+
+.botao-excluir-notification{
+    margin-top: 1rem;
+    width: 80px;
+    height: 35px;
+    background-color: #9E0000;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.botao-excluir-notification:hover{
+    background-color: #8a0000;
+}
+

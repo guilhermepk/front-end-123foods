@@ -131,7 +131,8 @@ const[zoomLevel,setZoomLevel]=useState(1);
             <div className="form-imagem">
               {selectedImage && !canceledImage ? (
                 <>
-                  <AvatarEditor
+                <div className="avatar-editor">
+                  <AvatarEditor 
                     ref={(editorRef) => setEditor(editorRef)}
                     image={selectedImage}
                     width={300}
@@ -140,6 +141,7 @@ const[zoomLevel,setZoomLevel]=useState(1);
                     borderRadius={250}
                     scale={zoomLevel}
                   />
+                  </div>
                   <div className="zoom-slider">
                         <Slider
                             className='slider'
@@ -156,21 +158,24 @@ const[zoomLevel,setZoomLevel]=useState(1);
                             onChange={handleZoomChange}
                         />
                     </div>
-                    <div className='botao-salvar-margin'></div>
+                    <div className='botao-salvar-margin'>
                     <button className="botao-cancelar" type="button" onClick={handleCancelImage}>
                     Cancelar
                   </button>
                   <button className="botao-salvar" type="button" onClick={handleUploadImage}>
                     Salvar
                   </button>
-                  
+                  </div>
                 </>
               ) : (
                 <Dropzone onDrop={handleImageDrop}>
                   {({ getRootProps, getInputProps }) => (
-                    <div {...getRootProps()} className="selecionar-imagem">
+                    <div className="imagem-usuario-dropzone">
+                      <p className="texto-img">Selecionar imagem</p>
+                    <div {...getRootProps()} className="selecionar-imagem-banner">
                       <input {...getInputProps()} />
-                      <p>Arraste e solte uma imagem aqui ou clique para selecionar uma.</p>
+                      <p>Clique ou solte aqui</p>
+                    </div>
                     </div>
                   )}
                 </Dropzone>
