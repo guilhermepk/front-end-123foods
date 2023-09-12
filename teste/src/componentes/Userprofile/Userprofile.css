@@ -126,9 +126,21 @@
     display: flex;
     justify-content: center;
 }
+.botao-cancelar{
+    margin-top: 4rem;
+    font-family: 'Oswald';
+    font-size: 20px;
+    background-color:#9E0000;
+    width: 120px;
+    height:50px;
+    border-radius: 8px;
+    border: 2px solid #000000;
+    color: #ffffff;
+    cursor: pointer;
+}
 
 .botao-salvar{
-    margin-top: 4rem;
+    margin-top: 1rem;
     font-family: 'Oswald';
     font-size: 20px;
     background-color: #9E0000;
@@ -217,5 +229,9 @@
   }
   .slider{
     color: #820101 !important;
+  }
+  .form-imagem{
+    display: block;
+    align-items: center;
   }
 

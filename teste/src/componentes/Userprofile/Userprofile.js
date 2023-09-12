@@ -128,7 +128,6 @@ const[zoomLevel,setZoomLevel]=useState(1);
               &times;
             </span>
             <h2 className="atualizar-imagem">Atualizar Imagem do Usuário</h2>
-            <p className="selecionar-imagem">Selecionar imagem:</p>
             <div className="form-imagem">
               {selectedImage && !canceledImage ? (
                 <>
@@ -147,26 +146,31 @@ const[zoomLevel,setZoomLevel]=useState(1);
                             value={zoomLevel}
                             min={1}
                             max={3} 
+                            sx={{
+                                  width: 300,
+                                  '& .MuiSlider-thumb': {
+                                    borderRadius: '1px',
+                                  },
+                                }}
                             step={0.1} 
                             onChange={handleZoomChange}
                         />
                     </div>
-                  <button className="botao-salvar-margin" type="button" onClick={handleUploadImage}>
-                    Salvar
-                  </button>
-                  <button className="botao-cancelar-margin" type="button" onClick={handleCancelImage}>
+                    <div className='botao-salvar-margin'></div>
+                    <button className="botao-cancelar" type="button" onClick={handleCancelImage}>
                     Cancelar
                   </button>
+                  <button className="botao-salvar" type="button" onClick={handleUploadImage}>
+                    Salvar
+                  </button>
+                  
                 </>
               ) : (
                 <Dropzone onDrop={handleImageDrop}>
                   {({ getRootProps, getInputProps }) => (
-                    <div {...getRootProps()} className="dropzone-container">
+                    <div {...getRootProps()} className="selecionar-imagem">
                       <input {...getInputProps()} />
                       <p>Arraste e solte uma imagem aqui ou clique para selecionar uma.</p>
-                      <button className="botao-cancelar-margin" type="button" onClick={handleCancelImage}>
-                        Cancelar
-                      </button>
                     </div>
                   )}
                 </Dropzone>
