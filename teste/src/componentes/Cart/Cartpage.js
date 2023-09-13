@@ -127,16 +127,16 @@ const Cartpage = () => {
                     +
                   </button>
                 </TableCell>
-                <TableCell>
+                {/* <TableCell>
                   <button onClick={() => handleRemoveClick(item.id)}>
                     Remover
                   </button>
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             ))}
           </TableBody>
         </Table>
-        <button className='button pay' onClick={() => handlePurchaseClick(data, quantities)}>Comprar</button>
+        <button className='button-pay' onClick={() => handlePurchaseClick(data, quantities)}>Comprar</button>
 
       </div>
     </TableContainer>
