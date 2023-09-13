@@ -1,5 +1,53 @@
-/* .tabela{
-    margin: 10px;
+.table-container {
+    margin-top: 6rem;
+    display: flex;
+    justify-content: center;
+}
+
+.table{
     border: 2px solid black;
     border-radius: 18px;
-} */
+    width: 90rem;
+    padding-bottom: 6rem;
+    background-color: #FFECCE;
+}
+
+.table-titles-row {
+    background-color: #9E0000;
+    border-bottom: 2px solid #000;
+}
+
+.table-cell {
+    font-weight: bold !important;
+    font-size: 1.5rem !important;
+    font-family: 'Oswald' !important;
+    color: #FFF5E7 !important;
+    border-right: 2px solid #000;
+}
+
+.table-cell.quant {
+    width: 15rem;
+}
+
+.table-cell.price {
+    width: 15rem;
+    border-right: none;
+}
+
+.button {
+    background-color: #9E0000;
+    width: 9rem;
+    height: 4.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #FFF;
+    border: 2px solid #000;
+    border-radius: 1rem;
+    margin-left: 75rem;
+    margin-top: 3rem;
+}
+
+.button:hover {
+    background-color: #850101;
+    cursor: pointer;
+}
