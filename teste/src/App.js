@@ -19,6 +19,7 @@ import NotificationlistFront from "./views/Administrator/Notification/Notificati
 import UserPage from "./views/Userpage/Userpage";
 import Viewteste from "./views/viewteste";
 import SearchPage from "./views/SearchPage/SearchPage";
+import ProductEditView from "./views/Administrator/Product/Productlist/ProductEditView/ProductEditView";
 
 function NotFound() {
   return (
@@ -49,10 +50,11 @@ const App = () => {
 
           {/* Páginas do adm */}
           <Route path="/admin" element={Isadmin() ? <Admin /> : <Navigate to="/" />} />
-          <Route path="/admin/product-register" element={Isadmin() ? <Productregister /> : <Navigate to="/" />} />
           <Route path="/admin/banner" element={Isadmin() ? <Bannerregister /> : <Navigate to="/" />} />
           <Route path="/admin/bannerlist" element={Isadmin() ? <Bannerlist /> : <Navigate to="/" />} />
+          <Route path="/admin/product-register" element={Isadmin() ? <Productregister /> : <Navigate to="/" />} />
           <Route path="/admin/product-list" element={Isadmin() ? <Productlist/> : <Navigate to='/'/>} />
+          <Route path="/admin/product-edit/:productId" element={Isadmin() ? <ProductEditView/> : <Navigate to='/'/>} />
           <Route path="/admin/notifications" element={Isadmin() ? <Notification/> : <Navigate to="/" />} />
           <Route path="/admin/notifications/list" element={Isadmin() ? <NotificationlistFront/> : <Navigate to="/" />} />
           

@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import jwt_decode from 'jwt-decode';
-import Swal from 'sweetalert2';
-import axios from 'axios';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Modal from 'react-modal';
 
@@ -123,6 +119,10 @@ const AdmProductLister = () => {
         setIsOpen(false);
     }
 
+    const handleEditProduct = (productId) => {
+        window.location.href = `/admin/product-edit/${productId}`;
+    }
+
     return (
         <div>
             <div>
@@ -150,14 +150,39 @@ const AdmProductLister = () => {
                         <TableRow>
                             <TableCell> Imagem </TableCell>
                             <TableCell> Nome </TableCell>
+                            <TableCell> Marca </TableCell>
+                            <TableCell> Preço </TableCell>
+                            <TableCell> Descrição </TableCell>
+                            <TableCell> Categoria </TableCell>
+                            <TableCell> Qtd em estoque </TableCell>
+                            <TableCell> Editar produto </TableCell>
+                            <TableCell> Excluir produto </TableCell>
                         </TableRow>
                     </TableHead>
 
                     <TableBody>
                         {currentProducts && currentProducts.map((product, index) => (
                             <TableRow key={index}>
-                                <TableCell> img.png </TableCell>
+                                <TableCell>
+                                    {product.images && (
+                                        <img src={`http://localhost:3000/uploads/${product.images[0].path}`}/>
+                                    )}
+                                </TableCell>
                                 <TableCell> {product.name} </TableCell>
+                                <TableCell> {product.brand} </TableCell>
+                                <TableCell> {product.price} </TableCell>
+                                <TableCell> {product.description} </TableCell>
+                                <TableCell> {product.category} </TableCell>
+                                <TableCell> {product.amount} </TableCell>
+                                <TableCell>
+                                    <button
+                                        onClick={() => handleEditProduct(product.id)}
+                                    >
+                                        Editar
+                                    </button>
+                                </TableCell>
+                                <TableCell> excluir </TableCell>
+
                             </TableRow>
                         ))}
                     </TableBody>
