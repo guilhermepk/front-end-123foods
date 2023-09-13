@@ -26,7 +26,7 @@ export const sendPurchaseRequest = async (productId, qtd, token,userId) => {
     const userId = token ? jwt_decode(token)?.sub : null;
 
     const orderData = {
-      foodId: productId,
+      productId: productId,
       amount: qtd,
       userId: userId,
       imageId: productId,
