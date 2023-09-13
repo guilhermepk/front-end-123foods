@@ -13,11 +13,11 @@ const HomeproductLister = (props) => {
     useEffect(() => {
         setCurrentPage(1);
         if(props.category) {
-            fetch(`http://localhost:3000/foods/filter/category/${props.category}`)
+            fetch(`http://localhost:3000/products/filter/category/${props.category}`)
                 .then((response) => response.json())
                 .then((data) => setProducts(data))
         }else{
-            fetch(`http://localhost:3000/foods`)
+            fetch(`http://localhost:3000/products`)
                 .then((response) => response.json())
                 .then((data) => setProducts(data))
         }
