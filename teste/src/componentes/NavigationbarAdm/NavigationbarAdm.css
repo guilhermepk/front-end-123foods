@@ -7,7 +7,7 @@
 }
 
 .admin-sidebar {
-  width: 250px;
+  width: 13%;
   background-color: #333;
   color: #fff;
   transition: 0.3s ease;
@@ -122,7 +122,6 @@ a.item-list{
   flex-grow: 1;
   background-color: #333;
   padding: 20px;
-  margin-left: 250px;
   transition: margin-left 0.3s ease;
 }
 

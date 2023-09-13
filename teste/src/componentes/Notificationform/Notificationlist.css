@@ -1,14 +1,16 @@
 .titulo-notification{
-    margin-left: 18rem;
+    display: flex;
+    justify-content: center;
+    margin-left: 10rem;
     margin-top: 2rem;
     margin-bottom: 3rem;
 }
 
 .notification-item{
-    width: 82.5vw;
+    width: 80%;
     height: 180px;
     border: solid rgb(200, 200, 200) 0.5px;
-    margin-left: 18rem;
+    margin-left: 16%;
 }
 
 .notification-info{
@@ -23,7 +25,6 @@
 }
 
 .botao-excluir-notification{
-    margin-top: 1rem;
     width: 80px;
     height: 35px;
     background-color: #9E0000;
