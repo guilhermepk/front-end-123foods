@@ -91,16 +91,15 @@ const Cartpage = () => {
   
 
   return (
-    <TableContainer>
-      <div className='tabela'>
-        <h1>Meu Carrinho de Compras</h1>
+    <TableContainer className='table-container'>
+      <div className='table'>
         <Table>
           <TableHead>
-            <TableRow>
-              <TableCell>Imagem</TableCell>
-              <TableCell>Nome</TableCell>
-              <TableCell>Quantidade</TableCell>
-              <TableCell>Ações</TableCell>
+            <TableRow className='table-titles-row'>
+              {/* <TableCell className='table-cell image'>Imagem</TableCell> */}
+              <TableCell className='table-cell food'>Produto</TableCell>
+              <TableCell className='table-cell quant'>Quantidade</TableCell>
+              <TableCell className='table-cell price'>Preço</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -123,7 +122,7 @@ const Cartpage = () => {
                   <button onClick={() => handleDecreaseClick(item.id)}>
                     -
                   </button>
-                  <p className="button-qtd2">Qtd: {quantities[item.id]}</p>
+                  <p className="button quant">Qtd: {quantities[item.id]}</p>
                   <button onClick={() => handleIncreaseClick(item.id)}>
                     +
                   </button>
@@ -137,7 +136,7 @@ const Cartpage = () => {
             ))}
           </TableBody>
         </Table>
-        <button onClick={() => handlePurchaseClick(data, quantities)}>Comprar</button>
+        <button className='button pay' onClick={() => handlePurchaseClick(data, quantities)}>Comprar</button>
 
       </div>
     </TableContainer>
