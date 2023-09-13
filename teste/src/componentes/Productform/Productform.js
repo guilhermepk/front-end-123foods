@@ -1,20 +1,33 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback,useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './Productform.css';
 import { Link } from "react-router-dom";
-
+// import { useForm } from "react-hook-form";
 const Productform= () => {
   const initialFormValues = {
     name: '',
     brand: '',
     weight: '',
-    unit_of_measurement: '',
+    unitsofmeasurementId: '',
     category: '',
     amount: '',
     description: '',
     price: '',
     image: null
   }
+  const [measurement,setmeasurement]=useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:3000/unitsofmeasurement`)
+        .then((response) => response.json())
+        .then((data) => {
+            setmeasurement(data);
+            console.log('data: ',data);
+        });
+}, []);
+
+
+
+  // http://localhost:3000/unitsofmeasurement
 
   const [formValues, setFormValues] = useState(initialFormValues);
 
@@ -36,7 +49,8 @@ const Productform= () => {
     formData.append('name', formValues.name);
     formData.append('brand', formValues.brand);
     formData.append('weight', parseFloat(formValues.weight));
-    formData.append('unit_of_measurement', formValues.unit_of_measurement);
+    formData.append('unitsofmeasurementId',parseInt(formValues.unitsofmeasurementId) );
+
     formData.append('category', formValues.category);
     formData.append('amount', parseInt(formValues.amount));
     formData.append('description', formValues.description);
@@ -67,44 +81,8 @@ const Productform= () => {
     multiple: false,
   });
 
-  const sendDataToServer = (data) => {
-    const formData = new FormData();
-    formData.append('name', data.name);
-    formData.append('brand', data.brand);
-
-    const weight = parseFloat(data.weight);
-    console.log('Enviando', weight, 'como weight, do tipo', typeof(weight))
-    formData.append('weight', weight);
-
-    formData.append('unit_of_measurement', data.unit_of_measurement);
-    formData.append('category', data.category);
-
-    const amount = parseInt(data.amount)
-    console.log('Enviando', amount, 'como amount, do tipo', typeof(amount))
-    formData.append('amount', amount);
-
-    formData.append('description', data.description);
-
-    const price = parseFloat(data.price)
-    console.log('Enviando', price, 'como price, do tipo', typeof(price))
-    formData.append('price', price);
-
-    formData.append('file', data.image);
-    
   
-    fetch('http://localhost:3000/products', {
-      method: 'POST', 
-      body: formData,
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
-
+  // const { setValue } = useForm();
   return (
     <form className="modal-produtos" onSubmit={handleSubmit}>
       <div>
@@ -147,14 +125,23 @@ const Productform= () => {
     <div className="cadastro-produtos2">
     <label className="label-produtos">
       Unidade de medida:
-      <input
-        type="text"
-        className="input-produtos4"
-        name="unit_of_measurement"
-        value={formValues.unit_of_measurement}
-        onChange={handleChange}
-        placeholder='Kg, g'
-      />
+      <div>
+      <select
+              value={formValues.unitsofmeasurementId}
+              onChange={(e) => {
+                const selectedMeasurementId = e.target.value;
+                setFormValues({ ...formValues, unitsofmeasurementId: selectedMeasurementId });
+                console.log("unitsofmeasurementId:", selectedMeasurementId);
+              }}
+            >
+              {measurement.map((measurement) => (
+                <option key={measurement.id} value={measurement.id}>
+                  {measurement.name}
+                </option>
+              ))}
+      </select>
+
+    </div>
     </label>
     <label className="label-produtos">
       Categoria:
