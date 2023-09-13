@@ -34,7 +34,7 @@
     border-right: none;
 }
 
-.button {
+.button-pay {
     background-color: #9E0000;
     width: 9rem;
     height: 4.5rem;
@@ -47,7 +47,7 @@
     margin-top: 3rem;
 }
 
-.button:hover {
+.button-pay:hover {
     background-color: #850101;
     cursor: pointer;
 }

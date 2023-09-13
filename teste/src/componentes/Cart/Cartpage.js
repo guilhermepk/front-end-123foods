@@ -106,7 +106,7 @@ const Cartpage = () => {
             {data.map((item) => (
               <TableRow key={item.id}>
                 <TableCell>
-                  {item.food && item.image && item.image.path && (
+                  {item.product && item.image && item.image.path && (
                     <img
                       className="data-image"
                       src={`http://localhost:3000/uploads/${item.image.path}`}
@@ -115,7 +115,7 @@ const Cartpage = () => {
                   )}
                 </TableCell>
                 <TableCell>
-                <p>{item.food.name}</p>
+                <p>{item.product.name}</p>
 
                 </TableCell>
                 <TableCell>
@@ -127,16 +127,16 @@ const Cartpage = () => {
                     +
                   </button>
                 </TableCell>
-                <TableCell>
+                {/* <TableCell>
                   <button onClick={() => handleRemoveClick(item.id)}>
                     Remover
                   </button>
-                </TableCell>
+                </TableCell> */}
               </TableRow>
             ))}
           </TableBody>
         </Table>
-        <button className='button pay' onClick={() => handlePurchaseClick(data, quantities)}>Comprar</button>
+        <button className='button-pay' onClick={() => handlePurchaseClick(data, quantities)}>Comprar</button>
 
       </div>
     </TableContainer>
