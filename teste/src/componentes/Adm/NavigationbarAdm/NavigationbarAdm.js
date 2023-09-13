@@ -1,14 +1,13 @@
 import React, { useState,useEffect } from "react";
-import axios from 'axios';
-import { useUserinfo } from '../Userinfo/Userinfo';
-import { Link } from "react-router-dom";
+import { useUserinfo } from '../../Userinfo/Userinfo.js';
 import './NavigationbarAdm.css'
 import jwt_decode from 'jwt-decode';
 import{AiTwotoneNotification} from 'react-icons/ai'
 import {FaImage} from 'react-icons/fa';
 import {TbPaperBag} from 'react-icons/tb';
 import {RiNotificationBadgeFill}from 'react-icons/ri'
-const NavigationbarAdm=()=>{
+
+const NavigationbarAdm = () => {
   
   const [minimized, setMinimized] = useState(false);
   const token = localStorage.getItem('payload');

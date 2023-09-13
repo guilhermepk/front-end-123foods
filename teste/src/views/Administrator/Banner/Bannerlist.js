@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import NavigationbarAdm from '../../../componentes/NavigationbarAdm/NavigationbarAdm';
+import NavigationbarAdm from '../../../componentes/Adm/NavigationbarAdm/NavigationbarAdm';
 import './Bannerlist.css'
 
 const BannerList = () => {

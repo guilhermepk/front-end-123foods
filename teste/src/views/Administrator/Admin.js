@@ -1,5 +1,5 @@
 import React from "react";
-import NavigationbarAdm from "../../componentes/NavigationbarAdm/NavigationbarAdm";
+import NavigationbarAdm from "../../componentes/Adm/NavigationbarAdm/NavigationbarAdm";
 const Admin = () => {
   return (
     <NavigationbarAdm/>

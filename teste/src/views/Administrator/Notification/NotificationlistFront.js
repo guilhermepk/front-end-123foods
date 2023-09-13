@@ -1,6 +1,6 @@
-import Notificationform from "../../../componentes/Notificationform/NotificationForm";
-import Notificationlist from "../../../componentes/Notificationform/Notificationlist";
-import NavigationbarAdm from "../../../componentes/NavigationbarAdm/NavigationbarAdm";
+import Notificationform from "../../../componentes/Adm/Notificationform/NotificationForm";
+import Notificationlist from "../../../componentes/Adm/Notificationform/Notificationlist";
+import NavigationbarAdm from "../../../componentes/Adm/NavigationbarAdm/NavigationbarAdm";
 
 const NotificationlistFront= () => {
     return (

@@ -1,5 +1,5 @@
-import Notificationform from "../../../componentes/Notificationform/NotificationForm";
-import NavigationbarAdm from "../../../componentes/NavigationbarAdm/NavigationbarAdm";
+import Notificationform from "../../../componentes/Adm/Notificationform/NotificationForm";
+import NavigationbarAdm from "../../../componentes/Adm/NavigationbarAdm/NavigationbarAdm";
 
 const Notification= () => {
     return (

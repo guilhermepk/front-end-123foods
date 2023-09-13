@@ -1,7 +1,7 @@
 import './ProductList.css';
 
-import AdmProductLister from '../../../../componentes/AdmProductLister/AdmProductLister';
-import NavigationbarAdm from '../../../../componentes/NavigationbarAdm/NavigationbarAdm';
+import AdmProductLister from '../../../../componentes/Adm/AdmProductLister/AdmProductLister';
+import NavigationbarAdm from '../../../../componentes/Adm/NavigationbarAdm/NavigationbarAdm';
 
 const Productlist = () => {
     return (

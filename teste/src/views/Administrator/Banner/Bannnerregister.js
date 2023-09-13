@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Dropzone from 'react-dropzone';
-import NavbarAdm from '../../../componentes/NavigationbarAdm/NavigationbarAdm';
+import NavbarAdm from '../../../componentes/Adm/NavigationbarAdm/NavigationbarAdm';
 import './Bannerregister.css'
 import { Link } from 'react-feather';
 import Swal from 'sweetalert2';

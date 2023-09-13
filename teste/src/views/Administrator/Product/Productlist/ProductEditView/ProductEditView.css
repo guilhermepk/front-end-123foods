@@ -1,4 +1,4 @@
-.h1-edt-product{
+.h1-edt-product, .table-product-edt{
     display: flex;
     justify-content: center;
 }

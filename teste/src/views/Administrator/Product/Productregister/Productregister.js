@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
-import NavigationbarAdm from '../../../../componentes/NavigationbarAdm/NavigationbarAdm';
-import Productform from '../../../../componentes//Productform/Productform';
+import NavigationbarAdm from '../../../../componentes/Adm/NavigationbarAdm/NavigationbarAdm';
+import Productform from '../../../../componentes/Adm/Productform/Productform';
 
 const Productregister = () => {
     return (
