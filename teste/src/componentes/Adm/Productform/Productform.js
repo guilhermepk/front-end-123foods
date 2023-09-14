@@ -85,14 +85,13 @@ const Productform= () => {
   // const { setValue } = useForm();
   return (
     <form className="modal-produtos" onSubmit={handleSubmit}>
-      <div>
       <h1 className="cadastro-texto"> Cadastrar produtos </h1>
-    <div className="cadastro-produtos1">
+    <div className="cadastro-produtos">
     <label className="label-produtos">
       Nome do produto:
       <input
         type="text"
-        className="input-produtos1"
+        className="input-produtos"
         name="name"
         value={formValues.name}
         onChange={handleChange}
@@ -103,7 +102,7 @@ const Productform= () => {
       Marca:
       <input
         type="text"
-        className="input-produtos2"
+        className="input-produtos"
         name="brand"
         value={formValues.brand}
         onChange={handleChange}
@@ -114,19 +113,17 @@ const Productform= () => {
       Peso:
       <input
         type="number"
-        className="input-produtos3"
+        className="input-produtos"
         name="weight"
         value={formValues.weight}
         onChange={handleChange}
         placeholder='Inserir peso'
       />
     </label>
-    </div>
-    <div className="cadastro-produtos2">
     <label className="label-produtos">
       Unidade de medida:
-      <div>
       <select
+              className="input-produtos"
               value={formValues.unitsofmeasurementId}
               onChange={(e) => {
                 const selectedMeasurementId = e.target.value;
@@ -140,14 +137,12 @@ const Productform= () => {
                 </option>
               ))}
       </select>
-
-    </div>
     </label>
     <label className="label-produtos">
       Categoria:
       <input
         type="text"
-        className="input-produtos5"
+        className="input-produtos"
         name="category"
         value={formValues.category}
         onChange={handleChange}
@@ -158,20 +153,18 @@ const Productform= () => {
       Quantidade em estoque:
       <input
         type="number"
-        className="input-produtos6"
+        className="input-produtos"
         name="amount"
         value={formValues.amount}
         onChange={handleChange}
         placeholder='Inserir quantidade'
       />
     </label>
-    </div>
-    <div className="cadastro-produtos3">
     <label className="label-produtos">
       Descrição:
       <textarea
         type="text"
-        className="input-produtos7"
+        className="input-produtos"
         name="description"
         value={formValues.description}
         onChange={handleChange}
@@ -184,7 +177,7 @@ const Productform= () => {
       Preço:
       <input
         type="number"
-        className="input-produtos8"
+        className="input-produtos"
         name="price"
         value={formValues.price}
         onChange={handleChange}
@@ -192,6 +185,7 @@ const Productform= () => {
       />
     </label>
     </div>
+    <div>
     <label className="label-imagem">
       Imagens:
       </label>

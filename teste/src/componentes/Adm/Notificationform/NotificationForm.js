@@ -42,6 +42,7 @@ const Notificationform = () => {
             <div className="div-notification">
                 <h1 className="h1-notification">Cadastro notificação</h1>
                 <div className="div-grid-title">
+                    <div className="div-move-self">
             <label>
                 Titulo:
                 <input
@@ -64,7 +65,7 @@ const Notificationform = () => {
                     onChange={handleChange}
                 />
             </label>
-            <label className="teste2">
+            <label>
                 Mensagem:
                 <input
                     type="text"
@@ -76,7 +77,10 @@ const Notificationform = () => {
                 />
             </label>
             </div>
+            <div className='button-move'>
             <button className="button-notification" type="submit">Enviar</button>
+            </div>
+            </div>
             </div>
         </form>
     );

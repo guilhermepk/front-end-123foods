@@ -3,6 +3,7 @@
     width: 700px;
     height: 700px;
     border-radius: 6px;
+    box-shadow: 6px 6px 6px rgb(64, 64, 64);
   }
 
   .form-move{
@@ -79,7 +80,7 @@
   border-radius: 6px;
   border: none;
   width: 400px;
-  height: 30px;
+  height: 35px;
   padding: 5px;
 }
 

@@ -9,7 +9,7 @@
     flex-direction: column;
     margin-left: 35rem;
     margin-top: 1rem;
-    width: 1000px;
+    width: 900px;
     height: 820px;
     background-color: rgb(129, 129, 129);
     border-radius: 12px;
@@ -17,25 +17,13 @@
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);
 }
 
-.cadastro-produtos1{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 3rem;
+.cadastro-produtos{
+    display: grid;
+    grid-template-columns: 50% 40%;
+    margin-bottom: 2rem;
+    justify-content: center;
+    gap: 10px;
     
-}
-
-.cadastro-produtos2{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 3rem;
-    gap: 1rem;
-}
-
-.cadastro-produtos3{
-    display: flex;
-    margin-bottom: 3rem;
-    margin-left: 2.4rem;
-    gap: 5rem;
 }
 
 .cadastro-texto{
@@ -53,69 +41,11 @@
     gap: 8px;
 }
 
-.input-produtos1{
+.input-produtos{
     border-radius: 8px;
-    height: 30px;
+    height: 35px;
     border: none;
-    width: 300px;
-    padding: 5px;
-}
-
-.input-produtos2{
-    border-radius: 8px;
-    height: 30px;
-    border: none;
-    width: 300px;
-    padding: 5px;
-}
-
-.input-produtos3{
-    border-radius: 8px;
-    height: 30px;
-    border: none;
-    width: 200px;
-    padding: 5px;
-}
-
-.input-produtos4{
-    border-radius: 8px;
-    height: 30px;
-    border: none;
-    width: 250px;
-    padding: 5px;
-}
-
-.input-produtos5{
-    border-radius: 8px;
-    height: 30px;
-    border: none;
-    width: 300px;
-    padding: 5px;
-}
-
-.input-produtos6{
-    border-radius: 8px;
-    height: 30px;
-    border: none;
-    width: 200px;
-    padding: 5px;
-}
-
-.input-produtos7{
-    border-radius: 8px;
-    height: 30px;
-    border: none;
-    width: 300px;
-    padding: 5px;
-
-}
-
-.input-produtos8{
-    border-radius: 8px;
-    height: 30px;
-    border: none;
-    width: 200px;
-    margin-bottom: 1rem;
+    width: 350px;
     padding: 5px;
 }
 
