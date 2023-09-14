@@ -10,7 +10,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-
+import { IoIosClose } from 'react-icons/io';
 const Cartpage = () => {
   const [token, setToken] = useState(null);
   const [decodedToken, setDecodedToken] = useState(null);
@@ -106,6 +106,7 @@ const Cartpage = () => {
             {data.map((item) => (
               <TableRow key={item.id}>
                 <TableCell>
+                    <IoIosClose className="close-cart" onClick={() => handleRemoveClick(item.id)}/>
                   {item.product && item.image && item.image.path && (
                     <img
                       className="data-image"
@@ -127,11 +128,7 @@ const Cartpage = () => {
                     +
                   </button>
                 </TableCell>
-                {/* <TableCell>
-                  <button onClick={() => handleRemoveClick(item.id)}>
-                    Remover
-                  </button>
-                </TableCell> */}
+                <p>{item.product.price}</p>
               </TableRow>
             ))}
           </TableBody>

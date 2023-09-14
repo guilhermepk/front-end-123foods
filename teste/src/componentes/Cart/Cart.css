@@ -51,3 +51,16 @@
     background-color: #850101;
     cursor: pointer;
 }
+.close-cart{
+    color: rgb(186, 23, 23);
+    margin-bottom: 10.5rem; 
+    cursor: pointer;
+    width: 10%;
+    height: 40px;
+  }
+  
+  .close-cart:hover {
+    color: rgb(255, 0, 0);
+    
+  }
+  
