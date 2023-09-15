@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Notificationform.css'
+import Swal from 'sweetalert2';
+
 const Notificationform = () => {
     const [formValues, setFormValues] = useState({
         title: '',
@@ -31,6 +33,7 @@ const Notificationform = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
+                Swal.fire('Sucesso', 'Notificação cadastrada com sucesso', 'success');
             })
             .catch(error => {
                 console.error(error);
@@ -46,6 +49,7 @@ const Notificationform = () => {
             <label>
                 Titulo:
                 <input
+                    required
                     className="title-input"
                     type="text"
                     placeholder=" Digite o título"
@@ -57,6 +61,7 @@ const Notificationform = () => {
             <label>
                 Link da notificação:
                 <input
+                    required
                     className="title-input"
                     type="text"
                     placeholder=" ex:www.123foods/salada.com.br"
@@ -68,6 +73,7 @@ const Notificationform = () => {
             <label>
                 Mensagem:
                 <input
+                    required
                     type="text"
                     className="title-input"
                     placeholder=" Digite sua mensagem"

@@ -36,7 +36,6 @@ const NavigationbarAdm = () => {
               <h3 className="titulo-admin">Admin Dashboard</h3>
             </div>
             <ul className={`admin-nav ${minimized ? 'hidden' : ''}`}>
-          
               <a href="/" className="item-list">
                 Home
               </a>
