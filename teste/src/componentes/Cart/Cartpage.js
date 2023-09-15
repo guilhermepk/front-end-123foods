@@ -102,10 +102,10 @@ const Cartpage = () => {
               <TableCell className='table-cell price'>Preço</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody className='product-complet'>
             {data.map((item) => (
               <TableRow key={item.id}>
-                <TableCell>
+                <TableCell className='cell image-name'>
                     <IoIosClose className="close-cart" onClick={() => handleRemoveClick(item.id)}/>
                   {item.product && item.image && item.image.path && (
                     <img
@@ -114,21 +114,18 @@ const Cartpage = () => {
                       alt="Imagem do Produto"
                     />
                   )}
+                  <p className='product-name-table'>{item.product.name}</p>
                 </TableCell>
-                <TableCell>
-                <p>{item.product.name}</p>
-
-                </TableCell>
-                <TableCell>
-                  <button onClick={() => handleDecreaseClick(item.id)}>
+                <TableCell className='cell quant-add-decrease'>
+                  <button className='button-quant decrease' onClick={() => handleDecreaseClick(item.id)}>
                     -
                   </button>
-                  <p className="button quant">Qtd: {quantities[item.id]}</p>
-                  <button onClick={() => handleIncreaseClick(item.id)}>
+                  <p className="quant-total">Quant: {quantities[item.id]}</p>
+                  <button className='button-quant add' onClick={() => handleIncreaseClick(item.id)}>
                     +
                   </button>
                 </TableCell>
-                <p>{item.product.price}</p>
+                <p className='product-total-price'>R$ {item.product.price}</p>
               </TableRow>
             ))}
           </TableBody>
