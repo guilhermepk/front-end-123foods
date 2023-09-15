@@ -9,7 +9,7 @@ import TableRow from '@mui/material/TableRow';
 const ProductEdit = (props) => {
     const [product, setProduct] = useState(null);
     const [productItems, setProductItems] = useState([]);
-    const [inputValue, setInputValue] = useState(null)
+    const [inputValue, setInputValue] = useState('')
 
     useEffect(() => {
         fetch(`http://localhost:3000/products/${props.productId}`)
@@ -17,13 +17,15 @@ const ProductEdit = (props) => {
             .then((data) => {
                 setProduct(data);
             });
+    }, [props.productId]);
 
+    useEffect(() => {
         let items = []
         for(let item in product){
             items.push(item)
         }
         setProductItems([...items])
-    }, [props.productId]);
+    }, [product])
 
     const handleInputChange = (event) => {
         const value = event.target.value;
