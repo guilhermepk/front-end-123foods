@@ -75,7 +75,6 @@ return(
                                 required
                                 placeholder='Digite seu email'
                             />
-                            <br/>
                             <label className="password-label" htmlFor="password2">
                                 Senha:{' '}
                             </label>
@@ -90,10 +89,11 @@ return(
                             <button className="password-input-icon" onClick={(e) => togglePasswordVisibility(e)}>
                                 {showPassword ? <Eye /> : <EyeOff />}
                             </button>
-                            <button className='login-button' type="submit"><li className="login-text">Login</li></button>
+                            <div className='s'>
+                            <button className='login-button' type="submit">Login</button>
                             <p className='conta-possuir'>Não possui conta? </p>
-
                             <a href='/user-register' target='_blank'> Registre-se agora! </a>
+                            </div>
                         </form>
     </div>
 

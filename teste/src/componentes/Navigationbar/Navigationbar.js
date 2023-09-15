@@ -108,11 +108,13 @@ const Navigationbar = () => {
         </ul>
       </nav>
       {showLoginForm && (
+                <div className="modal-center">
                 <div className="modal">
                     <div className="modal-content">
                         <IoIosClose className="close" onClick={closeModal}/>
                         <Login />
                     </div>
+                </div>
                 </div>
             )}
     </div>

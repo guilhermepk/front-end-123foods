@@ -94,10 +94,10 @@ body{
 }
 
 .modal {
+  display: flex;
+  justify-content: center;
   background-color: #FFECCE;
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5); 
-  margin: 80px 0; 
-  padding: 0px;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);  
   border-radius: 10px;
   margin-top: 5rem;
   border: 2px solid #000000;
@@ -106,16 +106,14 @@ body{
 
 .modal-usuario{
   display: flex;
+  margin: auto;
   background-color: #FFECCE;
-  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5); 
-  margin-bottom: 0;
-  padding: 0px;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);  
   margin-top: 5rem;
   border-radius: 10px;
   border: 2px solid #000000;
   width: 1100px;
   height: 525px;
-  margin-left: 22%;
 }
 
 .seta-voltar{
@@ -157,9 +155,9 @@ body{
 
 .close{
   color: rgb(186, 23, 23);
-  margin-left: 0.5rem;
+  margin-left: 25rem;
   cursor: pointer;
-  width: 10%;
+  width: 15%;
   height: 5%;
 }
 
@@ -202,32 +200,15 @@ img.logo-123{
   justify-content: center;
 }
 
-@media (min-width: 1500px) and (max-width: 5000px)
-{
-  .modal{
-    height: 540px;
-    margin-left: 38%;
-    
-  }
+.modal{
+  height: 540px;
 }
 
-@media (min-width: 1000px) and (max-width: 1500px)
-{
-  .modal{
-    height: 520px;
-    margin-left: 33%;
-    
-  }
+.modal-center{
+  display: flex;
+  justify-content: center;
 }
 
-@media (min-width: 800px) and (max-width: 1000px)
-{
-  .modal{
-    height: 520px;
-    margin-left: 25%;
-    
-  }
-}
 
 @media (min-width: 0px) and (max-width: 800px){
   .conteudo{
@@ -256,9 +237,4 @@ img.logo-123{
     margin-bottom: 10px;
   }
 
-  .modal{
-    height: 520px;
-    margin-left: 20%;
-    
-  }
 }
