@@ -26,10 +26,10 @@ export const sendPurchaseRequest = async (productId, qtd, token,userId) => {
     const userId = token ? jwt_decode(token)?.sub : null;
 
     const orderData = {
-      productId: productId,
+      productId: parseInt(productId),
       amount: qtd,
       userId: userId,
-      imageId: productId,
+      imageId: parseInt(productId),
       status: 'previsto',
     };
     const response = await fetch('http://localhost:3000/purchases', {
