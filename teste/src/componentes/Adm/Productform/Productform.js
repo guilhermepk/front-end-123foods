@@ -16,6 +16,7 @@ const Productform= () => {
     image: null
   }
   const [measurement,setmeasurement]=useState([]);
+  const [category,setcategory]=useState([]);
   useEffect(() => {
     fetch(`http://localhost:3000/unitsofmeasurement`)
         .then((response) => response.json())
@@ -23,7 +24,14 @@ const Productform= () => {
             setmeasurement(data);
             console.log('data: ',data);
         });
+        fetch(`http://localhost:3000/categories`)
+        .then((response) => response.json())
+        .then((data) => {
+            setcategory(data);
+            console.log('data: ',data);
+        });
 }, []);
+
 
 
   const [formValues, setFormValues] = useState(initialFormValues);
@@ -46,8 +54,8 @@ const Productform= () => {
     formData.append('name', formValues.name);
     formData.append('brand', formValues.brand);
     formData.append('weight', parseFloat(formValues.weight));
-    formData.append('unitsofmeasurementId', parseInt(formValues.unitsofmeasurementId));
-  
+    formData.append('unitsofmeasurementId', parseInt(formValues.categoryId));
+    formData.append('categoryIds', parseInt(formValues.unitsofmeasurementId));
     formData.append('category', formValues.category);
     formData.append('amount', parseInt(formValues.amount));
     formData.append('description', formValues.description);
@@ -145,14 +153,21 @@ const Productform= () => {
     </label>
     <label className="label-produtos">
       Categoria:
-      <input
-        type="text"
-        className="input-produtos"
-        name="category"
-        value={formValues.category}
-        onChange={handleChange}
-        placeholder='Inserir categoria'
-      />
+      <select
+              className="input-produtos"
+              value={formValues.categoryId}
+              onChange={(e) => {
+                const selectedCategoryId = e.target.value;
+                setFormValues({ ...formValues, unitsofmeasurementId: selectedCategoryId });
+                console.log("categoryId:", selectedCategoryId);
+              }}
+            >
+              {category.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
+      </select>
     </label>
     <label className="label-produtos">
       Quantidade em estoque:
