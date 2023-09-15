@@ -2,7 +2,7 @@ import React, { useState, useCallback,useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './Productform.css';
 import { Link } from "react-router-dom";
-// import { useForm } from "react-hook-form";
+
 const Productform= () => {
   const initialFormValues = {
     name: '',
@@ -26,9 +26,6 @@ const Productform= () => {
 }, []);
 
 
-
-  // http://localhost:3000/unitsofmeasurement
-
   const [formValues, setFormValues] = useState(initialFormValues);
 
   const handleChange = (e) => {
@@ -49,31 +46,41 @@ const Productform= () => {
     formData.append('name', formValues.name);
     formData.append('brand', formValues.brand);
     formData.append('weight', parseFloat(formValues.weight));
-    formData.append('unitsofmeasurementId',parseInt(formValues.unitsofmeasurementId) );
-
+    formData.append('unitsofmeasurementId', parseInt(formValues.unitsofmeasurementId));
+  
     formData.append('category', formValues.category);
     formData.append('amount', parseInt(formValues.amount));
     formData.append('description', formValues.description);
     formData.append('price', parseFloat(formValues.price));
     formData.append('file', formValues.image);
   
-    fetch('http://localhost:3000/products', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
-      },
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setFormValues(initialFormValues);
-        window.location.href = ' /admin/product-list';
+    try {
+      fetch('http://localhost:3000/products', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
+        },
+        body: formData,
       })
-      .catch((error) => {
-        console.error(error);
-      });
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Erro na solicitação HTTP: ' + response.status);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+          setFormValues(initialFormValues);
+          window.location.href = '/admin/product-list';
+        })
+        .catch((error) => {
+          console.error('Erro durante o processamento da solicitação:', error);
+        });
+    } catch (error) {
+      console.error('Erro durante o envio da solicitação:', error);
+    }
   };
+  
  
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: handleFileDrop,
@@ -81,8 +88,6 @@ const Productform= () => {
     multiple: false,
   });
 
-  
-  // const { setValue } = useForm();
   return (
     <form className="modal-produtos" onSubmit={handleSubmit}>
       <h1 className="cadastro-texto"> Cadastrar produtos </h1>
