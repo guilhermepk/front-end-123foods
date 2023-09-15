@@ -9,7 +9,22 @@ import TableRow from '@mui/material/TableRow';
 const ProductEdit = (props) => {
     const [product, setProduct] = useState(null);
     const [productItems, setProductItems] = useState([]);
-    const [inputValue, setInputValue] = useState('')
+
+    const unwantedItems = [
+        'id',
+        'createdAt',
+        'updatedAt',
+        'deletedAt'
+    ]
+
+    const inList = (item, list) => {
+        let isIn = false;
+        for(let x = 0; x < list.length; x++){
+            if (list[x] === item) isIn = true;
+        }
+
+        return isIn;
+    }
 
     useEffect(() => {
         fetch(`http://localhost:3000/products/${props.productId}`)
@@ -29,7 +44,7 @@ const ProductEdit = (props) => {
 
     const handleInputChange = (event) => {
         const value = event.target.value;
-        setInputValue(value);
+        console.log(event.target)
     }
 
     productItems.map((item) => {
@@ -39,22 +54,6 @@ const ProductEdit = (props) => {
             productItems.splice(start, 0, 'units_of_measurements')
         }
     })
-
-    const unwantedItems = [
-        'id',
-        'createdAt',
-        'updatedAt',
-        'deletedAt'
-    ]
-
-    const inList = (item, list) => {
-        let isIn = false;
-        for(let x = 0; x < list.length; x++){
-            if (list[x] === item) isIn = true;
-        }
-
-        return isIn;
-    }
 
     return(
         <div>
@@ -80,8 +79,9 @@ const ProductEdit = (props) => {
                                         <TableCell> {product[item]} </TableCell>
                                         <TableCell>
                                             <input
+                                                id={item}
                                                 type='text'
-                                                value={inputValue}
+                                                value={''}
                                                 onChange={handleInputChange}
                                             />
                                         </TableCell>
