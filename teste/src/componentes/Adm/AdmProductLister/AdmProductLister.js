@@ -148,6 +148,7 @@ const AdmProductLister = () => {
                 <Table>
                     <TableHead>
                         <TableRow>
+                            <TableCell> ID </TableCell>
                             <TableCell> Imagem </TableCell>
                             <TableCell> Nome </TableCell>
                             <TableCell> Marca </TableCell>
@@ -163,6 +164,7 @@ const AdmProductLister = () => {
                     <TableBody>
                         {currentProducts && currentProducts.map((product, index) => (
                             <TableRow key={index}>
+                                <TableCell> {product.id} </TableCell>
                                 <TableCell>
                                     {product.images && (
                                         <img src={`http://localhost:3000/uploads/${product.images[0].path}`}/>
@@ -172,7 +174,7 @@ const AdmProductLister = () => {
                                 <TableCell> {product.brand} </TableCell>
                                 <TableCell> {product.price} </TableCell>
                                 <TableCell> {product.description} </TableCell>
-                                <TableCell> {product.category} </TableCell>
+                                <TableCell> TEM QUE ARRUMAR </TableCell>
                                 <TableCell> {product.amount} </TableCell>
                                 <TableCell>
                                     <button
