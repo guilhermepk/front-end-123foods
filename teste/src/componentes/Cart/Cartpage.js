@@ -11,7 +11,10 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { IoIosClose } from 'react-icons/io';
+
+
 const Cartpage = () => {
+
   const [token, setToken] = useState(null);
   const [decodedToken, setDecodedToken] = useState(null);
   const [data, setData] = useState([]);
@@ -45,7 +48,7 @@ const Cartpage = () => {
     }
   }, [userId]);
 
-  const handleDecreaseClick = (dataId) => {
+  const handleDecreaseClick = (dataId, item) => {
     if (quantities[dataId] > 1) {
       const newQuantities = { ...quantities };
       newQuantities[dataId] -= 1;
@@ -53,7 +56,7 @@ const Cartpage = () => {
     }
   };
 
-  const handleIncreaseClick = (dataId) => {
+  const handleIncreaseClick = (dataId, item) => {
     const newQuantities = { ...quantities };
     newQuantities[dataId] += 1;
     setQuantities(newQuantities);
@@ -63,6 +66,9 @@ const Cartpage = () => {
     try {
       await axios.delete(`http://localhost:3000/purchases/${dataId}`);
       Swal.fire('Sucesso ao excluir', 'success');
+      setTimeout(() => { 
+        window.location.reload(); 
+      }, 2000);
     } catch (error) {
       console.error('Erro ao excluir banner:', error);
     }
@@ -87,6 +93,10 @@ const Cartpage = () => {
     } catch (error) {
       console.error('Erro ao fazer upload dos produtos:', error);
     }
+  };
+
+  const CalcTotalPrice = (item) => {
+    return item.product.price * quantities[item.id];
   };
   
 
@@ -125,7 +135,7 @@ const Cartpage = () => {
                     +
                   </button>
                 </TableCell>
-                <p className='product-total-price'>R$ {item.product.price}</p>
+                <p className='product-total-price'>R$ {CalcTotalPrice(item)}</p>
               </TableRow>
             ))}
           </TableBody>

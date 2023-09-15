@@ -49,7 +49,7 @@ const Purchaseshistoric=()=>{
         setGroupedProducts(groupedProducts);
       }, [data]);
       return (
-        <div className='table'>
+        <div className='table-purchase-historic'>
           {/* <h1>Histórico de Compras</h1> */}
           {Object.values(groupedProducts).map((group) => (
             <div className='purchases-by-date' key={group.date}>
