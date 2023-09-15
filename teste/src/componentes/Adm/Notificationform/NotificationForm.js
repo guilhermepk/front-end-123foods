@@ -36,6 +36,7 @@ const Notificationform = () => {
                 Swal.fire('Sucesso', 'Notificação cadastrada com sucesso', 'success');
             })
             .catch(error => {
+                Swal.fire('Ops...', 'Erro ao tentar cadastar notificação...', 'error');
                 console.error(error);
             });
     };
@@ -49,7 +50,6 @@ const Notificationform = () => {
             <label>
                 Titulo:
                 <input
-                    required
                     className="title-input"
                     type="text"
                     placeholder=" Digite o título"
@@ -61,7 +61,6 @@ const Notificationform = () => {
             <label>
                 Link da notificação:
                 <input
-                    required
                     className="title-input"
                     type="text"
                     placeholder=" ex:www.123foods/salada.com.br"
@@ -73,7 +72,6 @@ const Notificationform = () => {
             <label>
                 Mensagem:
                 <input
-                    required
                     type="text"
                     className="title-input"
                     placeholder=" Digite sua mensagem"
