@@ -17,20 +17,18 @@ const ProductEdit = (props) => {
             .then((data) => {
                 setProduct(data);
             });
+
+        let items = []
+        for(let item in product){
+            items.push(item)
+        }
+        setProductItems([...items])
     }, [props.productId]);
 
     const handleInputChange = (event) => {
         const value = event.target.value;
         setInputValue(value);
     }
-
-    useEffect(() => {
-        let items = []
-        for(let item in product){
-            items.push(item)
-        }
-        setProductItems([...items])
-    }, [product])
 
     productItems.map((item) => {
         if(item === 'weight'){
@@ -77,7 +75,6 @@ const ProductEdit = (props) => {
 
                                     {typeof(product[item]) !== 'object' && (
                                         <>
-                                        {setInputValue(product[item])}
                                         <TableCell> {product[item]} </TableCell>
                                         <TableCell>
                                             <input
