@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Notificationform.css'
+import Swal from 'sweetalert2';
+
 const Notificationform = () => {
     const [formValues, setFormValues] = useState({
         title: '',
@@ -31,8 +33,10 @@ const Notificationform = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
+                Swal.fire('Sucesso', 'Notificação cadastrada com sucesso', 'success');
             })
             .catch(error => {
+                Swal.fire('Ops...', 'Erro ao tentar cadastar notificação...', 'error');
                 console.error(error);
             });
     };

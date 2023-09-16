@@ -1,3 +1,17 @@
+body::-webkit-scrollbar {
+  width: 12px;               
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #333;        
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgb(102, 102, 102);     
+  border-radius: 8px;       
+  border: 1px solid rgb(0, 0, 0);  
+}
+
 
 /* navbaradm.css */
 /* ... outras regras CSS ... */
@@ -11,9 +25,16 @@
   background-color: #333;
   color: #fff;
   transition: 0.3s ease;
-  height: 100vh;
+  height: 100%;
   position: fixed;
+  overflow-y: scroll;
 }
+
+.admin-sidebar::-webkit-scrollbar {
+  width: 4px;
+  height: 100%;       
+}
+
 /* navbaradm.css */
 /* ... outras regras CSS ... */
 
@@ -51,6 +72,7 @@ a.item-list{
   justify-content: center;
   background-color: #252525;
   border-radius: 10px;
+  padding: 20px;
 }
 
 .titulo-admin{
@@ -62,7 +84,6 @@ a.item-list{
   background-color: #4a4a4a;
   border-radius: 12px;
 }
-
 
 .imagem-usuario {
   width: 80px;
@@ -78,7 +99,6 @@ a.item-list{
   height: 40px;
 }
 
-
 .nameuser {
   margin-top: 10px;
   font-size: 20px;
@@ -90,7 +110,6 @@ a.item-list{
 }
 
 .admin-nav {
-  
   display: grid;
   grid-template-columns: 100%;
   list-style: none;
@@ -125,16 +144,21 @@ a.item-list{
   flex-direction: column;
   padding: 10px;
   gap: 32px;
- }
-
-.li-itens{
-  font-size: 18px;
-  display: grid;
-  grid-template-columns: 100%;
-  transition: 0.2s; 
-}
+ } 
 
 .li-itens:hover{
   background-color: #4a4a4a;
   
+}
+
+@media (max-height:2000px) and (max-width:900px){
+  .item-list{
+    font-size: 14px !important;
+  }
+
+  @media (max-height:2000px) and (max-width:650px){
+    .item-list{
+      font-size: 10px !important;
+    }
+  }
 }

@@ -1,5 +1,5 @@
 .titulo-banner{
-    margin-left: 9rem;
+    margin-left: 10rem;
 }
 
 .banner-list-container {
@@ -7,6 +7,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+
 }
 
 .banner-list {
@@ -19,22 +20,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
-    width: 1000px;
-    margin-left: 10rem;
+    width: 50vw;
+    height: 100%;
+    margin-left: 8rem;
     margin-top: 5rem;
     
 }
 
 .thumbnail-container {
-    width: 100%;
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    width: 150%;
     overflow: hidden;
+    object-fit: cover;
+    margin-bottom: 1rem;
 }
 
 .thumbnail {
-    width: 100%;
-    height: 100%;
+    width: 1000px;
     object-fit: cover;
 }
 
@@ -42,8 +45,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
-    margin-right: 2rem;
 }
 
 .banner-info p {
@@ -52,20 +53,19 @@
 }
 
 .banner-info button {
-    background-color: #ff0000;
+    background-color: #9E0000;
     color: #fff;
     border: none;
     padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 18px;
     margin-top: 10px;
-    width: 100px;
-    height: 40px;
-    transition: 0.2s; 
+    width: 110px;
+    height: 45px;
 }
 
 .banner-info button:hover{
-    background-color: darkred;
+    background-color: darkred;;
 }
 

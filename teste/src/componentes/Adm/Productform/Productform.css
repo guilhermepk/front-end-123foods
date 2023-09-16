@@ -13,8 +13,7 @@
     height: 820px;
     background-color: rgb(129, 129, 129);
     border-radius: 12px;
-    border: 2px solid #000000;
-    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);
+    box-shadow: 8px 8px 8px rgb(64, 64, 64);
 }
 
 .cadastro-produtos{

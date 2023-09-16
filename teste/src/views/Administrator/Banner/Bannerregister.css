@@ -25,8 +25,8 @@
   
   .dropzone {
     margin-top: 4rem;
-    width: 600px;
-    height: 200px;
+    min-width: 600px;
+    min-height: 200px;
     border: none;
     display: table;
     font-size:1em;
@@ -68,11 +68,11 @@
   
 
 .link-banner{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  justify-content: center;
   gap: 10px;
   padding: 2px;
+  font-size: 20px;
 }
 
 .input-link{
@@ -86,12 +86,6 @@
 
 .botao-banner:hover{
   background-color: darkred;
-}
-
-.label-banner{
-  display: flex;
-  justify-content: center;
-  padding: 60px;
 }
 
 .image-banner{
@@ -125,8 +119,7 @@
   color: #ffffff;
   background-color: #9E0000;
   cursor: pointer;
-  transition: 0.6s;
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .imagem-texto{

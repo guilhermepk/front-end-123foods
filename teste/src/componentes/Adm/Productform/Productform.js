@@ -2,6 +2,7 @@ import React, { useState, useCallback,useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './Productform.css';
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 const Productform= () => {
   const initialFormValues = {
@@ -79,12 +80,14 @@ const Productform= () => {
         .then((data) => {
           console.log(data);
           setFormValues(initialFormValues);
-          window.location.href = '/admin/product-list';
+          Swal.fire('Sucesso', 'Produto cadastrado com sucesso', 'success');
         })
         .catch((error) => {
+          Swal.fire('Ops...', 'Erro ao tentar cadastar produto...', 'error');
           console.error('Erro durante o processamento da solicitação:', error);
         });
     } catch (error) {
+      Swal.fire('Ops...', 'Erro ao tentar cadastar produto...', 'error');
       console.error('Erro durante o envio da solicitação:', error);
     }
   };
