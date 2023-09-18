@@ -48,7 +48,7 @@ const Login=()=>{
             localStorage.setItem('payload', token);
             setShowUserInfoModal(true);
             Swal.fire('Bem vindo', 'Login bem sucedido', 'success');
-            setTimeout(()=>{window.location.reload()},3000);
+            setTimeout(()=>{window.location.reload()},1500);
             
         } catch (error) {
             setError('Email ou Senha incorretos');

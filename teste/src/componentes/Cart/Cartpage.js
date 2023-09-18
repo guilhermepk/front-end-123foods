@@ -11,6 +11,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { IoIosClose } from 'react-icons/io';
+import Footer from '../Footer/Footer';
 
 
 const Cartpage = () => {
@@ -56,7 +57,7 @@ const Cartpage = () => {
     }
   };
 
-  const handleIncreaseClick = (dataId, item) => {
+  const handleIncreaseClick = (dataId) => {
     const newQuantities = { ...quantities };
     newQuantities[dataId] += 1;
     setQuantities(newQuantities);
@@ -106,15 +107,14 @@ const Cartpage = () => {
         <Table>
           <TableHead>
             <TableRow className='table-titles-row'>
-              {/* <TableCell className='table-cell image'>Imagem</TableCell> */}
               <TableCell className='table-cell food'>Produto</TableCell>
               <TableCell className='table-cell quant'>Quantidade</TableCell>
               <TableCell className='table-cell price'>Preço</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody className='product-complet'>
+          <TableBody>
             {data.map((item) => (
-              <TableRow key={item.id}>
+              <TableRow key={item.id} className='product-complet'>
                 <TableCell className='cell image-name'>
                     <IoIosClose className="close-cart" onClick={() => handleRemoveClick(item.id)}/>
                   {item.product && item.image && item.image.path && (
@@ -135,13 +135,12 @@ const Cartpage = () => {
                     +
                   </button>
                 </TableCell>
-                <p className='product-total-price'>R$ {CalcTotalPrice(item)}</p>
+                <p className='product-total-price'>R$ {CalcTotalPrice(item).toFixed(2)}</p>
               </TableRow>
             ))}
           </TableBody>
         </Table>
         <button className='button-pay' onClick={() => handlePurchaseClick(data, quantities)}>Comprar</button>
-
       </div>
     </TableContainer>
   );
