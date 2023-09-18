@@ -2,7 +2,6 @@ import React, { useState, useCallback,useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './Productform.css';
 import { Link } from "react-router-dom";
-import Swal from 'sweetalert2';
 
 const Productform= () => {
   const initialFormValues = {
@@ -55,9 +54,9 @@ const Productform= () => {
     formData.append('name', formValues.name);
     formData.append('brand', formValues.brand);
     formData.append('weight', parseFloat(formValues.weight));
-    formData.append('unitsofmeasurementId', parseInt(formValues.categoryId));
-    formData.append('categoryIds', parseInt(formValues.unitsofmeasurementId));
-    formData.append('category', formValues.category);
+    formData.append('unitsofmeasurementId',parseInt(formValues.unitsofmeasurementId) );
+    formData.append('categoryIds[]', [parseInt(formValues.categoryId)]);
+    // formData.append('category', formValues.category);
     formData.append('amount', parseInt(formValues.amount));
     formData.append('description', formValues.description);
     formData.append('price', parseFloat(formValues.price));
@@ -80,14 +79,12 @@ const Productform= () => {
         .then((data) => {
           console.log(data);
           setFormValues(initialFormValues);
-          Swal.fire('Sucesso', 'Produto cadastrado com sucesso', 'success');
+          window.location.href = '/admin/product-list';
         })
         .catch((error) => {
-          Swal.fire('Ops...', 'Erro ao tentar cadastar produto...', 'error');
           console.error('Erro durante o processamento da solicitação:', error);
         });
     } catch (error) {
-      Swal.fire('Ops...', 'Erro ao tentar cadastar produto...', 'error');
       console.error('Erro durante o envio da solicitação:', error);
     }
   };
@@ -161,7 +158,7 @@ const Productform= () => {
               value={formValues.categoryId}
               onChange={(e) => {
                 const selectedCategoryId = e.target.value;
-                setFormValues({ ...formValues, unitsofmeasurementId: selectedCategoryId });
+                setFormValues({ ...formValues, categoryId: selectedCategoryId });
                 console.log("categoryId:", selectedCategoryId);
               }}
             >
