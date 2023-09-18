@@ -84,6 +84,38 @@ li{
 
 .footer-link{
     padding-top: 0.3rem;
+    color: #FFF5E7 !important;
+    width: 160px;
+}
+
+.footer-link1{
+    padding-top: 0.3rem;
+    color: #FFF5E7 !important;
+    width: 110px;
+}
+
+.footer-link2{
+    padding-top: 0.3rem;
+    color: #FFF5E7 !important;
+    width: 100px;
+}
+
+.footer-link3{
+    padding-top: 0.3rem;
+    color: #FFF5E7 !important;
+    width: 70px;
+}
+
+.footer-link4{
+    padding-top: 0.3rem;
+    color: #FFF5E7 !important;
+    width: 110px;
+}
+
+.footer-link5{
+    padding-top: 0.3rem;
+    color: #FFF5E7 !important;
+    width: 120px;
 }
 
 .footer-cash{
@@ -103,51 +135,7 @@ li{
 .face-cor{
     color: #FFF5E7;
 }
-
-/* @media (max-width: 1400px) and (min-width: 800px) { 
-
-    .click-facebook{
-        max-width: 34px;
-        
-    }
-    }
-
-@media (max-width: 1000px) and (min-width: 800px) { 
-
-    .click-insta{
-        max-width: 45px;
-    }
-    }
-
-    @media (max-width: 800px) and (min-width: 0px) { 
-
-        .click-insta{
-            max-width: 45px;
-            margin-top: -60px;
-            margin-left: 5rem;
-        }
-
-        .click-facebook{
-            max-width: 34px;
-            margin-top: -60px;
-            margin-left: 10rem;
-        }
-        }
-
-        @media (max-width: 1400px) and (min-width: 0px) { 
-
-            .container{
-                height: 400px;
-            }
-            }
-
-            @media (max-width: 875px) and (min-width: 0px) { 
-
-                .container{
-                    height: 450px;
-                }
-                } */
-
+    
     .click-linkedin{
         font-size: 30px;
         max-width: 0;

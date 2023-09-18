@@ -11,20 +11,20 @@ function Footer(){
                 <li>
                 <ul className="primeiro">
                     <h2 className='titulos'>Atendimento ao Cliente</h2>
-                    <a className="footer-link">Como comprar?</a>
-                    <a className="footer-link">Problemas com Entrega</a>
-                    <a className="footer-link">Pedidos, Cancelamento, Trocas e Devoluções</a>
-                    <a className="footer-link">Problemas com Entrega</a>
+                    <a href="https://github.com/guilhermepk?tab=following" className="footer-link1">Como comprar?</a>
+                    <a href="https://www.twitch.tv/ztaschner" className="footer-link">Problemas com Entrega</a>
+                    <a href="https://www.twitch.tv/ztaschner" className="footer-link">Pedidos, Cancelamento, Trocas e Devoluções</a>
+                    <a href="https://www.twitch.tv/ztaschner" className="footer-link">Problemas com Entrega</a>
                 </ul>
                 <ul className="primeiro">
                     <h2 className='titulos'>Conheça-nos</h2>
-                    <a className="footer-link">Nossa História</a>
-                    <a className="footer-link">Nossa Loja</a>
+                    <a href="https://www.twitch.tv/ztaschner" className="footer-link2">Nossa História</a>
+                    <a href="https://www.twitch.tv/ztaschner" className="footer-link3">Nossa Loja</a>
                 </ul>
                 <ul className="primeiro">
                     <h2 className='titulos'>Contato</h2>
-                    <a className="footer-link">faleconosco @123foods.com</a>
-                    <a className="footer-link">Trabalhe Conosco</a>
+                    <a href="https://www.twitch.tv/ztaschner" className="footer-link4">faleconosco @123foods.com</a>
+                    <a href="https://www.twitch.tv/ztaschner" className="footer-link5">Trabalhe Conosco</a>
                 </ul>
                 <div className="apagar">
                 <ul className="primeiro">

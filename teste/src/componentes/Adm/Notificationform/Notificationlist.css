@@ -8,30 +8,47 @@
 
 .notification-item{
     width: 80%;
+    background-color: rgb(231, 237, 238);
     height: 180px;
     border: solid rgb(200, 200, 200) 0.5px;
     margin-left: 16%;
+    margin-bottom: 3rem;
 }
 
 .notification-info{
     display: grid;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-left: 1rem;
-    margin-bottom: 1rem;
+    height: 120px;
+    width: 90%;
+}
+
+.p-notification{
+    font-size: 24px;
+    margin-bottom: 8px;
 }
 
 .notification-link{
     margin-left: 1rem;
+    margin-top: -1.2rem;
+}
+
+.btn-notification{
+    display: flex;
+    justify-content: end;
+    margin-right: 1rem;
+    margin-top: -0.5rem;
 }
 
 .botao-excluir-notification{
-    width: 80px;
-    height: 35px;
+    width: 100px;
+    height: 45px;
     background-color: #9E0000;
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .botao-excluir-notification:hover{
