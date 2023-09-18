@@ -1,29 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import React, { useState, useCallback, useEffect } from 'react';
+import Select from 'react-select'
+import { useDropzone } from 'react-dropzone';
 
 const ProductEdit = (props) => {
     const [product, setProduct] = useState(null);
-    const [productItems, setProductItems] = useState([]);
 
-    const unwantedItems = [
-        'id',
-        'createdAt',
-        'updatedAt',
-        'deletedAt'
-    ]
-
-    const inList = (item, list) => {
-        let isIn = false;
-        for(let x = 0; x < list.length; x++){
-            if (list[x] === item) isIn = true;
+    let initialFormValues;
+    let [formValues, setFormValues] = useState(null);
+    if (product && !initialFormValues){
+        const categories = []
+        product.categories.map((category) => {
+            categories.push(category.id)
+        })
+        initialFormValues = {
+            id: product.id,
+            image: null,
+            name: product.name,
+            brand: product.brand,
+            price: product.price,
+            description: product.description,
+            categories: [...categories],
+            amount: product.amount
         }
-
-        return isIn;
+        if (!formValues) setFormValues(initialFormValues);
     }
 
     useEffect(() => {
@@ -34,77 +33,133 @@ const ProductEdit = (props) => {
             });
     }, [props.productId]);
 
-    useEffect(() => {
-        let items = []
-        for(let item in product){
-            items.push(item)
-        }
-        setProductItems([...items])
-    }, [product])
 
-    const handleInputChange = (event) => {
-        const value = event.target.value;
-        console.log(event.target)
+    const handleFileDrop = useCallback((acceptedFiles) => {
+        const file = acceptedFiles[0];
+        setFormValues({ ...formValues, image: file });
+    }, [formValues]);
+    
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({
+        onDrop: handleFileDrop,
+        accept: 'image/*',
+        multiple: false,
+      });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues({ ...formValues, [name]: value });
+      };
+
+    const handleSubmit = (e) => {
+        
     }
 
-    productItems.map((item) => {
-        if(item === 'weight'){
-            const start = productItems.indexOf('weight')+1
-            productItems.splice(productItems.indexOf('units_of_measurements'), 1)
-            productItems.splice(start, 0, 'units_of_measurements')
-        }
-    })
+    const [categoriesAvailable,setcategoriesAvailable] = useState([]);
+    useEffect(() => {
+            fetch(`http://localhost:3000/categories`)
+            .then((response) => response.json())
+            .then((data) => {
+                setcategoriesAvailable(data);
+            });
+    }, []);
 
-    return(
-        <div>
-            <TableContainer>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell> <h2>Nome do campo</h2> </TableCell>
-                            <TableCell> <h2>Mudar disso:</h2> </TableCell>
-                            <TableCell> <h2>Para isso:</h2> </TableCell>
-                        </TableRow>
-                    </TableHead>
+    return (
+        <>
+        {formValues && (
+            <form onSubmit={handleSubmit}>
+                <label className="label-produtos">
+                    ID: {product.id}
+                </label>
 
-                    <TableBody>
-                        {product && productItems.map((item, index) => (
-                            <TableRow key={index}>
-                                {inList(item, unwantedItems) === false && (
-                                    <>
-                                    <TableCell> {item} </TableCell>
+                <label className="label-imagem">
+                    Imagem:
+                </label>
+                <div {...getRootProps()} className="imagem-banner-click">
+                    <input {...getInputProps()} />
+                    {isDragActive ? (
+                        <p>Arraste a imagem aqui...</p>
+                    ) : (
+                        <>
+                            {formValues.image ? (
+                                <img src={URL.createObjectURL(formValues.image)} className="img-produto" alt="Imagem selecionada" />
+                            ) : (
+                                <p className="teste">Arraste a imagem aqui</p>
+                            )}
+                        </>
+                    )}
+                </div>
 
-                                    {typeof(product[item]) !== 'object' && (
-                                        <>
-                                        <TableCell> {product[item]} </TableCell>
-                                        <TableCell>
-                                            <input
-                                                id={item}
-                                                type='text'
-                                                value={''}
-                                                onChange={handleInputChange}
-                                            />
-                                        </TableCell>
-                                        </>
-                                    )}
-                                    {item === 'images' && (
-                                        <TableCell>
-                                            <img src={`http://localhost:3000/uploads/${product.images[0].path}`} />
-                                        </TableCell>
-                                    )}
-                                    {item === 'units_of_measurements' && (
-                                        <>
-                                        <TableCell> {product[item].name} </TableCell>
-                                        </>
-                                    )}
-                                    </>
-                                )}
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </div>
+                <label className="label-produtos">
+                    Nome:
+                    <input
+                        type='text'
+                        value={formValues.name}
+                        onChange={handleChange}
+                    />
+                </label>
+
+                <label className="label-produtos">
+                    Marca:
+                    <input
+                        type="text"
+                        value={formValues.brand}
+                        onChange={handleChange}
+                    />
+                </label>
+
+                <label className="label-produtos">
+                    Preço:
+                    <input
+                        type="number"
+                        name="price"
+                        value={formValues.price}
+                        onChange={handleChange}
+                        placeholder='Inserir preço'
+                    />
+                </label>
+
+                <label className="label-produtos">
+                Descrição:
+                    <textarea
+                        type="text"
+                        value={formValues.description}
+                        onChange={handleChange}
+                        rows={3}
+                        style={{ resize: 'none' }}
+                    />
+                </label>
+
+                <label className="label-produtos">
+                    Categoria:
+                    <Select
+                        value = {formValues.categories && formValues.categories.map((id) => ({
+                            value: id,
+                            label: categoriesAvailable.find((cat) => cat.id === id)?.name || '',
+                        }))}
+                        isMulti
+                        options={categoriesAvailable && categoriesAvailable.map((cat) => ({
+                            value: cat.id,
+                            label: cat.name,
+                        }))}
+                        onChange={(selectedOptions) => {
+                            const selectedCategoryId = selectedOptions.map((option) => option.value);
+                            setFormValues({ ...formValues, categories: selectedCategoryId });
+                            console.log("categoryId:", selectedCategoryId);
+                        }}
+                    />
+                </label>
+
+                <label className="label-produtos">
+                    Quantidade em estoque:
+                    <input
+                        type="number"
+                        value={formValues.amount}
+                        onChange={handleChange}
+                    />
+                </label>
+            </form>
+        )}
+        </>
     );
 }
 

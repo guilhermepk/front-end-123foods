@@ -17,9 +17,6 @@ const RegistrationformUser = () => {
     image: null,
   });
 
-  
-
-
   const handleFileDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
     setFormValues({ ...formValues, image: file });
@@ -63,9 +60,6 @@ const RegistrationformUser = () => {
     formData.append('phone', data.phone);
     formData.append('email', data.email);
     formData.append('password', data.password);
-
-
-
     
     if (formValues.image!=null){
       formData.append('file', data.image);
@@ -94,7 +88,6 @@ const RegistrationformUser = () => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
-
 
   return (
     <div className="cadastro-usuario">

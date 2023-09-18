@@ -1,3 +1,5 @@
+import './AdmProductLister.css'
+
 import React, { useState, useEffect } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -154,7 +156,7 @@ const AdmProductLister = () => {
                             <TableCell> Marca </TableCell>
                             <TableCell> Preço </TableCell>
                             <TableCell> Descrição </TableCell>
-                            <TableCell> Categoria </TableCell>
+                            <TableCell> Categorias </TableCell>
                             <TableCell> Qtd em estoque </TableCell>
                             <TableCell> Editar produto </TableCell>
                             <TableCell> Excluir produto </TableCell>
@@ -174,7 +176,9 @@ const AdmProductLister = () => {
                                 <TableCell> {product.brand} </TableCell>
                                 <TableCell> {product.price} </TableCell>
                                 <TableCell> {product.description} </TableCell>
-                                <TableCell> TEM QUE ARRUMAR </TableCell>
+                                <TableCell className='category-cell'> {product && product.categories.map((category) => (
+                                    category.name
+                                ))} </TableCell>
                                 <TableCell> {product.amount} </TableCell>
                                 <TableCell>
                                     <button
