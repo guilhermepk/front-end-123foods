@@ -2,7 +2,7 @@ import React, { useState, useCallback,useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './Productform.css';
 import { Link } from "react-router-dom";
-
+import Select from 'react-select'
 const Productform= () => {
   const initialFormValues = {
     name: '',
@@ -13,6 +13,7 @@ const Productform= () => {
     amount: '',
     description: '',
     price: '',
+    
     image: null
   }
   const [measurement,setmeasurement]=useState([]);
@@ -54,9 +55,16 @@ const Productform= () => {
     formData.append('name', formValues.name);
     formData.append('brand', formValues.brand);
     formData.append('weight', parseFloat(formValues.weight));
-    formData.append('unitsofmeasurementId',parseInt(formValues.unitsofmeasurementId) );
-    formData.append('categoryIds[]', [parseInt(formValues.categoryId)]);
-    // formData.append('category', formValues.category);
+    formData.append('unitsofmeasurementId', parseInt(formValues.unitsofmeasurementId));
+    
+    if (formValues.categoryId.length > 1) {
+      formValues.categoryId.forEach((id) => {
+        formData.append('categoryIds', parseInt(id));
+      });
+    } else {
+      formData.append('categoryIds[]', [parseInt(formValues.categoryId)]);
+    }
+  
     formData.append('amount', parseInt(formValues.amount));
     formData.append('description', formValues.description);
     formData.append('price', parseFloat(formValues.price));
@@ -134,40 +142,50 @@ const Productform= () => {
       />
     </label>
     <label className="label-produtos">
-      Unidade de medida:
-      <select
-              className="input-produtos"
-              value={formValues.unitsofmeasurementId}
-              onChange={(e) => {
-                const selectedMeasurementId = e.target.value;
-                setFormValues({ ...formValues, unitsofmeasurementId: selectedMeasurementId });
-                console.log("unitsofmeasurementId:", selectedMeasurementId);
-              }}
-            >
-              {measurement.map((measurement) => (
-                <option key={measurement.id} value={measurement.id}>
-                  {measurement.name}
-                </option>
-              ))}
-      </select>
-    </label>
+        Unidade de medida:
+        <Select
+          className="input-produtos"
+          value={measurement.find((m) => m.id === formValues.unitsofmeasurementId)}
+          options={measurement.map((m) => ({
+            value: m.id,
+            label: m.name,
+          }))}
+          onChange={(selectedOption) => {
+            if (selectedOption) {
+              const selectedMeasurementId = selectedOption.value;
+              setFormValues({ ...formValues, unitsofmeasurementId: selectedMeasurementId });
+              console.log("unitsofmeasurementId:", selectedMeasurementId);
+            } else {
+              // Handle the case when the user clears the selection (X button)
+              setFormValues({ ...formValues, unitsofmeasurementId: null });
+              console.log("unitsofmeasurementId: Cleared");
+            }
+          }}
+          isClearable
+        />
+      </label>
+
+
+
     <label className="label-produtos">
       Categoria:
-      <select
-              className="input-produtos"
-              value={formValues.categoryId}
-              onChange={(e) => {
-                const selectedCategoryId = e.target.value;
-                setFormValues({ ...formValues, categoryId: selectedCategoryId });
-                console.log("categoryId:", selectedCategoryId);
-              }}
-            >
-              {category.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.name}
-                </option>
-              ))}
-      </select>
+      <Select
+    className="input-produtos"
+    value={formValues.categoryId && formValues.categoryId.map((id) => ({
+      value: id,
+      label: category.find((cat) => cat.id === id)?.name || '',
+    }))}
+    isMulti
+    options={category && category.map((cat) => ({
+      value: cat.id,
+      label: cat.name,
+    }))}
+    onChange={(selectedOptions) => {
+      const selectedCategoryId = selectedOptions.map((option) => option.value);
+      setFormValues({ ...formValues, categoryId: selectedCategoryId });
+      console.log("categoryId:", selectedCategoryId);
+    }}
+  />
     </label>
     <label className="label-produtos">
       Quantidade em estoque:
