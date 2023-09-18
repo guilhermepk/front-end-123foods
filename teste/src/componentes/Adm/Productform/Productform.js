@@ -1,7 +1,6 @@
 import React, { useState, useCallback,useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './Productform.css';
-import { Link } from "react-router-dom";
 import Select from 'react-select'
 const Productform= () => {
   const initialFormValues = {
