@@ -9,6 +9,7 @@ import { IoIosClose } from 'react-icons/io';
 import jwt_decode from 'jwt-decode';
 import Login from '../Login/login';
 import Logo from '../Logo/Logo';
+import Cartpage from '../Cart/Cartpage';
 
 const Navigationbar = () => {
 
@@ -27,6 +28,14 @@ const Navigationbar = () => {
         }
     }, []);
 
+
+    const handleCartClick = () => {
+        if (decoded_token) {
+            window.open('/teste');
+        } else {
+            setShowLoginForm(true);
+        }
+    }
 
     const handleProfileClick = () => {
         if (decoded_token) {
@@ -96,7 +105,7 @@ const Navigationbar = () => {
                         <CgProfile className="perfil"/>
                     </a>
 
-                    <a className='content-button' href="">
+                    <a className='content-button' href="" onClick={handleCartClick}>
                         <FiShoppingCart className="carrinho"/>
                     </a>
 
@@ -112,7 +121,7 @@ const Navigationbar = () => {
                 <div className="modal">
                     <div className="modal-content">
                         <IoIosClose className="close" onClick={closeModal}/>
-                        <Login />
+                        <Login/>
                     </div>
                 </div>
                 </div>
