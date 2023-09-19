@@ -314,7 +314,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                     {useraddress && useraddress.length > 1 && (
                         useraddress.map((address, index) => (
                             <div className="endereco-dois" key={address.id}>
-                                <div className="endereco-container">
+                                <div className='endereco-container'>
                                     <h3 className="titulo-endereco">Endereço {index + 1}</h3>
                                     {editingAddressIndex === index ? (
                                         <>
@@ -334,7 +334,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                                                     Rua:
                                                 </label>
                                                 <input
-                                                    className="dados-endereco-um rua"
+                                                    className="dados-endereco rua"
                                                     type='text'
                                                     value={editedAddress.street}
                                                     onChange={(e) => handleInputChange(e, 'street')}
@@ -345,7 +345,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                                                     Estado:
                                                 </label>
                                                 <input
-                                                    className="dados-endereco-um estado"
+                                                    className="dados-endereco estado"
                                                     type='text'
                                                     value={editedAddress.state}
                                                     onChange={(e) => handleInputChange(e, 'state')}
@@ -356,20 +356,20 @@ const Useraddress = ({ handleregisterAddress }) => {
                                                 CEP:
                                             </label>
                                             <InputMask
-                                                         mask="99999-999"
-                                                            type="text" className="input-campo cep"
-                                                            name="cep"
-                                                            value={editedAddress.cep}
-                                                            onChange={(e) => handleInputChange(e, 'cep')}
-                                                            onBlur={handleEditCEPBlur}
-                                                        />
+                                                mask="99999-999"
+                                                type="text" className="input-campo cep"
+                                                name="cep"
+                                                value={editedAddress.cep}
+                                                onChange={(e) => handleInputChange(e, 'cep')}
+                                                onBlur={handleEditCEPBlur}
+                                            />
                                             </div>
                                             <div>
                                                 <label className="label-endereco">
                                                     Bairro:
                                                 </label>
                                                 <input
-                                                    className="dados-endereco-um bairro"
+                                                    className="dados-endereco bairro"
                                                     type='text'
                                                     value={editedAddress.district}
                                                     onChange={(e) => handleInputChange(e, 'district')}
@@ -380,7 +380,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                                                     Número:
                                                 </label>
                                                 <input
-                                                    className="dados-endereco-um numero"
+                                                    className="dados-endereco numero"
                                                     type='text'
                                                     value={editedAddress.numberhouse}
                                                     onChange={(e) => handleInputChange(e, 'numberhouse')}
@@ -391,7 +391,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                                                     Complemento:
                                                 </label>
                                                 <input
-                                                    className="dados-endereco-um complemento"
+                                                    className="dados-endereco complemento"
                                                     type='text'
                                                     value={editedAddress.complement}
                                                     onChange={(e) => handleInputChange(e, 'complement')}
@@ -420,7 +420,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                                                     Rua:
                                                 </label>
                                                 <input
-                                                    className="dados-endereco-um rua"
+                                                    className="dados-endereco rua"
                                                     type='text'
                                                     value={address.street}
                                                     disabled
@@ -431,7 +431,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                                                     Estado:
                                                 </label>
                                                 <input
-                                                    className="dados-endereco-um estado"
+                                                    className="dados-endereco estado"
                                                     type='text'
                                                     value={address.state}
                                                     disabled
@@ -442,7 +442,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                                                     CEP:
                                                 </label>
                                                 <input
-                                                    className="dados-endereco-um cep"
+                                                    className="dados-endereco cep"
                                                     type='text'
                                                     value={address.cep}
                                                     disabled
@@ -453,7 +453,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                                                     Bairro:
                                                 </label>
                                                 <input
-                                                    className="dados-endereco-um bairro"
+                                                    className="dados-endereco bairro"
                                                     type='text'
                                                     value={address.district}
                                                     disabled
@@ -464,7 +464,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                                                     Número:
                                                 </label>
                                                 <input
-                                                    className="dados-endereco-um numero"
+                                                    className="dados-endereco numero"
                                                     type='text'
                                                     value={address.numberhouse}
                                                     disabled
@@ -475,7 +475,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                                                     Complemento:
                                                 </label>
                                                 <input
-                                                    className="dados-endereco-um complemento"
+                                                    className="dados-endereco complemento"
                                                     type='text'
                                                     value={address.complement}
                                                     disabled
@@ -494,7 +494,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                                             </div>
                                         </>
                                     )}
-                                </div>
+                            </div>
                             </div>
                         ))
                     )}
