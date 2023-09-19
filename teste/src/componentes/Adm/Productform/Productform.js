@@ -15,8 +15,8 @@ const Productform= () => {
     
     image: null
   }
-  const [measurement,setmeasurement]=useState([]);
-  const [category,setcategory]=useState([]);
+  const [measurement,setmeasurement] = useState([]);
+  const [category,setcategory] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:3000/unitsofmeasurement`)
         .then((response) => response.json())
@@ -145,6 +145,8 @@ const Productform= () => {
         <Select
           className="input-produtos1"
           value={measurement.find((m) => m.id === formValues.unitsofmeasurementId)}
+          className="input-produtos"
+          value={formValues.unitsofmeasurementId}
           options={measurement.map((m) => ({
             value: m.id,
             label: m.name,
@@ -153,7 +155,7 @@ const Productform= () => {
             if (selectedOption) {
               const selectedMeasurementId = selectedOption.value;
               setFormValues({ ...formValues, unitsofmeasurementId: selectedMeasurementId });
-              console.log("unitsofmeasurementId:", selectedMeasurementId);
+              console.log('um', formValues.unitsofmeasurementId)
             } else {
               // Handle the case when the user clears the selection (X button)
               setFormValues({ ...formValues, unitsofmeasurementId: null });
