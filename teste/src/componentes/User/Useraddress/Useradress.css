@@ -132,9 +132,19 @@
     color: #fff;
 } 
 
+.botao-adicionar:hover,
+.botao-excluir:hover {
+    background-color: #850101;
+}
+
 .adress-alter {
     color: #9E0000;
     padding-left: 7rem;
+}
+
+.adress-alter:hover {
+    color: #850101;
+    cursor: pointer;
 }
 
 .botao-adicionar-div {
@@ -161,11 +171,8 @@
     color: #fff;
 }
 
-.botao-add-endereco-um:hover {
-    background-color: #850101;
-}
-
-.botao-add-endereco-dois:hover {
+.botao-add-endereco-um:hover,
+.botao-add-endereco-dois:hover  {
     background-color: #850101;
 }
 
@@ -182,4 +189,25 @@
 
 .add-endereco-dois {
     margin-left: 16rem;
+}
+
+.button-save-new-adress,
+.button-cancel-new-adress {
+    background-color: #9E0000;
+    width: 4.5rem;
+    height: 3rem;
+    border: 2px solid #000;
+    border-radius: 10px;
+    color: #FFF;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.button-save-new-adress {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.button-cancel-new-adress {
+    margin-left: 12rem;
 }

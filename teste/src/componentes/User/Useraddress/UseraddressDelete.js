@@ -7,6 +7,9 @@ console.log('adrress:',addresId)
         } catch (error) {
             console.error('Erro ao excluir banner:', error);
         }
+        setTimeout(() => { 
+            window.location.reload(); 
+          });
 }
 
 export default Addressdelete;

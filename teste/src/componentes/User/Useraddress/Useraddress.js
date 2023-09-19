@@ -7,6 +7,8 @@ import { useUserinfo } from '../Userinfo/Userinfo';
 import Addressdelete from './UseraddressDelete';
 import InputMask from 'react-input-mask';
 import iziToast from 'izitoast';
+
+
 const Useraddress = ({ handleregisterAddress }) => {
     const [token, setToken] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null);
@@ -167,7 +169,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                                             </label>
                                             <InputMask
                                                          mask="99999-999"
-                                                            type="text" className="input-campo cep"
+                                                            type="text" className="dados-endereco cep"
                                                             name="cep"
                                                             value={editedAddress.cep}
                                                             onChange={(e) => handleInputChange(e, 'cep')} // Certifique-se de ter uma função handleInputChange
@@ -208,8 +210,8 @@ const Useraddress = ({ handleregisterAddress }) => {
                                             />
                                         </div>
                                         <div>
-                                            <button onClick={handleUpdateAddress}>Salvar</button>
-                                            <button onClick={handleCancelEdit}>Cancelar</button>
+                                            <button className="button-save-new-adress" onClick={handleUpdateAddress}>Salvar</button>
+                                            <button className="button-cancel-new-adress" onClick={handleCancelEdit}>Cancelar</button>
                                         </div>
                                     </>
                                 ) : (
@@ -357,7 +359,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                                             </label>
                                             <InputMask
                                                 mask="99999-999"
-                                                type="text" className="input-campo cep"
+                                                type="text" className="dados-endereco cep"
                                                 name="cep"
                                                 value={editedAddress.cep}
                                                 onChange={(e) => handleInputChange(e, 'cep')}
@@ -398,8 +400,8 @@ const Useraddress = ({ handleregisterAddress }) => {
                                                 />
                                             </div>
                                             <div>
-                                                <button onClick={handleUpdateAddress}>Salvar</button>
-                                                <button onClick={handleCancelEdit}>Cancelar</button>
+                                                <button className="button-save-new-adress" onClick={handleUpdateAddress}>Salvar</button>
+                                                <button className="button-cancel-new-adress" onClick={handleCancelEdit}>Cancelar</button>
                                             </div>
                                         </>
                                     ) : (
