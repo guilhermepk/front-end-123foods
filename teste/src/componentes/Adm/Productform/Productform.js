@@ -2,19 +2,43 @@ import React, { useState, useCallback,useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './Productform.css';
 import Select from 'react-select'
-const Productform= () => {
-  const initialFormValues = {
-    name: '',
-    brand: '',
-    weight: '',
-    unitsofmeasurementId: '',
-    category: '',
-    amount: '',
-    description: '',
-    price: '',
-    
-    image: null
-  }
+
+const Productform= (props) => {
+  const [initialFormValues, setInitialFormValues] = useState({});
+  
+  useEffect(() => {
+    if(props.productId){
+      fetch(`http://localhost:3000/products/${props.productId}`)
+        .then((response) => response.json())
+        .then((product) => {
+          setInitialFormValues({
+            name: product.name,
+            brand: product.brand,
+            weight: product.weight,
+            unitsofmeasurementId: '',
+            category: '',
+            amount: product.amount,
+            description: product.description,
+            price: product.price,
+            image: null
+          })
+        });
+        
+    }else{
+      setInitialFormValues({
+        name: '',
+        brand: '',
+        weight: '',
+        unitsofmeasurementId: '',
+        category: '',
+        amount: '',
+        description: '',
+        price: '',
+        image: null
+      })
+    }
+  }, []);
+  
   const [measurement,setmeasurement] = useState([]);
   const [category,setcategory] = useState([]);
   useEffect(() => {
@@ -22,19 +46,19 @@ const Productform= () => {
         .then((response) => response.json())
         .then((data) => {
             setmeasurement(data);
-            console.log('data: ',data);
         });
         fetch(`http://localhost:3000/categories`)
         .then((response) => response.json())
         .then((data) => {
             setcategory(data);
-            console.log('data: ',data);
         });
 }, []);
 
-
-
-  const [formValues, setFormValues] = useState(initialFormValues);
+  const [formValues, setFormValues] = useState({});
+  useEffect(() => {
+    setFormValues(initialFormValues)
+  }, []);
+  console.log(formValues)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -105,7 +129,6 @@ const Productform= () => {
 
   return (
     <form className="modal-produtos" onSubmit={handleSubmit}>
-    <h1 className="cadastro-texto"> Cadastrar produtos </h1>
     <div className="cadastro-produtos">
     <label className="label-produtos">
       Nome do produto:

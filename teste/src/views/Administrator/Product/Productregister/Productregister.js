@@ -7,6 +7,7 @@ const Productregister = () => {
     return (
         <div>
             <NavigationbarAdm/>
+            <h1 className="cadastro-texto"> Cadastrar produtos </h1> 
             <Productform/>
         </div>
     );
