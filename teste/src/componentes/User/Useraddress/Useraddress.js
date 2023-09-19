@@ -314,7 +314,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                     {useraddress && useraddress.length > 1 && (
                         useraddress.map((address, index) => (
                             <div className="endereco-dois" key={address.id}>
-                                <div className='endereco-container'>
+                                <div>
                                     <h3 className="titulo-endereco">Endereço {index + 1}</h3>
                                     {editingAddressIndex === index ? (
                                         <>
