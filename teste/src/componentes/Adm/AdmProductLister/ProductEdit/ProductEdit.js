@@ -125,7 +125,7 @@ const ProductEdit = (props) => {
                         value={formValues.description}
                         onChange={handleChange}
                         rows={3}
-                        style={{ resize: 'none' }}
+                        style={{ resize: 'vertical' }}
                     />
                 </label>
 

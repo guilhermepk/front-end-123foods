@@ -105,7 +105,7 @@ const Productform= () => {
 
   return (
     <form className="modal-produtos" onSubmit={handleSubmit}>
-      <h1 className="cadastro-texto"> Cadastrar produtos </h1>
+    <h1 className="cadastro-texto"> Cadastrar produtos </h1>
     <div className="cadastro-produtos">
     <label className="label-produtos">
       Nome do produto:
@@ -143,7 +143,7 @@ const Productform= () => {
     <label className="label-produtos">
         Unidade de medida:
         <Select
-          className="input-produtos"
+          className="input-produtos1"
           value={measurement.find((m) => m.id === formValues.unitsofmeasurementId)}
           options={measurement.map((m) => ({
             value: m.id,
@@ -163,13 +163,10 @@ const Productform= () => {
           isClearable
         />
       </label>
-
-
-
     <label className="label-produtos">
       Categoria:
       <Select
-    className="input-produtos"
+    className="input-produtos1"
     value={formValues.categoryId && formValues.categoryId.map((id) => ({
       value: id,
       label: category.find((cat) => cat.id === id)?.name || '',
@@ -201,13 +198,13 @@ const Productform= () => {
       Descrição:
       <textarea
         type="text"
+        style={{ resize: 'vertical' }}
         className="input-produtos"
         name="description"
         value={formValues.description}
         onChange={handleChange}
         placeholder='Inserir descrição'
         rows={3}
-        style={{ resize: 'none' }}
       />
     </label>
     <label className="label-produtos">
@@ -222,8 +219,9 @@ const Productform= () => {
       />
     </label>
     </div>
-    <div>
-    <label className="label-imagem">
+    <div className='div-img-button'>
+    
+    <label className="label-imagem-dropzone">
       Imagens:
       </label>
       <div {...getRootProps()} className="imagem-banner-click">
@@ -233,16 +231,20 @@ const Productform= () => {
         ) : (
           <>
             {formValues.image ? (
+              <div className='div-img-move'>
               <img src={URL.createObjectURL(formValues.image)} className="img-produto" alt="Imagem selecionada" />
+              </div> 
             ) : (
-              <p className="teste">Arraste a imagem aqui</p>
+              <p className="text-dropzone">Arraste a imagem aqui</p>
             )}
           </>
         )}
       </div>
+      <div className="div-button-banner">
     <button  className="botao-banner-salvar" type="submit"> Enviar </button>
     </div>
-  </form>
+    </div>
+    </form>
   );
 };
 
