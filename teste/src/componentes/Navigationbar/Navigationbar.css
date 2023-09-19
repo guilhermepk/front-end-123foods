@@ -148,10 +148,6 @@ body{
   background-color: #850101;
 } */
 
-.modal-conteudo{
-  display: flex;
-}
-
 
 .close{
   color: rgb(186, 23, 23);

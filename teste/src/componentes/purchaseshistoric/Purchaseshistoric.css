@@ -1,7 +1,9 @@
-/* .purchases-by-date {
-    background-color: black;
+* {
+    font-family: 'Oswald' !important;
 }
 
-.table {
-    background-color: black;
-} */
+.table-historic-content {
+    width: 898px !important;
+    height: 521px;
+    margin-top: 0.5rem;
+}

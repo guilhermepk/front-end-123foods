@@ -49,7 +49,7 @@ const Cartpage = () => {
     }
   }, [userId]);
 
-  const handleDecreaseClick = (dataId, item) => {
+  const handleDecreaseClick = (dataId) => {
     if (quantities[dataId] > 1) {
       const newQuantities = { ...quantities };
       newQuantities[dataId] -= 1;
