@@ -35,7 +35,7 @@ function Footer(){
                 <div className="pagamento">
                 <ul className="primeiro">
                     <h2 className='titulos'>Pagamento</h2>
-                    <a className="footer-cash">
+                    <a className="footer-cash"href="/methods_of_payment" >
                         <img className='img-cash' src="/imagens/icons.png"></img>
                     </a>
                 </ul>
