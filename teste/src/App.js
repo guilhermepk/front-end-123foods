@@ -21,6 +21,13 @@ import Viewteste from "./views/viewteste";
 import SearchPage from "./views/SearchPage/SearchPage";
 import ProductEditView from "./views/Administrator/Product/Productlist/ProductEditView/ProductEditView";
 import Cartpage from "./componentes/Cart/Cartpage";
+import Ourhistory from "./views/Footerpages/Ourhistory";
+import HowtoBuy from "./views/Footerpages/HowtoBuy";
+import Ourstore from "./views/Footerpages/Ourstore";
+import WorkwithUs from "./views/Footerpages/WorkwithUs";
+import ProblemswithDelivery from "./views/Footerpages/ProblemswithDelivery";
+import Orders from "./views/Footerpages/Orders";
+import Payments from "./views/Footerpages/Payments";
 
 function NotFound() {
   return (
@@ -40,6 +47,13 @@ const App = () => {
           <Route path="/" element={<Home/>}/>
           <Route path="/teste" element={<Viewteste/>}/>
           <Route path="*" element={<NotFound />} />
+          <Route path="/Ourhistory" element={<Ourhistory />} />
+          <Route path="/Howtobuy" element={<HowtoBuy />} />
+          <Route path="/Ourstore" element={<Ourstore />} />
+          <Route path="/WorkwithUs" element={<WorkwithUs />} />
+          <Route path="/ProblemswithDelivery" element={<ProblemswithDelivery />} />
+          <Route path="/Orders" element={<Orders />} />
+          <Route path="/methods_of_payment" element={<Payments />} />
           
           {/* Páginas relacionadas ao login, infos do user, etc */}
           <Route path="/user-register" element={<Userregister />} />
