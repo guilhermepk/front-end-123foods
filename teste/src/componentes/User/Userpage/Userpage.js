@@ -83,10 +83,7 @@ const Userpage=()=>{
 
 
     const closeModal = () => {
-        setshowregisteraddress(false)
-        setshowaddress(false)
-        setshowUserinf(true)
-        setShowUserInfoModal(false);
+        
     };
 
     return(
@@ -100,7 +97,7 @@ const Userpage=()=>{
                     handlepurchasesHistoric={handlepurchasesHistoric}
                 />
                 <div className="modal-conteudo">
-                    <a onClick={closeModal}> 
+                    <a href='/'> 
                         <BsArrowLeftCircle className="seta-voltar" />
                     </a>
                         {showUserinf &&(<Userprofile />)}
