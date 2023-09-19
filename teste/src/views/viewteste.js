@@ -1,7 +1,7 @@
 
 import Cartpage from "../componentes/Cart/Cartpage";
 import Footer from "../componentes/Footer/Footer";
-import Navigationbar from "../componentes/Navigationbar/Navigationbar"
+import Navigationbar from "../componentes/ComponentsofNavbar/Navigationbar/Navigationbar"
 
 
 const Viewteste=()=>{

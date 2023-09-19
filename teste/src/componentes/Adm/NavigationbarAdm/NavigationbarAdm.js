@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { useUserinfo } from '../../Userinfo/Userinfo.js';
+import { useUserinfo } from '../../User/Userinfo/Userinfo';
 import './NavigationbarAdm.css'
 import jwt_decode from 'jwt-decode';
 import{AiTwotoneNotification} from 'react-icons/ai'

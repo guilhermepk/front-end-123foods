@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import Footer from "../../componentes/Footer/Footer";
-import Navigationbar from '../../componentes/Navigationbar/Navigationbar';
-import SearchList from "../../componentes/SearchList/SearchList";
+import Navigationbar from '../../componentes/ComponentsofNavbar/Navigationbar/Navigationbar';
+import SearchList from "../../componentes/Searchs/SearchList/SearchList";
 
 
 const SearchPage = () => {

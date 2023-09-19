@@ -1,5 +1,5 @@
-import Navigationbar from '../../componentes/Navigationbar/Navigationbar';
-import Userpage from '../../componentes/Userpage/Userpage';
+import Navigationbar from '../../componentes/ComponentsofNavbar/Navigationbar/Navigationbar';
+import Userpage from '../../componentes/User/Userpage/Userpage';
 import { Link } from "react-router-dom";
 import Footer from '../../componentes/Footer/Footer'
 

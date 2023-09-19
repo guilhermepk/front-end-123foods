@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useUserinfo } from '../Userinfo/Userinfo';
+import { useUserinfo } from '../../User/Userinfo/Userinfo';
 import jwt_decode from 'jwt-decode';
 
 const Myshopping = () => {

@@ -1,6 +1,6 @@
 import './Home.css'
 
-import Navigationbar from '../../componentes/Navigationbar/Navigationbar';
+import Navigationbar from '../../componentes/ComponentsofNavbar/Navigationbar/Navigationbar';
 import Banner from '../../componentes/Banner/Banner';
 import Footer from '../../componentes/Footer/Footer';
 import FilterCategories from'../../componentes/Filtercategories/Filtercategories';

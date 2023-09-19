@@ -1,13 +1,13 @@
 
 import Usermodal from '../Usermodal/Usermodal';
 import jwt_decode from 'jwt-decode';
-import '../Navigationbar/Navigationbar.css'
+import '../../ComponentsofNavbar/Navigationbar/Navigationbar.css'
 import {BsArrowLeftCircle} from 'react-icons/bs';
 import Userprofile from '../Userprofile/Userprofile';
 import Useraddress from '../Useraddress/Useraddress';
-import Myshopping from '../Myshopping/Myshopping';
+import Myshopping from '../../ComponentsofNavbar/Myshopping/Myshopping';
 import Addressregister from '../Useraddress/UseraddressRegister';
-import PurchasesHistoric from '../purchaseshistoric/purchaseshistoric';
+import PurchasesHistoric from '../../ComponentsofNavbar/purchaseshistoric/purchaseshistoric';
 import React, { useState, useEffect } from 'react';
 import { useUserinfo } from '../Userinfo/Userinfo';
 
