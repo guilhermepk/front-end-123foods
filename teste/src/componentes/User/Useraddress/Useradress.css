@@ -3,12 +3,17 @@
     overflow: hidden;
 }
 
+.endereco-um {
+    margin-top: 0.5rem;
+}
+
 .endereco-dois {
     display: inline-block;
     width: 449px;
     padding: 1rem 2rem 1rem 2rem;
     height: 521px;
     border-right: 2px solid #000;
+    margin-top: 0.5rem;
 } 
 
 .titulo-endereco {
