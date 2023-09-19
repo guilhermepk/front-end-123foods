@@ -144,9 +144,9 @@ const Productform= () => {
         Unidade de medida:
         <Select
           className="input-produtos1"
-          value={measurement.find((m) => m.id === formValues.unitsofmeasurementId)}
-          className="input-produtos"
-          value={formValues.unitsofmeasurementId}
+          value={measurement.map((m) => (
+            m.id === formValues.unitsofmeasurementId && {value: m.id, label: m.name}
+          ))}
           options={measurement.map((m) => ({
             value: m.id,
             label: m.name,
@@ -156,15 +156,11 @@ const Productform= () => {
               const selectedMeasurementId = selectedOption.value;
               setFormValues({ ...formValues, unitsofmeasurementId: selectedMeasurementId });
               console.log('um', formValues.unitsofmeasurementId)
-            } else {
-              // Handle the case when the user clears the selection (X button)
-              setFormValues({ ...formValues, unitsofmeasurementId: null });
-              console.log("unitsofmeasurementId: Cleared");
             }
           }}
-          isClearable
         />
       </label>
+
     <label className="label-produtos">
       Categoria:
       <Select
