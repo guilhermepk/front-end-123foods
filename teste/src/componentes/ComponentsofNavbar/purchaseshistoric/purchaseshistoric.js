@@ -8,6 +8,10 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { IoIosClose } from 'react-icons/io';
 
 
@@ -92,7 +96,7 @@ const Purchaseshistoric=()=>{
                             <p> {group.date.getDate()}/{group.date.getMonth() + 1}</p>
                           </TableCell>        
                     </TableRow> 
-                  ))};
+                  ))}
                 </TableBody>
               ))};
             </Table>
@@ -138,17 +142,17 @@ export default Purchaseshistoric;
 
 // function createData(name, calories, fat, carbs, protein, price) {
 //   return {
-//     name,
-//     calories,
-//     fat,
-//     carbs,
+//     name, (PRODUTO)
+//     fat, (QUANTIDADE)
+//     calories, (PREÇO)     
+//     carbs, (DATA DE ENTREGA)
 //     protein,
 //     price,
 //     history: [
 //       {
-//         date: '2020-01-05',
-//         customerId: '11091700',
-//         amount: 3,
+//         date: '2020-01-05', (DATA DE ENTREGA)
+//         customerId: '11091700', (ID DA COMPRA)
+//         amount: 3, 
 //       },
 //       {
 //         date: '2020-01-02',
