@@ -46,10 +46,10 @@ const HomeproductLister = (props) => {
         );
     }
 
-    const handleBuyClick = (productId) => {
+    const handleBuyClick = (productId,index) => {
     
         console.log('Clicou em Comprar'); 
-        const imagem=products[0].images[0].id;
+        const imagem=products[index].images[0].id;
         console.log('qtd:', qtd);
         
         console.log('token:', token);
@@ -93,7 +93,7 @@ const HomeproductLister = (props) => {
 
                             </a> 
 
-                            <button className="buyButton" onClick={() => handleBuyClick(product.id)}>Comprar</button>
+                            <button className="buyButton" onClick={() => handleBuyClick(product.id,index)}>Comprar</button>
 
                         </Card>
                     </Col>

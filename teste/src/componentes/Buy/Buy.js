@@ -23,11 +23,12 @@ export const sendPurchaseRequest = async (productId, qtd, token,imagem) => {
       return;
     }
     const userId = token ? jwt_decode(token)?.sub : null;
-
+{console.log('imagemId',imagem)}
     const orderData = {
       productId: parseInt(productId),
       amount: qtd,
       userId: userId,
+      
       imageId: parseInt(imagem),
       status: 'previsto',
     };

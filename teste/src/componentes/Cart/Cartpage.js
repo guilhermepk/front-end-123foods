@@ -118,12 +118,13 @@ const Cartpage = () => {
                 <TableCell className='cell image-name'>
                     <IoIosClose className="close-cart" onClick={() => handleRemoveClick(item.id)}/>
                   {item.product && item.image && item.image.path && (
+                    
                     <img
                       className="data-image"
                       src={`http://localhost:3000/uploads/${item.image.path}`}
                       alt="Imagem do Produto"
                     />
-                  )}
+                  )}{console.log(item.image)}
                   <p className='product-name-table'>{item.product.name}</p>
                 </TableCell>
                 <TableCell className='cell quant-add-decrease'>
