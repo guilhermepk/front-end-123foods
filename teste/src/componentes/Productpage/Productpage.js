@@ -28,7 +28,7 @@ const Productpage = (props) => {
         console.log('Clicou em Comprar'); 
         console.log('productId:', props.productId);
         console.log('qtd:', qtd);
-        const imagem = products[0].images[0].id;
+        const imagem = products.images[0].id;
         console.log('token:', token);
         sendPurchaseRequest(props.productId, qtd, token, imagem);
     };

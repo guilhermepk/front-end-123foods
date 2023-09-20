@@ -51,7 +51,6 @@ const HomeproductLister = (props) => {
         console.log('Clicou em Comprar'); 
         const imagem=products[index].images[0].id;
         console.log('qtd:', qtd);
-        
         console.log('token:', token);
         sendPurchaseRequest(productId, qtd, token, imagem);
     };
