@@ -3,7 +3,7 @@ import './productpage.css'
 import { sendPurchaseRequest } from '../Buy/Buy'; 
 
 const Productpage = (props) => {
-    const [product, setProduct] = useState([]);
+    const [products, setProducts] = useState([]);
     const [qtd, setQtd] = useState(1);
     const [token, setToken] = useState(null);
 
@@ -11,7 +11,7 @@ const Productpage = (props) => {
         fetch(`http://localhost:3000/products/${props.productId}`)
             .then((response) => response.json())
             .then((data) => {
-                setProduct(data);
+                setProducts(data);
                 console.log('data: ',data);
             });
     }, []);
@@ -26,10 +26,11 @@ const Productpage = (props) => {
     };
     const handleBuyClick = () => {
         console.log('Clicou em Comprar'); 
-  console.log('productId:', props.productId);
-  console.log('qtd:', qtd);
-  console.log('token:', token);
-  sendPurchaseRequest(props.productId, qtd, token);
+        console.log('productId:', props.productId);
+        console.log('qtd:', qtd);
+        const imagem = products[0].images[0].id;
+        console.log('token:', token);
+        sendPurchaseRequest(props.productId, qtd, token, imagem);
     };
 
 
@@ -43,16 +44,16 @@ const Productpage = (props) => {
         <div className="product-move">
             <div className="product">
                 <div className="product-itens">
-                    {product.name && 
-                    <h2 className="product-name">{product.name}</h2>}
+                    {products.name && 
+                    <h2 className="product-name">{products.name}</h2>}
                     <div className="product-align">
-                    {product.images && product.images.length > 0 && (
-                    <img className="product-image" src={`http://localhost:3000/uploads/${product.images[0]?.path}`} alt="Imagem do Produto" />
+                    {products.images && products.images.length > 0 && (
+                    <img className="product-image" src={`http://localhost:3000/uploads/${products.images[0]?.path}`} alt="Imagem do Produto" />
                     )}
                     </div>     
                 </div>
-                <div className="product-description">{product.description&&
-                    <p>{product.description}</p>
+                <div className="product-description">{products.description&&
+                    <p>{products.description}</p>
                     }
                 </div>
                 <div className="button-product">

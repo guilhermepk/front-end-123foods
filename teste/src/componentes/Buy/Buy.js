@@ -1,7 +1,7 @@
 import jwt_decode from 'jwt-decode';
 import React, { useState, useEffect } from "react";
 
-const Buy = ({ productId, qtd }) => {
+const Buy = ({ productId, qtd, products}) => {
   const [token, setToken] = useState(null);
   const [decodedToken, setDecodedToken] = useState(null);
 
@@ -16,20 +16,19 @@ const Buy = ({ productId, qtd }) => {
 
 };
 
-export const sendPurchaseRequest = async (productId, qtd, token,userId) => {
+export const sendPurchaseRequest = async (productId, qtd, token,imagem) => {
   try {
     if (!token) {
       console.error('Token não encontrado.');
       return;
     }
-
     const userId = token ? jwt_decode(token)?.sub : null;
 
     const orderData = {
       productId: parseInt(productId),
       amount: qtd,
       userId: userId,
-      imageId: parseInt(productId),
+      imageId: parseInt(imagem),
       status: 'previsto',
     };
     const response = await fetch('http://localhost:3000/purchases', {

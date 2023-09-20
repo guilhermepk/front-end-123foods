@@ -47,11 +47,13 @@ const HomeproductLister = (props) => {
     }
 
     const handleBuyClick = (productId) => {
+    
         console.log('Clicou em Comprar'); 
-        console.log('productId:', productId); 
+        const imagem=products[0].images[0].id;
         console.log('qtd:', qtd);
+        
         console.log('token:', token);
-        sendPurchaseRequest(productId, qtd, token);
+        sendPurchaseRequest(productId, qtd, token, imagem);
     };
     
     useEffect(() => {
