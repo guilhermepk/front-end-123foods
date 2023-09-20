@@ -35,15 +35,15 @@
     margin-left: 1rem;
 }
 
-.dados-endereco {
+.dados-endereco,
+.dados-endereco-um {
     border: none;
     background-color: #E1C59B;
     border-radius: 10px;
     height: 35px;
     font-size: 20px;
-    margin: 1rem 1rem 0 0;
-    padding-left: 0.5rem;
-    margin-right: 0;
+    padding-left: 10px;
+    margin-top: 1rem;
 }
 
 .dados-endereco.cidade,
@@ -99,7 +99,8 @@
 }
 
 .botao-excluir-div {
-    padding: 0.5rem 0 0rem 1rem;
+    padding-left: 1rem;
+    margin-top: 1rem;
 }
 
 .endereco-container {
@@ -132,6 +133,10 @@
     color: #fff;
 } 
 
+.botao-add-endereco-um:hover,
+.botao-add-endereco-dois:hover,
+.button-cancel-new-adress:hover,
+.button-save-new-adress:hover,
 .botao-adicionar:hover,
 .botao-excluir:hover {
     background-color: #850101;
@@ -171,11 +176,6 @@
     color: #fff;
 }
 
-.botao-add-endereco-um:hover,
-.botao-add-endereco-dois:hover  {
-    background-color: #850101;
-}
-
 .icon-add-um,
 .icon-add-dois {
     cursor: pointer;
@@ -194,8 +194,8 @@
 .button-save-new-adress,
 .button-cancel-new-adress {
     background-color: #9E0000;
-    width: 4.5rem;
-    height: 3rem;
+    width: 6rem;
+    height: 3.2rem;
     border: 2px solid #000;
     border-radius: 10px;
     color: #FFF;
@@ -204,10 +204,10 @@
 }
 
 .button-save-new-adress {
-    margin-left: 1.5rem;
+    margin-left: 1rem;
     margin-top: 1rem;
 }
 
 .button-cancel-new-adress {
-    margin-left: 12rem;
+    margin-left: 10rem;
 }

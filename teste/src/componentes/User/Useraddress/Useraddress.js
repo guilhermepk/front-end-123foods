@@ -7,6 +7,7 @@ import { useUserinfo } from '../Userinfo/Userinfo';
 import Addressdelete from './UseraddressDelete';
 import InputMask from 'react-input-mask';
 import iziToast from 'izitoast';
+import AddressField from './AdressField';
 
 
 const Useraddress = ({ handleregisterAddress }) => {
@@ -124,96 +125,61 @@ const Useraddress = ({ handleregisterAddress }) => {
         <div className='modal-total'>
             {userId !== null && (
                 <div>
-                    {useraddress && useraddress.length === 1 && (
-                        <div className="endereco-um">
-                            <div className="endereco-container" key={useraddress[0].id}>
-                                <h3 className="titulo-endereco-um">Endereço 1</h3>
+                {useraddress && useraddress.length === 1 && (
+                    <div className="endereco-um">
+                        <div className="endereco-container" key={useraddress[0].id}>
+                            <h3 className="titulo-endereco-um">Endereço 1</h3>
                                 {editingAddressIndex === 0 ? (
-                                    <>
-                                        <div>
-                                            <label className="label-endereco">
-                                                Cidade:
-                                            </label>
-                                            <input
-                                                className="dados-endereco-um cidade"
-                                                type='text'
-                                                value={editedAddress.city}
-                                                onChange={(e) => handleInputChange(e, 'city')}
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="label-endereco">
-                                                Rua:
-                                            </label>
-                                            <input
-                                                className="dados-endereco-um rua"
-                                                type='text'
-                                                value={editedAddress.street}
-                                                onChange={(e) => handleInputChange(e, 'street')}
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="label-endereco">
-                                                Estado:
-                                            </label>
-                                            <input
-                                                className="dados-endereco-um estado"
-                                                type='text'
-                                                value={editedAddress.state}
-                                                onChange={(e) => handleInputChange(e, 'state')}
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="label-endereco">
-                                                CEP:
-                                            </label>
-                                            <InputMask
-                                                         mask="99999-999"
-                                                            type="text" className="dados-endereco cep"
-                                                            name="cep"
-                                                            value={editedAddress.cep}
-                                                            onChange={(e) => handleInputChange(e, 'cep')} // Certifique-se de ter uma função handleInputChange
-                                                            onBlur={handleEditCEPBlur}
-                                                        />
-                                        </div>
-                                        <div>
-                                            <label className="label-endereco">
-                                                Bairro:
-                                            </label>
-                                            <input
-                                                className="dados-endereco-um bairro"
-                                                type='text'
-                                                value={editedAddress.district}
-                                                onChange={(e) => handleInputChange(e, 'district')}
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="label-endereco">
-                                                Número:
-                                            </label>
-                                            <input
-                                                className="dados-endereco-um numero"
-                                                type='text'
-                                                value={editedAddress.numberhouse}
-                                                onChange={(e) => handleInputChange(e, 'numberhouse')}
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="label-endereco">
-                                                Complemento:
-                                            </label>
-                                            <input
-                                                className="dados-endereco-um complemento"
-                                                type='text'
-                                                value={editedAddress.complement}
-                                                onChange={(e) => handleInputChange(e, 'complement')}
-                                            />
-                                        </div>
-                                        <div>
-                                            <button className="button-save-new-adress" onClick={handleUpdateAddress}>Salvar</button>
-                                            <button className="button-cancel-new-adress" onClick={handleCancelEdit}>Cancelar</button>
-                                        </div>
-                                    </>
+                                <>
+                                    <AddressField
+                                        label="Cidade"
+                                        value={editedAddress.city}
+                                        onChange={handleInputChange}
+                                    />
+                                    <AddressField
+                                        label="Rua"
+                                        value={editedAddress.street}
+                                        onChange={handleInputChange}
+                                    />
+                                    <AddressField
+                                        label="Estado"
+                                        value={editedAddress.state}
+                                        onChange={handleInputChange}
+                                    />
+                                    <AddressField
+                                        label="CEP"
+                                        value={editedAddress.cep}
+                                        onChange={handleInputChange}
+                                        onBlur={handleEditCEPBlur}
+                                    />
+                                    <AddressField
+                                        label="Bairro"
+                                        value={editedAddress.district}
+                                        onChange={handleInputChange}
+                                    />
+                                    <AddressField
+                                        label="Número"
+                                        value={editedAddress.numberhouse}
+                                        onChange={handleInputChange}
+                                    />
+                                    <AddressField
+                                        label="Complemento"
+                                        value={editedAddress.complement}
+                                        onChange={handleInputChange}
+                                    />
+                                    <div>
+                                        <button
+                                            className="button-save-new-adress"
+                                            onClick={handleUpdateAddress}
+                                        > Salvar
+                                        </button>
+                                        <button
+                                            className="button-cancel-new-adress"
+                                            onClick={handleCancelEdit}
+                                        > Cancelar
+                                        </button>
+                                    </div>
+                                </>
                                 ) : (
                                     <>
                                         <div>
@@ -306,12 +272,12 @@ const Useraddress = ({ handleregisterAddress }) => {
                                         </div>
                                     </>
                                 )}
-                            </div>
+                        </div>
                             <div className='botao-adicionar-div'>
                                 <IoIosAddCircleOutline className='icon-add' onClick={handleregisterAddress} size={40} />
                                 <button className="botao-adicionar" onClick={handleregisterAddress}>Adicionar Endereço</button>
                             </div>
-                        </div>
+                    </div>
                     )}
                     {useraddress && useraddress.length > 1 && (
                         useraddress.map((address, index) => (
@@ -320,88 +286,53 @@ const Useraddress = ({ handleregisterAddress }) => {
                                     <h3 className="titulo-endereco">Endereço {index + 1}</h3>
                                     {editingAddressIndex === index ? (
                                         <>
-                                            <div>
-                                                <label className='label-endereco'>
-                                                    Cidade:
-                                                </label>
-                                                <input
-                                                    className='dados-endereco cidade'
-                                                    type='text'
-                                                    value={editedAddress.city}
-                                                    onChange={(e) => handleInputChange(e, 'city')}
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="label-endereco">
-                                                    Rua:
-                                                </label>
-                                                <input
-                                                    className="dados-endereco rua"
-                                                    type='text'
-                                                    value={editedAddress.street}
-                                                    onChange={(e) => handleInputChange(e, 'street')}
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="label-endereco">
-                                                    Estado:
-                                                </label>
-                                                <input
-                                                    className="dados-endereco estado"
-                                                    type='text'
-                                                    value={editedAddress.state}
-                                                    onChange={(e) => handleInputChange(e, 'state')}
-                                                />
-                                            </div>
-                                            <div>
-                                            <label className="label-endereco">
-                                                CEP:
-                                            </label>
-                                            <InputMask
-                                                mask="99999-999"
-                                                type="text" className="dados-endereco cep"
-                                                name="cep"
+                                            <AddressField
+                                                label="Cidade"
+                                                value={editedAddress.city}
+                                                onChange={handleInputChange}
+                                            />
+                                            <AddressField
+                                                label="Rua"
+                                                value={editedAddress.street}
+                                                onChange={handleInputChange}
+                                            />
+                                            <AddressField
+                                                label="Estado"
+                                                value={editedAddress.state}
+                                                onChange={handleInputChange}
+                                            />
+                                            <AddressField
+                                                label="CEP"
                                                 value={editedAddress.cep}
-                                                onChange={(e) => handleInputChange(e, 'cep')}
+                                                onChange={handleInputChange}
                                                 onBlur={handleEditCEPBlur}
                                             />
-                                            </div>
+                                            <AddressField
+                                                label="Bairro"
+                                                value={editedAddress.district}
+                                                onChange={handleInputChange}
+                                            />
+                                            <AddressField
+                                                label="Número"
+                                                value={editedAddress.numberhouse}
+                                                onChange={handleInputChange}
+                                            />
+                                            <AddressField
+                                                label="Complemento"
+                                                value={editedAddress.complement}
+                                                onChange={handleInputChange}
+                                            />
                                             <div>
-                                                <label className="label-endereco">
-                                                    Bairro:
-                                                </label>
-                                                <input
-                                                    className="dados-endereco bairro"
-                                                    type='text'
-                                                    value={editedAddress.district}
-                                                    onChange={(e) => handleInputChange(e, 'district')}
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="label-endereco">
-                                                    Número:
-                                                </label>
-                                                <input
-                                                    className="dados-endereco numero"
-                                                    type='text'
-                                                    value={editedAddress.numberhouse}
-                                                    onChange={(e) => handleInputChange(e, 'numberhouse')}
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="label-endereco">
-                                                    Complemento:
-                                                </label>
-                                                <input
-                                                    className="dados-endereco complemento"
-                                                    type='text'
-                                                    value={editedAddress.complement}
-                                                    onChange={(e) => handleInputChange(e, 'complement')}
-                                                />
-                                            </div>
-                                            <div>
-                                                <button className="button-save-new-adress" onClick={handleUpdateAddress}>Salvar</button>
-                                                <button className="button-cancel-new-adress" onClick={handleCancelEdit}>Cancelar</button>
+                                                <button
+                                                    className="button-save-new-adress"
+                                                    onClick={handleUpdateAddress}
+                                                > Salvar
+                                                </button>
+                                                <button
+                                                    className="button-cancel-new-adress"
+                                                    onClick={handleCancelEdit}
+                                                > Cancelar
+                                                </button>
                                             </div>
                                         </>
                                     ) : (
@@ -513,7 +444,7 @@ const Useraddress = ({ handleregisterAddress }) => {
                             </div>
                         </div>
                     )}
-                </div>
+            </div>
             )}
         </div>
     );
