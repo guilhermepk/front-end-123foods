@@ -236,6 +236,7 @@ const Productform= (props) => {
         name="price"
         value={formValues.price}
         onChange={handleChange}
+        step='0.01'
         placeholder='Inserir preço'
       />
     </label>
