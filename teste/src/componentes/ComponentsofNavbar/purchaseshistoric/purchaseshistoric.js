@@ -80,63 +80,63 @@ const Purchaseshistoric=()=>{
       //   const { row } = props;
       //   const [open, setOpen] = React.useState(false);
 
-        return (
-         <React.Fragment>
-            <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-              <TableCell>
-                <IconButton
-                  aria-label="expand row"
-                  size="small"
-                  onClick={() => setOpen(!open)}
-                >
-                  {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                </IconButton>
-              </TableCell>
-              <TableCell component="th" scope="row">
-                {row.data}
-              </TableCell>
-              <TableCell align="right">{row.productID}</TableCell>
-              {/* <TableCell align="right">{row.quantitiesProduct}</TableCell>
-              <TableCell align="right">{row.totalPrice}</TableCell>
-              <TableCell align="right">{row.delivery}</TableCell> */}
-            </TableRow>
-            <TableRow>
-              <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                  <Box sx={{ margin: 1 }}>
-                    <Typography variant="h6" gutterBottom component="div">
-                      History
-                    </Typography>
-                    <Table size="small" aria-label="purchases">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell>Data de Compra</TableCell>
-                          <TableCell>ID do Produto</TableCell>
-                          <TableCell align="right">Quantidade</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {row.history.map((historyRow) => (
-                          <TableRow key={historyRow.date}>
-                            <TableCell component="th" scope="row">
-                              {historyRow.date}
-                            </TableCell>
-                            {/* <TableCell>{historyRow.customerId}</TableCell>
-                            <TableCell align="right">{historyRow.amount}</TableCell>
-                            <TableCell align="right">
-                              {Math.round(historyRow.amount * row.price * 100) / 100}
-                            </TableCell> */}
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </Box>
-                </Collapse>
-              </TableCell>
-            </TableRow>
-          </React.Fragment>
-        );
-      }
+      //   return (
+      //    <React.Fragment>
+      //       <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+      //         <TableCell>
+      //           <IconButton
+      //             aria-label="expand row"
+      //             size="small"
+      //             onClick={() => setOpen(!open)}
+      //           >
+      //             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+      //           </IconButton>
+      //         </TableCell>
+      //         <TableCell component="th" scope="row">
+      //           {row.data}
+      //         </TableCell>
+      //         <TableCell align="right">{row.productID}</TableCell>
+      //         {/* <TableCell align="right">{row.quantitiesProduct}</TableCell>
+      //         <TableCell align="right">{row.totalPrice}</TableCell>
+      //         <TableCell align="right">{row.delivery}</TableCell> */}
+      //       </TableRow>
+      //       <TableRow>
+      //         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+      //           <Collapse in={open} timeout="auto" unmountOnExit>
+      //             <Box sx={{ margin: 1 }}>
+      //               <Typography variant="h6" gutterBottom component="div">
+      //                 History
+      //               </Typography>
+      //               <Table size="small" aria-label="purchases">
+      //                 <TableHead>
+      //                   <TableRow>
+      //                     <TableCell>Data de Compra</TableCell>
+      //                     <TableCell>ID do Produto</TableCell>
+      //                     <TableCell align="right">Quantidade</TableCell>
+      //                   </TableRow>
+      //                 </TableHead>
+      //                 <TableBody>
+      //                   {row.history.map((historyRow) => (
+      //                     <TableRow key={historyRow.date}>
+      //                       <TableCell component="th" scope="row">
+      //                         {historyRow.date}
+      //                       </TableCell>
+      //                       {/* <TableCell>{historyRow.customerId}</TableCell>
+      //                       <TableCell align="right">{historyRow.amount}</TableCell>
+      //                       <TableCell align="right">
+      //                         {Math.round(historyRow.amount * row.price * 100) / 100}
+      //                       </TableCell> */}
+      //                     </TableRow>
+      //                   ))}
+      //                 </TableBody>
+      //               </Table>
+      //             </Box>
+      //           </Collapse>
+      //         </TableCell>
+      //       </TableRow>
+      //     </React.Fragment>
+      //   );
+      // }
 
       // Row.propTypes = {
       //   row: PropTypes.shape({
@@ -153,36 +153,36 @@ const Purchaseshistoric=()=>{
       //   }).isRequired,
       // };
 
-      const rows = data.map((cartItem) => createData(
-        cartItem.productID,
-        // cartItem.quantitiesProduct,
-        // cartItem.totalPrice,
-        // cartItem.delivery
-      ));
+      // const rows = data.map((cartItem) => createData(
+      //   cartItem.productID,
+      //   // cartItem.quantitiesProduct,
+      //   // cartItem.totalPrice,
+      //   // cartItem.delivery
+      // ));
 
-      return (
-          <TableContainer component={Paper}>
-            <Table aria-label="collapsible table">
-              <TableHead>
-                <TableRow>
-                  <TableCell />
-                  <TableCell>Dessert</TableCell>
-                  <TableCell align="right">ID do Carrinho</TableCell>
-                  <TableCell align="right">Nº de Produtos&nbsp;</TableCell>
-                  <TableCell align="right">Preço Total&nbsp;</TableCell>
-                  <TableCell align="right">Entregue&nbsp;</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows.map((row) => (
-                  <Row key={row.data} row={row} />
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        );
+      // return (
+      //     <TableContainer component={Paper}>
+      //       <Table aria-label="collapsible table">
+      //         <TableHead>
+      //           <TableRow>
+      //             <TableCell />
+      //             <TableCell>Dessert</TableCell>
+      //             <TableCell align="right">ID do Carrinho</TableCell>
+      //             <TableCell align="right">Nº de Produtos&nbsp;</TableCell>
+      //             <TableCell align="right">Preço Total&nbsp;</TableCell>
+      //             <TableCell align="right">Entregue&nbsp;</TableCell>
+      //           </TableRow>
+      //         </TableHead>
+      //         <TableBody>
+      //           {rows.map((row) => (
+      //             <Row key={row.data} row={row} />
+      //           ))}
+      //         </TableBody>
+      //       </Table>
+      //     </TableContainer>
+      //   );
     
-    
+}
 
 export default Purchaseshistoric;
         

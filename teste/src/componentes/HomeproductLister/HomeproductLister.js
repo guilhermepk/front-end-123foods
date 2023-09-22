@@ -3,6 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import { sendPurchaseRequest } from '../Buy/Buy'; 
 import './HomeproductLister.css'
+import { Link } from "react-router-dom";
 
 const HomeproductLister = (props) => {
     const [products, setProducts] = useState([]);
@@ -68,9 +69,9 @@ const HomeproductLister = (props) => {
                 {currentProducts.map((product, index) => (
                     <Col key={index} className="cardCol">
                         <Card className="cardProduct">
-                            <a href={`/product/${product.id}`} className="linkCard">
+                            <Link to={`/product/${product.id}`} className="linkCard">
 
-                                <div className="nameDiv">
+                                <div className="nameDiv"> 
                                     <h1 className="productName">{product.name}</h1>
                                 </div>
 
@@ -90,7 +91,7 @@ const HomeproductLister = (props) => {
                                    
                                 </div>
 
-                            </a> 
+                            </Link> 
 
                             <button className="buyButton" onClick={() => handleBuyClick(product.id,index)}>Comprar</button>
 
