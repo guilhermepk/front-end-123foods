@@ -1,7 +1,8 @@
 import React, { useState, useCallback,useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import './Productform.css';
-import Select from 'react-select'
+import Select from 'react-select';
+import axios from 'axios';
 
 const Productform= (props) => {
   const [initialFormValues, setInitialFormValues] = useState({});
@@ -15,13 +16,15 @@ const Productform= (props) => {
             name: product.name,
             brand: product.brand,
             weight: product.weight,
-            unitsofmeasurementId: '',
-            category: '',
+            unitsofmeasurementId: product.units_of_measurements.id,
+            categoriesIds: product.categories.map(category => category.id),
             amount: product.amount,
             description: product.description,
             price: product.price,
             image: null
           })
+
+          console.log(product);
         });
         
     }else{
@@ -30,7 +33,7 @@ const Productform= (props) => {
         brand: '',
         weight: '',
         unitsofmeasurementId: '',
-        category: '',
+        categoriesIds: '',
         amount: '',
         description: '',
         price: '',
@@ -57,8 +60,7 @@ const Productform= (props) => {
   const [formValues, setFormValues] = useState({});
   useEffect(() => {
     setFormValues(initialFormValues)
-  }, []);
-  console.log(formValues)
+  }, [initialFormValues]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -68,55 +70,92 @@ const Productform= (props) => {
   const handleFileDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
     setFormValues({ ...formValues, image: file });
+    console.log('frm:', formValues)
   }, [formValues]);
 
 
+  const handleUpdate = async (updatedData) => {
+    try {
+      const response = await axios.put(`http://localhost:3000/products/${props.productId}`, updatedData);
+      console.log('Dados atualizados com sucesso!', response.data);
+    } catch (error) {
+      console.error('Erro ao atualizar dados:', error);
+    }
+  };
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    
-    formData.append('name', formValues.name);
-    formData.append('brand', formValues.brand);
-    formData.append('weight', parseFloat(formValues.weight));
-    formData.append('unitsofmeasurementId', parseInt(formValues.unitsofmeasurementId));
-    
-    if (formValues.categoryId.length > 1) {
-      formValues.categoryId.forEach((id) => {
-        formData.append('categoryIds', parseInt(id));
-      });
-    } else {
-      formData.append('categoryIds[]', [parseInt(formValues.categoryId)]);
-    }
-  
-    formData.append('amount', parseInt(formValues.amount));
-    formData.append('description', formValues.description);
-    formData.append('price', parseFloat(formValues.price));
-    formData.append('file', formValues.image);
-  
-    try {
-      fetch('http://localhost:3000/products', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
-        },
-        body: formData,
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Erro na solicitação HTTP: ' + response.status);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          setFormValues(initialFormValues);
-          window.location.href = '/admin/product-list';
-        })
-        .catch((error) => {
-          console.error('Erro durante o processamento da solicitação:', error);
+
+    if (props.productId){
+      const updatedData = new FormData();
+      updatedData.append('name', formValues.name);
+      updatedData.append('brand', formValues.brand);
+      updatedData.append('weight', parseFloat(formValues.weight));
+      updatedData.append('unitsofmeasurementId', parseInt(formValues.unitsofmeasurementId));
+      
+      if (formValues.categoriesIds.length > 1) {
+        formValues.categoriesIds.forEach((id) => {
+          updatedData.append('categoryIds', parseInt(id));
         });
-    } catch (error) {
-      console.error('Erro durante o envio da solicitação:', error);
+      } else {
+        updatedData.append('categoryIds[]', [parseInt(formValues.categoriesIds)]);
+      }
+    
+      updatedData.append('amount', parseInt(formValues.amount));
+      updatedData.append('description', formValues.description);
+      updatedData.append('price', parseFloat(formValues.price));
+      if (formValues.image) updatedData.append('file', formValues.image);
+
+      handleUpdate(updatedData);
+
+    }else{
+      e.preventDefault();
+      const formData = new FormData();
+      
+      formData.append('name', formValues.name);
+      formData.append('brand', formValues.brand);
+      formData.append('weight', parseFloat(formValues.weight));
+      formData.append('unitsofmeasurementId', parseInt(formValues.unitsofmeasurementId));
+      
+      if (formValues.categoriesIds.length > 1) {
+        formValues.categoriesIds.forEach((id) => {
+          formData.append('categoryIds', parseInt(id));
+        });
+      } else {
+        formData.append('categoryIds[]', [parseInt(formValues.categoriesIds)]);
+      }
+    
+      formData.append('amount', parseInt(formValues.amount));
+      formData.append('description', formValues.description);
+      formData.append('price', parseFloat(formValues.price));
+      formData.append('file', formValues.image);
+    
+      try {
+        fetch('http://localhost:3000/products', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
+          },
+          body: formData,
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Erro na solicitação HTTP: ' + response.status);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            setFormValues(initialFormValues);
+            window.location.href = '/admin/product-list';
+          })
+          .catch((error) => {
+            console.error('Erro durante o processamento da solicitação:', error);
+          });
+      } catch (error) {
+        console.error('Erro durante o envio da solicitação:', error);
+      }
     }
   };
   
@@ -178,7 +217,8 @@ const Productform= (props) => {
             if (selectedOption) {
               const selectedMeasurementId = selectedOption.value;
               setFormValues({ ...formValues, unitsofmeasurementId: selectedMeasurementId });
-              console.log('um', formValues.unitsofmeasurementId)
+              console.log('frm:', formValues)
+              
             }
           }}
         />
@@ -188,7 +228,7 @@ const Productform= (props) => {
       Categoria:
       <Select
     className="input-produtos1"
-    value={formValues.categoryId && formValues.categoryId.map((id) => ({
+    value={formValues.categoriesIds && formValues.categoriesIds.map((id) => ({
       value: id,
       label: category.find((cat) => cat.id === id)?.name || '',
     }))}
@@ -199,8 +239,8 @@ const Productform= (props) => {
     }))}
     onChange={(selectedOptions) => {
       const selectedCategoryId = selectedOptions.map((option) => option.value);
-      setFormValues({ ...formValues, categoryId: selectedCategoryId });
-      console.log("categoryId:", selectedCategoryId);
+      setFormValues({ ...formValues, categoriesIds: selectedCategoryId });
+      
     }}
   />
     </label>
