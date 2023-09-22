@@ -8,12 +8,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Modal from 'react-modal';
+import { useNavigate, useRouter} from "react-router-dom"
 
 const AdmProductLister = () => {
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const initialProductsPerPage = 10;
     const [productsPerPage, setProductsPerPage] = useState(initialProductsPerPage);
+    const navigate = useNavigate()
 
     if (productsPerPage < 1) productsPerPage = initialProductsPerPage;
 
@@ -122,7 +124,7 @@ const AdmProductLister = () => {
     }
 
     const handleEditProduct = (productId) => {
-        window.location.href = `/admin/product-edit/${productId}`;
+        navigate(`/admin/product-edit/${productId}`);
     }
 
     return (

@@ -1,0 +1,30 @@
+.history-tilte{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    height: 80px;
+    font-size: 28px;
+    background-color: #FFECCE;
+}
+
+.subtitle-history{
+    display: flex;
+    font-size: 28px;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.content-history{
+    display: flex;
+    justify-content: center;
+    margin-left: 4rem;
+    font-size: 28px;
+    width: 93%;
+}
+
+.img-history{
+    display: flex;
+    justify-content: center;
+    margin-top: 2.7rem;
+}

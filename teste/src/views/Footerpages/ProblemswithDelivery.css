@@ -1,0 +1,17 @@
+.product-help-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    height: 80px;
+    font-size: 28px;
+    background-color: #FFECCE;
+}
+
+.pruduct-help-subtitle{
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+    margin-bottom: 7rem;
+    
+}

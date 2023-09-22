@@ -1,0 +1,60 @@
+.buy-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    height: 80px;
+    font-size: 22px;
+    background-color: #FFECCE;
+}
+
+.Howtobuy-sub-title{
+    display: flex;
+    align-items: center;
+    font-size: 36px;
+    margin-bottom: 7rem;
+    flex-direction: column;
+}
+
+.howtobuy-info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 28px;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.howtobuy-info2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 28px;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+
+.img-howtobuy{
+    width: 1200px;
+    min-height: 450px;
+}
+
+
+.img-howtobuy-info{
+    width: auto;
+}
+
+.img-howtobuy-final{
+    width: 1200px;
+    min-height: 450px;
+    border-radius: 12px;
+}
+
+.howtobuy-carrinho{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 28px;
+    gap: 4rem;
+}

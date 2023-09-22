@@ -1,26 +1,42 @@
-
 import Footer from "../../componentes/Footer/Footer"
-
+import './HowtoBuy.css';
 import Navigationbar from '../../componentes/ComponentsofNavbar/Navigationbar/Navigationbar';
-
 const HowtoBuy = () => {
 
 
     return (
         <div className="How-to-Buy">
             <header><Navigationbar/></header>
-            <div className="Como Comprar">
-      <h2>Nossa História</h2>
+            <div className="buy-title">
+      <h2>Como Comprar</h2>
+      </div>
+      <div className="Howtobuy-sub-title">
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        Nosso site possui vários produtos
       </p>
+      </div>
+      <div className="howtobuy-info">
       <p>
-        Why do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+      Para compra-los é muito fácil, caso queira visualizar alguns de nossos produtos basta clicar no mesmo
       </p>
+      <img src="imagens/Captura de tela de 2023-09-22 08-39-42.png" className="img-howtobuy"></img>
+      </div>
+      <div className="howtobuy-info2">
       <p>
-        Where does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+      Caso esteja procurando por algum produto em espećifico a barra de pesquisa e as categorias de produto estão na página principal so site
       </p>
-    </div>
+      <img src="imagens/Captura de tela de 2023-09-22 08-48-30.png" className="img-howtobuy-info"></img>
+      <img src="imagens/Captura de tela de 2023-09-22 08-49-28.png" className="img-howtobuy"></img>
+      </div>
+      <div className="howtobuy-carrinho">
+        <p>
+          Depois de escolher o seu produto, clique em comprar e ele irá direto para o carrinho de compras, onde voçê pode finalizar a compra
+        </p>
+        <img src="imagens/Captura de tela de 2023-09-22 09-03-09.png" className="img-howtobuy-final"></img>
+      </div>
+      <p>
+        
+      </p>
             <Footer />
         </div>
     );
