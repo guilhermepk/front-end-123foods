@@ -23,8 +23,6 @@ const Productform= (props) => {
             price: product.price,
             image: null
           })
-
-          console.log(product);
         });
         
     }else{
@@ -70,47 +68,49 @@ const Productform= (props) => {
   const handleFileDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
     setFormValues({ ...formValues, image: file });
-    console.log('frm:', formValues)
   }, [formValues]);
+  
 
+  const handleUpdate = async () => {
+    const updatedData = new FormData();
+      
+    updatedData.append('name', formValues.name);
+    updatedData.append('brand', formValues.brand);
+    updatedData.append('weight', parseFloat(formValues.weight));
+    updatedData.append('unitsofmeasurementId', parseInt(formValues.unitsofmeasurementId));
+    
+    if (formValues.categoriesIds.length > 1) {
+      formValues.categoriesIds.forEach((id) => {
+        updatedData.append('categoryIds', parseInt(id));
+      });
+    } else {
+      updatedData.append('categoryIds[]', [parseInt(formValues.categoriesIds)]);
+    }
+  
+    updatedData.append('amount', parseInt(formValues.amount));
+    updatedData.append('description', formValues.description);
+    updatedData.append('price', parseFloat(formValues.price));
 
-  const handleUpdate = async (updatedData) => {
+    try{
+      updatedData.append('file', formValues.image);
+    }catch(e){
+      console.error("deu erro enviando a imagem:", e);
+    }
+
     try {
-      const response = await axios.put(`http://localhost:3000/products/${props.productId}`, updatedData);
+      const response = await axios.patch(`http://localhost:3000/products/${props.productId}`, updatedData);
       console.log('Dados atualizados com sucesso!', response.data);
     } catch (error) {
       console.error('Erro ao atualizar dados:', error);
     }
-  };
-  
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (props.productId){
-      const updatedData = new FormData();
-      updatedData.append('name', formValues.name);
-      updatedData.append('brand', formValues.brand);
-      updatedData.append('weight', parseFloat(formValues.weight));
-      updatedData.append('unitsofmeasurementId', parseInt(formValues.unitsofmeasurementId));
-      
-      if (formValues.categoriesIds.length > 1) {
-        formValues.categoriesIds.forEach((id) => {
-          updatedData.append('categoryIds', parseInt(id));
-        });
-      } else {
-        updatedData.append('categoryIds[]', [parseInt(formValues.categoriesIds)]);
-      }
-    
-      updatedData.append('amount', parseInt(formValues.amount));
-      updatedData.append('description', formValues.description);
-      updatedData.append('price', parseFloat(formValues.price));
-      if (formValues.image) updatedData.append('file', formValues.image);
-
-      handleUpdate(updatedData);
-
+      handleUpdate();
     }else{
-      e.preventDefault();
       const formData = new FormData();
       
       formData.append('name', formValues.name);
@@ -130,7 +130,7 @@ const Productform= (props) => {
       formData.append('description', formValues.description);
       formData.append('price', parseFloat(formValues.price));
       formData.append('file', formValues.image);
-    
+
       try {
         fetch('http://localhost:3000/products', {
           method: 'POST',
@@ -217,7 +217,6 @@ const Productform= (props) => {
             if (selectedOption) {
               const selectedMeasurementId = selectedOption.value;
               setFormValues({ ...formValues, unitsofmeasurementId: selectedMeasurementId });
-              console.log('frm:', formValues)
               
             }
           }}
