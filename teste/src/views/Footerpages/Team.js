@@ -1,0 +1,35 @@
+import Footer from "../../componentes/Footer/Footer"
+import Navigationbar from '../../componentes/ComponentsofNavbar/Navigationbar/Navigationbar';
+import {TbPhotoHeart} from 'react-icons/tb';
+import './Team.css'
+
+const Team = () =>{
+    return(
+        <div>
+            <header><Navigationbar/></header>
+        <div className="Team-title">
+        <h1>Conheça o Nosso Time</h1>
+        </div>
+        <div className="Team-subtiltle">
+        <u>Front-end</u>
+        <u>Back-end</u>
+        <u>Design</u>
+        </div>
+        <div className="front-end">
+        <div className="front-end-title">
+        <TbPhotoHeart/>
+            <p>
+                Front-end
+            </p>
+            </div>
+            <div className="front-end-content"> 
+                <img></img>
+            </div>
+        </div>
+        <Footer />
+        </div>
+        
+    )
+}
+
+export default Team;

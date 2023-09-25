@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
     height: 80px;
     font-size: 28px;
     background-color: #FFECCE;
@@ -12,7 +12,7 @@
     display: flex;
     font-size: 28px;
     justify-content: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
 }
 
 .content-history{
@@ -21,10 +21,10 @@
     margin-left: 4rem;
     font-size: 28px;
     width: 93%;
+    margin-bottom: 6rem;
 }
 
 .img-history{
     display: flex;
     justify-content: center;
-    margin-top: 2.7rem;
 }

@@ -1,4 +1,4 @@
-.Orders-title{
+.ourstory-title{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,19 +8,12 @@
     background-color: #FFECCE;
 }
 
-.Orders-content{
-    display: flex;
-    font-size: 28px;
-    justify-content: center;
-    margin-bottom: 4rem;
-}
-
-.trocas-div{
+.ourstory-content{
     display: flex;
     justify-content: center;
-    width: 100%;
 }
 
-.img-trocas{
-    width: 400px;
+.ourstory-img{
+    width: 800px;
+    height: 700px;  
 }
