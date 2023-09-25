@@ -70,7 +70,9 @@ const Purchaseshistoric=()=>{
   
 
         return (
-         <React.Fragment>
+          <>
+          {historic && (
+            <React.Fragment>
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
               <TableCell component="th" scope="row">
               <TableContainer component={Paper}>
@@ -95,10 +97,10 @@ const Purchaseshistoric=()=>{
                   {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
               </IconButton>
               <TableCell align='right'>SLAAA</TableCell>
-              <TableCell>{historic[0].product.name}</TableCell>
+              {/* <TableCell>{historic[0].product.name}</TableCell> */}
               <TableCell align="right">{historic.length}</TableCell>
               <TableCell>N sei ainda como fazer</TableCell>
-              <TableCell>{historic[0].createdAt}</TableCell>
+              {/* <TableCell>{historic[0].createdAt}</TableCell> */}
             
             <TableRow>
               <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -118,7 +120,7 @@ const Purchaseshistoric=()=>{
                       <TableBody>
                         {historic.map((historyRow) => (
                           <TableRow key={historyRow.date}>
-                            <TableCell>{historic[0].product.name}</TableCell>      
+                            <TableCell>{historic[0].product.name}</TableCell>
                             <TableCell>{historyRow.amount}</TableCell>
                             <TableCell align="right">
                               {Math.round(historyRow.amount * historic[0].product.price * 100) / 100}
@@ -132,6 +134,8 @@ const Purchaseshistoric=()=>{
               </TableCell>
             </TableRow>
           </React.Fragment>
+          )}
+          </>
         );
       // }
 
