@@ -19,9 +19,7 @@
 .front-end{
     margin-left: 4rem;
     align-items: center;
-    font-size: 36px;
     gap: 8px;
-    font-weight: 600;
 }
 
 .front-end-title{
@@ -29,10 +27,43 @@
     align-items: center;
     margin-bottom: 2.5rem;
     gap: 8px;
+    font-weight: 600;
+    font-size: 36px;
 }
 
 .front-end-content{
-    width: 30vw;
-    height: 200px;
-    border: solid black;
+    display: flex   ;
+    width: 40%;
+    height: 205px;
+    border: solid rgb(116, 116, 116);
+    border-radius: 12px;
 }
+
+.front-end-img{
+    border-radius: 8px 0px 0px 8px;
+    margin-top: -0.5px;
+}
+
+.front-end-subtitle{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -2rem;
+}
+
+.front-end-div{
+    min-width: 200px;
+}
+
+.front-end-nome{
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 1rem;
+}
+
+.sss{
+    margin-top: 2rem;
+}
+
