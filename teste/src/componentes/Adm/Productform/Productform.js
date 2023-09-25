@@ -93,13 +93,15 @@ const Productform= (props) => {
     updatedData.append('description', formValues.description);
     updatedData.append('price', parseFloat(formValues.price));
 
-    try{
+    if(formValues.image){
       updatedData.append('file', formValues.image);
-    }catch(e){
-      console.error("deu erro enviando a imagem:", e);
     }
 
     try {
+      console.log('enviando:')
+      for (const pair of updatedData.entries()) {
+        console.log(pair[0], pair[1]);
+      }
       const response = await axios.patch(`http://localhost:3000/products/${props.productId}`, updatedData);
       console.log('Dados atualizados com sucesso!', response.data);
     } catch (error) {
