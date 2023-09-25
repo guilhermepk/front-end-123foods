@@ -6,21 +6,23 @@ import axios from 'axios';
 
 const Productform= (props) => {
   const [initialFormValues, setInitialFormValues] = useState({});
+  const [product, setProduct] = useState(null);
   
   useEffect(() => {
     if(props.productId){
       fetch(`http://localhost:3000/products/${props.productId}`)
         .then((response) => response.json())
-        .then((product) => {
+        .then((data) => {
+          setProduct(data);
           setInitialFormValues({
-            name: product.name,
-            brand: product.brand,
-            weight: product.weight,
-            unitsofmeasurementId: product.units_of_measurements.id,
-            categoriesIds: product.categories.map(category => category.id),
-            amount: product.amount,
-            description: product.description,
-            price: product.price,
+            name: data.name,
+            brand: data.brand,
+            weight: data.weight,
+            unitsofmeasurementId: data.units_of_measurements.id,
+            categoriesIds: data.categories.map(category => category.id),
+            amount: data.amount,
+            description: data.description,
+            price: data.price,
             image: null
           })
         });
@@ -280,32 +282,49 @@ const Productform= (props) => {
       />
     </label>
     </div>
+
     <div className='div-img-button'>
     
-    <label className="label-imagem-dropzone">
-      Imagens:
-      </label>
-      <div {...getRootProps()} className="imagem-banner-click">
-        <input {...getInputProps()} />
-        {isDragActive ? (
-          <p>Arraste a imagem aqui...</p>
-        ) : (
-          <>
-            {formValues.image ? (
-              <div className='div-img-move'>
-              <img src={URL.createObjectURL(formValues.image)} className="img-produto" alt="Imagem selecionada" />
-              </div> 
-            ) : (
-              <p className="text-dropzone">Arraste a imagem aqui</p>
-            )}
-          </>
-        )}
+      {product && (
+        <div>
+          <h3> Imagem atual: </h3>
+          {product && (
+            <img src={`http://localhost:3000/uploads/${product.images[0].path}`}/>
+          )}
+        </div>
+      )}
+
+      <div>
+        <label className="label-imagem-dropzone">
+          Imagem:
+        </label>
+        <div {...getRootProps()} className="imagem-banner-click">
+          <input {...getInputProps()} />
+          {isDragActive ? (
+            <p>Arraste a imagem aqui...</p>
+          ) : (
+            <>
+              {formValues.image ? (
+                <div className='div-img-move'>
+                  <img src={URL.createObjectURL(formValues.image)} className="img-produto" alt="Imagem selecionada" />
+                </div> 
+              ) : (
+                <p className="text-dropzone">
+                  <div className='text-dropzone-div'> Arraste a imagem aqui </div>
+                  <div className='text-dropzone-div'>
+                    {product && (<span> Deixe vazio para manter a imagem atual </span>)}
+                  </div>
+                </p>
+              )}
+            </>
+          )}
+        </div>
+        <div className="div-button-banner">
+        <button  className="botao-banner-salvar" type="submit"> Enviar </button>
+        </div>
       </div>
-      <div className="div-button-banner">
-    <button  className="botao-banner-salvar" type="submit"> Enviar </button>
     </div>
-    </div>
-    </form>
+  </form>
   );
 };
 

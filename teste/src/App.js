@@ -28,6 +28,7 @@ import WorkwithUs from "./views/Footerpages/WorkwithUs";
 import ProblemswithDelivery from "./views/Footerpages/ProblemswithDelivery";
 import Orders from "./views/Footerpages/Orders";
 import Payments from "./views/Footerpages/Payments";
+import Team from "./views/Footerpages/Team";
 
 function NotFound() {
   return (
@@ -54,6 +55,7 @@ const App = () => {
           <Route path="/ProblemswithDelivery" element={<ProblemswithDelivery />} />
           <Route path="/Orders" element={<Orders />} />
           <Route path="/methods_of_payment" element={<Payments />} />
+          <Route path="/Team" element={<Team />} />
           
           {/* Páginas relacionadas ao login, infos do user, etc */}
           <Route path="/user-register" element={<Userregister />} />

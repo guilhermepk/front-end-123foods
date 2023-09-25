@@ -17,13 +17,9 @@ const Orders= () => {
             
       </p>
       </div>
-      <p>
-      
-      </p>
-      <p>
-
-      </p>
-      <img src="https://cdn.shoppub.io/vicerinne/media/uploads_editor/2022/09/16/trocas-banner.jpg"/>
+      <div className="trocas-div">
+      <img className="img-trocas" src="https://cdn.shoppub.io/vicerinne/media/uploads_editor/2022/09/16/trocas-banner.jpg"/>
+      </div>
     </div>
             <Footer />
         </div>

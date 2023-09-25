@@ -12,6 +12,22 @@
     display: flex;
     justify-content: center;
     font-size: 36px;
-    margin-bottom: 7rem;
-    
+    margin-bottom: 5rem;
+}
+
+.problems-content{
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.problems-div{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.problems-img{
+    width: 450px;
+    height: 100%;
 }
