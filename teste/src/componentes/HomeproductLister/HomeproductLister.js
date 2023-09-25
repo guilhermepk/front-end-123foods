@@ -46,6 +46,40 @@ const HomeproductLister = (props) => {
             </div>
         );
     }
+    const calculateDiscount = (product) => {
+        if (!product) {
+          return "Produto não encontrado";
+        }
+      
+        let maxDiscount = 0;
+      
+        if (product.offer !== null) {
+          maxDiscount = product.offer;
+        }
+      
+        if (
+          product.categories &&
+          Array.isArray(product.categories) &&
+          product.categories.length > 0
+        ) {
+          product.categories.forEach((category) => {
+            if (category.offer !== null && category.offer.offer > maxDiscount) {
+              maxDiscount = category.offer.offer;
+            }
+          });
+        }
+      
+        if (maxDiscount > 0) {
+          const discountedPrice = product.price * (1 - maxDiscount / 100);
+          return `Preço com desconto: R$ ${discountedPrice.toFixed(2)}`;
+        }
+      
+        return "Sem desconto";
+      };
+      
+      
+      
+      
 
     const handleBuyClick = (productId,index) => {
     
@@ -62,43 +96,38 @@ const HomeproductLister = (props) => {
           setToken(storedToken);
         }
       }, []);
+    //   console.log('desconto:',products[0].categories[0].offer.offer)
     return (
         <div className="divList">
             <Pag/>
             <ul className='cardList'>
-                {currentProducts.map((product, index) => (
-                    <Col key={index} className="cardCol">
+                    {currentProducts.map((product, index) => (
+                        <Col key={index} className="cardCol">
                         <Card className="cardProduct">
                             <Link to={`/product/${product.id}`} className="linkCard">
-
-                                <div className="nameDiv"> 
-                                    <h1 className="productName">{product.name}</h1>
-                                </div>
-
-                                {
-                                    product.images
-                                    &&
-                                    <Card.Img className="cardImg"
-                                        src={`http://localhost:3000/uploads/${product.images[0]?.path}`}
-                                        //onLoad={() => console.log(`Imagem carregada: /uploads/${product.images[0]?.path}`)}
-                                        onError={() => console.log(`Erro ao carregar a imagem: /uploads/${product.images[0]?.path}`)}
-                                    />
-                                }
-
-                                <div className="cardTexts">
-                                    <p>{product.brand}</p>
-                                    <p>R$ {product.price}</p>
-                                   
-                                </div>
-
-                            </Link> 
-
-                            <button className="buyButton" onClick={() => handleBuyClick(product.id,index)}>Comprar</button>
-
+                            <div className="nameDiv">
+                                <h1 className="productName">{product.name}</h1>
+                            </div>
+                            {product.images && (
+                                <Card.Img
+                                className="cardImg"
+                                src={`http://localhost:3000/uploads/${product.images[0]?.path}`}
+                                onError={() => console.log(`Erro ao carregar a imagem: /uploads/${product.images[0]?.path}`)}
+                                />
+                            )}
+                            <div className="cardTexts">
+                                <p>{product.brand}</p>
+                                <p>R$ {product.price}</p>
+                                <p>{calculateDiscount(product)}</p> {/* Calcular e exibir o desconto aqui */}
+                            </div>
+                            </Link>
+                            <button className="buyButton" onClick={() => handleBuyClick(product.id, index)}>
+                            Comprar
+                            </button>
                         </Card>
-                    </Col>
-                ))}
-            </ul>
+                        </Col>
+                    ))}
+                    </ul>
             {currentProducts.length === 0 && props.category &&(
                 <p className="no-product">Nenhum produto encontrado para a categoria {props.category}</p>
             )}
