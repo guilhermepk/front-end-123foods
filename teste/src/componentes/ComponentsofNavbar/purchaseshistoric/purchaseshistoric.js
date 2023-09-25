@@ -65,43 +65,42 @@ const Purchaseshistoric=()=>{
         setGroupedProducts(groupedProducts);
       }, [data]);
       console.log("historico",historic);
-
-      
   
 
         return (
           <>
-          {historic && (
+          {historic.length > 0 && (
             <React.Fragment>
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
               <TableCell component="th" scope="row">
-              <TableContainer component={Paper}>
-              <TableHead>
-                <TableRow>
-                  <TableCell />
-                  <TableCell>ID do Carrinho</TableCell>
-                  <TableCell align="right">Produtos</TableCell>
-                  <TableCell align="right">Nº de Produtos&nbsp;</TableCell>
-                  <TableCell align="right">Preço Total&nbsp;</TableCell>
-                  <TableCell align="right">Entregue&nbsp;</TableCell>
-                </TableRow>
-              </TableHead>
-            </TableContainer>
+                <TableContainer>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell />
+                      <TableCell>ID do Carrinho</TableCell>
+                      <TableCell align="right">Produtos</TableCell>
+                      <TableCell align="right">Nº de Produtos&nbsp;</TableCell>
+                      <TableCell align="right">Preço Total&nbsp;</TableCell>
+                      <TableCell align="right">Entregue&nbsp;</TableCell>
+                    </TableRow>
+                  </TableHead>
+                </TableContainer>
               </TableCell>
-              </TableRow>
+            </TableRow>
+            <TableCell>
               <IconButton
-                  aria-label="expand row"
-                  size="small"
-                  onClick={() => setOpen(!open)}
+                aria-label="expand row"
+                size="small"
+                onClick={() => setOpen(!open)}
               >
-                  {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
               </IconButton>
+            </TableCell>
               <TableCell align='right'>SLAAA</TableCell>
-              {/* <TableCell>{historic[0].product.name}</TableCell> */}
+              <TableCell>{historic[0].product.name}</TableCell>
               <TableCell align="right">{historic.length}</TableCell>
               <TableCell>N sei ainda como fazer</TableCell>
-              {/* <TableCell>{historic[0].createdAt}</TableCell> */}
-            
+              <TableCell>{historic[0].updatedAt}</TableCell>
             <TableRow>
               <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                 <Collapse in={open} timeout="auto" unmountOnExit>
@@ -119,11 +118,11 @@ const Purchaseshistoric=()=>{
                       </TableHead>
                       <TableBody>
                         {historic.map((historyRow) => (
-                          <TableRow key={historyRow.date}>
-                            <TableCell>{historic[0].product.name}</TableCell>
+                          <TableRow key={historyRow} >
+                            <TableCell> {historyRow.product.name} </TableCell>
                             <TableCell>{historyRow.amount}</TableCell>
                             <TableCell align="right">
-                              {Math.round(historyRow.amount * historic[0].product.price * 100) / 100}
+                              {Math.round(historyRow.amount * historyRow.product.price *100)/100}
                             </TableCell>
                           </TableRow>
                         ))}
@@ -137,30 +136,6 @@ const Purchaseshistoric=()=>{
           )}
           </>
         );
-      // }
-
-      // Row.propTypes = {
-      //   row: PropTypes.shape({
-      //     productID: PropTypes.number.isRequired,
-      //     // quantitiesProduct: PropTypes.number,
-      //     // totalPrice: PropTypes.number,
-      //     // delivery: PropTypes.arrayOf(
-      //     //   PropTypes.shape({
-      //     //     buy: PropTypes.number,
-      //     //     productID: PropTypes.string,
-      //     //     quantities: PropTypes.string,
-      //     //   }),
-      //     // )
-      //   }).isRequired,
-      // };
-
-      // const rows = data.map((cartItem) => createData(
-      //   cartItem.productID,
-      //   // cartItem.quantitiesProduct,
-      //   // cartItem.totalPrice,
-      //   // cartItem.delivery
-      // ));
-    
 }
 
 export default Purchaseshistoric;
