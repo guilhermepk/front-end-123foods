@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const HomeproductLister = (props) => {
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [productsPerPage] = useState(5);
+    const [productsPerPage] = useState(15);
     const [qtd, setQtd] = useState(1);
     const [token, setToken] = useState(null);
     useEffect(() => {
@@ -71,7 +71,14 @@ const HomeproductLister = (props) => {
       
         if (maxDiscount > 0) {
           const discountedPrice = product.price * (1 - maxDiscount / 100);
-          return `Preço com desconto: R$ ${discountedPrice.toFixed(2)}`;
+          return(
+            <div>
+            <p>{'R$'+product.price}</p>
+            <p>{'R$'+discountedPrice.toFixed(2)}</p>{/* taschener aqui */}
+              <p>{maxDiscount+'%'}</p>  
+            </div>
+          ) 
+          
         }
       
         return "Sem desconto";
@@ -96,7 +103,6 @@ const HomeproductLister = (props) => {
           setToken(storedToken);
         }
       }, []);
-    //   console.log('desconto:',products[0].categories[0].offer.offer)
     return (
         <div className="divList">
             <Pag/>
@@ -117,8 +123,7 @@ const HomeproductLister = (props) => {
                             )}
                             <div className="cardTexts">
                                 <p>{product.brand}</p>
-                                <p>R$ {product.price}</p>
-                                <p>{calculateDiscount(product)}</p> {/* Calcular e exibir o desconto aqui */}
+                                <p>{calculateDiscount(product)}</p> 
                             </div>
                             </Link>
                             <button className="buyButton" onClick={() => handleBuyClick(product.id, index)}>
