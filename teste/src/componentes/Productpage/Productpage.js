@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import './productpage.css'
 import { sendPurchaseRequest } from '../Buy/Buy'; 
-
+import { Carousel } from 'primereact/carousel';
+        
 const Productpage = (props) => {
     const [products, setProducts] = useState([]);
+    const[similars,setSimilars]=useState([])
     const [qtd, setQtd] = useState(1);
     const [token, setToken] = useState(null);
-
+    const [categoryIds, setCategoryIds] = useState([]);
     useEffect(() => {
         fetch(`http://localhost:3000/products/${props.productId}`)
             .then((response) => response.json())
@@ -34,12 +36,37 @@ const Productpage = (props) => {
     };
 
 
-  useEffect(() => {
-    const storedToken = localStorage.getItem('payload');
-    if (storedToken) {
-      setToken(storedToken);
+    useEffect(() => {
+        const storedToken = localStorage.getItem('payload');
+        if (storedToken) {
+          setToken(storedToken);
+        }
+    chamasimilar()
+      }, []);
+
+    const chamasimilar=()=>{
+        console.log("produto entrando na categories",products)
+      if (products.categories && products.categories.length > 0) {
+          const categoryIds = products.categories.map(category => category.id);
+          setCategoryIds(categoryIds); // Adicione parênteses aqui
+          console.log('IDs das categorias:', categoryIds);
+        } else {
+          console.log('Não há categorias disponíveis.');
+        }
+        
+        console.log('categorias ID', categoryIds);
+      fetch(`http://localhost:3000/products/${props.productId}?categoryIds=${categoryIds.join(',')}`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('teste',data)
+          setSimilars(data);
+          console.log('data: ', data);
+        });
+        console.log("categorias similares",categoryIds)
+        console.log(" similares",similars)
     }
-  }, []);
+      
+  
     return (
         <div className="product-move">
             <div className="product">
@@ -68,8 +95,12 @@ const Productpage = (props) => {
                     <p>Itens Relacionados</p>
                     </div>
                     <div className="product-list">
-                        <img className="" src="/imagens/12389.png"></img>
-                        <p className="p-product-text">Monster Energy Melancia</p>
+                        <Carousel value={products} 
+                        numVisible={3} 
+                        numScroll={1}     
+                        orientation="vertical" 
+                        verticalViewPortHeight="360px" 
+                         />
                         <div className="button-buy-product">
                         <button className="sla">Comprar</button>
                         </div>
