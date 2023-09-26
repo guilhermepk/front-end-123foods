@@ -3,10 +3,13 @@ import { useDropzone } from 'react-dropzone';
 import './Productform.css';
 import Select from 'react-select';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Productform= (props) => {
   const [initialFormValues, setInitialFormValues] = useState({});
   const [product, setProduct] = useState(null);
+
+  const navigate = useNavigate();
   
   useEffect(() => {
     if(props.productId){
@@ -83,10 +86,14 @@ const Productform= (props) => {
     
     if (formValues.categoriesIds.length > 1) {
       formValues.categoriesIds.forEach((id) => {
+        console.log('adicionando id categoria', id)
         updatedData.append('categoriesIds', parseInt(id));
       });
-    } else {
+    } else if (formValues.categoriesIds.length == 1){
+      console.log('adicionando id ', formValues.categoriesIds);
       updatedData.append('categoriesIds[]', [parseInt(formValues.categoriesIds)]);
+    }else{
+      console.log('não pode categoiries vazio')
     }
   
     updatedData.append('amount', parseInt(formValues.amount));
@@ -110,7 +117,7 @@ const Productform= (props) => {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (props.productId){
       handleUpdate();
@@ -161,6 +168,8 @@ const Productform= (props) => {
         console.error('Erro durante o envio da solicitação:', error);
       }
     }
+
+    //navigate('/admin/product-list')
   };
   
  
@@ -290,7 +299,7 @@ const Productform= (props) => {
       {product && (
         <div>
           <h3> Imagem atual: </h3>
-          {product && (
+          {product.images[0].path && (
             <img src={`http://localhost:3000/uploads/${product.images[0].path}`}/>
           )}
         </div>
