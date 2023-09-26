@@ -4,6 +4,7 @@ import { sendPurchaseRequest } from '../Buy/Buy';
 
 const Productpage = (props) => {
     const [products, setProducts] = useState([]);
+    const [similar, setSimilar] = useState([]);
     const [qtd, setQtd] = useState(1);
     const [token, setToken] = useState(null);
 
@@ -32,14 +33,26 @@ const Productpage = (props) => {
         console.log('token:', token);
         sendPurchaseRequest(props.productId, qtd, token, imagem);
     };
+console.log(products)
 
-
-  useEffect(() => {
+useEffect(() => {
+    console.log('useEffect para produtos similares acionado');
     const storedToken = localStorage.getItem('payload');
     if (storedToken) {
       setToken(storedToken);
     }
-  }, []);
+    console.log('propsID',props.productId)
+      fetch(`http://localhost:3000/products/${props.productId}/similar`)
+        .then((response) => response.json())
+        .then((data) => {
+          setSimilar(data);
+          console.log('similares', similar);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  , []);
     return (
         <div className="product-move">
             <div className="product">
