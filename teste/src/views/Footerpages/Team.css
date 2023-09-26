@@ -17,7 +17,8 @@
 }
 
 .front-end{
-    margin-left: 4rem;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
     gap: 8px;
 }
@@ -29,10 +30,11 @@
     gap: 8px;
     font-weight: 600;
     font-size: 36px;
+    margin-left: 4rem;
 }
 
-.front-end-content{
-    display: flex   ;
+.front-end-card{
+    display: flex;
     width: 40%;
     height: 205px;
     border: solid rgb(116, 116, 116);
@@ -50,7 +52,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: -2rem;
+    margin-top: 1rem;
 }
 
 .front-end-div{
@@ -63,7 +65,42 @@
     margin-bottom: 1rem;
 }
 
-.sss{
+.front-end-line{
     margin-top: 2rem;
+    margin-bottom: 0.5rem;
 }
+
+.front-end-icons{
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.twitch{
+    padding: 10px;
+}
+
+.front-end-card2{
+    display: flex;
+    width: 40%;
+    height: 205px;
+    border: solid rgb(116, 116, 116);
+    border-radius: 12px;
+}
+
+.front-end2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6rem;
+}
+
+.front-end-card3{
+    display: flex;
+    width: 40%;
+    height: 205px;
+    border: solid rgb(116, 116, 116);
+    border-radius: 12px;
+}
+
 
