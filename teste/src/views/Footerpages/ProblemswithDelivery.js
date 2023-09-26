@@ -17,7 +17,7 @@ const ProblemswithDelivery= () => {
       </p>
       </div>
       <div className="problems-div">
-      <img className="problems-img" src="https://cdn.create.vista.com/api/media/medium/208063164/stock-photo-smiling-delivery-man-holding-cardboard-box-checking-wristwatch-isolated-white?token="/>
+      <img className="problems-img" src="https://globalfy.com/wp-content/uploads/2019/05/e-packet-scaled.jpg"/>
       </div>
       <div className="problems-content">
       <p>

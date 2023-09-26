@@ -7,7 +7,9 @@ import {BsGithub} from 'react-icons/bs';
 import {RiComputerLine} from 'react-icons/ri';
 import {TbPointerHeart} from 'react-icons/tb';
 import {FiFigma} from 'react-icons/fi';
+import {BsLinkedin} from 'react-icons/bs'
 import './Team.css'
+import { TEAMS } from "../../mocks/view/team.js";
 
 const Team = () =>{
     return(
@@ -23,42 +25,32 @@ const Team = () =>{
         </div>
         <div className="front-end-title">
             <TbPointerHeart/>
-            <p>
+            <h3>
                 Design
-            </p>
+            </h3>
         </div>
         <div className="design">
-        <div className="front-end-card">
-                <div className="front-end-div">
-                <img className="front-end-img" src="https://avatars.githubusercontent.com/u/118612780?v=4" />
+        {
+            TEAMS.designer.map((item) => (
+                <div className="front-end-card">
+                    <div className="front-end-div">
+                    <img className="front-end-img" src={item.foto} />
+                    </div>
+                    <div className="front-end-subtitle">
+                        <p className="front-end-nome">{item.nome}</p>
+                        {item.cargo.map(cargo => (
+                            <p>{cargo}</p>
+                        ))}
+                        <hr className="front-end-line" width="80%" color="grey"/>
+                        <div className="front-end-icons">
+                            {item.socialMidia.map(social => (
+                                <a href={social.link}><social.icon /></a>
+                            ))}
+                        </div>
+                    </div>
                 </div>
-            <div className="front-end-subtitle">
-                <p className="front-end-nome">Manu Vodiane</p>
-                <p>Front-end</p>
-                <p>Designer</p>
-                <hr className="front-end-line" width="80%" color="grey"/>
-                <div className="front-end-icons">
-                    <a className="twitch" href="https://github.com/ManuVodi"><BsGithub /></a>
-                    <a href="https://www.instagram.com/manu_vodi/"><BsInstagram/></a>
-                </div>
-                </div>
-            </div>
-            <div className="front-end-card">
-                <div className="front-end-div">
-                <img className="front-end-img" src="imagens/gabriel.jpeg" />
-                </div>
-            <div className="front-end-subtitle">
-                <p className="front-end-nome">Gabriel Taschner Eddine</p>
-                <p>Front-end</p>
-                <p>Designer</p>
-                <hr className="front-end-line" width="80%" color="grey"/>
-                <div className="front-end-icons">
-                    <a href="https://www.twitch.tv/ztaschner"><BsTwitch /></a>
-                    <a className="twitch" href="https://github.com/zTaschner"><BsGithub /></a>
-                    <a href="https://www.instagram.com/gabriel_taschner/"><BsInstagram/></a>
-                </div>
-                </div>
-            </div>
+            ))
+        }
         </div>
         <div className="front-end-title">
         <TbPhotoHeart/>
@@ -77,26 +69,27 @@ const Team = () =>{
                 <p>Designer</p>
                 <hr className="front-end-line" width="80%" color="grey"/>
                 <div className="front-end-icons">
-                    <a href="https://www.twitch.tv/ztaschner"><BsTwitch /></a>
-                    <a className="twitch" href="https://github.com/zTaschner"><BsGithub /></a>
-                    <a href="https://www.instagram.com/gabriel_taschner/"><BsInstagram/></a>
+                    <a target="blank" href="https://www.twitch.tv/ztaschner"><BsTwitch /></a>
+                    <a target="blank" className="twitch" href="https://github.com/zTaschner"><BsGithub /></a>
+                    <a target="blank" href="https://www.instagram.com/gabriel_taschner/"><BsInstagram/></a>
                 </div>
                 </div>
             </div>
             <div className="front-end-card2">
             <div className="front-end-div">
             <div className="front-end-div">
-                <img className="front-end-img" src="https://avatars.githubusercontent.com/u/118612780?v=4" />
+                <img className="front-end-img" src="/imagens/manu.jpeg" />
                 </div>
                 </div>
                 <div className="front-end-subtitle">
-                <p className="front-end-nome">Manu Vodiane</p>
+                <p className="front-end-nome">Manu Vod</p>
                 <p>Front-end</p>
                 <p>Designer</p>
                 <hr className="front-end-line" width="80%" color="grey"/>
                 <div className="front-end-icons">
-                    <a className="twitch" href="https://github.com/ManuVodi"><BsGithub /></a>
-                    <a href="https://www.instagram.com/manu_vodi/"><BsInstagram/></a>
+                    <a target="blank" href="https://github.com/ManuVodi"><BsGithub /></a>
+                    <a target="blank" className="twitch" href="https://www.linkedin.com/in/emanuelle-vodiani-272280291/"><BsLinkedin/></a>
+                    <a target="blank" href="https://www.instagram.com/manu_vodi/"><BsInstagram/></a>
                 </div>
                 </div>
             </div>            
@@ -105,32 +98,34 @@ const Team = () =>{
         <div className="front-end-card3">
         <div className="front-end-div">
             <div className="front-end-div">
-                <img className="front-end-img" src="https://avatars.githubusercontent.com/u/112448450?v=4" />
+                <img className="front-end-img-gui" src="/imagens/gui.jpeg" />
                 </div>
                 </div>
                 <div className="front-end-subtitle">
-                <p className="front-end-nome">Guilherme Prigol</p>
+                <p className="front-end-nome">Guilherme Prigol Kramer</p>
                 <p>Back-end</p>
                 <p>Front-end</p>
                 <hr className="front-end-line" width="80%" color="grey"/>
                 <div className="front-end-icons">
-                    <a className="twitch" href="https://github.com/guilhermepk"><BsGithub /></a>
-                    <a href="https://www.instagram.com/o_guilherme_la/"><BsInstagram/></a>
+                    <a target="blank" href="https://github.com/guilhermepk"><BsGithub /></a>
+                    <a target="blank" className="twitch" href="https://www.linkedin.com/in/guilherme-prigol-kramer-b4a0b6275/"><BsLinkedin/></a>
+                    <a target="blank" href="https://www.instagram.com/o_guilherme_la/"><BsInstagram/></a>
                 </div>
                 </div>
             </div>
             <div className="front-end-card3">
             <div className="front-end-div">
-                <img className="front-end-img" src="https://avatars.githubusercontent.com/u/102488557?v=4"/>
+                <img className="front-end-img" src="/imagens/vini.jpeg"/>
                 </div>
                 <div className="front-end-subtitle">
-                <p className="front-end-nome">Vinicius Gabriel Graupmann</p>
+                <p className="front-end-nome-vini">Vinicius Gabriel Graupmann Juraszek</p>
                 <p>Back-end</p>
                 <p>Front-end</p>
                 <hr className="front-end-line" width="80%" color="grey"/>
                 <div className="front-end-icons">
-                    <a className="twitch" href="https://github.com/viniggj2005"><BsGithub /></a>
-                    <a href="https://www.instagram.com/vinicius_graupmann/"><BsInstagram/></a>
+                    <a target="blank" vhref="https://github.com/viniggj2005"><BsGithub /></a>
+                    <a target="blank" className="twitch" href="https://www.linkedin.com/in/vinicius-gabriel-graupmann-juraszek-22a679280/"><BsLinkedin/></a>
+                    <a target="blank" href="https://www.instagram.com/vinicius_graupmann/"><BsInstagram/></a>
                 </div>
                 </div>
             </div> 
@@ -143,42 +138,44 @@ const Team = () =>{
             <div className="back-end">
                 <div className="front-end-card4">
             <div className="front-end-div">
-                <img className="front-end-img" src="https://avatars.githubusercontent.com/u/112448450?v=4"/>
+                <img className="front-end-img-gui" src="/imagens/gui.jpeg"/>
                 </div>
                 <div className="front-end-subtitle">
-                <p className="front-end-nome">Guilherme Prigol</p>
+                <p className="front-end-nome">Guilherme Prigol Kramer</p>
                 <p>Back-end</p>
                 <p>Front-end</p>
                 <hr className="front-end-line" width="80%" color="grey"/>
                 <div className="front-end-icons">
-                    <a className="twitch" href="https://github.com/guilhermepk"><BsGithub /></a>
-                    <a href="https://www.instagram.com/o_guilherme_la/"><BsInstagram/></a>
+                    <a target="blank" href="https://github.com/guilhermepk"><BsGithub /></a>
+                    <a target="blank" className="twitch" href="https://www.linkedin.com/in/guilherme-prigol-kramer-b4a0b6275/"><BsLinkedin/></a>
+                    <a target="blank" href="https://www.instagram.com/o_guilherme_la/"><BsInstagram/></a>
                 </div>
                 </div>
                 </div>
                 <div className="front-end-card4">
             <div className="front-end-div">
-                <img className="front-end-img" src="https://avatars.githubusercontent.com/u/102488557?v=4"/>
+                <img className="front-end-img" src="/imagens/vini.jpeg"/>
                 </div>
                 <div className="front-end-subtitle">
-                <p className="front-end-nome">Vinicius Gabriel Graupmann</p>
+                <p className="front-end-nome-vini">Vinicius Gabriel Graupmann Juraszek</p>
                 <p>Back-end</p>
                 <p>Front-end</p>
                 <hr className="front-end-line" width="80%" color="grey"/>
                 <div className="front-end-icons">
-                    <a className="twitch" href="https://github.com/viniggj2005"><BsGithub /></a>
-                    <a href="https://www.instagram.com/vinicius_graupmann/"><BsInstagram/></a>
+                    <a target="blank" href="https://github.com/viniggj2005"><BsGithub /></a>
+                    <a target="blank" className="twitch" href="https://www.linkedin.com/in/vinicius-gabriel-graupmann-juraszek-22a679280/"><BsLinkedin/></a>
+                    <a target="blank" href="https://www.instagram.com/vinicius_graupmann/"><BsInstagram/></a>
                 </div>
                 </div>
             </div> 
             </div>
             <div></div>
             <div className="figma">
+                <p>Veja nosso o projeto base</p>
             <a href="https://www.figma.com/proto/5BkUoGKTSGbkcWKdGgpeV8/123Foods?node-id=1-5&starting-point-node-id=1%3A5" className="figma-link"><FiFigma/></a>
             </div>
         <Footer />
         </div>
-        
     )
 }
 

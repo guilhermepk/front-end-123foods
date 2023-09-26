@@ -19,7 +19,7 @@ function Footer(){
                     <h2 className='titulos'>Conheça-nos</h2>
                     <a href="/Ourhistory" className="footer-link2">Nossa História</a>
                     <a href="/Ourstore" className="footer-link3">Nossa Loja</a>
-                    <a href="/Team" className="footer-link4">Conheça A Nossa Equipe</a>
+                    <a href="/Team" className="footer-link4">Conheça a Nossa Equipe</a>
                 </ul>
                 <ul className="primeiro">
                     <h2 className='titulos'>Contato</h2>
