@@ -14,7 +14,7 @@ const HomeproductLister = (props) => {
     useEffect(() => {
         setCurrentPage(1);
         if(props.category) {
-            fetch(`http://localhost:3000/products/filter/category/${props.category}`)
+            fetch(`http://localhost:3000/products/filter/categories/${props.category}`)
                 .then((response) => response.json())
                 .then((data) => setProducts(data))
         }else{
@@ -103,6 +103,7 @@ const HomeproductLister = (props) => {
           setToken(storedToken);
         }
       }, []);
+      console.log(products)
     return (
         <div className="divList">
             <Pag/>

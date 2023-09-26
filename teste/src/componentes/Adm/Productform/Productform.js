@@ -83,10 +83,10 @@ const Productform= (props) => {
     
     if (formValues.categoriesIds.length > 1) {
       formValues.categoriesIds.forEach((id) => {
-        updatedData.append('categoryIds', parseInt(id));
+        updatedData.append('categoriesIds', parseInt(id));
       });
     } else {
-      updatedData.append('categoryIds[]', [parseInt(formValues.categoriesIds)]);
+      updatedData.append('categoriesIds[]', [parseInt(formValues.categoriesIds)]);
     }
   
     updatedData.append('amount', parseInt(formValues.amount));
@@ -122,10 +122,10 @@ const Productform= (props) => {
       
       if (formValues.categoriesIds.length > 1) {
         formValues.categoriesIds.forEach((id) => {
-          formData.append('categoryIds', parseInt(id));
+          formData.append('categoriesIds', parseInt(id));
         });
       } else {
-        formData.append('categoryIds[]', [parseInt(formValues.categoriesIds)]);
+        formData.append('categoriesIds[]', [parseInt(formValues.categoriesIds)]);
       }
     
       formData.append('amount', parseInt(formValues.amount));
