@@ -86,6 +86,9 @@ const Notificationform = () => {
             </div>
             </div>
             </div>
+            <button className="button-notification" type="submit">Enviar</button>
+            </div>
+            </div>
         </form>
     );
 };
