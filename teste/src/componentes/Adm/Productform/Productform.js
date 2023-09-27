@@ -75,97 +75,8 @@ const Productform= (props) => {
     const file = acceptedFiles[0];
     setFormValues({ ...formValues, file: file });
   }, [formValues]);
-  
-  const handleCreate = () => {
-    const formData = new FormData();
-      
-      formData.append('name', formValues.name);
-      formData.append('brand', formValues.brand);
-      formData.append('weight', parseFloat(formValues.weight));
-      formData.append('unitsofmeasurementId', parseInt(formValues.unitsofmeasurementId));
-      
-      if (formValues.categoriesIds.length > 1) {
-        formValues.categoriesIds.forEach((id) => {
-          console.log('adicionando id categoria', id)
-          formData.append('categoriesIds', parseInt(id));
-        });
-      } else if (formValues.categoriesIds.length == 1){
-        console.log('adicionando id ', formValues.categoriesIds);
-        formData.append('categoriesIds[]', [parseInt(formValues.categoriesIds)]);
-      }else{
-        Swal.fire('Ops...', 'O produto deve ter ao menos 1 categoria', 'error');
-      }
-    
-      formData.append('amount', parseInt(formValues.amount));
-      formData.append('description', formValues.description);
-      formData.append('price', parseFloat(formValues.price));
-      formData.append('file', formValues.file);
 
-      try {
-        fetch(`${process.env.REACT_APP_HOST}/products`, {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
-          },
-          body: formData,
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(`Erro na solicitação HTTP: ${response.status}`);
-            }
-            return response.json();
-          })
-          .then((data) => {
-            console.log(data);
-            setFormValues(initialFormValues);
-            window.location.href = '/admin/product-list';
-          })
-          .catch((error) => {
-            console.error('Erro durante o processamento da solicitação:', error);
-          });
-      } catch (error) {
-        console.error('Erro durante o envio da solicitação:', error);
-      }
-  }
-
-  const handleUpdate = async () => {
-    const updatedData = new FormData();
-      
-    updatedData.append('name', formValues.name);
-    updatedData.append('brand', formValues.brand);
-    updatedData.append('weight', parseFloat(formValues.weight));
-    updatedData.append('unitsofmeasurementId', parseInt(formValues.unitsofmeasurementId));
-    
-    if (formValues.categoriesIds.length > 1) {
-      formValues.categoriesIds.forEach((id) => {
-        console.log('adicionando id categoria', id)
-        updatedData.append('categoriesIds', parseInt(id));
-      });
-    } else if (formValues.categoriesIds.length == 1){
-      console.log('adicionando id ', formValues.categoriesIds);
-      updatedData.append('categoriesIds[]', [parseInt(formValues.categoriesIds)]);
-    }else{
-      console.log('não pode categoiries vazio')
-    }
-  
-    updatedData.append('amount', parseInt(formValues.amount));
-    updatedData.append('description', formValues.description);
-    updatedData.append('price', parseFloat(formValues.price));
-
-    if(formValues.file){
-      updatedData.append('file', formValues.file);
-    }
-
-    try {
-      const response = await axios.patch(`${process.env.REACT_APP_HOST}/products/${props.productId}`, updatedData);
-      console.log('Dados atualizados com sucesso!', response.data);
-    } catch (error) {
-      console.error('Erro ao atualizar dados:', error);
-      Swal.fire('Ops...', `Erro ao atualizar dados: ${error}`, 'error');
-    }
-  }
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     const formData = new FormData();
@@ -177,7 +88,6 @@ const Productform= (props) => {
       'amount',
       'description',
       'price',
-      'file'
     ];
     const floatConv = [
       'weight',
@@ -216,8 +126,22 @@ const Productform= (props) => {
       Swal.fire('Ops...', 'O produto deve ter ao menos 1 categoria', 'error');
     }
 
+    if(formValues.file){
+      formData.append('file', formValues.file);
+    }else{
+      if(!props.productId){ 
+        Swal.fire('Ops...', 'O produto deve ter uma imagem', 'error');
+      }
+    }
+
     if(props.productId){
-      console.log('haaaaahahahahaha achou que ia atualizar mesmo kkkkkkkk')
+      try {
+        const response = await axios.patch(`${process.env.REACT_APP_HOST}/products/${props.productId}`, formData);
+        console.log('Dados atualizados com sucesso!', response.data);
+      } catch (error) {
+        console.error('Erro ao atualizar dados:', error);
+        Swal.fire('Ops...', `Erro ao atualizar dados: ${error}`, 'error');
+      }
     }else{
       try{
         fetch(`${process.env.REACT_APP_HOST}/products`, {
@@ -244,7 +168,7 @@ const Productform= (props) => {
       }
     }
 
-    //navigate('/admin/product-list')
+    navigate('/admin/product-list')
   };
   
  
