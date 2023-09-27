@@ -1,0 +1,19 @@
+.pay-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8rem;
+    height: 80px;
+    font-size: 22px;
+    background-color: #FFECCE;
+}
+
+.pay-img-div{
+    display: flex;
+    justify-content: center;
+}
+
+.pay-img{
+    min-width: 10vw;
+    min-height: 50vh;
+}

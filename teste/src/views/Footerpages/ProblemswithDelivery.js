@@ -9,7 +9,7 @@ const ProblemswithDelivery= () => {
             <header><Navigationbar/></header>
             <div className="product-help">
       <div className="product-help-title">
-      <h2>Problemas com a Entrega?</h2>
+      <h1>Problemas com a Entrega?</h1>
       </div>
       <div className="pruduct-help-subtitle">
       <p>

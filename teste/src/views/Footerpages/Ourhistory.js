@@ -7,7 +7,7 @@ const Ourhistory = () => {
         <div className="Our-history">
             <header><Navigationbar/></header>
             <div className="history-tilte">
-      <h2>Nossa História</h2>
+      <h1>Nossa História</h1>
       </div>
       <div className="subtitle-history">
       <p>

@@ -8,7 +8,7 @@ const HowtoBuy = () => {
         <div className="How-to-Buy">
             <header><Navigationbar/></header>
             <div className="buy-title">
-      <h2>Como Comprar</h2>
+      <h1>Como Comprar</h1>
       </div>
       <div className="Howtobuy-sub-title">
       <p>

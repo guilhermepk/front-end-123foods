@@ -10,7 +10,7 @@ const Orders= () => {
             <header><Navigationbar/></header>
             <div className="Orders">
               <div className="Orders-title">
-      <h2>Pedidos, Cancelamento, Trocas e Devoluções</h2>
+      <h1>Pedidos, Cancelamento, Trocas e Devoluções</h1>
       </div>
       <div className="Orders-content">
       <p>

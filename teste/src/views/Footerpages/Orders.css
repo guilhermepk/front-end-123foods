@@ -4,7 +4,7 @@
     align-items: center;
     margin-bottom: 4rem;
     height: 80px;
-    font-size: 28px;
+    font-size: 22px;
     background-color: #FFECCE;
 }
 
@@ -22,5 +22,5 @@
 
 .img-trocas{
     min-width: 50vw;
-    min-height: 500px;
+    min-height: 60vh;
 }
