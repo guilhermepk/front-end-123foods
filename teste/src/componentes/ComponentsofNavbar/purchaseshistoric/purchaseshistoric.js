@@ -85,14 +85,23 @@ const Purchaseshistoric=()=>{
                   </TableHead>
                 </TableContainer>
                 <TableContainer className='table-container-results'>
-                    <TableCell className='table-result id-cart'><IconButton
+                    <TableCell className='table-result id-cart'>
+                      <IconButton
                       className='icon-expand'
                       aria-label="expand row"
                       onClick={() => setOpen(!open)}
-                    >
-                      {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                    </IconButton>01</TableCell>
-                    <TableCell className='table-result purchase-name'>{historic[0].product.name}</TableCell>
+                      >
+                        {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                      </IconButton>01
+                    </TableCell>
+                    {historic[0] && historic[0].image && historic[0].image.path && (
+                             <img
+                               className="historic-product-image"
+                               src={`${process.env.REACT_APP_HOST}/uploads/${historic[0].image.path}`}
+                               alt="Imagem do Produto"
+                             />
+                             )}
+                    <TableCell className='table-result purchase-name'>{historic[0].product.name}...</TableCell>
                     <TableCell className='table-result purchase-number'>{historic.length}</TableCell>
                     <TableCell className='table-result total-price'>R$ 145,89</TableCell>
                     <TableCell className='table-result delivery-date'>{new Date(historic[0].updatedAt).toLocaleDateString()}</TableCell>
