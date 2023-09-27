@@ -11,7 +11,7 @@ const SearchList = (props) => {
     
     useEffect(() => {
         if (searchValue.trim().length > 0) {
-            fetch(`http://localhost:3000/products/search?filterValue=${encodeURIComponent(searchValue)}`)
+            fetch(`${process.env.REACT_APP_HOST}/products/search?filterValue=${encodeURIComponent(searchValue)}`)
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data);
@@ -34,7 +34,7 @@ const SearchList = (props) => {
 
                             {product.images && (
                                 <Card.Img className="search-card-img"
-                                    src={`http://localhost:3000/uploads/${product.images[0]?.path}`}
+                                    src={`${process.env.REACT_APP_HOST}/uploads/${product.images[0]?.path}`}
                                     //onLoad={() => console.log(`Imagem carregada: /uploads/${product.images[0]?.path}`)}
                                     onError={() => console.log(`Erro ao carregar a imagem: /uploads/${product.images[0]?.path}`)}
                                 />

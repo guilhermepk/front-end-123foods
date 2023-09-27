@@ -25,7 +25,7 @@ const NavigationbarAdm = () => {
             <div className="user-column" onClick={toggleMinimize}>
               {userInfo && (
                 <img
-                  src={`http://localhost:3000/uploads/${userInfo.image}`}
+                  src={`${process.env.REACT_APP_HOST}/uploads/${userInfo.image}`}
                   alt="User Image"
                   className={`imagem-usuario ${minimized ? 'minimized' : ''}`}
                 />

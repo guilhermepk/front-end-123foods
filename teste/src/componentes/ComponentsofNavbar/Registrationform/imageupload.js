@@ -14,7 +14,7 @@ const ImageUpload = () => {
 
     try {
       setIsUploading(true);
-      const response = await axios.patch('http://localhost:3000/users/4/upload', formData);
+      const response = await axios.patch(`${process.env.REACT_APP_HOST}/users/4/upload`, formData);
       console.log(response.data);
       setIsUploading(false);
     } catch (error) {

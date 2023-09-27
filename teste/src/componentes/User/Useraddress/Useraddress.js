@@ -46,7 +46,7 @@ const Useraddress = ({ handleregisterAddress }) => {
            
             const { id, ...addressData } = editedAddress;
     
-            await axios.patch(`http://localhost:3000/address/${editedAddress.id}`, addressData, {
+            await axios.patch(`${process.env.REACT_APP_HOST}/address/${editedAddress.id}`, addressData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -80,7 +80,7 @@ const Useraddress = ({ handleregisterAddress }) => {
 
     const fetchUseraddress = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/address/${userId}`, {
+            const response = await axios.get(`${process.env.REACT_APP_HOST}/address/${userId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

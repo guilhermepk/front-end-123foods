@@ -32,7 +32,7 @@ export const sendPurchaseRequest = async (productId, qtd, token,imagem) => {
       imageId: parseInt(imagem),
       status: 'previsto',
     };
-    const response = await fetch('http://localhost:3000/purchases', {
+    const response = await fetch(`${process.env.REACT_APP_HOST}/purchases`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

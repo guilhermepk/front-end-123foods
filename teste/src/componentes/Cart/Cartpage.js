@@ -33,7 +33,7 @@ const Cartpage = () => {
 
   useEffect(() => {
     if (userId) {
-      fetch(`http://localhost:3000/purchases/${userId}/previsto`)
+      fetch(`${process.env.REACT_APP_HOST}/purchases/${userId}/previsto`)
         .then((response) => response.json())
         .then((data) => {
           setData(data);
@@ -65,7 +65,7 @@ const Cartpage = () => {
 
   const handleRemoveClick = async (dataId) => {
     try {
-      await axios.delete(`http://localhost:3000/purchases/${dataId}`);
+      await axios.delete(`${process.env.REACT_APP_HOST}/purchases/${dataId}`);
       Swal.fire('Sucesso ao excluir', 'success');
       setTimeout(() => { 
         window.location.reload(); 
@@ -81,7 +81,7 @@ const Cartpage = () => {
         const formData = new FormData();
         formData.append('amount', quantities[item.id]);
   
-        const response = await axios.patch(`http://localhost:3000/purchases/${item.id}`, formData, {
+        const response = await axios.patch(`${process.env.REACT_APP_HOST}/purchases/${item.id}`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -121,7 +121,7 @@ const Cartpage = () => {
                     
                     <img
                       className="data-image"
-                      src={`http://localhost:3000/uploads/${item.image.path}`}
+                      src={`${process.env.REACT_APP_HOST}/uploads/${item.image.path}`}
                       alt="Imagem do Produto"
                     />
                   )}{console.log(item.image)}

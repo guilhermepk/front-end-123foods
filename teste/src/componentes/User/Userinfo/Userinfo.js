@@ -9,7 +9,7 @@ export const useUserinfo = (token, userId) => {
         
         const fetchUserInfo = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/users/${userId}`, {
+                const response = await axios.get(`${process.env.REACT_APP_HOST}/users/${userId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },

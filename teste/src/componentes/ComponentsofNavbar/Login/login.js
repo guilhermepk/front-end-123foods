@@ -33,7 +33,7 @@ const Login=()=>{
     const handleLoginFormSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/users/login', {
+            const response = await axios.post(`${process.env.REACT_APP_HOST}/users/login`, {
                 username,
                 password,
             });

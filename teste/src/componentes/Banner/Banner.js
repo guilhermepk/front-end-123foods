@@ -7,7 +7,7 @@ function Banner() {
   const [banners, setBanners] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/banners')
+    fetch(`${process.env.REACT_APP_HOST}/banners`)
       .then((response) => response.json())
       .then((data) => {
         setBanners(data);
@@ -25,7 +25,7 @@ function Banner() {
             <div key={banner.id} className='banner-img'>
               <img
                 className="img1"
-                src={`http://localhost:3000/uploads/${banner.image}`}
+                src={`${process.env.REACT_APP_HOST}/uploads/${banner.image}`}
                 alt={banner.alt}
                 style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '18px 18px 0 0' }}
               />

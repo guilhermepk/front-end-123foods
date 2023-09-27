@@ -67,7 +67,7 @@ const RegistrationformUser = () => {
 
     // formData.append('numberhouse', data.numberhouse);
 
-    fetch('http://localhost:3000/users', {
+    fetch(`${process.env.REACT_APP_HOST}/users`, {
       method: 'POST',
       body: formData
     })

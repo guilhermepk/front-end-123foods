@@ -11,7 +11,7 @@ const SearchModal = (props) => {
 
     useEffect(() => {
         if (props.value?.trim().length > 0) {
-            fetch(`http://localhost:3000/products/search?filterValue=${encodeURIComponent(props.value)}`)
+            fetch(`${process.env.REACT_APP_HOST}/products/search?filterValue=${encodeURIComponent(props.value)}`)
                 .then((response) => response.json())
                 .then((data) => {
                     setProducts(data);

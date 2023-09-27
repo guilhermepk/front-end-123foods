@@ -48,7 +48,7 @@ const[zoomLevel,setZoomLevel]=useState(1);
                 const formData = new FormData();
                 formData.append('file', blob);
 
-                await axios.patch(`http://localhost:3000/users/${decoded_token.sub}/upload`, formData, {
+                await axios.patch(`${process.env.REACT_APP_HOST}/users/${decoded_token.sub}/upload`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         Authorization: `Bearer ${token}`,
@@ -88,14 +88,14 @@ const[zoomLevel,setZoomLevel]=useState(1);
                                     <div {...getRootProps()} className="user-image-container" onMouseEnter={() => setShowUploadButton(true)} onMouseLeave={() => setShowUploadButton(false)}>
                                         {userInfo.image && (
                                             <img
-                                                src={`http://localhost:3000/uploads/${userInfo.image}`}
+                                                src={`${process.env.REACT_APP_HOST}/uploads/${userInfo.image}`}
                                                 alt="User Image"
                                                 className="imagem-perfil"
                                             />
                                         )}
                                         {!userInfo.image && (
                                             <img
-                                                src={`http://localhost:3000/uploads/imagem-padrao.gif`}
+                                                src={`${process.env.REACT_APP_HOST}/uploads/imagem-padrao.gif`}
                                                 alt="Default User Image"
                                                 className="imagem-perfil"
                                             />

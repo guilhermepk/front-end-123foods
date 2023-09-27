@@ -13,7 +13,7 @@ const Productform= (props) => {
   
   useEffect(() => {
     if(props.productId){
-      fetch(`http://localhost:3000/products/${props.productId}`)
+      fetch(`${process.env.REACT_APP_HOST}/products/${props.productId}`)
         .then((response) => response.json())
         .then((data) => {
           setProduct(data);
@@ -48,12 +48,12 @@ const Productform= (props) => {
   const [measurement,setmeasurement] = useState([]);
   const [category,setcategory] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:3000/unitsofmeasurement`)
+    fetch(`${process.env.REACT_APP_HOST}/unitsofmeasurement`)
         .then((response) => response.json())
         .then((data) => {
             setmeasurement(data);
         });
-        fetch(`http://localhost:3000/categories`)
+        fetch(`${process.env.REACT_APP_HOST}/categories`)
         .then((response) => response.json())
         .then((data) => {
             setcategory(data);
@@ -109,7 +109,7 @@ const Productform= (props) => {
       for (const pair of updatedData.entries()) {
         console.log(pair[0], pair[1]);
       }
-      const response = await axios.patch(`http://localhost:3000/products/${props.productId}`, updatedData);
+      const response = await axios.patch(`${process.env.REACT_APP_HOST}/products/${props.productId}`, updatedData);
       console.log('Dados atualizados com sucesso!', response.data);
     } catch (error) {
       console.error('Erro ao atualizar dados:', error);
@@ -143,7 +143,7 @@ const Productform= (props) => {
       formData.append('file', formValues.image);
 
       try {
-        fetch('http://localhost:3000/products', {
+        fetch(`${process.env.REACT_APP_HOST}/products`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
@@ -300,7 +300,7 @@ const Productform= (props) => {
         <div>
           <h3> Imagem atual: </h3>
           {product.images[0].path && (
-            <img src={`http://localhost:3000/uploads/${product.images[0].path}`}/>
+            <img src={`${process.env.REACT_APP_HOST}/uploads/${product.images[0].path}`}/>
           )}
         </div>
       )}

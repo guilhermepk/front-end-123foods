@@ -20,7 +20,7 @@ const AdmProductLister = () => {
     if (productsPerPage < 1) productsPerPage = initialProductsPerPage;
 
     useEffect(() => {
-        fetch('http://localhost:3000/products')
+        fetch(`${process.env.REACT_APP_HOST}/products`)
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data);
@@ -171,7 +171,7 @@ const AdmProductLister = () => {
                                 <TableCell> {product.id} </TableCell>
                                 <TableCell>
                                     {product.images && (
-                                        <img src={`http://localhost:3000/uploads/${product.images[0].path}`}/>
+                                        <img src={`${process.env.REACT_APP_HOST}/uploads/${product.images[0].path}`}/>
                                     )}
                                 </TableCell>
                                 <TableCell> {product.name} </TableCell>

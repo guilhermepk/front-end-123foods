@@ -23,7 +23,7 @@ const Notificationform = () => {
     const sendDataToServer = (data) => {
 
 
-        fetch('http://localhost:3000/notifications', {
+        fetch(`${process.env.REACT_APP_HOST}/notifications`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

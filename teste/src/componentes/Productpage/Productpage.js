@@ -9,7 +9,7 @@ const Productpage = (props) => {
     const [token, setToken] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/products/${props.productId}`)
+        fetch(`${process.env.REACT_APP_HOST}/products/${props.productId}`)
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data);
@@ -42,7 +42,7 @@ useEffect(() => {
       setToken(storedToken);
     }
     console.log('propsID',props.productId)
-      fetch(`http://localhost:3000/products/${props.productId}/similar`)
+      fetch(`${process.env.REACT_APP_HOST}/products/${props.productId}/similar`)
         .then((response) => response.json())
         .then((data) => {
           setSimilar(data);
@@ -61,7 +61,7 @@ useEffect(() => {
                     <h2 className="product-name">{products.name}</h2>}
                     <div className="product-align">
                     {products.images && products.images.length > 0 && (
-                    <img className="product-image" src={`http://localhost:3000/uploads/${products.images[0]?.path}`} alt="Imagem do Produto" />
+                    <img className="product-image" src={`${process.env.REACT_APP_HOST}/uploads/${products.images[0]?.path}`} alt="Imagem do Produto" />
                     )}
                     </div>     
                 </div>
