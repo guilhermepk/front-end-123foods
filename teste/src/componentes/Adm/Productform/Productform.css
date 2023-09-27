@@ -2,6 +2,8 @@
     --main-bg-color: black;
 }
 
+
+
 .modal-produtos{
     display: flex;
     flex-direction: column;
@@ -10,33 +12,6 @@
 }
 
 .cadastro-texto{
-    margin-left: 35rem;
-    width: 50%;
-    height: 820px;
-    background-color: rgb(129, 129, 129);
-    border-radius: 12px;
-    box-shadow: 6px 6px 6px rgb(47, 47, 47);
-}
-
-.cadastro-produtos{
-    display: grid;
-    justify-content: center;
-    grid-template-columns: 35% 35%;
-    gap: 20px;
-    border-radius: 8px;
-    border: none;
-    margin-bottom: 5rem;
-}
-
-.input-produtos{
-    width: 300px;
-    height: 35px;
-    border: none;
-    border-radius: 6px;
-    padding: 8px;
-}
-
-.cadastro-texto1{
     display: flex;
     justify-content: center;
     margin-top: 1rem;
@@ -46,6 +21,8 @@
 }
 
 .label-produtos{
+    display: flex;
+    flex-direction: column;
     font-size: 20px;
     gap: 8px;
 }
