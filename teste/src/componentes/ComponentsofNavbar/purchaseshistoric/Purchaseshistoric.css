@@ -30,6 +30,10 @@
     display: inline-table;
 }
 
+.historic-product-image {
+    max-width: 6rem;
+}
+
 .table-container-results {
     display: flex;
     justify-content: space-around !important;
