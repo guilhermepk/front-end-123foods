@@ -53,3 +53,12 @@
 .table-result.id-cart {
     padding-left: 0 !important;
 }  
+
+.table-container-historic-complet {
+    padding: 1rem;
+}
+
+.little-table-title {
+    display: flex !important;
+    justify-content: space-around;
+}

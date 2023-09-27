@@ -97,16 +97,10 @@ const Purchaseshistoric=()=>{
                     <TableCell className='table-result total-price'>N sei ainda como fazer</TableCell>
                     <TableCell className='table-result delivery-date'>{new Date(historic[0].updatedAt).toLocaleDateString()}</TableCell>
               </TableContainer>
-            <TableRow>
-              <TableCell >
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                  <Box sx={{ margin: 1 }}>
-                    <Typography >
-                      Histórico
-                    </Typography>
+                <Collapse className='table-container-historic-complet' in={open} timeout="auto" unmountOnExit>
                     <Table >
                       <TableHead>
-                        <TableRow>
+                        <TableRow className='little-table-title'>
                           <TableCell>Produto</TableCell>
                           <TableCell>Quantidade</TableCell>
                           <TableCell >Preço</TableCell>
@@ -124,15 +118,12 @@ const Purchaseshistoric=()=>{
                         ))}
                       </TableBody>
                     </Table>
-                  </Box>
                 </Collapse>
-              </TableCell>
-            </TableRow>
           </React.Fragment>
           )}
           {!historic && (
           <div>
-            <label>Não foram feitas compras</label>
+            Não foram feitas compras
           </div>
           )}
           </>
