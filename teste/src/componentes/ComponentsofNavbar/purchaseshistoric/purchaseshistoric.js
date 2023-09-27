@@ -65,55 +65,51 @@ const Purchaseshistoric=()=>{
         setGroupedProducts(groupedProducts);
       }, [data]);
       console.log("historico",historic);
+      console.log("Agrupamento por data: ", groupedProducts)
+      
   
 
         return (
           <>
           {historic.length > 0 && (
             <React.Fragment>
-            <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-              <TableCell component="th" scope="row">
-                <TableContainer>
+                <TableContainer className='table-container-header' >
                   <TableHead>
-                    <TableRow>
-                      <TableCell />
-                      <TableCell>ID do Carrinho</TableCell>
-                      <TableCell align="right">Produtos</TableCell>
-                      <TableCell align="right">Nº de Produtos&nbsp;</TableCell>
-                      <TableCell align="right">Preço Total&nbsp;</TableCell>
-                      <TableCell align="right">Entregue&nbsp;</TableCell>
+                    <TableRow className='table-container-row'>
+                      <TableCell className='table-title id-cart'>ID do Carrinho</TableCell>
+                      <TableCell className='table-title purchase'>Produtos</TableCell>
+                      <TableCell className='table-title purchase-number'>Nº de Produtos&nbsp;</TableCell>
+                      <TableCell className='table-title total-price'>Preço Total&nbsp;</TableCell>
+                      <TableCell className='table-title delivery-date'>Data da Entrega&nbsp;</TableCell>
                     </TableRow>
                   </TableHead>
                 </TableContainer>
-              </TableCell>
-            </TableRow>
-            <TableCell>
-              <IconButton
-                aria-label="expand row"
-                size="small"
-                onClick={() => setOpen(!open)}
-              >
-                {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-              </IconButton>
-            </TableCell>
-              <TableCell align='right'>SLAAA</TableCell>
-              <TableCell>{historic[0].product.name}</TableCell>
-              <TableCell align="right">{historic.length}</TableCell>
-              <TableCell>N sei ainda como fazer</TableCell>
-              <TableCell>{historic[0].updatedAt}</TableCell>
+                <TableContainer className='table-container-results'>
+                    <TableCell className='table-result id-cart'><IconButton
+                      className='icon-expand'
+                      aria-label="expand row"
+                      onClick={() => setOpen(!open)}
+                    >
+                      {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                    </IconButton>SLAAA</TableCell>
+                    <TableCell className='table-result purchase-name'>{historic[0].product.name}</TableCell>
+                    <TableCell className='table-result purchase-number'>{historic.length}</TableCell>
+                    <TableCell className='table-result total-price'>N sei ainda como fazer</TableCell>
+                    <TableCell className='table-result delivery-date'>{new Date(historic[0].updatedAt).toLocaleDateString()}</TableCell>
+              </TableContainer>
             <TableRow>
-              <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+              <TableCell >
                 <Collapse in={open} timeout="auto" unmountOnExit>
                   <Box sx={{ margin: 1 }}>
-                    <Typography variant="h6" gutterBottom component="div">
+                    <Typography >
                       Histórico
                     </Typography>
-                    <Table size="small" aria-label="purchases">
+                    <Table >
                       <TableHead>
                         <TableRow>
                           <TableCell>Produto</TableCell>
                           <TableCell>Quantidade</TableCell>
-                          <TableCell align="right">Preço</TableCell>
+                          <TableCell >Preço</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -121,7 +117,7 @@ const Purchaseshistoric=()=>{
                           <TableRow key={historyRow} >
                             <TableCell> {historyRow.product.name} </TableCell>
                             <TableCell>{historyRow.amount}</TableCell>
-                            <TableCell align="right">
+                            <TableCell >
                               {Math.round(historyRow.amount * historyRow.product.price *100)/100}
                             </TableCell>
                           </TableRow>

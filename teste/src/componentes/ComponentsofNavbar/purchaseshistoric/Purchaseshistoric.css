@@ -1,9 +1,55 @@
-/* * {
-    font-family: 'Oswald' !important;
+* {
+    font-family: "Oswald" !important;
 }
 
-.table-historic-content {
-    width: 898px !important;
-    height: 521px;
+.table-container-header {
+    display: grid !important;
+    background-color: #9E0000;
+    width: 56rem !important;
     margin-top: 0.5rem;
-} */
+    height: 4rem;
+    padding: 0 !important;
+    border-bottom: 2px solid #000;
+    border-radius: 0 7px 0 0;
+}
+
+.table-container-row {
+    display: flex !important;
+    justify-content: space-around;
+}
+
+.table-title {
+    color: #FFF !important;
+    border-bottom: none !important;
+    padding: 1.2rem 1rem !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+}
+
+.all-results {
+    display: inline-table;
+}
+
+.table-container-results {
+    display: flex;
+    justify-content: space-around !important;
+    height: 6rem;
+    align-items: center;
+    overflow-x: unset !important;
+    border-bottom: 2px solid #000;
+}
+
+.icon-expand {
+    color: #000 !important;
+    border-bottom: none !important;
+}
+
+.table-result {
+    padding-top: 1rem !important;
+    border-bottom: none !important;
+    font-size: 1.2rem !important;
+}
+
+.table-result.id-cart {
+    padding-left: 0 !important;
+}  
