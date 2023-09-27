@@ -49,7 +49,7 @@ const Addressregister=()=>{
             formData.append('userId', data.userId);
             
 
-            fetch('http://localhost:3000/address', {
+            fetch(`${process.env.REACT_APP_HOST}/address`, {
             method: 'POST',
             body: formData
             })

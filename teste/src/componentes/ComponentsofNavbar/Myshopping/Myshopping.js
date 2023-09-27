@@ -20,7 +20,7 @@ const Myshopping = () => {
 
   useEffect(() => {
     if (userId) {
-      fetch(`http://localhost:3000/purchases/${userId}/comprado`)
+      fetch(`${process.env.REACT_APP_HOST}/purchases/${userId}/comprado`)
         .then((response) => response.json())
         .then((data) => {
           setData(data);
@@ -56,7 +56,7 @@ const Myshopping = () => {
           <ul>
             {group.products.map((product) => (
               <li key={product.id}>
-                <img src={`http://localhost:3000/uploads/${product.image.path}`} alt="Imagem da compra" />
+                <img src={`${process.env.REACT_APP_HOST}/uploads/${product.image.path}`} alt="Imagem da compra" />
                 <p>Status: {product.status}</p>
                 <p>Quantidade: {product.amount}</p>
               </li>

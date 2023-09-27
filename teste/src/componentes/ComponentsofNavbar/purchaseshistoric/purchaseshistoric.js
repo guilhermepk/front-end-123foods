@@ -38,7 +38,7 @@ const Purchaseshistoric=()=>{
     
       useEffect(() => {
         if (userId) {
-          fetch(`http://localhost:3000/purchases/${userId}/entregue`)
+          fetch(`${process.env.REACT_APP_HOST}/purchases/${userId}/entregue`)
             .then((response) => response.json())
             .then((data) => {
               setHistoric(data);
@@ -160,7 +160,7 @@ export default Purchaseshistoric;
         //                   {product && product.image && product.image.path && (
         //                     <img
         //                       className="data-image"
-        //                       src={`http://localhost:3000/uploads/${product.image.path}`}
+        //                       src={`${process.env.REACT_APP_HOST}/uploads/${product.image.path}`}
         //                       alt="Imagem do Produto"
         //                     />
         //                   )}
@@ -193,7 +193,7 @@ export default Purchaseshistoric;
         //         {group.products.map((product) => (
         //           <li key={product.id}>
         //           <p>nome{}</p>
-        //             <img src={`http://localhost:3000/uploads/${product.image.path}`} alt="Imagem da compra" />
+        //             <img src={`${process.env.REACT_APP_HOST}/${product.image.path}`} alt="Imagem da compra" />
         //             <p>Status: {product.status}</p>
         //             <p>Quantidade: {product.amount}</p>
         //           </li>

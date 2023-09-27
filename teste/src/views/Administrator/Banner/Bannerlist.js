@@ -8,7 +8,7 @@ const BannerList = () => {
 
     const fetchBanners = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/banners');
+            const response = await axios.get(`${process.env.REACT_APP_HOST}/banners`);
             setBanners(response.data);
         } catch (error) {
             console.error('Erro ao buscar banners:', error);
@@ -17,7 +17,7 @@ const BannerList = () => {
 
     const handleDeleteBanner = async (bannerId) => {
         try {
-            await axios.delete(`http://localhost:3000/banners/${bannerId}`);
+            await axios.delete(`${process.env.REACT_APP_HOST}/banners/${bannerId}`);
             const updatedBanners = banners.filter((banner) => banner.id !== bannerId);
             setBanners(updatedBanners);
         } catch (error) {
@@ -38,7 +38,7 @@ const BannerList = () => {
                     {banners.map((banner) => (
                         <div key={banner.id} className="banner-item">
                             <div className="thumbnail-container">
-                                <img src={`http://localhost:3000/uploads/${banner.image}`} alt={banner.alt} className="thumbnail" />
+                                <img src={`${process.env.REACT_APP_HOST}/uploads/${banner.image}`} alt={banner.alt} className="thumbnail" />
                             </div>
                             <div className="banner-info">
                                 <p>{banner.alt}</p>

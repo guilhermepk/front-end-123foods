@@ -14,11 +14,11 @@ const HomeproductLister = (props) => {
     useEffect(() => {
         setCurrentPage(1);
         if(props.category) {
-            fetch(`http://localhost:3000/products/filter/categories/${props.category}`)
+            fetch(`${process.env.REACT_APP_HOST}/products/filter/categories/${props.category}`)
                 .then((response) => response.json())
                 .then((data) => setProducts(data))
         }else{
-            fetch(`http://localhost:3000/products`)
+            fetch(`${process.env.REACT_APP_HOST}/products`)
                 .then((response) => response.json())
                 .then((data) => setProducts(data))
         }
@@ -103,7 +103,7 @@ const HomeproductLister = (props) => {
           setToken(storedToken);
         }
       }, []);
-      console.log(products)
+      
     return (
         <div className="divList">
             <Pag/>
@@ -118,7 +118,7 @@ const HomeproductLister = (props) => {
                             {product.images && (
                                 <Card.Img
                                 className="cardImg"
-                                src={`http://localhost:3000/uploads/${product.images[0]?.path}`}
+                                src={`${process.env.REACT_APP_HOST}/uploads/${product.images[0]?.path}`}
                                 onError={() => console.log(`Erro ao carregar a imagem: /uploads/${product.images[0]?.path}`)}
                                 />
                             )}

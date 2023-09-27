@@ -8,7 +8,7 @@ const Notificationlist = () => {
 
     const fetchnotifications = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/notifications');
+            const response = await axios.get(`${process.env.REACT_APP_HOST}/notifications`);
             setnotifications(response.data);
         } catch (error) {
             console.error('Erro ao buscar notifications:', error);
@@ -17,7 +17,7 @@ const Notificationlist = () => {
 
     const handleDeletenotification = async (notificationId) => {
         try {
-            await axios.delete(`http://localhost:3000/notifications/${notificationId}`);
+            await axios.delete(`${process.env.REACT_APP_HOST}/notifications/${notificationId}`);
             const updatednotifications = notifications.filter((notification) => notification.id !== notificationId);
             setnotifications(updatednotifications);
         } catch (error) {

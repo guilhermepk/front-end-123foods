@@ -6,6 +6,7 @@ import Footer from '../../componentes/Footer/Footer';
 import FilterCategories from'../../componentes/Filtercategories/Filtercategories';
 
 const Home = () => {
+
     return (
         <div className="home-main" >
             <Navigationbar/>
