@@ -2,8 +2,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
     height: 80px;
     font-size: 28px;
     background-color: #FFECCE;
+}
+
+.time-img-div{
+    display: flex;
+    justify-content: center;
+}
+
+.time-img{
+    min-width: 40vw;
+    min-height: 50vh;
+    margin-bottom: 6rem;
+}
+
+.work-subtitle{
+    display: flex;
+    justify-content: center;
+    font-size: 38px;
+    margin-bottom: 5rem;
+}
+
+.heart-icon{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    color: #9E0000;
+    margin-top: 2rem;
 }
