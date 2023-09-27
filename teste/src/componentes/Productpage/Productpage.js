@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import './productpage.css'
 import { sendPurchaseRequest } from '../Buy/Buy'; 
+import Card from 'react-bootstrap/Card';
+import { Link } from "react-router-dom";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Productpage = (props) => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productsPerPage] = useState(15);
     const [products, setProducts] = useState([]);
     const [similar, setSimilar] = useState([]);
     const [qtd, setQtd] = useState(1);
@@ -13,9 +20,25 @@ const Productpage = (props) => {
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data);
-                console.log('data: ',data);
+                console.log('data: ', data);
             });
-    }, []);
+
+        const storedToken = localStorage.getItem('payload');
+        if (storedToken) {
+            setToken(storedToken);
+        }
+
+        fetch(`${process.env.REACT_APP_HOST}/products/similar/${props.productId}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setSimilar(data.slice(0, data.length));
+                console.log('data similar: ', data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }, [props.productId]);
+
     const handleDecreaseClick = () => {
         if (qtd > 1) {
             setQtd(qtd - 1);
@@ -25,6 +48,7 @@ const Productpage = (props) => {
     const handleIncreaseClick = () => {
         setQtd(qtd + 1);
     };
+
     const handleBuyClick = () => {
         console.log('Clicou em Comprar'); 
         console.log('productId:', props.productId);
@@ -33,26 +57,43 @@ const Productpage = (props) => {
         console.log('token:', token);
         sendPurchaseRequest(props.productId, qtd, token, imagem);
     };
-console.log(products)
+    
+    const productTemplate = (similar) => {
+        return (
+            <div className="banner">
+                <div className="product-list">
+                    <div className="border-1 surface-border border-round m-2 text-center py-5 px-3">
+                        <Link to={`/product/${similar.id}`} className="linkCard">
+                            <div className="mb-3">
+                                {similar.images && (
+                                    <Card.Img
+                                        className="cardImg"
+                                        src={`${process.env.REACT_APP_HOST}/uploads/${similar.images[0]?.path}`}
+                                        onError={() => console.log(`Erro ao carregar a imagem: /uploads/${similar.images[0]?.path}`)}
+                                    />
+                                )}
+                            </div>
+                            <div>
+                                <h4 className="mb-1">{similar.name}</h4>
+                                <h6 className="mb-1">RS${similar.price}</h6>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        );
+    };
 
-useEffect(() => {
-    console.log('useEffect para produtos similares acionado');
-    const storedToken = localStorage.getItem('payload');
-    if (storedToken) {
-      setToken(storedToken);
-    }
-    console.log('propsID',props.productId)
-      fetch(`${process.env.REACT_APP_HOST}/products/${props.productId}/similar`)
-        .then((response) => response.json())
-        .then((data) => {
-          setSimilar(data);
-          console.log('similares', similar);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-  , []);
+    const settings = {
+        dots: true,
+        infinite: true,
+        vertical: true,
+        verticalSwiping: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    };
+
     return (
         <div className="product-move">
             <div className="product">
@@ -65,7 +106,7 @@ useEffect(() => {
                     )}
                     </div>     
                 </div>
-                <div className="product-description">{products.description&&
+                <div className="product-description">{products.description &&
                     <p>{products.description}</p>
                     }
                 </div>
@@ -77,16 +118,16 @@ useEffect(() => {
                 </div>
             </div>
             <div className="product-carrousel">
-                    <div className="product-text">
+                <div className="product-text">
                     <p>Itens Relacionados</p>
-                    </div>
-                    <div className="product-list">
-                        <img className="" src="/imagens/12389.png"></img>
-                        <p className="p-product-text">Monster Energy Melancia</p>
-                        <div className="button-buy-product">
-                        <button className="sla">Comprar</button>
+                </div>
+                <Slider {...settings}>
+                    {similar.map((item, index) => (
+                        <div key={index} className={`carousel-item`}>
+                            {productTemplate(item)}
                         </div>
-                    </div>
+                    ))}
+                </Slider>
             </div>
         </div>
     );
