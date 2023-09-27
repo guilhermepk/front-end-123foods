@@ -91,27 +91,27 @@ const Purchaseshistoric=()=>{
                       onClick={() => setOpen(!open)}
                     >
                       {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                    </IconButton>SLAAA</TableCell>
+                    </IconButton>01</TableCell>
                     <TableCell className='table-result purchase-name'>{historic[0].product.name}</TableCell>
                     <TableCell className='table-result purchase-number'>{historic.length}</TableCell>
-                    <TableCell className='table-result total-price'>N sei ainda como fazer</TableCell>
+                    <TableCell className='table-result total-price'>R$ 145,89</TableCell>
                     <TableCell className='table-result delivery-date'>{new Date(historic[0].updatedAt).toLocaleDateString()}</TableCell>
               </TableContainer>
                 <Collapse className='table-container-historic-complet' in={open} timeout="auto" unmountOnExit>
                     <Table >
-                      <TableHead>
-                        <TableRow className='little-table-title'>
-                          <TableCell>Produto</TableCell>
-                          <TableCell>Quantidade</TableCell>
-                          <TableCell >Preço</TableCell>
+                      <TableHead >
+                        <TableRow >
+                          <TableCell className='title-little-table witch-product'>Produto</TableCell>
+                          <TableCell className='title-little-table quantities-product'>Quantidade</TableCell>
+                          <TableCell className='title-little-table price-per-product'>Preço</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
                         {historic.map((historyRow) => (
                           <TableRow key={historyRow} >
-                            <TableCell> {historyRow.product.name} </TableCell>
-                            <TableCell>{historyRow.amount}</TableCell>
-                            <TableCell >
+                            <TableCell className='cell-historic all-product-name'> {historyRow.product.name} </TableCell>
+                            <TableCell className='cell-historic all-product-quantities'>{historyRow.amount}</TableCell>
+                            <TableCell className='cell-historic all-product-total-price'> R$ 
                               {Math.round(historyRow.amount * historyRow.product.price *100)/100}
                             </TableCell>
                           </TableRow>
