@@ -130,6 +130,11 @@ const Purchaseshistoric=()=>{
             </TableRow>
           </React.Fragment>
           )}
+          {!historic && (
+          <div>
+            <label>Não foram feitas compras</label>
+          </div>
+          )}
           </>
         );
 }
