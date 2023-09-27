@@ -18,7 +18,7 @@ const Orders= () => {
       </p>
       </div>
       <div className="trocas-div">
-      <img className="img-trocas" src="https://cdn.shoppub.io/vicerinne/media/uploads_editor/2022/09/16/trocas-banner.jpg"/>
+      <img className="img-trocas" src="https://cdn.awsli.com.br/1664/1664225/arquivos/Img_Politica%20Ressarcimento%20de%20valores_1.png"/>
       </div>
     </div>
             <Footer />

@@ -1,4 +1,4 @@
-.ourstory-title{
+.work-title{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,14 +6,4 @@
     height: 80px;
     font-size: 28px;
     background-color: #FFECCE;
-}
-
-.ourstory-content{
-    display: flex;
-    justify-content: center;
-}
-
-.ourstory-img{
-    width: 800px;
-    height: 700px;  
 }

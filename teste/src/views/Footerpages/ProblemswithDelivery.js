@@ -21,7 +21,7 @@ const ProblemswithDelivery= () => {
       </div>
       <div className="problems-content">
       <p>
-        Caso o produto não chegar na sua casa consulte a página Pedidos, Cancelamento, Trocas, e Devoluções
+        Caso o produto não chegar na sua residência consulte a página no rodapé: Pedidos, Cancelamento, Trocas, e Devoluções
       </p>
       </div>
       <p>

@@ -89,7 +89,7 @@ return(
                             <button className="password-input-icon" onClick={(e) => togglePasswordVisibility(e)}>
                                 {showPassword ? <Eye /> : <EyeOff />}
                             </button>
-                            <div className='s'>
+                            <div className='button-move'>
                             <button className='login-button' type="submit">Login</button>
                             <p className='conta-possuir'>Não possui conta? </p>
                             <a href='/user-register' target='_blank'> Registre-se agora! </a>

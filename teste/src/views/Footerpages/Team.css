@@ -58,12 +58,32 @@
     margin-left: 5.5rem;
 }
 
-.front-end-card{
+.team-card{
     display: flex;
     width: 40%;
     height: 205px;
     border: solid rgb(116, 116, 116);
     border-radius: 12px;
+}
+
+.team-card:hover{
+    transform: scale(0.9);
+    transition-duration: 0.9s;
+}
+
+.team-card2:hover{
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+}
+
+.team-card3:hover{
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+}
+
+.team-card4:hover{
+    transform: scale(1.1);
+    transition-duration: 0.5s;
 }
 
 .front-end-img{
@@ -116,7 +136,7 @@
     gap: 10px;
 }
 
-.front-end-card2{
+.team-card2{
     display: flex;
     width: 40%;
     height: 205px;
@@ -132,7 +152,7 @@
     margin-top: 6rem;
 }
 
-.front-end-card3{
+.team-card3{
     display: flex;
     width: 40%;
     height: 205px;
@@ -159,21 +179,13 @@
     margin-top: 3rem;
 }
 
-.front-end-card4{
+.team-card4{
     display: flex;
     width: 40%;
     height: 205px;
     border: solid rgb(116, 116, 116);
     border-radius: 12px;
     margin-bottom: 5rem;
-}
-
-.design{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10rem;
 }
 
 .figma{
@@ -205,6 +217,27 @@
         font-weight: 500;
         font-size: 20px;
         margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 3000px) and (min-width: 0px) { 
+
+    .design{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10rem;
+    }
+}
+
+@media (max-width: 950px) and (min-width: 0px) { 
+
+    .design{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        margin-bottom: 10rem;
     }
 }
 

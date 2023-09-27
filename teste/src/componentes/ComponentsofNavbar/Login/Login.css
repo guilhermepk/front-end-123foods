@@ -5,7 +5,7 @@
     font-size: 40px;
     color: #000000;
     font-weight: 600;
-    margin-top: -2.5rem;
+    margin-top: -2rem;
   }
 
   .login-form {
@@ -17,7 +17,6 @@
     border-radius: 10px;
     font-family: 'Oswald';
     font-weight: 300;
-    margin-top: 0.5rem;
 }
 
 .login-form input {
@@ -46,7 +45,7 @@
     font-size: 26px;
 }
 
-.s{
+.button-move{
     display: flex;
     justify-content: center;
     flex-direction: column;

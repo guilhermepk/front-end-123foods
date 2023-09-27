@@ -25,7 +25,7 @@ export const TEAMS = {
             cargo: ["Front-end", "Designer"],
             socialMidia: [{
                 icon: BsGithub,
-                link: "https://github.com/ManuVodi"
+                link: "https://github.com/ManuVodi" 
             },
             {
                 icon: BsInstagram,

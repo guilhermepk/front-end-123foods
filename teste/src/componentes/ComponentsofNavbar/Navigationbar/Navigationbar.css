@@ -94,10 +94,10 @@ body{
 .modal {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #FFECCE;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);  
   border-radius: 10px;
-  margin-top: 5rem;
   border: 2px solid #000000;
   width: 500px;
 }

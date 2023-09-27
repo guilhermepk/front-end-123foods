@@ -18,9 +18,9 @@
 .trocas-div{
     display: flex;
     justify-content: center;
-    width: 100%;
 }
 
 .img-trocas{
-    width: 400px;
+    min-width: 50vw;
+    min-height: 500px;
 }

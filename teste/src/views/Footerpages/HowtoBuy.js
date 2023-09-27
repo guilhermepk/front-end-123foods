@@ -23,14 +23,14 @@ const HowtoBuy = () => {
       </div>
       <div className="howtobuy-info2">
       <p>
-      Caso esteja procurando por algum produto em espećifico a barra de pesquisa e as categorias de produto estão na página principal so site
+      Caso esteja procurando por algum produto em específico a barra de pesquisa e as categorias de produto estão na página principal so site
       </p>
       <img src="imagens/Captura de tela de 2023-09-22 08-48-30.png" className="img-howtobuy-info"></img>
       <img src="imagens/Captura de tela de 2023-09-22 08-49-28.png" className="img-howtobuy"></img>
       </div>
       <div className="howtobuy-carrinho">
         <p>
-          Depois de escolher o seu produto, clique em comprar e ele irá direto para o carrinho de compras, onde voçê pode finalizar a compra
+          Depois de escolher o seu produto, clique em comprar e ele irá direto para o carrinho de compras, onde você pode finalizar a compra
         </p>
         <img src="imagens/Captura de tela de 2023-09-22 09-03-09.png" className="img-howtobuy-final"></img>
       </div>

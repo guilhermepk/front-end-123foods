@@ -19,9 +19,9 @@ const Team = () =>{
         <h1>Conheça o Nosso Time</h1>
         </div>
         <div className="Team-subtiltle">
+        <u className="design-title">Design</u>
         <u className="front-title">Front-end</u>
         <u className="back-title">Back-end</u>
-        <u className="design-title">Design</u>
         </div>
         <div className="front-end-title">
             <TbPointerHeart/>
@@ -32,7 +32,7 @@ const Team = () =>{
         <div className="design">
         {
             TEAMS.designer.map((item) => (
-                <div className="front-end-card">
+                <div className="team-card">
                     <div className="front-end-div">
                     <img className="front-end-img" src={item.foto} />
                     </div>
@@ -44,7 +44,7 @@ const Team = () =>{
                         <hr className="front-end-line" width="80%" color="grey"/>
                         <div className="front-end-icons">
                             {item.socialMidia.map(social => (
-                                <a href={social.link}><social.icon /></a>
+                                <a href={social.link} target="blank"><social.icon /></a>
                             ))}
                         </div>
                     </div>
@@ -59,7 +59,7 @@ const Team = () =>{
             </p>
             </div>
         <div className="front-end">
-            <div className="front-end-card">
+            <div className="team-card">
                 <div className="front-end-div">
                 <img className="front-end-img" src="imagens/gabriel.jpeg" />
                 </div>
@@ -75,14 +75,14 @@ const Team = () =>{
                 </div>
                 </div>
             </div>
-            <div className="front-end-card2">
+            <div className="team-card2">
             <div className="front-end-div">
             <div className="front-end-div">
                 <img className="front-end-img" src="/imagens/manu.jpeg" />
                 </div>
                 </div>
                 <div className="front-end-subtitle">
-                <p className="front-end-nome">Manu Vod</p>
+                <p className="front-end-nome">Emanuelle Vodiani</p>
                 <p>Front-end</p>
                 <p>Designer</p>
                 <hr className="front-end-line" width="80%" color="grey"/>
@@ -95,7 +95,7 @@ const Team = () =>{
             </div>            
         </div>
         <div className="front-end2">
-        <div className="front-end-card3">
+        <div className="team-card3">
         <div className="front-end-div">
             <div className="front-end-div">
                 <img className="front-end-img-gui" src="/imagens/gui.jpeg" />
@@ -113,7 +113,7 @@ const Team = () =>{
                 </div>
                 </div>
             </div>
-            <div className="front-end-card3">
+            <div className="team-card3">
             <div className="front-end-div">
                 <img className="front-end-img" src="/imagens/vini.jpeg"/>
                 </div>
@@ -133,10 +133,9 @@ const Team = () =>{
             <div className="label-back-end">
                 <RiComputerLine />
                 <p>Back-end</p>
-                
             </div>
             <div className="back-end">
-                <div className="front-end-card4">
+                <div className="team-card4">
             <div className="front-end-div">
                 <img className="front-end-img-gui" src="/imagens/gui.jpeg"/>
                 </div>
@@ -152,7 +151,7 @@ const Team = () =>{
                 </div>
                 </div>
                 </div>
-                <div className="front-end-card4">
+                <div className="team-card4">
             <div className="front-end-div">
                 <img className="front-end-img" src="/imagens/vini.jpeg"/>
                 </div>
