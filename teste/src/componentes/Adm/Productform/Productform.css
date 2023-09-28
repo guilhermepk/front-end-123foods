@@ -68,8 +68,8 @@
     justify-content: center;
     cursor: pointer;
     font-size: 18px;
-    width: 400px;
-    height: 250px;
+    min-width: 20vw;
+    min-height: 25vh;
     border: none;
     font-size:1em;
     margin-bottom: 2rem;
@@ -153,8 +153,7 @@
 }
 
 .img-produto{
-    height: 100%;
-    width: 95%;
+    
 }
 
 @media (max-width: 3000px) and (min-width: 850px) { 
