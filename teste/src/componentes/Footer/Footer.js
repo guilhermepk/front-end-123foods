@@ -43,22 +43,17 @@ function Footer(){
                 <div>
                 <ul className="primeiro">
                     <h2 className='titulos'>Siga-nos nas redes sociais</h2>
-                   <div className="div-linkedin">
+                   <div className="div-icons">
                     <a className="click-linkedin" href="https://br.linkedin.com/company/pormade"> 
                     <ImLinkedin className="linkedin-cor" />
                     </a>
-                   </div>
-                    <div className="div-insta">
                     <a className="click-insta" href="https://www.instagram.com/pormadeoficial/">
                         <BsInstagram className="instagram-cor" />
                     </a>
-                    </div>
-                    <div className="div-face">
                     <a className="click-facebook" href="https://www.facebook.com/pormadeonline/?locale=pt_BR">
                     <ImFacebook2 className="face-cor" />
                     </a>
                     </div>
-                    
                 </ul>
                 </div>
                 </li>
