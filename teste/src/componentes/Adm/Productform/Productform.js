@@ -5,6 +5,8 @@ import Select from 'react-select';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import {GoPlusCircle} from 'react-icons/go';
+import Categorymodal from '../Modals/ModalcreateCategory';
 
 const Productform= (props) => {
   const [initialFormValues, setInitialFormValues] = useState({});
@@ -75,6 +77,9 @@ const Productform= (props) => {
     const file = acceptedFiles[0];
     setFormValues({ ...formValues, file: file });
   }, [formValues]);
+  const categorycreate=()=>{
+    <Categorymodal/>
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -98,6 +103,7 @@ const Productform= (props) => {
       'unitsofmeasurementId'
     ];
 
+    
     for (const key in formValues){
       nameValues.map((item) => {
         if (key == item && key){
@@ -133,6 +139,7 @@ const Productform= (props) => {
         Swal.fire('Ops...', 'O produto deve ter uma imagem', 'error');
       }
     }
+  
 
     if(props.productId){
       try {
@@ -179,7 +186,7 @@ const Productform= (props) => {
   });
 
   return (
-    <form className="modal-produtos" onSubmit={handleSubmit}>
+    <form className="modal-produtos" >
     <div className="cadastro-produtos">
     <label className="label-produtos">
       Nome do produto:
@@ -254,6 +261,7 @@ const Productform= (props) => {
       
     }}
   />
+    <button onClick={categorycreate}><GoPlusCircle /></button>
     </label>
     <label className="label-produtos">
       Quantidade em estoque:
@@ -333,7 +341,7 @@ const Productform= (props) => {
           )}
         </div>
         <div className="div-button-banner">
-        <button  className="botao-banner-salvar" type="submit"> Enviar </button>
+        <button  className="botao-banner-salvar" type="submit" onSubmit={handleSubmit}> Enviar </button>
         </div>
       </div>
     </div>
