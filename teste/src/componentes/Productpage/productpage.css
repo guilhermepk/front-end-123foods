@@ -1,7 +1,7 @@
 .product {
     background-color: #FFECCE;
     width: 900px;
-    height: 600px;
+    height: 680px;
     border: 2px solid #000;
     border-radius: 10px 0px 0px 10px ;
     padding: 4rem;
@@ -122,7 +122,7 @@
 
 .product-carrousel{
     width: 270px;
-    height: 600px;
+    height: 680px;
     border: 2px solid #000;
     border-left: none;
     background-color: #FFECCE;
@@ -167,5 +167,49 @@
     border: none;
     font-size: 16px;
     border-radius: 8px;
-    cursor: pointer;
+    cursor: pointer ;
+}
+
+
+.slick-prev,
+.slick-next {
+  top: 0 !important;
+  transform: rotate(90deg) !important;
+  transform: translateY(0)!important; 
+}
+
+
+.slick-prev {
+  top: -40px !important; 
+  transform: rotate(90deg) !important;
+  background-color: #000!important;
+}
+
+.slick-next {
+  top: auto!important; 
+  transform: rotate(90deg) !important;
+  background-color: #000!important;
+  bottom: -40px!important; 
+}
+
+
+.slick-slide {
+    width: 90%!important; 
+  }
+  
+  
+.slick-slide {
+    
+    margin-left: 15px !important;
+    border-radius: 12px !important; 
+    overflow: hidden !important; 
+  }
+  
+  
+.slick-slide h6 {
+    font-size: 18px;
+  }
+  
+.carousel{
+    margin-top: 3px;
 }
