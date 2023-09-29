@@ -5,7 +5,7 @@
 .modal-content,
 .modal {
   position: fixed; 
-  z-index: 100;   
+  z-index: 100;  
 }
 
 body{
@@ -100,6 +100,7 @@ body{
   border-radius: 10px;
   border: 2px solid #000000;
   width: 500px;
+  height: 540px;
 }
 
 .modal-usuario{
@@ -127,29 +128,10 @@ body{
   color: #800000;
 }
 
-/* .button-alterar{
-  width: 138px;
-  height: 59px;
-  border-radius: 12px;
-  border: 2px solid #000000;
-  background-color: #9E0000;
-  color: #ffffff;
-  cursor: pointer;
-  font-family: 'Oswald';
-  font-weight: 400;
-  font-size: 16px;
-  margin-left: 7rem;
-  margin-top: 1rem;
-} */
-/* 
-.button-alterar:hover{
-  background-color: #850101;
-} */
-
-
 .close{
   color: rgb(186, 23, 23);
   margin-left: 25rem;
+  margin-top: -1rem;
   cursor: pointer;
   width: 15%;
   height: 5%;
@@ -194,17 +176,9 @@ img.logo-123{
   justify-content: center;
 }
 
-.modal{
-  height: 540px;
-}
-
 .modal-center{
   display: flex;
   justify-content: center;
-}
-
-.navbar-item{
-  
 }
 
 

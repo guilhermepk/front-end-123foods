@@ -15,7 +15,7 @@
 
 .time-img{
     min-width: 40vw;
-    min-height: 50vh;
+    min-height: 55vh;
     margin-bottom: 6rem;
 }
 
@@ -32,4 +32,11 @@
     font-size: 40px;
     color: #9E0000;
     margin-top: 2rem;
+    
+}
+
+.heart:hover{
+    transform: scale(1.1);
+    color: red;
+    
 }

@@ -43,11 +43,8 @@
   visibility: hidden !important;
 }
 
-
-
-.img1 {
-  min-height: 20%;
+.imagem-banner{
   width: 100%;
-  object-fit: cover;
+  height: 100%;
 }
 

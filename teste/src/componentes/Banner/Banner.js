@@ -20,11 +20,10 @@ function Banner() {
   return (
     <main className='principal'>
       <div className="banner">
-        <Carousel showThumbs={false}>
+        <Carousel className="imagem-banner" showThumbs={false}>
           {banners.map((banner) => (
             <div key={banner.id} className='banner-img'>
               <img
-                className="img1"
                 src={`${process.env.REACT_APP_HOST}/uploads/${banner.image}`}
                 alt={banner.alt}
                 style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '18px 18px 0 0' }}
