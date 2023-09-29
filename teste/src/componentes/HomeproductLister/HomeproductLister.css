@@ -95,8 +95,11 @@ a.page-link {
 
 .cardProduct {
     background-color: #ECD4AF;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: center;
+    align-items: center;
     border-radius: 10px;
     height: 100%;
 }
@@ -108,7 +111,6 @@ a.page-link {
 
 .cardImg {
     padding: 7.5%;
-    min-height: 200px;
     max-height: 200px;
     max-width: 100%;
 }

@@ -60,30 +60,29 @@ const Purchaseshistoric=()=>{
               products: [], 
             };
           }
-          groupedProducts[key].products.push(item);
+          groupedProducts[key].product.push(item);
         });
         setGroupedProducts(groupedProducts);
       }, [data]);
       console.log("historico",historic);
-      console.log("Agrupamento por data: ", groupedProducts)
-      
+      console.log("Agrupamento por data: ", groupedProducts) 
   
 
         return (
           <>
+          <TableContainer className='table-container-header' >
+            <TableHead>
+              <TableRow className='table-container-row'>
+                <TableCell className='table-title id-cart'>ID</TableCell>
+                <TableCell className='table-title purchase'>Produtos</TableCell>
+                <TableCell className='table-title purchase-number'>Nº de Produtos&nbsp;</TableCell>
+                <TableCell className='table-title total-price'>Preço Total&nbsp;</TableCell>
+                <TableCell className='table-title delivery-date'>Data da Entrega&nbsp;</TableCell>
+              </TableRow>
+            </TableHead>
+          </TableContainer>
           {historic.length > 0 && (
             <React.Fragment>
-                <TableContainer className='table-container-header' >
-                  <TableHead>
-                    <TableRow className='table-container-row'>
-                      <TableCell className='table-title id-cart'>ID do Carrinho</TableCell>
-                      <TableCell className='table-title purchase'>Produtos</TableCell>
-                      <TableCell className='table-title purchase-number'>Nº de Produtos&nbsp;</TableCell>
-                      <TableCell className='table-title total-price'>Preço Total&nbsp;</TableCell>
-                      <TableCell className='table-title delivery-date'>Data da Entrega&nbsp;</TableCell>
-                    </TableRow>
-                  </TableHead>
-                </TableContainer>
                 <TableContainer className='table-container-results'>
                     <TableCell className='table-result id-cart'>
                       <IconButton
@@ -94,14 +93,14 @@ const Purchaseshistoric=()=>{
                         {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                       </IconButton>01
                     </TableCell>
-                    {historic[0] && historic[0].image && historic[0].image.path && (
+                    <TableCell className='table-result purchase-name'>
+                      {historic[0] && historic[0].image && historic[0].image.path && (
                              <img
                                className="historic-product-image"
                                src={`${process.env.REACT_APP_HOST}/uploads/${historic[0].image.path}`}
                                alt="Imagem do Produto"
                              />
-                             )}
-                    <TableCell className='table-result purchase-name'>{historic[0].product.name}...</TableCell>
+                             )}{historic[0].product.name}...</TableCell>
                     <TableCell className='table-result purchase-number'>{historic.length}</TableCell>
                     <TableCell className='table-result total-price'>R$ 145,89</TableCell>
                     <TableCell className='table-result delivery-date'>{new Date(historic[0].updatedAt).toLocaleDateString()}</TableCell>
@@ -130,7 +129,7 @@ const Purchaseshistoric=()=>{
                 </Collapse>
           </React.Fragment>
           )}
-          {!historic && (
+          {historic == 0 && (
           <div>
             Não foram feitas compras
           </div>
