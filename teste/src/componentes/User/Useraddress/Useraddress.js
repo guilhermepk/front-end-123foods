@@ -121,168 +121,79 @@ const Useraddress = ({ handleregisterAddress }) => {
           }
         }
       }
+
+      console.log(useraddress);
     return (
         <div className='modal-total'>
             {userId !== null && (
                 <div>
-                {useraddress && useraddress.length === 1 && (
+                {useraddress && useraddress.length === 1 ? (
                     <div className="endereco-um">
                         <div className="endereco-container" key={useraddress[0].id}>
                             <h3 className="titulo-endereco-um">Endereço 1</h3>
-                                {editingAddressIndex === 0 ? (
-                                <>
-                                    <AddressField
-                                        label="Cidade"
-                                        value={editedAddress.city}
-                                        onChange={handleInputChange}
-                                    />
-                                    <AddressField
-                                        label="Rua"
-                                        value={editedAddress.street}
-                                        onChange={handleInputChange}
-                                    />
-                                    <AddressField
-                                        label="Estado"
-                                        value={editedAddress.state}
-                                        onChange={handleInputChange}
-                                    />
-                                    <AddressField
-                                        label="CEP"
-                                        value={editedAddress.cep}
-                                        onChange={handleInputChange}
-                                        onBlur={handleEditCEPBlur}
-                                    />
-                                    <AddressField
-                                        label="Bairro"
-                                        value={editedAddress.district}
-                                        onChange={handleInputChange}
-                                    />
-                                    <AddressField
-                                        label="Número"
-                                        value={editedAddress.numberhouse}
-                                        onChange={handleInputChange}
-                                    />
-                                    <AddressField
-                                        label="Complemento"
-                                        value={editedAddress.complement}
-                                        onChange={handleInputChange}
-                                    />
-                                    <div>
-                                        <button
-                                            className="button-save-new-adress"
-                                            onClick={handleUpdateAddress}
-                                        > Salvar
-                                        </button>
-                                        <button
-                                            className="button-cancel-new-adress"
-                                            onClick={handleCancelEdit}
-                                        > Cancelar
-                                        </button>
-                                    </div>
-                                </>
-                                ) : (
-                                    <>
-                                        <div>
-                                            <label className="label-endereco">
-                                                Cidade:
-                                            </label>
-                                            <input
-                                                className="dados-endereco-um cidade"
-                                                type='text'
-                                                value={useraddress[0].city}
-                                                disabled
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="label-endereco">
-                                                Rua:
-                                            </label>
-                                            <input
-                                                className="dados-endereco-um rua"
-                                                type='text'
-                                                value={useraddress[0].street}
-                                                disabled
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="label-endereco">
-                                                Estado:
-                                            </label>
-                                            <input
-                                                className="dados-endereco-um estado"
-                                                type='text'
-                                                value={useraddress[0].state}
-                                                disabled
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="label-endereco">
-                                                CEP:
-                                            </label>
-                                            <input
-                                                className="dados-endereco-um cep"
-                                                type='text'
-                                                value={useraddress[0].cep}
-                                                disabled
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="label-endereco">
-                                                Bairro:
-                                            </label>
-                                            <input
-                                                className="dados-endereco-um bairro"
-                                                type='text'
-                                                value={useraddress[0].district}
-                                                disabled
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="label-endereco">
-                                                Número:
-                                            </label>
-                                            <input
-                                                className="dados-endereco-um numero"
-                                                type='text'
-                                                value={useraddress[0].numberhouse}
-                                                disabled
-                                            />
-                                        </div>
-                                        <div>
-                                            <label className="label-endereco">
-                                                Complemento:
-                                            </label>
-                                            <input
-                                                className="dados-endereco-um complemento"
-                                                type='text'
-                                                value={useraddress[0].complement}
-                                                disabled
-                                            />
-                                        </div>
-                                        <div className='botao-excluir-div'>
-                                            <button className="botao-excluir" onClick={() => Addressdelete(useraddress[0].id)}>
-                                                Excluir
-                                            </button>
-                                            <a
-                                                className='adress-alter'
-                                                onClick={() => handleEditAddress(0)}
-                                            >
-                                                Alterar endereço
-                                            </a>
-                                        </div>
-                                    </>
-                                )}
+                                <AddressField
+                                    label="Cidade"
+                                    value={useraddress[0].city}
+                                    disabled={editingAddressIndex}
+                                    onChange={handleInputChange}
+                                />
+                                <AddressField
+                                    label="Rua"
+                                    value={useraddress[0].street}
+                                    disabled={editingAddressIndex}
+                                    onChange={handleInputChange}
+                                />
+                                <AddressField
+                                    label="Estado"
+                                    value={useraddress[0].state}
+                                    disabled={editingAddressIndex}
+                                    onChange={handleInputChange}
+                                />
+                                <AddressField
+                                    label="CEP"
+                                    value={useraddress[0].cep}
+                                    disabled={editingAddressIndex}
+                                    onChange={handleInputChange}
+                                />
+                                <AddressField
+                                    label="Bairro"
+                                    value={useraddress[0].district}
+                                    disabled={editingAddressIndex}
+                                    onChange={handleInputChange}
+                                />
+                                <AddressField
+                                    label="Número"
+                                    value={useraddress[0].numberhouse}
+                                    disabled={editingAddressIndex}
+                                    onChange={handleInputChange}
+                                />
+                                <AddressField
+                                    label="Complemento"
+                                    value={useraddress[0].complement}
+                                    disabled={editingAddressIndex}
+                                    onChange={handleInputChange}
+                                />
+                                <div className='botao-excluir-div'>
+                                    <button className="botao-excluir" onClick={() => Addressdelete(useraddress[0].id)}>
+                                        Excluir
+                                    </button>
+                                    <a
+                                        className='adress-alter'
+                                        onClick={() => handleEditAddress(0)}
+                                    >
+                                        Alterar endereço
+                                    </a>
+                                </div>
                         </div>
                             <div className='botao-adicionar-div'>
                                 <IoIosAddCircleOutline className='icon-add' onClick={handleregisterAddress} size={40} />
                                 <button className="botao-adicionar" onClick={handleregisterAddress}>Adicionar Endereço</button>
                             </div>
                     </div>
-                    )}
+                    ): null}
                     {useraddress && useraddress.length > 1 && (
                         useraddress.map((address, index) => (
                             <div className="endereco-dois" key={address.id}>
-                                <div>
                                     <h3 className="titulo-endereco">Endereço {index + 1}</h3>
                                     {editingAddressIndex === index ? (
                                         <>
@@ -337,83 +248,41 @@ const Useraddress = ({ handleregisterAddress }) => {
                                         </>
                                     ) : (
                                         <>
-                                            <div>
-                                                <label className='label-endereco'>
-                                                    Cidade:
-                                                </label>
-                                                <input
-                                                    className='dados-endereco cidade'
-                                                    type='text'
-                                                    value={address.city}
-                                                    disabled
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="label-endereco">
-                                                    Rua:
-                                                </label>
-                                                <input
-                                                    className="dados-endereco rua"
-                                                    type='text'
-                                                    value={address.street}
-                                                    disabled
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="label-endereco">
-                                                    Estado:
-                                                </label>
-                                                <input
-                                                    className="dados-endereco estado"
-                                                    type='text'
-                                                    value={address.state}
-                                                    disabled
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="label-endereco">
-                                                    CEP:
-                                                </label>
-                                                <input
-                                                    className="dados-endereco cep"
-                                                    type='text'
-                                                    value={address.cep}
-                                                    disabled
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="label-endereco">
-                                                    Bairro:
-                                                </label>
-                                                <input
-                                                    className="dados-endereco bairro"
-                                                    type='text'
-                                                    value={address.district}
-                                                    disabled
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="label-endereco">
-                                                    Número:
-                                                </label>
-                                                <input
-                                                    className="dados-endereco numero"
-                                                    type='text'
-                                                    value={address.numberhouse}
-                                                    disabled
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="label-endereco">
-                                                    Complemento:
-                                                </label>
-                                                <input
-                                                    className="dados-endereco complemento"
-                                                    type='text'
-                                                    value={address.complement}
-                                                    disabled
-                                                />
-                                            </div>
+                                            <AddressField
+                                                label="Cidade"
+                                                value={address.city}
+                                                disabled
+                                            />
+                                            <AddressField
+                                                label="Rua"
+                                                value={address.street}
+                                                disabled
+                                            />
+                                            <AddressField
+                                                label="Estado"
+                                                value={address.state}
+                                                disabled
+                                            />
+                                            <AddressField
+                                                label="CEP"
+                                                value={address.cep}
+                                                disabled
+                                            />
+                                            <AddressField
+                                                label="Bairro"
+                                                value={address.district}
+                                                disabled
+                                            />
+                                            <AddressField
+                                                label="Número"
+                                                value={address.numberhouse}
+                                                disabled
+                                            />
+                                            <AddressField
+                                                label="Complemento"
+                                                value={address.complement}
+                                                disabled
+                                            />
                                             <div className='botao-excluir-div'>
                                                 <button className="botao-excluir" onClick={() => Addressdelete(address.id)}>
                                                     Excluir
@@ -427,7 +296,6 @@ const Useraddress = ({ handleregisterAddress }) => {
                                             </div>
                                         </>
                                     )}
-                            </div>
                             </div>
                         ))
                     )}
