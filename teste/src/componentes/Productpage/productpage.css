@@ -146,6 +146,7 @@
     align-items: center;
     background-color: #E1C59B;
     height: 290px;
+    border-radius: 8px;
 }
 
 
@@ -159,15 +160,8 @@
     justify-content: center;
 }
 
-.sla{
-    width: 80px;
-    height: 40px;
-    background-color: #9E0000;
-    color: #ffffff;
-    border: none;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer ;
+.card-list{    
+    padding: 3px;
 }
 
 
@@ -180,7 +174,6 @@
 
 
 .slick-prev {
-  top: -40px !important; 
   transform: rotate(90deg) !important;
   background-color: #000!important;
 }
@@ -189,7 +182,6 @@
   top: auto!important; 
   transform: rotate(90deg) !important;
   background-color: #000!important;
-  bottom: -40px!important; 
 }
 
 
@@ -199,7 +191,6 @@
   
   
 .slick-slide {
-    
     margin-left: 15px !important;
     border-radius: 12px !important; 
     overflow: hidden !important; 

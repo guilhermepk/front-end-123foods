@@ -64,9 +64,9 @@ const Productpage = (props) => {
     
     const productTemplate = (similar) => {
         return (
-            <div className="banner">
+            <div className="card-list">
                 <div className="product-list">
-                    <div className="border-1 surface-border border-round m-2 text-center py-5 px-3">
+                    <div>
                         <Link to={`/product/${similar.productId}`} className="linkCard">
                             <div className="mb-3">
                                     <Card.Img
