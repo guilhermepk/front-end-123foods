@@ -8,7 +8,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Modal from 'react-modal';
-import { useNavigate, useRouter} from "react-router-dom"
+import { useNavigate} from "react-router-dom"
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AdmProductLister = () => {
     const [products, setProducts] = useState([]);
@@ -127,6 +129,17 @@ const AdmProductLister = () => {
         navigate(`/admin/product-edit/${productId}`);
     }
 
+    const handleDeleteProduct = async (productId) => {
+        console.log('deletando produto', productId)
+
+        try{
+            await axios.delete(`${process.env.REACT_APP_HOST}/products/${productId}`);
+        }catch(e){
+            console.error(`Falha ao deletar o produto: ${e}`);
+            Swal.fire('Ops...', `Falha ao deletar o produto: ${e}`, 'error');
+        }
+    }
+
     return (
         <div>
             <div>
@@ -189,7 +202,13 @@ const AdmProductLister = () => {
                                         Editar
                                     </button>
                                 </TableCell>
-                                <TableCell> excluir </TableCell>
+                                <TableCell>
+                                    <button
+                                        onClick={() => {handleDeleteProduct(product.id)}}
+                                    >
+                                        Excluir
+                                    </button>
+                                </TableCell>
 
                             </TableRow>
                         ))}

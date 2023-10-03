@@ -102,8 +102,7 @@ const Productform= (props) => {
       'amount',
       'unitsofmeasurementId'
     ];
-
-    
+  
     for (const key in formValues){
       nameValues.map((item) => {
         if (key == item && key){
@@ -186,7 +185,10 @@ const Productform= (props) => {
   });
 
   return (
-    <form className="modal-produtos" >
+    <form
+      className="modal-produtos"
+      onSubmit={handleSubmit}
+    >
     <div className="cadastro-produtos">
     <label className="label-produtos">
       Nome do produto:
@@ -341,7 +343,12 @@ const Productform= (props) => {
           )}
         </div>
         <div className="div-button-banner">
-        <button  className="botao-banner-salvar" type="submit" onSubmit={handleSubmit}> Enviar </button>
+        <button 
+          className="botao-banner-salvar"
+          type="submit"
+        >
+          Enviar
+        </button>
         </div>
       </div>
     </div>

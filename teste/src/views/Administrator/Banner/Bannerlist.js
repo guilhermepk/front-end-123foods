@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NavigationbarAdm from '../../../componentes/Adm/NavigationbarAdm/NavigationbarAdm';
 import './Bannerlist.css'
+import Swal from 'sweetalert2';
 
 const BannerList = () => {
     const [banners, setBanners] = useState([]);
@@ -10,8 +11,9 @@ const BannerList = () => {
         try {
             const response = await axios.get(`${process.env.REACT_APP_HOST}/banners`);
             setBanners(response.data);
-        } catch (error) {
-            console.error('Erro ao buscar banners:', error);
+        } catch (e) {
+            console.error('Erro ao buscar banners:', e);
+            Swal.fire('Ops...', `Erro ao buscar banners: ${e}`, 'error');
         }
     };
 
@@ -20,8 +22,9 @@ const BannerList = () => {
             await axios.delete(`${process.env.REACT_APP_HOST}/banners/${bannerId}`);
             const updatedBanners = banners.filter((banner) => banner.id !== bannerId);
             setBanners(updatedBanners);
-        } catch (error) {
-            console.error('Erro ao excluir banner:', error);
+        } catch (e) {
+            console.error(`Falha ao deletar o banner: ${e}`);
+            Swal.fire('Ops...', `Falha ao deletar o banner: ${e}`, 'error');
         }
     };
 
