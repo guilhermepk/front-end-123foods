@@ -37,6 +37,7 @@ const Cartpage = () => {
         .then((response) => response.json())
         .then((data) => {
           setData(data);
+          console.log("data produto:",data)
           const initialQuantities = {};
           data.forEach((item) => {
             initialQuantities[item.id] = parseInt(item.amount);
@@ -57,10 +58,20 @@ const Cartpage = () => {
     }
   };
 
-  const handleIncreaseClick = (dataId) => {
-    const newQuantities = { ...quantities };
-    newQuantities[dataId] += 1;
-    setQuantities(newQuantities);
+  const handleIncreaseClick = (dataId,productamount) => {
+    if(quantities[dataId]<productamount){
+       const newQuantities = { ...quantities };
+      newQuantities[dataId] += 1;console.log("dataID produto",dataId)
+      setQuantities(newQuantities);
+    }
+    else {
+      const newQuantities = { ...quantities };
+      newQuantities=productamount
+      setQuantities(newQuantities)
+
+    }
+     
+   
   };
 
   const handleRemoveClick = async (dataId) => {
@@ -77,22 +88,41 @@ const Cartpage = () => {
 
   const handlePurchaseClick = async (data, quantities) => {
     try {
-      const requests = data.map(async (item) => {
-        const formData = new FormData();
-        formData.append('amount', quantities[item.id]);
+      console.log("data:", data);
+      const productRequests = data.map(async (item) => {
+        const productId = item.product.id;
+        const newQuantity = item.product.amount - quantities[item.id];
   
-        const response = await axios.patch(`${process.env.REACT_APP_HOST}/purchases/${item.id}`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
+        console.log('Atualizando estoque para o produto ', productId);
+        console.log('Nova quantidade:', newQuantity);
+  
+        await axios.patch(`${process.env.REACT_APP_HOST}/products/${productId}`, {
+          amount: newQuantity,
         });
   
-        console.log(`Upload response for product ${item.id}:`, response.data);
+        console.log(`Atualização de quantidade para o produto ${productId} concluída.`);
+      });
+      const purchaseRequests = data.map(async (item) => {
+        const purchaseId = item.id;
+        const newAmount = quantities[item.id];
+  
+        console.log('Atualizando compra ', purchaseId);
+        console.log('Nova quantidade:', newAmount);
+  
+        await axios.patch(`${process.env.REACT_APP_HOST}/purchases/${purchaseId}`, {
+          amount: newAmount,
+          status:'comprado',
+        });
+  
+        console.log(`Atualização de compra ${purchaseId} concluída.`);
       });
   
-      await Promise.all(requests);
+     
+      await Promise.all([...productRequests, ...purchaseRequests]);
+  
+      Swal.fire('Compra concluída com sucesso!', 'success');
     } catch (error) {
-      console.error('Erro ao fazer upload dos produtos:', error);
+      console.error('Erro ao atualizar quantidades dos produtos ou detalhes das compras:', error);
     }
   };
 
@@ -132,7 +162,7 @@ const Cartpage = () => {
                     -
                   </button>
                   <p className="quant-total">Quant: {quantities[item.id]}</p>
-                  <button className='button-quant add' onClick={() => handleIncreaseClick(item.id)}>
+                  <button className='button-quant add' onClick={() => handleIncreaseClick(item.id,item.product.amount)}>
                     +
                   </button>
                 </TableCell>
