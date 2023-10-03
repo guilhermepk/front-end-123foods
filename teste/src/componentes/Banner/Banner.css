@@ -6,13 +6,14 @@
   margin: 0 auto; 
   overflow: hidden;
   border-radius: 18px 18px 0px 0px;
-  
+  width: 79,5vw;
+  min-height: 200px;
 }
 
 .banner-img {
-  min-height: auto;
-  /* align-items: center; */
+  height: 200px;  
   display: flex;
+  align-items: center;
 }
 /* .banner-height{
   min-height: 250px;
@@ -44,7 +45,7 @@
 }
 
 .imagem-banner{
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
 }
 

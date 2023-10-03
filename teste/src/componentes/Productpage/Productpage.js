@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Swal from 'sweetalert2';
 
 const Productpage = (props) => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -60,7 +61,11 @@ const Productpage = (props) => {
         const imagem = products.images[0].id;
         console.log('token:', token);
         sendPurchaseRequest(props.productId, qtd, token, imagem);
+        console.log('sucesso');
+        Swal.fire('Sucesso', 'Produto adicionado ao carrinho', 'success');
+        
     };
+    
     
     const productTemplate = (similar) => {
         return (
@@ -126,7 +131,7 @@ const Productpage = (props) => {
             </div>
             <div className="product-carrousel">
                 <div className="product-text">
-                    <p>Itens Relacionados</p>
+                    <h4>Itens Relacionados</h4>
                 </div>
                 <div className="carousel">
                 {similar.length > 0 ? (
