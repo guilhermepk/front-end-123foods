@@ -1,9 +1,12 @@
 import './Footer.css';
 import {ImFacebook2} from 'react-icons/im';
 import {ImLinkedin} from 'react-icons/im';
+import { useNavigate } from 'react-router-dom';
 import {BsInstagram} from 'react-icons/bs';
 
 function Footer(){
+    // const navigate = useNavigate();
+    // navigate('/admin/product-list')
     return(
         <footer className="container">
             <div className=''>
@@ -11,6 +14,7 @@ function Footer(){
                 <li>
                 <ul className="primeiro">
                     <h2 className='titulos'>Atendimento ao Cliente</h2>
+                    
                     <a href="/Howtobuy" className="footer-link1">Como comprar?</a>
                     <a href="/ProblemswithDelivery" className="footer-link">Problemas com Entrega</a>
                     <a href="/Orders" className="footer-link">Pedidos, Cancelamento, Trocas e Devoluções</a>

@@ -11,7 +11,7 @@ import Categorymodal from '../Modals/ModalcreateCategory';
 const Productform= (props) => {
   const [initialFormValues, setInitialFormValues] = useState({});
   const [product, setProduct] = useState(null);
-
+  const [ModalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -77,9 +77,9 @@ const Productform= (props) => {
     const file = acceptedFiles[0];
     setFormValues({ ...formValues, file: file });
   }, [formValues]);
-  const categorycreate=()=>{
-    <Categorymodal/>
-  }
+  const categorycreate = () => {
+    setModalOpen(true);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -263,8 +263,15 @@ const Productform= (props) => {
       
     }}
   />
-    <button onClick={categorycreate}><GoPlusCircle /></button>
-    </label>
+    <button type="button" onClick={categorycreate}><GoPlusCircle /></button>
+          {ModalOpen && (
+        <Categorymodal
+          onCategoryAdded={(novaCategoria) => {
+            setModalOpen(false); 
+          }}
+        />
+      )}
+          </label>
     <label className="label-produtos">
       Quantidade em estoque:
       <input

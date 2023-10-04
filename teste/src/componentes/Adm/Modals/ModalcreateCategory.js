@@ -7,7 +7,7 @@ function Categorymodal({ onCategoryAdded }) {
   const openModal = () => {
     setShowModal(true);
   };
-
+  
   const closeModal = () => {
     setShowModal(false);
     setCategoryName('');
@@ -37,10 +37,6 @@ function Categorymodal({ onCategoryAdded }) {
 
   return (
     <div>
-      <button className="btn" onClick={openModal}>
-        Adicionar Categoria
-      </button>
-
       {showModal && (
         <div className="modal-overlay">
           <div className="modal">

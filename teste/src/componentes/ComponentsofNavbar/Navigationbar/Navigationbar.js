@@ -10,14 +10,14 @@ import jwt_decode from 'jwt-decode';
 import Login from '../Login/login';
 import Logo from '../Logo/Logo';
 import Cartpage from '../../Cart/Cartpage';
-
+import { useNavigate } from 'react-router-dom';
 
 const Navigationbar = () => {
 
     const [showLoginForm, setShowLoginForm] = useState(false);
     const [token, setToken] = useState(null);
     const [decoded_token, setDecodedToken] = useState(null)
-
+    const navigate = useNavigate();
     const userId = decoded_token?.sub; 
     const userInfo=useUserinfo(token,userId);
  useEffect(() => {
@@ -32,7 +32,7 @@ const Navigationbar = () => {
 
     const handleCartClick = () => {
         if (decoded_token) {
-            window.open('/teste');
+            navigate('/teste')
         } else {
             setShowLoginForm(true);
         }
@@ -40,7 +40,7 @@ const Navigationbar = () => {
 
     const handleProfileClick = () => {
         if (decoded_token) {
-            window.location.href = '/user-page';
+            navigate('/user-page')
         } else {
             showLoginForm ? setShowLoginForm(false) : setShowLoginForm(true);
         }
