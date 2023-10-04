@@ -65,10 +65,12 @@ const Cartpage = () => {
       setQuantities(newQuantities);
     }
     else {
-      const newQuantities = { ...quantities };
+      try{const newQuantities = { ...quantities };
       newQuantities=productamount
-      setQuantities(newQuantities)
-
+      setQuantities(newQuantities)}
+      catch{
+        console.error('Erro ao adicionar,limite de produtos atingido:');
+      };
     }
      
    
