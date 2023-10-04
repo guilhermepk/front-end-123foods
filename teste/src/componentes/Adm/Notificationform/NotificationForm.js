@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Notificationform.css'
-import Swal from 'sweetalert2';
+
 import iziToast from 'izitoast'; 
 import 'izitoast/dist/css/iziToast.min.css';
 const Notificationform = () => {

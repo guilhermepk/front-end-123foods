@@ -83,3 +83,11 @@
     border-bottom: 1px solid #000 !important;
     font-size: 0.8rem !important;
 }
+
+.null {
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
