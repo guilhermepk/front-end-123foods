@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NavigationbarAdm from '../../../componentes/Adm/NavigationbarAdm/NavigationbarAdm';
 import './Bannerlist.css'
-import Swal from 'sweetalert2';
-
+import iziToast from 'izitoast'; 
+import 'izitoast/dist/css/iziToast.min.css';
+import { useNavigate } from 'react-router-dom';
 const BannerList = () => {
     const [banners, setBanners] = useState([]);
-
+    const navigate = useNavigate();
     const fetchBanners = async () => {
         try {
             const response = await axios.get(`${process.env.REACT_APP_HOST}/banners`);
             setBanners(response.data);
         } catch (e) {
-            console.error('Erro ao buscar banners:', e);
-            Swal.fire('Ops...', `Erro ao buscar banners: ${e}`, 'error');
+            iziToast.error({position: 'bottomRight',timeout: 5000,onClosed:navigate('/admin/bannerlist'),message:"Banners não encontrados "
+        })
         }
     };
 
@@ -22,9 +23,11 @@ const BannerList = () => {
             await axios.delete(`${process.env.REACT_APP_HOST}/banners/${bannerId}`);
             const updatedBanners = banners.filter((banner) => banner.id !== bannerId);
             setBanners(updatedBanners);
+            iziToast.success({position: 'bottomRight',timeout: 5000,onClosed:navigate('/admin/bannerlist'),message:"Banner excluido com sucesso "
+    })
         } catch (e) {
-            console.error(`Falha ao deletar o banner: ${e}`);
-            Swal.fire('Ops...', `Falha ao deletar o banner: ${e}`, 'error');
+            iziToast.error({position: 'bottomRight',timeout: 5000,onClosed:navigate('/admin/bannerlist'),message:"Problema ao excluir o banner "
+        })
         }
     };
 

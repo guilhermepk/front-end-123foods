@@ -4,13 +4,14 @@ import Dropzone from 'react-dropzone';
 import NavbarAdm from '../../../componentes/Adm/NavigationbarAdm/NavigationbarAdm';
 import './Bannerregister.css'
 import { Link } from 'react-feather';
-import Swal from 'sweetalert2';
-
+import iziToast from 'izitoast'; 
+import 'izitoast/dist/css/iziToast.min.css';
+import { useNavigate } from 'react-router-dom';
 const Bannerregister = () => {
   const [alt, setAlt] = useState('');
   const [link, setLink] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
-
+  const navigate = useNavigate();
   const handleAltChange = (event) => {
     setAlt(event.target.value);
   };
@@ -36,14 +37,11 @@ const Bannerregister = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
-
-      console.log('sucesso');
-      Swal.fire('Sucesso', 'Banner cadastrado com sucesso', 'success');
-      setTimeout(()=>{window.location.href = ' /admin/bannerlist';},3000);
-  
+      iziToast.success({position: 'bottomRight',timeout: 5000,onClosed:navigate('/admin/bannerlist'),message:"Banner cadastrado com sucesso "
+    })
     } catch (error) {
-      // Seu código aqui para lidar com erros de envio.
-      Swal.fire('Ops...', 'Erro ao tentar cadastrar banner...', 'error');
+      iziToast.error({position: 'bottomRight',timeout: 5000,message:"Erro ao tentar cadastrar banner... "
+    })
       console.error('Erro ao enviar o banner:', error);
     }
   };
