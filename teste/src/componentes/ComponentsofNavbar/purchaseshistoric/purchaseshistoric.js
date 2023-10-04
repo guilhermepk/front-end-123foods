@@ -8,12 +8,9 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { IoIosClose } from 'react-icons/io';
-import { Box, Collapse, IconButton } from '@mui/material';
+import {Collapse, IconButton } from '@mui/material';
 
 
 
@@ -24,7 +21,7 @@ const Purchaseshistoric=()=>{
       const [historic, setHistoric] = useState([]);
       const [groupedProducts, setGroupedProducts] = useState({});
       const userId = decodedToken?.sub;
-      const [open, setOpen] = React.useState(false);
+      const [open, setOpen] = useState(false);
     
       useEffect(() => {
         const storedToken = localStorage.getItem('payload');
@@ -67,12 +64,11 @@ const Purchaseshistoric=()=>{
         setGroupedProducts(groupedProducts);
       }, [historic]);
 
-      
 
       console.log("historico",historic);
       console.log("Agrupamento por data: ", groupedProducts) 
-      console.log("PESQUISA: ", groupedProducts.date)
-  
+      console.log("TESTE: ", groupedProducts)
+
 
         return (
           <>
@@ -135,7 +131,7 @@ const Purchaseshistoric=()=>{
                 </Collapse>
           </React.Fragment>
           ) : (
-            <div>
+            <div className='null'>
               Não foram feitas compras
             </div>
           )}
