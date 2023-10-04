@@ -13,6 +13,20 @@ const Productform= (props) => {
   const [product, setProduct] = useState(null);
   const [ModalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCategoryAdded = (data) => {
+   
+    console.log('Categoria adicionada:', data);
+  };
   
   useEffect(() => {
     if(props.productId){
@@ -263,14 +277,12 @@ const Productform= (props) => {
       
     }}
   />
-    <button type="button" onClick={categorycreate}><GoPlusCircle /></button>
-          {ModalOpen && (
-        <Categorymodal
-          onCategoryAdded={(novaCategoria) => {
-            setModalOpen(false); 
-          }}
-        />
-      )}
+    <button onClick={handleOpenModal}><GoPlusCircle />Adicionar Categoria</button>
+      <Categorymodal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onCategoryAdded={handleCategoryAdded}
+      />
           </label>
     <label className="label-produtos">
       Quantidade em estoque:
