@@ -3,6 +3,7 @@ import Usermodal from '../Usermodal/Usermodal';
 import jwt_decode from 'jwt-decode';
 import '../../ComponentsofNavbar/Navigationbar/Navigationbar.css'
 import {BsArrowLeftCircle} from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 import Userprofile from '../Userprofile/Userprofile';
 import Useraddress from '../Useraddress/Useraddress';
 import Myshopping from '../../ComponentsofNavbar/Myshopping/Myshopping';
@@ -10,6 +11,7 @@ import Addressregister from '../Useraddress/UseraddressRegister';
 import PurchasesHistoric from '../../ComponentsofNavbar/purchaseshistoric/purchaseshistoric';
 import React, { useState, useEffect } from 'react';
 import { useUserinfo } from '../Userinfo/Userinfo';
+import { Link } from 'react-router-dom';
 
 
 const Userpage=()=>{
@@ -22,7 +24,7 @@ const Userpage=()=>{
     const [ShowregisterAddress,setshowregisteraddress]=useState(false);
     const [Showaddress,setshowaddress]=useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
-    
+    const navigate = useNavigate();
     const userId = decoded_token?.sub; 
     const userInfo=useUserinfo(token,userId);
  useEffect(() => {
@@ -70,7 +72,7 @@ const Userpage=()=>{
         setToken(null);
         setDecodedToken(null);
         localStorage.removeItem('payload');
-        window.location.href = '/';
+        navigate('/')
     }
 
     const handleaddress=()=>{
@@ -97,9 +99,10 @@ const Userpage=()=>{
                     handlepurchasesHistoric={handlepurchasesHistoric}
                 />
                 <div className="modal-conteudo">
-                    <a href='/'> 
-                        <BsArrowLeftCircle className="seta-voltar" />
-                    </a>
+                <Link to='/'><BsArrowLeftCircle className="seta-voltar" /></Link>
+                
+                        
+                    
                         {showUserinf &&(<Userprofile />)}
                         {showpurchasesHistoric &&(<PurchasesHistoric />)}
                         {showMyshoppins &&(<Myshopping />)}

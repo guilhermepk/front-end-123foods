@@ -3,7 +3,7 @@ import { BiSearchAlt } from 'react-icons/bi';
 import './Search.css';
 import {BiMenu} from 'react-icons/bi';
 import SearchModal from '../SearchModal/SearchModal';
-
+import { useNavigate } from 'react-router-dom';
 export const setValue = (valueToSet) => {
   Search.value = valueToSet;
 }
@@ -12,7 +12,7 @@ const Search = () => {
   let value;
   const [searchValue, setSearchValue] = useState('');
   const [selectedSuggestion, setSelectedSuggestion] = useState(-1);
-
+  const navigate = useNavigate();
   const searchInputRef = useRef(null);
 
   useEffect(() => {
@@ -20,7 +20,8 @@ const Search = () => {
   }, [value]);
 
   const relocate = () => {
-    window.location.href = `/search/${searchValue}`
+    navigate(`/search/${searchValue}`)
+    // window.location.href = 
   }
 
   const handleKeyDown = (event) => {

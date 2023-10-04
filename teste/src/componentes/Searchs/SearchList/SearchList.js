@@ -3,6 +3,7 @@ import "./SearchList.css";
 import { useEffect, useState } from "react";
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import { Link } from "react-router-dom";
 
 const SearchList = (props) => {
     const searchValue = props.searchValue;
@@ -28,7 +29,8 @@ const SearchList = (props) => {
             {products && products.length > 0 && products.map((product, index) => (
                 <Col key={index} className="search-card-col">
                     <Card className="search-card-product">
-                        <a href={`/product/${product.id}`} className="search-link-card">
+                    <Link to={`/product/${product.id}`}className="search-link-card">
+                        
 
                             <h1 className="search-product-name">{product.name}</h1>
 
@@ -46,8 +48,7 @@ const SearchList = (props) => {
                                 <p>R$ {product.price}</p>
                             
                             </div>
-
-                        </a> 
+                        </Link>
 
                     </Card>
                 </Col>

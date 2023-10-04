@@ -1,12 +1,12 @@
 import './SearchModal.css';
-
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { setValue } from '../Search/Search';
 
 const SearchModal = (props) => {
     const [products, setProducts] = useState([]);
     
-
+    const navigate = useNavigate();
     const setSearchValue = setValue;
 
     useEffect(() => {
@@ -43,15 +43,14 @@ const SearchModal = (props) => {
         <>{products.length > 0 && (
             <div className='autocomplete-results'>
                 {products.slice(0, 10).map((product, index) => (
-                    <a
-                        key={index}
-                        href={`/product/${product.id}`}
-                        className={`suggestion-link ${index === props.selected ? 'selected' : ''}`}
-                    >
+                    <Link key={index} 
+                    to={`/product/${product.id}`}
+                    className={`suggestion-link ${index === props.selected ? 'selected' : ''}`}>    
+                    
                         <p>
                             {highlightMatch(product.name, props.value)}
                         </p>
-                    </a>
+                    </Link>
                 ))}
             </div>
         )}</>
