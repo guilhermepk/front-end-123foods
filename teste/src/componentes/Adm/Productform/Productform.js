@@ -96,8 +96,8 @@ const Productform= (props) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-
+    e.preventDefault();
+  
     const formData = new FormData();
     const nameValues = [
       'name',
@@ -108,96 +108,68 @@ const Productform= (props) => {
       'description',
       'price',
     ];
-    const floatConv = [
-      'weight',
-      'price'
-    ];
-    const intConv = [
-      'amount',
-      'unitsofmeasurementId'
-    ];
+    const floatConv = ['weight', 'price'];
+    const intConv = ['amount', 'unitsofmeasurementId'];
   
-    for (const key in formValues){
-      nameValues.map((item) => {
-        if (key == item && key){
-          if(
-            (props.productId && formValues[key] != product[key])
-          ||
-            !props.productId
-          ){
+    for (const key in formValues) {
+      nameValues.forEach((item) => {
+        if (key === item && key) {
+          if ((props.productId && formValues[key] !== product[key]) || !props.productId) {
             formData.append(
               key,
-              floatConv.includes(item) ? parseFloat(formValues[key]) : ( intConv.includes(item) ? parseInt(formValues[key]) : formValues[key] )
-            )
+              floatConv.includes(item) ? parseFloat(formValues[key]) : intConv.includes(item) ? parseInt(formValues[key]) : formValues[key]
+            );
           }
-
         }
-      })
+      });
     }
-
-    if (formValues.categoriesIds.length > 1) {
+  
+    if (formValues.categoriesIds.length > 0) {
       formValues.categoriesIds.forEach((id) => {
         formData.append('categoriesIds', parseInt(id));
       });
-    } else if (formValues.categoriesIds.length == 1){
-      formData.append('categoriesIds[]', [parseInt(formValues.categoriesIds)]);
-    }else{
-      iziToast.error({position: 'bottomRight',timeout: 5000,message:"O produto deve ao menos uma categoria "
-    })
-      
-    }
-
-    if(formValues.file){
-      formData.append('file', formValues.file);
-    }else{
-      if(!props.productId){ 
-        iziToast.error({position: 'bottomRight',timeout: 5000,message:"O produto deve ter uma imagem "
-      })
-      }
+    } else {
+      iziToast.error({ position: 'bottomRight', timeout: 5000, message: "O produto deve ter pelo menos uma categoria" });
+      return;
     }
   
-
-    if(props.productId){
-      try {
-        const response = await axios.patch(`${process.env.REACT_APP_HOST}/products/${props.productId}`, formData);
-        iziToast.success({position: 'bottomRight',timeout: 5000,onClosed:navigate('/admin/product-list'),message:"Produto atualizado com sucesso "
-      })
-      } catch (error) {
-
-        iziToast.error({position: 'bottomRight',timeout: 5000,message:"Erro ao atualizar o produto  "
-      })
-        
+    if (formValues.file) {
+      formData.append('file', formValues.file);
+    } else {
+      if (!props.productId) {
+        iziToast.error({ position: 'bottomRight', timeout: 5000, message: "O produto deve ter uma imagem" });
+        return;
       }
-    }else{
-      try{
-        fetch(`${process.env.REACT_APP_HOST}/products`, {
+    }
+
+    try {
+      let response;
+      if (props.productId) {
+        response = await axios.patch(`${process.env.REACT_APP_HOST}/products/${props.productId}`, formData);
+        iziToast.success({ position: 'bottomRight', timeout: 5000, onClosed: () => navigate('/admin/product-list'), message: "Produto atualizado com sucesso" });
+      } else {
+        response = await fetch(`${process.env.REACT_APP_HOST}/products`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json, application/xml, text/plain, text/html, *.*'
           },
           body: formData
-        })
-          .then((response) => {
-            if(!response.ok){
-              console.log('response.ok: false', response)
-            }
-            return response.json();
-          }).then((data) => {
-          }) 
-          iziToast.success({position: 'bottomRight',timeout: 5000,onClosed:navigate('/admin/product-list'),message:"Produto cadastrado com sucesso "
-        })
-          .catch((error) => {
-            iziToast.error({position: 'bottomRight',timeout: 5000,message:"Erro durante o processamento da solicitação "
-          })
-          })
-      }catch(error){
-        iziToast.error({position: 'bottomRight',timeout: 5000,message:"Erro na solicitação HTTP "
-      })
+        });
+        if (!response.ok) {
+          console.log('response.ok: false', response);
+          iziToast.error({ position: 'bottomRight', timeout: 5000, message: "O produto deve ter ao menos duas categorias" });
+          return;
+        }
+        const data = await response.json();
+        console.log('data', data);
+        iziToast.success({ position: 'bottomRight', timeout: 5000, onClosed: () => navigate('/admin/product-list'), message: "Produto cadastrado com sucesso" });
       }
+    } catch (error) {
+      iziToast.error({ position: 'bottomRight', timeout: 5000, message: "Erro na solicitação HTTP" });
+      console.error('Erro ao atualizar/cadastrar o produto:', error);
     }
-
-    
   };
+  
   
  
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
