@@ -58,7 +58,11 @@ const Purchaseshistoric=()=>{
               products: [] 
             };
           }
-          
+          // for(const key in groupedProducts){
+          //   groupedProducts[key].products.map((purchase) => {
+          //     console.log(key, purchase.product.name)
+          //   })
+          // }
           groupedProducts[key].products.push(item);
         });
         setGroupedProducts(groupedProducts);
@@ -67,7 +71,6 @@ const Purchaseshistoric=()=>{
 
       console.log("historico",historic);
       console.log("Agrupamento por data: ", groupedProducts) 
-      console.log("TESTE: ", groupedProducts)
 
 
         return (
@@ -83,7 +86,8 @@ const Purchaseshistoric=()=>{
               </TableRow>
             </TableHead>
           </TableContainer>
-          {groupedProducts.length > 0 ? (
+          {groupedProducts != null ? (
+            // groupedProducts[key].products.map((purchase) => {
             <React.Fragment>
                 <TableContainer className='table-container-results'>
                     <TableCell className='table-result id-cart'>
@@ -102,7 +106,7 @@ const Purchaseshistoric=()=>{
                                src={`${process.env.REACT_APP_HOST}/uploads/${groupedProducts[0].image.path}`}
                                alt="Imagem do Produto"
                              />
-                             )}{groupedProducts[0].product.name}...</TableCell>
+                             )}{groupedProducts[0].name}...</TableCell>
                     <TableCell className='table-result purchase-number'>{groupedProducts.length}</TableCell>
                     <TableCell className='table-result total-price'>R$ 145,89</TableCell>
                     <TableCell className='table-result delivery-date'>{new Date(groupedProducts[0].updatedAt).toLocaleDateString()}</TableCell>
@@ -130,6 +134,7 @@ const Purchaseshistoric=()=>{
                     </Table>
                 </Collapse>
           </React.Fragment>
+          // })
           ) : (
             <div className='null'>
               Não foram feitas compras
