@@ -27,14 +27,22 @@
 
 .table-title.id-cart {
     margin-left: 1.3rem;
+    margin-right: 1.3rem;
 }
 
 .table-title.purchase {
-    margin-left: 7.25rem;
+    padding-left: 7.75rem !important;
+    border-left: 2px solid #000;
 }
 
 .table-title.purchase-number {
-    margin-left: 7.25rem;
+    margin-left: 6rem;
+    border-right: 2px solid #000;
+    border-left: 2px solid #000;
+}
+
+.table-title.total-price {
+    border-right: 2px solid #000;
 }
 
 .all-results {
