@@ -285,7 +285,7 @@ const Productform= (props) => {
       
     }}
   />
-     <button onClick={handleOpenModal}>
+     <button type='button' onClick={handleOpenModal}>
           <GoPlusCircle /> Adicionar Categoria
         </button>
         {isModalOpen && (
