@@ -7,17 +7,13 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { IoIosClose } from 'react-icons/io';
-import Footer from '../Footer/Footer';
 import { useNavigate } from 'react-router-dom';
 import iziToast from 'izitoast'; 
 import 'izitoast/dist/css/iziToast.min.css';
 
 const Cartpage = () => {
-
-  const [token, setToken] = useState(null);
   const [decodedToken, setDecodedToken] = useState(null);
   const [data, setData] = useState([]);
   const [quantities, setQuantities] = useState({});
@@ -26,7 +22,6 @@ const Cartpage = () => {
   useEffect(() => {
     const storedToken = localStorage.getItem('payload');
     if (storedToken) {
-      setToken(storedToken);
       const decodedToken = jwt_decode(storedToken);
       setDecodedToken(decodedToken);
     }
@@ -60,21 +55,30 @@ const Cartpage = () => {
   };
 
   const handleIncreaseClick = (dataId,productamount) => {
-    if(quantities[dataId]<productamount){
-       const newQuantities = { ...quantities };
-      newQuantities[dataId] += 1;console.log("dataID produto",dataId)
-      setQuantities(newQuantities);
-    }
-    else {
+    if(quantities[dataId]<100){
+      if(quantities[dataId]<productamount){
+        const newQuantities = { ...quantities };
+        newQuantities[dataId] += 1;
+        setQuantities(newQuantities);
+      }
+      else {
+        try{const newQuantities = { ...quantities };
+        newQuantities=productamount
+        setQuantities(newQuantities)}
+        catch{
+          iziToast.error({position: 'bottomRight',timeout: 5000,message:"Limite de produtos atingido"
+        })
+        };
+      }
+    }else{
       try{const newQuantities = { ...quantities };
-      newQuantities=productamount
+      newQuantities=100
       setQuantities(newQuantities)}
       catch{
-        console.error('Erro ao adicionar,limite de produtos atingido:');
+        iziToast.error({position: 'bottomRight',timeout: 5000,message:"Limite de produtos atingido"
+      })
       };
     }
-     
-   
   };
 
   const handleRemoveClick = async (dataId) => {
@@ -89,7 +93,6 @@ const Cartpage = () => {
       console.error('Erro ao excluir banner:', error);
     }
   };
-
   const handlePurchaseClick = async (data, quantities) => {
     try {
       console.log("data:", data);
@@ -103,9 +106,6 @@ const Cartpage = () => {
         await axios.patch(`${process.env.REACT_APP_HOST}/products/${productId}`, {
           amount: newQuantity,
         });
-      
-        
-  
         console.log(`Atualização de quantidade para o produto ${productId} concluída.`);
       });
       const purchaseRequests = data.map(async (item) => {
