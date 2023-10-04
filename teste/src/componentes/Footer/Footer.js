@@ -1,12 +1,11 @@
 import './Footer.css';
 import {ImFacebook2} from 'react-icons/im';
 import {ImLinkedin} from 'react-icons/im';
-import { useNavigate } from 'react-router-dom';
 import {BsInstagram} from 'react-icons/bs';
-
+import { Link } from "react-router-dom";
 function Footer(){
-    // const navigate = useNavigate();
-    // navigate('/admin/product-list')
+    
+    
     return(
         <footer className="container">
             <div className=''>
@@ -14,20 +13,19 @@ function Footer(){
                 <li>
                 <ul className="primeiro">
                     <h2 className='titulos'>Atendimento ao Cliente</h2>
-                    
-                    <a href="/Howtobuy" className="footer-link1">Como comprar?</a>
-                    <a href="/ProblemswithDelivery" className="footer-link">Problemas com Entrega</a>
-                    <a href="/Orders" className="footer-link">Pedidos, Cancelamento, Trocas e Devoluções</a>
+                    <Link to={`/Howtobuy`} className="footer-link1"><p>Como&nbsp;comprar?</p></Link>
+                    <Link to={`/ProblemswithDelivery`} className="footer-link1"><p>Problemas&nbsp;com&nbsp;Entrega</p></Link>
+                    <Link to={`/Orders`} className="footer-link1"><p>Pedidos,&nbsp;Cancelamento,&nbsp;Trocas&nbsp;e&nbsp;Devoluções</p></Link>
                 </ul>
                 <ul className="primeiro">
                     <h2 className='titulos'>Conheça-nos</h2>
-                    <a href="/Ourhistory" className="footer-link2">Nossa História</a>
-                    <a href="/Team" className="footer-link4">Conheça a Nossa Equipe</a>
+                    <Link to={`/Ourhistory`} className="footer-link2"><p>Nossa&nbsp;História</p></Link>
+                    <Link to={`/Team`} className="footer-link4"><p>Conheça&nbsp;a&nbsp;Nossa&nbsp;Equipe</p></Link>
                 </ul>
                 <ul className="primeiro">
                     <h2 className='titulos'>Contato</h2>
-                    <a href="gmail.com" className="footer-link4">faleconosco @123foods.com</a>
-                    <a href="/WorkwithUs" className="footer-link5">Trabalhe Conosco</a>
+                    <Link to={`gmail.com`} className="footer-link4"><p>faleconosco&nbsp;@123foods.com</p></Link>
+                    <Link to={`/WorkwithUs`} className="footer-link5"><p>Trabalhe&nbsp;Conosco</p></Link>
                 </ul>
                 <div className="apagar">
                 <ul className="primeiro">
@@ -39,9 +37,8 @@ function Footer(){
                 <div className="pagamento">
                 <ul className="primeiro">
                     <h2 className='titulos'>Pagamento</h2>
-                    <a className="footer-cash"href="/methods_of_payment" >
-                        <img className='img-cash' src="/imagens/icons.png"></img>
-                    </a>
+                    <Link to={`//methods_of_payment`} className="footer-cash"><img className='img-cash' src="/imagens/icons.png"></img>             
+                    </Link>
                 </ul>
                 </div>
                 <div>

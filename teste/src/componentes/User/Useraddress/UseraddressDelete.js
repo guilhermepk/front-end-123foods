@@ -8,6 +8,7 @@ console.log('adrress:',addresId)
             console.error('Erro ao excluir banner:', error);
         }
         setTimeout(() => { 
+
             window.location.reload(); 
           });
 }
