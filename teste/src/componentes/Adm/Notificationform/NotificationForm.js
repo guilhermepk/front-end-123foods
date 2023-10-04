@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './Notificationform.css'
 import Swal from 'sweetalert2';
-
+import iziToast from 'izitoast'; 
+import 'izitoast/dist/css/iziToast.min.css';
 const Notificationform = () => {
     const [formValues, setFormValues] = useState({
         title: '',
@@ -33,10 +34,11 @@ const Notificationform = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                Swal.fire('Sucesso', 'Notificação cadastrada com sucesso', 'success');
+                iziToast.success({position: 'bottomRight',timeout: 5000,message:"Notificação cadastrada com sucesso' "
+      })
             })
             .catch(error => {
-                Swal.fire('Ops...', 'Erro ao tentar cadastar notificação...', 'error');
+                iziToast.error({position: 'bottomRight',timeout: 5000,message:'Ops...'+ 'Erro ao tentar cadastar notificação...'})
                 console.error(error);
             });
     };

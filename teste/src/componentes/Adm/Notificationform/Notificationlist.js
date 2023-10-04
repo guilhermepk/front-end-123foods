@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Notificationlist.css'
-
+import iziToast from 'izitoast'; 
+import 'izitoast/dist/css/iziToast.min.css';
 
 const Notificationlist = () => {
     const [notifications, setnotifications] = useState([]);
@@ -11,6 +12,7 @@ const Notificationlist = () => {
             const response = await axios.get(`${process.env.REACT_APP_HOST}/notifications`);
             setnotifications(response.data);
         } catch (error) {
+            iziToast.error({position: 'bottomRight',timeout: 5000,message:"Nenhuma notificação Encontrada "})
             console.error('Erro ao buscar notifications:', error);
         }
     };
@@ -21,7 +23,7 @@ const Notificationlist = () => {
             const updatednotifications = notifications.filter((notification) => notification.id !== notificationId);
             setnotifications(updatednotifications);
         } catch (error) {
-            console.error('Erro ao excluir notification:', error);
+            iziToast.error({position: 'bottomRight',timeout: 5000,message:`Erro ao excluir notificação Erro:${error}`})
         }
     };
 console.log("notigficação:",notifications)

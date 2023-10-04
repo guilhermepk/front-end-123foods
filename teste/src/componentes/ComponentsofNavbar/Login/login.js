@@ -4,6 +4,7 @@ import './Login.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import jwt_decode from 'jwt-decode';
+import { Link } from 'react-router-dom';
 
 const Login=()=>{
     const [error, setError] = useState('');
@@ -48,7 +49,7 @@ const Login=()=>{
             localStorage.setItem('payload', token);
             setShowUserInfoModal(true);
             Swal.fire('Bem vindo', 'Login bem sucedido', 'success');
-            setTimeout(()=>{window.location.reload()},1500);
+            setTimeout(()=>{window.location.reload()},1000);
             
         } catch (error) {
             setError('Email ou Senha incorretos');
@@ -92,7 +93,7 @@ return(
                             <div className='button-move'>
                             <button className='login-button' type="submit">Login</button>
                             <p className='conta-possuir'>Não possui conta? </p>
-                            <a href='/user-register' target='_blank'> Registre-se agora! </a>
+                            <Link to="/user-register"target='_blank'>Registre-se agora! </Link>
                             </div>
                         </form>
     </div>

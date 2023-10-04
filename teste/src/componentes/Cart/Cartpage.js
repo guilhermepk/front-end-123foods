@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import jwt_decode from 'jwt-decode';
-import Swal from 'sweetalert2';
 import axios from 'axios';
 import './Cart.css';
 import Table from '@mui/material/Table';
@@ -12,7 +11,9 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { IoIosClose } from 'react-icons/io';
 import Footer from '../Footer/Footer';
-
+import { useNavigate } from 'react-router-dom';
+import iziToast from 'izitoast'; 
+import 'izitoast/dist/css/iziToast.min.css';
 
 const Cartpage = () => {
 
@@ -21,7 +22,7 @@ const Cartpage = () => {
   const [data, setData] = useState([]);
   const [quantities, setQuantities] = useState({});
   const userId = decodedToken?.sub;
-
+  const navigate = useNavigate();
   useEffect(() => {
     const storedToken = localStorage.getItem('payload');
     if (storedToken) {
@@ -79,10 +80,11 @@ const Cartpage = () => {
   const handleRemoveClick = async (dataId) => {
     try {
       await axios.delete(`${process.env.REACT_APP_HOST}/purchases/${dataId}`);
-      Swal.fire('Sucesso ao excluir', 'success');
-      setTimeout(() => { 
+      iziToast.success({position: 'bottomRight',timeout: 5000,onClosed:setTimeout(() => { 
         window.location.reload(); 
-      }, 2000);
+      }, 2000),message:"Item Excluido concluída com sucesso "
+      })
+      
     } catch (error) {
       console.error('Erro ao excluir banner:', error);
     }
@@ -101,28 +103,27 @@ const Cartpage = () => {
         await axios.patch(`${process.env.REACT_APP_HOST}/products/${productId}`, {
           amount: newQuantity,
         });
+      
+        
   
         console.log(`Atualização de quantidade para o produto ${productId} concluída.`);
       });
       const purchaseRequests = data.map(async (item) => {
         const purchaseId = item.id;
+
         const newAmount = quantities[item.id];
-  
-        console.log('Atualizando compra ', purchaseId);
-        console.log('Nova quantidade:', newAmount);
   
         await axios.patch(`${process.env.REACT_APP_HOST}/purchases/${purchaseId}`, {
           amount: newAmount,
           status:'comprado',
         });
-  
-        console.log(`Atualização de compra ${purchaseId} concluída.`);
       });
   
      
       await Promise.all([...productRequests, ...purchaseRequests]);
   
-      Swal.fire('Compra concluída com sucesso!', 'success');
+      iziToast.success({position: 'bottomRight',timeout: 5000,onClosed: navigate('/'),message:"compra concluída com sucesso "
+      })
     } catch (error) {
       console.error('Erro ao atualizar quantidades dos produtos ou detalhes das compras:', error);
     }

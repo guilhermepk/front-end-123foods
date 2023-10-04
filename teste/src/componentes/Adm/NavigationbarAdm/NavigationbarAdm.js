@@ -6,6 +6,7 @@ import{AiTwotoneNotification} from 'react-icons/ai'
 import {FaImage} from 'react-icons/fa';
 import {TbPaperBag} from 'react-icons/tb';
 import {RiNotificationBadgeFill}from 'react-icons/ri'
+import { Link } from "react-router-dom";
 
 const NavigationbarAdm = () => {
   
@@ -36,30 +37,14 @@ const NavigationbarAdm = () => {
               <h3 className="titulo-admin">Admin Dashboard</h3>
             </div>
             <ul className={`admin-nav ${minimized ? 'hidden' : ''}`}>
-              <a href="/" className="item-list">
-                Home
-              </a>
-              <a href="/admin" className="item-list">
-                Admin Home
-              </a>
-              <a href="/admin/banner" className="item-list">
-                <div className="item-icon"><FaImage/></div>Cadastro de banners
-              </a>
-              <a href="/admin/bannerlist" className="item-list">
-                <div className="item-icon"><FaImage/></div>Listagem de banners
-              </a>
-              <a href="/admin/product-register" className="item-list">
-                <div className="item-icon"><TbPaperBag/></div>Cadastrar Produtos
-              </a>
-              <a href="/admin/product-list" className="item-list">
-                <div className="item-icon"><TbPaperBag/></div> Lista de Produtos
-              </a>
-              <a href="/admin/notifications" className="item-list">
-                <div className="item-icon"><AiTwotoneNotification/></div>Criar Notificação
-              </a>
-              <a href="/admin/notifications/list" className="item-list">
-                <div className="item-icon"><RiNotificationBadgeFill/></div> Lista de Notificações
-              </a>
+            <Link to='/' className="item-list">Home</Link>
+            <Link to="/admin" className="item-list">Admin Home</Link>
+            <Link to="/admin/banner" className="item-list"><div className="item-icon"><FaImage/></div>Cadastro de banners</Link>
+            <Link to="/admin/bannerlist" className="item-list"><div className="item-icon"><FaImage/></div>Listagem de banners</Link>
+            <Link to="/admin/product-register" className="item-list"> <div className="item-icon"><TbPaperBag/></div>Cadastrar Produtos</Link>
+            <Link to="/admin/product-list" className="item-list"> <div className="item-icon"><TbPaperBag/></div> Lista de Produtos</Link>
+            <Link to="/admin/notifications" className="item-list"><div className="item-icon"><AiTwotoneNotification/></div>Criar Notificação</Link>
+            <Link to="/admin/notifications/list"className="item-list"><div className="item-icon"><RiNotificationBadgeFill/></div> Lista de Notificações</Link>
             </ul>
            
           </div>

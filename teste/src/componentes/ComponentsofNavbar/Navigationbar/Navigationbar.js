@@ -10,7 +10,7 @@ import jwt_decode from 'jwt-decode';
 import Login from '../Login/login';
 import Logo from '../Logo/Logo';
 import Cartpage from '../../Cart/Cartpage';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navigationbar = () => {
 
@@ -100,7 +100,7 @@ const Navigationbar = () => {
             <div className='navbar-item'>
                 <div className="conteudo">
                     {decoded_token && decoded_token.admin && (
-                        <a className='content-button' href="/admin"><button className="botao-admin"> Admin </button></a>
+                        <Link className='content-button' to="/admin"><button className="botao-admin"> Admin </button></Link>
                     )}
                     <a className='content-button' href="#" onClick={handleProfileClick}>
                         <CgProfile className="perfil"/>
