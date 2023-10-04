@@ -11,7 +11,7 @@ const Viewteste=()=>{
         <div>
         <header><Navigationbar/></header>
             <div>
-                <Cartpage/>
+                
                 <Footer />
             </div>
 
