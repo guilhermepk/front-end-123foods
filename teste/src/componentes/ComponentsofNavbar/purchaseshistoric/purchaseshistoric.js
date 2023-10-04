@@ -58,7 +58,11 @@ const Purchaseshistoric=()=>{
               products: [] 
             };
           }
-          
+          // for(const key in groupedProducts){
+          //   groupedProducts[key].products.map((purchase) => {
+          //     console.log(key, purchase.product.name)
+          //   })
+          // }
           groupedProducts[key].products.push(item);
         });
         setGroupedProducts(groupedProducts);
@@ -67,7 +71,6 @@ const Purchaseshistoric=()=>{
 
       console.log("historico",historic);
       console.log("Agrupamento por data: ", groupedProducts) 
-      console.log("TESTE: ", groupedProducts)
 
 
         return (
@@ -83,7 +86,8 @@ const Purchaseshistoric=()=>{
               </TableRow>
             </TableHead>
           </TableContainer>
-          {groupedProducts.length > 0 ? (
+          {historic.length > 0 ? (
+            // historic[key].products.map((purchase) => {
             <React.Fragment>
                 <TableContainer className='table-container-results'>
                     <TableCell className='table-result id-cart'>
@@ -93,19 +97,19 @@ const Purchaseshistoric=()=>{
                       onClick={() => setOpen(!open)}
                       >
                         {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                      </IconButton>{groupedProducts[0].id}
+                      </IconButton>{historic[0].id}
                     </TableCell>
                     <TableCell className='table-result purchase-name'>
-                      {groupedProducts[0] && groupedProducts[0].image && groupedProducts[0].image.path && (
+                      {historic[0] && historic[0].image && historic[0].image.path && (
                              <img
                                className="historic-product-image"
-                               src={`${process.env.REACT_APP_HOST}/uploads/${groupedProducts[0].image.path}`}
+                               src={`${process.env.REACT_APP_HOST}/uploads/${historic[0].image.path}`}
                                alt="Imagem do Produto"
                              />
-                             )}{groupedProducts[0].product.name}...</TableCell>
-                    <TableCell className='table-result purchase-number'>{groupedProducts.length}</TableCell>
+                             )}{historic[0].product.name}...</TableCell>
+                    <TableCell className='table-result purchase-number'>{historic.length}</TableCell>
                     <TableCell className='table-result total-price'>R$ 145,89</TableCell>
-                    <TableCell className='table-result delivery-date'>{new Date(groupedProducts[0].updatedAt).toLocaleDateString()}</TableCell>
+                    <TableCell className='table-result delivery-date'>{new Date(historic[0].updatedAt).toLocaleDateString()}</TableCell>
               </TableContainer>
                 <Collapse className='table-container-historic-complet' in={open} timeout="auto" unmountOnExit>
                     <Table >
@@ -117,7 +121,7 @@ const Purchaseshistoric=()=>{
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {groupedProducts.map((historyRow) => (
+                        {historic.map((historyRow) => (
                           <TableRow key={historyRow} >
                             <TableCell className='cell-historic all-product-name'> {historyRow.product.name} </TableCell>
                             <TableCell className='cell-historic all-product-quantities'>{historyRow.amount}</TableCell>
@@ -130,6 +134,7 @@ const Purchaseshistoric=()=>{
                     </Table>
                 </Collapse>
           </React.Fragment>
+          // })
           ) : (
             <div className='null'>
               Não foram feitas compras
