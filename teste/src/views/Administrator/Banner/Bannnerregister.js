@@ -57,7 +57,7 @@ const Bannerregister = () => {
           <div className="link-banner">
             <label htmlFor="link">Link do Banner:</label>
             <input placeholder="Insira link do banner..." type="text" className="input-link" id="link" value={link}onChange={handleLinkChange} />
-            <label htmlFor="alt">Altura do Banner:</label>
+            <label htmlFor="alt">Alt do Banner:</label>
             <input placeholder="Insira altura do banner..." type="text" className="input-link" id="alt" value={alt} onChange={handleAltChange} />
           </div>
           <div className="image-banner">
