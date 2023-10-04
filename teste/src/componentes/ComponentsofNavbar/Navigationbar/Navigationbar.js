@@ -32,7 +32,7 @@ const Navigationbar = () => {
 
     const handleCartClick = () => {
         if (decoded_token) {
-            navigate('/teste')
+            navigate('/cart')
         } else {
             setShowLoginForm(true);
         }

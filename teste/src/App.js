@@ -28,6 +28,7 @@ import ProblemswithDelivery from "./views/Footerpages/ProblemswithDelivery";
 import Orders from "./views/Footerpages/Orders";
 import Payments from "./views/Footerpages/Payments";
 import Team from "./views/Footerpages/Team";
+import Viewcart from './views/Cart/Viewcart'
 
 function NotFound() {
   return (
@@ -59,7 +60,7 @@ const App = () => {
           {/* Páginas relacionadas ao login, infos do user, etc */}
           <Route path="/user-register" element={<Userregister />} />
           <Route path="/user-page" element={<UserPage />} />
-          {/* <Route path="/cart" element={<Cartpage/>} /> */}
+          <Route path="/cart" element={<Viewcart/>} />
 
           {/* Páginas dos produtos */}
           <Route path='/product/:productId' element={<Productview/>} />
