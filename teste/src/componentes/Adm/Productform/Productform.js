@@ -4,9 +4,10 @@ import './Productform.css';
 import Select from 'react-select';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import {GoPlusCircle} from 'react-icons/go';
 import Categorymodal from '../Modals/ModalcreateCategory';
+import iziToast from 'izitoast'; 
+import 'izitoast/dist/css/iziToast.min.css';
 
 const Productform= (props) => {
   const [initialFormValues, setInitialFormValues] = useState({});
@@ -24,7 +25,6 @@ const Productform= (props) => {
   };
 
   const handleCategoryAdded = (data) => {
-   
     console.log('Categoria adicionada:', data);
   };
   
@@ -142,14 +142,17 @@ const Productform= (props) => {
     } else if (formValues.categoriesIds.length == 1){
       formData.append('categoriesIds[]', [parseInt(formValues.categoriesIds)]);
     }else{
-      Swal.fire('Ops...', 'O produto deve ter ao menos 1 categoria', 'error');
+      iziToast.error({position: 'bottomRight',timeout: 5000,message:"O produto deve ao menos uma categoria "
+    })
+      
     }
 
     if(formValues.file){
       formData.append('file', formValues.file);
     }else{
       if(!props.productId){ 
-        Swal.fire('Ops...', 'O produto deve ter uma imagem', 'error');
+        iziToast.error({position: 'bottomRight',timeout: 5000,message:"O produto deve ter uma imagem "
+      })
       }
     }
   
@@ -157,10 +160,13 @@ const Productform= (props) => {
     if(props.productId){
       try {
         const response = await axios.patch(`${process.env.REACT_APP_HOST}/products/${props.productId}`, formData);
-        console.log('Dados atualizados com sucesso!', response.data);
+        iziToast.success({position: 'bottomRight',timeout: 5000,message:"Produto atualizado com sucesso "
+      })
       } catch (error) {
-        console.error('Erro ao atualizar dados:', error);
-        Swal.fire('Ops...', `Erro ao atualizar dados: ${error}`, 'error');
+
+        iziToast.error({position: 'bottomRight',timeout: 5000,message:"Erro ao atualizar o produto  "
+      })
+        
       }
     }else{
       try{
@@ -177,14 +183,16 @@ const Productform= (props) => {
             }
             return response.json();
           }).then((data) => {
-            console.log('data', data)
-          })
+          }) 
+          iziToast.success({position: 'bottomRight',timeout: 5000,message:"Produto cadastrado com sucesso "
+        })
           .catch((error) => {
-            console.error(`Erro durante o processamento da solicitação: ${error}`)
-            Swal.fire('Ops...', `Erro durante o processamento da solicitação: ${error}`, 'error');
+            iziToast.error({position: 'bottomRight',timeout: 5000,message:"Erro durante o processamento da solicitação "
+          })
           })
       }catch(error){
-        Swal.fire('Ops...', `Erro na solicitação HTTP: ${error}`, 'error');
+        iziToast.error({position: 'bottomRight',timeout: 5000,message:"Erro na solicitação HTTP "
+      })
       }
     }
 
@@ -277,12 +285,16 @@ const Productform= (props) => {
       
     }}
   />
-    <button onClick={handleOpenModal}><GoPlusCircle />Adicionar Categoria</button>
-      <Categorymodal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        onCategoryAdded={handleCategoryAdded}
-      />
+     <button onClick={handleOpenModal}>
+          <GoPlusCircle /> Adicionar Categoria
+        </button>
+        {isModalOpen && (
+          <Categorymodal
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+            onCategoryAdded={handleCategoryAdded}
+          />
+        )}
           </label>
     <label className="label-produtos">
       Quantidade em estoque:
