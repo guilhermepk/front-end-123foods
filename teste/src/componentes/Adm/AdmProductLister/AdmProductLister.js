@@ -10,8 +10,9 @@ import TableRow from '@mui/material/TableRow';
 import Modal from 'react-modal';
 import { useNavigate} from "react-router-dom"
 import axios from 'axios';
-import Swal from 'sweetalert2';
 
+import iziToast from 'izitoast'; 
+import 'izitoast/dist/css/iziToast.min.css';
 const AdmProductLister = () => {
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -134,9 +135,10 @@ const AdmProductLister = () => {
 
         try{
             await axios.delete(`${process.env.REACT_APP_HOST}/products/${productId}`);
+            iziToast.success({position: 'bottomRight',timeout: 5000,message:'Produto excluido com sucesso'})
         }catch(e){
             console.error(`Falha ao deletar o produto: ${e}`);
-            Swal.fire('Ops...', `Falha ao deletar o produto: ${e}`, 'error');
+            iziToast.error({position: 'bottomRight',timeout: 5000,message:`Ops... Falha ao deletar o produto: ${e}`})
         }
     }
 
@@ -191,7 +193,7 @@ const AdmProductLister = () => {
                                 <TableCell> {product.brand} </TableCell>
                                 <TableCell> {product.price} </TableCell>
                                 <TableCell> {product.description} </TableCell>
-                                <TableCell className='category-cell'> {product && product.categories.map((category) => (
+                                <TableCell className='category-cell '> {product && product.categories.map((category) => (
                                     category.name
                                 ))} </TableCell>
                                 <TableCell> {product.amount} </TableCell>

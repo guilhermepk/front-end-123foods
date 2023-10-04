@@ -160,7 +160,7 @@ const Productform= (props) => {
     if(props.productId){
       try {
         const response = await axios.patch(`${process.env.REACT_APP_HOST}/products/${props.productId}`, formData);
-        iziToast.success({position: 'bottomRight',timeout: 5000,message:"Produto atualizado com sucesso "
+        iziToast.success({position: 'bottomRight',timeout: 5000,onClosed:navigate('/admin/product-list'),message:"Produto atualizado com sucesso "
       })
       } catch (error) {
 
@@ -184,7 +184,7 @@ const Productform= (props) => {
             return response.json();
           }).then((data) => {
           }) 
-          iziToast.success({position: 'bottomRight',timeout: 5000,message:"Produto cadastrado com sucesso "
+          iziToast.success({position: 'bottomRight',timeout: 5000,onClosed:navigate('/admin/product-list'),message:"Produto cadastrado com sucesso "
         })
           .catch((error) => {
             iziToast.error({position: 'bottomRight',timeout: 5000,message:"Erro durante o processamento da solicitação "
@@ -196,7 +196,7 @@ const Productform= (props) => {
       }
     }
 
-    navigate('/admin/product-list')
+    
   };
   
  
@@ -264,6 +264,16 @@ const Productform= (props) => {
             }
           }}
         />
+        <button type='button' onClick={handleOpenModal}>
+          <GoPlusCircle /> Adicionar Unidade de medida
+        </button>
+        {/* {isMeasurementOpen && (
+          <Categorymodal
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+            onCategoryAdded={handleCategoryAdded}
+          />
+        )} */}
       </label>
 
     <label className="label-produtos">
